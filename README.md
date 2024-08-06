@@ -62,19 +62,19 @@ I've used CSS `:root` variables to easily update the global colour scheme by cha
 
 ### New Site Users
 
-- As a new site user, I would like to , so that I can ____________.
-- As a new site user, I would like to ____________, so that I can ____________.
-- As a new site user, I would like to ____________, so that I can ____________.
-- As a new site user, I would like to ____________, so that I can ____________.
-- As a new site user, I would like to ____________, so that I can ____________.
+- As a new site user, I would like to easily understand the instructions, so that I can play the game as soon as possible.
+- As a new site user, I would like to be able to choose different difficulties, so that I can have fun and challenge myself.
+- As a new site user, I would like to be able to see my score, so that I know what I need to do better.
+- As a new site user, I would like to see what the high score is, so that I can try and beat it.
+- As a new site user, I would like to be able to watch others play, so that I can try improve how I play.
 
 ### Returning Site Users
 
-- As a returning site user, I would like to ____________, so that I can ____________.
-- As a returning site user, I would like to ____________, so that I can ____________.
-- As a returning site user, I would like to ____________, so that I can ____________.
-- As a returning site user, I would like to ____________, so that I can ____________.
-- As a returning site user, I would like to ____________, so that I can ____________.
+- As a returning site user, I would like to pause the game, so that I can come back to where I left off.
+- As a returning site user, I would like to play multiplayer, so that I can play with my friends.
+- As a returning site user, I would like to have different levels, so that it feels like I'm accomplishing something.
+- As a returning site user, I would like to hear old school Tetris/Sonic music, so that it feels like the old games when I'm playing.
+- As a returning site user, I would like to see a scoreboard, so that I can see other peoples score and try and beat them.
 
 ## Wireframes
 
