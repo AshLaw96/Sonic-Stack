@@ -224,6 +224,7 @@ Consider adding any helpful links or notes to help remind you in the future, if 
 - [![Font Awesome](https://img.shields.io/badge/Font_Awesome-grey?logo=fontawesome&logoColor=528DD7)](https://fontawesome.com) used for the icons.
 - [![Moqups](https://img.shields.io/badge/Moqups-grey?logo=moqups&logoColor=0096FF)(https://moqups.com)] used for creating Wireframes.
 - [![FontGet](https://img.shields.io/badge/FONTGET-grey?logo=data:image/png;base64,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&logoColor=00FFFF)(https://www.fontget.com)] used for the text font.
+- [![Real Favicon Generator](https://img.shields.io/badge/RealFaviconGenerator-grey?logo=realfavicongenerator&logoColor=0096FF)(https://realfavicongenerator.net)] used to create favicon.
 
 ## Testing
 
@@ -275,93 +276,38 @@ You can fork this repository by using the following steps:
 
 ### Local VS Deployment
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-START OF NOTES (to be deleted)
-
-Use this space to discuss any differences between the local version you've developed, and the live deployment site on GitHub Pages.
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
+No differences were found between the local version and the live deployed version.
 
 ## Credits
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-START OF NOTES (to be deleted)
-
-In this section you need to reference where you got your content, media, and extra help from.
-It is common practice to use code from other repositories and tutorials,
-however, it is important to be very specific about these sources to avoid plagiarism.
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
-
 ### Content
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-START OF NOTES (to be deleted)
-
-Use this space to provide attribution links to any borrowed code snippets, elements, or resources.
-A few examples have been provided below to give you some ideas.
-
-Ideally, you should provide an actual link to every resource used, not just a generic link to the main site!
-
-⚠️⚠️ EXAMPLE LINKS - REPLACE WITH YOUR OWN ⚠️⚠️
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
 
 | Source | Location | Notes |
 | --- | --- | --- |
 | [Markdown Builder](https://tim.2bn.dev/markdown-builder) | README and TESTING | tool to help generate the Markdown files |
-| [Chris Beams](https://chris.beams.io/posts/git-commit) | version control | "How to Write a Git Commit Message" |
-| [W3Schools](https://www.w3schools.com/howto/howto_js_topnav_responsive.asp) | entire site | responsive HTML/CSS/JS navbar |
-| [W3Schools](https://www.w3schools.com/howto/howto_css_modals.asp) | contact page | interactive pop-up (modal) |
-| [W3Schools](https://www.w3schools.com/css/css3_variables.asp) | entire site | how to use CSS :root variables |
-| [Flexbox Froggy](https://flexboxfroggy.com/) | entire site | modern responsive layouts |
-| [Grid Garden](https://cssgridgarden.com) | entire site | modern responsive layouts |
-| [StackOverflow](https://stackoverflow.com/a/2450976) | quiz page | Fisher-Yates/Knuth shuffle in JS |
-| [YouTube](https://www.youtube.com/watch?v=YL1F4dCUlLc) | leaderboard | using `localStorage()` in JS for high scores |
-| [YouTube](https://www.youtube.com/watch?v=u51Zjlnui4Y) | PP3 terminal | tutorial for adding color to the Python terminal |
-| [strftime](https://strftime.org) | CRUD functionality | helpful tool to format date/time from string |
-| [WhiteNoise](http://whitenoise.evans.io) | entire site | hosting static files on Heroku temporarily |
+| [YouTube](https://www.youtube.com/watch?v=AUOzvFzdIk4) | leaderboard | using `localStorage()` in JS for high scores |
+| [GitHub Repo](https://github.com/AshLaw96/my-love-maths) | entire site | helped with layout of the site |
+
 
 ### Media
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-START OF NOTES (to be deleted)
-
 Use this space to provide attribution links to any images, videos, or audio files borrowed from online.
 A few examples have been provided below to give you some ideas.
-
-If you're the owner (or a close acquaintance) of all media files, then make sure to specify this.
-Let the assessors know that you have explicit rights to use the media files within your project.
-
 Ideally, you should provide an actual link to every media file used, not just a generic link to the main site!
 The list below is by no means exhaustive. Within the Code Institute Slack community, you can find more "free media" links
 by sending yourself the following command: `!freemedia`.
 
-⚠️⚠️ EXAMPLE LINKS - REPLACE WITH YOUR OWN ⚠️⚠️
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
-
 | Source | Location | Type | Notes |
 | --- | --- | --- | --- |
-| [Pexels](https://www.pexels.com) | entire site | image | favicon on all pages |
+| [Pinterest](https://www.pinterest.co.uk/pin/8162843068818083/) | website tab bar | image | favicon on the tab bar |
 | [Lorem Picsum](https://picsum.photos) | home page | image | hero image background |
-| [Unsplash](https://unsplash.com) | product page | image | sample of fake products |
 | [Pixabay](https://pixabay.com) | gallery page | image | group of photos for gallery |
-| [Wallhere](https://wallhere.com) | footer | image | background wallpaper image in the footer |
-| [This Person Does Not Exist](https://thispersondoesnotexist.com) | testimonials | image | headshots of fake testimonial images |
 | [Audio Micro](https://www.audiomicro.com/free-sound-effects) | game page | audio | free audio files to generate the game sounds |
-| [Videvo](https://www.videvo.net/) | home page | video | background video on the hero section |
 | [TinyPNG](https://tinypng.com) | entire site | image | tool for image compression |
 
 ### Acknowledgements
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-START OF NOTES (to be deleted)
-
-Use this space to provide attribution to any supports that helped, encouraged, or supported you throughout the development stages of this project.
-A few examples have been provided below to give you some ideas.
-
-⚠️⚠️ EXAMPLES ONLY - REPLACE WITH YOUR OWN ⚠️⚠️
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
-
 - I would like to thank my Code Institute mentor, [Tim Nelson](https://github.com/TravelTimN) for his support throughout the development of this project.
-- I would like to thank the [Code Institute](https://codeinstitute.net) tutor team for their assistance with troubleshooting and debugging some project issues.
+- I would like to thank the [Code Institute](https://codeinstitute.net) tutor team for their assistance with the lessons provided to give me the knowledge I needed to make this game.
 - I would like to thank the [Code Institute Slack community](https://code-institute-room.slack.com) for the moral support; it kept me going during periods of self doubt and imposter syndrome.
-- I would like to thank my partner (John/Jane), for believing in me, and allowing me to make this transition into software development.
-- I would like to thank my employer, for supporting me in my career development change towards becoming a software developer.
+- I would like to thank my partner (Megan), for believing in me, and allowing me to make this transition into software development.
