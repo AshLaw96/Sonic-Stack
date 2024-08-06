@@ -122,66 +122,94 @@ Main
 
 ## Features
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 START OF NOTES (to be deleted)
-
-In this section, you should go over the different parts of your project,
-and describe each in a sentence or so.
-
-You will need to explain what value each of the features provides for the user,
-focusing on who this website is for, what it is that they want to achieve,
-and how your project is the best way to help them achieve these things.
-
-For some/all of your features, you may choose to reference the specific project files that implement them.
-
-IMPORTANT: Remember to always include a screenshot of each individual feature!
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
-
 ### Existing Features
 
-- **YOUR-TITLE-FOR-FEATURE-#1**
+#### Header
 
-    - Details about this particular feature, including the value to the site, and benefit for the user. Be as detailed as possible!
+The header will contain the title and the navigation dropdown button. It will be the same on each page except for the 404 where the title will differ it will also have a background colour that follows the colour scheme.
 
-![screenshot](documentation/features/feature01.png)
+Main
+  - ![screenshot](documentation/features)
 
-- **YOUR-TITLE-FOR-FEATURE-#2**
+404
+  - ![screenshot](documentation/features)
 
-    - Details about this particular feature, including the value to the site, and benefit for the user. Be as detailed as possible!
+#### Navigation
 
-![screenshot](documentation/features/feature02.png)
+The navigation will be situated at the top of the screen. There will be a tab button within the header section that when pressed will show 3 buttons for the level selectors, so that the user can change the difficulty which will also be highlighted with the current page they are on. On the 404 page there will only be the one button that will help the user return to the previous page.
 
-- **YOUR-TITLE-FOR-FEATURE-#3**
+<details>
+<summary> click here to see the navigation of each page </summary>
 
-    - Details about this particular feature, including the value to the site, and benefit for the user. Be as detailed as possible!
+Easy
+  - ![screenshot](documentation/features)
 
-![screenshot](documentation/features/feature03.png)
+Medium
+  - ![screenshot](documentation/features)
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 START OF NOTES (to be deleted)
+Hard
+  - ![screenshot](documentation/features)
 
-Repeat as necessary for as many features as your site contains.
+404
+  - ![screenshot](documentation/features)
 
-Hint: the more, the merrier!
+</details>
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
+#### Aside
+
+This will be situated at the top of the screen on mobile and tablet and then down the side on larger. It will contain 2 dropdown buttons one when clicked by the user will show how to play the game and the other one will contain the current score and the high score.
+
+<details>
+<summary> click here to see the aside on each screen </summary>
+
+Mobile
+  - ![screenshot](documentation/features)
+
+Tablet
+  - ![screenshot](documentation/features)
+
+Desktop
+  - ![screenshot](documentation/features)
+
+</details>
+
+#### Main
+
+The main section for the 3 main pages will contain the game area itself and 2 buttons situated below the game area. The first button will be the start button so the user can actually start playing and a reset button if the user wants to start again. There will be a different background image for each main page. For the 404 page the main section will contain an image and a 404 message telling the user that an error has occurred and they need to navigate to the previous page.
+
+<details>
+<summary> click here to see the main section of each page </summary>
+
+Easy
+  - ![screenshot](documentation/features)
+
+Medium
+  - ![screenshot](documentation/features)
+
+Hard
+  - ![screenshot](documentation/features)
+
+404
+  - ![screenshot](documentation/features)
+
+</summary>
+
+#### Footer
+
+The footer will be located at the bottom of the page containing a different link on each of the 3 main pages, of different people playing Tetris games.
+
+Main
+  - ![screenshot](documentation/features)
+
+404
+  - ![screenshot](documentation/features)
 
 ### Future Features
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 START OF NOTES (to be deleted)
 
 Do you have additional ideas that you'd like to include on your project in the future?
 Fantastic! List them here!
 It's always great to have plans for future improvements!
 Consider adding any helpful links or notes to help remind you in the future, if you revisit the project in a couple years.
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
-
-- YOUR-TITLE-FOR-FUTURE-FEATURE-#1
-    - Any additional notes about this feature.
-- YOUR-TITLE-FOR-FUTURE-FEATURE-#2
-    - Any additional notes about this feature.
-- YOUR-TITLE-FOR-FUTURE-FEATURE-#3
-    - Any additional notes about this feature.
 
 ## Tools & Technologies Used
 
