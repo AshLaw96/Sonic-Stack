@@ -192,7 +192,7 @@ Hard
 404
   - ![screenshot](documentation/features)
 
-</summary>
+</details>
 
 #### Footer
 
@@ -213,58 +213,17 @@ Consider adding any helpful links or notes to help remind you in the future, if 
 
 ## Tools & Technologies Used
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 START OF NOTES (to be deleted)
-
-In this section, you should explain the various tools and technologies used to develop the project.
-Make sure to put a link (where applicable) to the source, and explain what each was used for.
-Some examples have been provided, but this is just a sample only, your project might've used others.
-Feel free to delete any unused items below as necessary.
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
-
-- ⚠️⚠️ REQUIRED <-- delete me ⚠️⚠️
 - [![Markdown Builder](https://img.shields.io/badge/Markdown_Builder-grey?logo=markdown&logoColor=000000)](https://tim.2bn.dev/markdown-builder) used to generate README and TESTING templates.
 - [![Git](https://img.shields.io/badge/Git-grey?logo=git&logoColor=F05032)](https://git-scm.com) used for version control. (`git add`, `git commit`, `git push`)
 - [![GitHub](https://img.shields.io/badge/GitHub-grey?logo=github&logoColor=181717)](https://github.com) used for secure online code storage.
-- ⚠️⚠️ CHOOSE ONLY ONE <-- delete me ⚠️⚠️
 - [![Gitpod](https://img.shields.io/badge/Gitpod-grey?logo=gitpod&logoColor=FFAE33)](https://gitpod.io) used as a cloud-based IDE for development.
-- [![Codeanywhere](https://img.shields.io/badge/Codeanywhere-grey?logo=ebox&logoColor=7F3F98)](https://codeanywhere.com) used as a cloud-based IDE for development.
-- [![VSCode](https://img.shields.io/badge/VSCode-grey?logo=visualstudiocode&logoColor=007ACC)](https://code.visualstudio.com) used as my local IDE for development.
-- ⚠️⚠️ CHOOSE ALL APPLICABLE <-- delete me ⚠️⚠️
 - [![HTML](https://img.shields.io/badge/HTML-grey?logo=html5&logoColor=E34F26)](https://en.wikipedia.org/wiki/HTML) used for the main site content.
 - [![CSS](https://img.shields.io/badge/CSS-grey?logo=css3&logoColor=1572B6)](https://en.wikipedia.org/wiki/CSS) used for the main site design and layout.
 - [![JavaScript](https://img.shields.io/badge/JavaScript-grey?logo=javascript&logoColor=F7DF1E)](https://www.javascript.com) used for user interaction on the site.
-- [![jQuery](https://img.shields.io/badge/jQuery-grey?logo=jquery&logoColor=0769AD)](https://jquery.com) used for user interaction on the site.
-- [![Python](https://img.shields.io/badge/Python-grey?logo=python&logoColor=3776AB)](https://www.python.org) used as the back-end programming language.
-- ⚠️⚠️ CHOOSE ONLY ONE <-- delete me ⚠️⚠️
 - [![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-grey?logo=githubpages&logoColor=222222)](https://pages.github.com) used for hosting the deployed front-end site.
-- [![Heroku](https://img.shields.io/badge/Heroku-grey?logo=heroku&logoColor=430098)](https://www.heroku.com) used for hosting the deployed back-end site.
-- ⚠️⚠️ CHOOSE ONLY ONE (if applicable) <-- delete me ⚠️⚠️
-- [![Bootstrap](https://img.shields.io/badge/Bootstrap-grey?logo=bootstrap&logoColor=7952B3)](https://getbootstrap.com) used as the front-end CSS framework for modern responsiveness and pre-built components.
-- [![Materialize](https://img.shields.io/badge/Materialize-grey?logo=materialdesign&logoColor=F5A5A8)](https://materializecss.com) used as the front-end CSS framework for modern responsiveness and pre-built components.
-- ⚠️⚠️ CHOOSE ALL APPLICABLE <-- delete me ⚠️⚠️
-- [![Google Sheets](https://img.shields.io/badge/Google_Sheets-grey?logo=googlesheets&logoColor=34A853)](https://docs.google.com/spreadsheets) used for storing data from my Python app.
-- [![Jest](https://img.shields.io/badge/Jest-grey?logo=jest&logoColor=c21325)](https://jestjs.io) used for automated JavaScript testing.
-- [![Flask](https://img.shields.io/badge/Flask-grey?logo=flask&logoColor=000000)](https://flask.palletsprojects.com) used as the Python framework for the site.
-- [![MongoDB](https://img.shields.io/badge/MongoDB-grey?logo=mongodb&logoColor=47A248)](https://www.mongodb.com) used as the non-relational database management with Flask.
-- [![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-grey?logo=sqlalchemy&logoColor=D71F00)](https://www.sqlalchemy.org) used as the relational database management with Flask.
-- [![Django](https://img.shields.io/badge/Django-grey?logo=django&logoColor=092E20)](https://www.djangoproject.com) used as the Python framework for the site.
-- [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-grey?logo=postgresql&logoColor=4169E1)](https://www.postgresql.org) used as the relational database management.
-- [![PostgreSQL by Code Institute](https://img.shields.io/badge/PostgreSQL_by_Code_Institute-grey?logo=okta&logoColor=F05223)](https://dbs.ci-dbs.net) used as the Postgres database from Code Institute.
-- [![ElephantSQL](https://img.shields.io/badge/ElephantSQL-grey?logo=postgresql&logoColor=36A6E2)](https://www.elephantsql.com) used as the Postgres database.
-- [![Cloudinary](https://img.shields.io/badge/Cloudinary-grey?logo=cloudinary&logoColor=3448C5)](https://cloudinary.com) used for online static file storage.
-- [![WhiteNoise](https://img.shields.io/badge/WhiteNoise-grey?logo=python&logoColor=FFFFFF)](https://whitenoise.readthedocs.io) used for serving static files with Heroku.
-- [![Stripe](https://img.shields.io/badge/Stripe-grey?logo=stripe&logoColor=008CDD)](https://stripe.com) used for online secure payments of ecommerce products/services.
-- [![Gmail API](https://img.shields.io/badge/Gmail_API-grey?logo=gmail&logoColor=EA4335)](https://mail.google.com) used for sending emails in my application.
-- [![MailChimp](https://img.shields.io/badge/MailChimp-grey?logo=mailchimp&logoColor=FFE01B)](https://mailchimp.com) used for sending newsletter subscriptions.
-- [![AWS S3](https://img.shields.io/badge/AWS_S3-grey?logo=amazons3&logoColor=569A31)](https://aws.amazon.com/s3) used for online static file storage.
-- [![Balsamiq](https://img.shields.io/badge/Balsamiq-grey?logo=barmenia&logoColor=CE0908)](https://balsamiq.com/wireframes) used for creating wireframes.
-- [![Figma](https://img.shields.io/badge/Figma-grey?logo=figma&logoColor=F24E1E)](https://www.figma.com) used for creating wireframes.
-- [![Canva](https://img.shields.io/badge/Canva-grey?logo=canva&logoColor=00C4CC)](https://www.canva.com/p/canvawireframes) used for creating wireframes.
-- [![Google Maps API](https://img.shields.io/badge/Google_Maps_API-grey?logo=googlemaps&logoColor=4285F4)](https://developers.google.com/maps) used as an interactive map on my site.
-- [![Leaflet](https://img.shields.io/badge/Leaflet-grey?logo=leaflet&logoColor=199900)](https://leafletjs.com) used as a free open-source interactive map on my site.
 - [![Font Awesome](https://img.shields.io/badge/Font_Awesome-grey?logo=fontawesome&logoColor=528DD7)](https://fontawesome.com) used for the icons.
-- [![ChatGPT](https://img.shields.io/badge/ChatGPT-grey?logo=chromatic&logoColor=75A99C)](https://chat.openai.com) used to help debug, troubleshoot, and explain things.
+- [![Moqups](https://img.shields.io/badge/Moqups-grey?logo=moqups&logoColor=0096FF)(https://moqups.com)] used for creating Wireframes.
+- [![FontGet](https://img.shields.io/badge/FONTGET-grey?logo=data:image/png;base64,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&logoColor=00FFFF)(https://www.fontget.com)] used for the text font.
 
 ## Testing
 
