@@ -287,6 +287,7 @@ No differences were found between the local version and the live deployed versio
 | [Markdown Builder](https://tim.2bn.dev/markdown-builder) | README and TESTING | tool to help generate the Markdown files |
 | [YouTube](https://www.youtube.com/watch?v=AUOzvFzdIk4) | leaderboard | using `localStorage()` in JS for high scores |
 | [GitHub Repo](https://github.com/AshLaw96/my-love-maths) | entire site | helped with layout of the site |
+| [W3schools](https://www.w3schools.com/jsref/prop_element_classlist.asp) | JS file | helped with adding style to divs |
 
 
 ### Media
