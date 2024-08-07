@@ -75,5 +75,49 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    /**
+     * stops blocks running out of game area
+     */
+    function stop() {
+        if (active.some(i => blocks[location + i + 10].classList.contains("delete"))) {
+            active.forEach(i => blocks[location + i].classList.add("delete"));
+            
+            randBlock = Math.floor(Math.random() * blockArr.length);
+            active = blockArr[randBlock][locationRotate];
+            location = 6;
+            makeBlocks();
+        } 
+    }
+
+    // moving blocks
+    function left() {
+        removeBlocks();
+        const stopL = active.some(i => (location + i) % 10 === 0);
+
+        if (stopL === false) {
+            location -= 1;
+        }
+
+        if (active.some(i => blocks[location + i].classList.contains("delete"))) {
+            location += 1;
+        }
+        makeBlocks()
+    } 
+
+
+    // Easy mode
+
+    // Makes blocks move down every second
+    timeE = setInterval(down, 1000);
+    
+    function down() {
+        removeBlocks();
+        location += 10;
+        makeBlocks();
+        stop();
+    }
+
+
+
 });
 
