@@ -1,0 +1,29 @@
+/* Asterisk selector to not interfere with specific designs */
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+    list-style: none;
+}
+
+/* Root colour scheme for easy styling */
+:root {
+    /* P = Primary | S = Shadow */
+    --p-text: #FFFFFF;
+    --p-highlight: #000000;
+    --p-block1: #3061E3;
+    --p-block2: #FF3131;
+    --p-block3: #FFBF00;
+    --s-block1: #1F51FF;
+    --s-block2: #FF0000;
+    --s-block3: #F9D71C;
+}
+
+#game {
+    background-color: var(--p-highlight);
+}
+
+#wrap {
+    background: url("../images/green-hill.jpg") no-repeat center center / cover;
+}

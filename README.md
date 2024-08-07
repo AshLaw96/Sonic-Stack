@@ -301,6 +301,7 @@ by sending yourself the following command: `!freemedia`.
 | [Pixabay](https://pixabay.com) | gallery page | image | group of photos for gallery |
 | [Audio Micro](https://www.audiomicro.com/free-sound-effects) | game page | audio | free audio files to generate the game sounds |
 | [TinyPNG](https://tinypng.com) | entire site | image | tool for image compression |
+| [Pinterest](https://www.pinterest.co.uk/pin/335025659768357500/) | Easy page | image | background image for main section |
 
 ### Acknowledgements
 
