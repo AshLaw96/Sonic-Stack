@@ -20,8 +20,19 @@
     --s-block3: #F9D71C;
 }
 
-#game {
+#game-wrap {
+    width: 100px;
+    height: 200px;
     background-color: var(--p-highlight);
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+#game-wrap div {
+    width: 30px;
+    height: 30px;
+    background-color: var(--p-block2);
 }
 
 #wrap {
