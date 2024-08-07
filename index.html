@@ -16,8 +16,43 @@
     <link rel="stylesheet" href="assets/css/styles.css"> 
 </head>
 <body>
+    <!-- Header Section -->
     <header>
-
+        <a href="index.html">
+            <h1>Sonic Stack 
+                <i class="fa-solid fa-cubes-stacked"></i>
+            </h1>
+        </a>
+        <!-- Navbar Section -->
+        <input type="checkbox" id="nav-tog" name="nav-tog">
+        <label for="nav-tog" class="tog-label">
+            <i class="fa-solid fa-bars"></i>
+        </label>
+        <nav>
+            <button class="nxt-pg current">Easy</button>
+            <button class="nxt-pg">Medium</button>
+            <button class="nxt-pg">Hard</button>
+        </nav>
     </header>
+    <section id="wrap">
+        <aside>
+            <button id="instructions">Rules</button>
+            <p id="rules">How to Play: 
+                <span class="rule">Use arrow keys to move blocks around.</span>
+                <span class="rule">Hold down arrow key to move down quicker.</span>
+                <span class="rule">Press space bar to turn blocks.</span>
+                <span class="rule">Make full horizontal line to gain points.</span>
+            </p>
+            <button id="score">Your Score</button>
+            <p id="points">Current Points: <span id="point">0</span></p>
+        </aside>
+        <div class="game">
+
+        </div>
+    </section>
+    <footer>
+    
+    </footer>
+    <script src="assets/js/script.js"></script>
 </body>
 </html>
