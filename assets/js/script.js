@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let blocks = Array.from(document.getElementsByClassName("game"));
     const start = document.getElementById("start");
     const reset = document.getElementById("reset");
+    let pause;
 
     // Tetris blocks
 
@@ -65,6 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
             blocks[location + i].classList.add("sqr")
         });
     }
+
     /**
      * delete the blocks that have been created
      */
@@ -152,22 +154,30 @@ document.addEventListener("DOMContentLoaded", () => {
     document.addEventListener("keyup", movement);
 
     // Makes blocks move down specific amount of seconds
-    function difficulty() {
-        const easy = document.getElementById("easy");
-        const medium = document.getElementById("medium");
-        const hard = document.getElementById("hard");
+    // function difficulty() {
 
-        if (document.addEventListener("click", easy)) {
-            setInterval(down, 3000);
-        } else if (document.addEventListener("click", medium)) {
-            setInterval(down, 2000);
-        } else if (document.addEventListener("click", hard)) {
-            setInterval(down, 1000);
+    //     if (document.getElementById("easy")) { // easy mode        
+    //         setInterval(down, 2000);
+    //     } else if (document.getElementById("medium")) { // medium mode
+    //         setInterval(down, 1000);
+    //     } else if (document.getElementById("hard")) { // hard mode
+    //         setInterval(down, 500);
+    //     }
+    // }
+
+    // document.addEventListener("click", difficulty);
+
+    pause = setInterval(down, 1000);
+
+    start.addEventListener("click", () => {
+        if (pause) {
+            clearInterval(pause);
+            pause = null;
+        } else {
+            makeBlocks();
+            pause = setInterval(down, 1000);
         }
-    }
-
-    difficulty();
-
+    })
 
 });
 
