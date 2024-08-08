@@ -65,7 +65,6 @@ document.addEventListener("DOMContentLoaded", () => {
             blocks[location + i].classList.add("sqr")
         });
     }
-
     /**
      * delete the blocks that have been created
      */
@@ -101,15 +100,24 @@ document.addEventListener("DOMContentLoaded", () => {
         if (active.some(i => blocks[location + i].classList.contains("delete"))) {
             location += 1;
         }
-        makeBlocks()
-    } 
-
-
-    // Easy mode
-
-    // Makes blocks move down every second
-    timeE = setInterval(down, 1000);
+        makeBlocks();
+    }
     
+    function right() {
+        removeBlocks();
+        const stopR = active.some(i => (location + 1) % 10 === 9);
+
+        if (stopR === false) {
+            location += 1;
+        }
+
+        if (active.some(i => blocks[location + i].classList.contains("delete"))) {
+            location -= 1;
+        }
+
+        makeBlocks();
+    }
+
     function down() {
         removeBlocks();
         location += 10;
@@ -117,6 +125,38 @@ document.addEventListener("DOMContentLoaded", () => {
         stop();
     }
 
+    function movement(event) {
+        if (event.keyCode === 37) {
+            left();
+        } else if (event.keyCode === 39) {
+            right();
+        } else if (event.keyCode === 40) {
+            down();
+        } else if (event.keyCode === 32) {
+            turn();
+        }
+    }
+
+    document.addEventListener("keyup", movement);
+
+    // Easy mode
+
+    // Makes blocks move down every second
+    function difficulty() {
+        const easy = document.getElementById("easy");
+        const medium = document.getElementById("medium");
+        const hard = document.getElementById("hard");
+
+        if (document.addEventListener("click", easy)) {
+            setInterval(down, 3000);
+        } else if (document.addEventListener("click", medium)) {
+            setInterval(down, 2000);
+        } else if (document.addEventListener("click", hard)) {
+            setInterval(down, 1000);
+        }
+    }
+
+    difficulty();
 
 
 });
