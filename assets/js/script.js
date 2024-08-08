@@ -2,10 +2,12 @@
 document.addEventListener("DOMContentLoaded", () => {
     const gameWrap = document.getElementById("game-wrap");
     // turns game divs into an array
-    let blocks = Array.from(document.getElementsByClassName("game"));
+    let blocks = Array.from(document.querySelectorAll("#game-wrap div"));
     const start = document.getElementById("start");
     const reset = document.getElementById("reset");
     let pause;
+    let points = 0;
+    const currentPoints = document.getElementById("point")
 
     // Tetris blocks
 
@@ -83,10 +85,13 @@ document.addEventListener("DOMContentLoaded", () => {
         if (active.some(i => blocks[location + i + 10].classList.contains("delete"))) {
             active.forEach(i => blocks[location + i].classList.add("delete"));
             
+
             randBlock = Math.floor(Math.random() * blockArr.length);
             active = blockArr[randBlock][activeRotate];
             location = 2;
             makeBlocks();
+            gotPoints();
+            lost();
         } 
     }
 
@@ -151,7 +156,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    document.addEventListener("keyup", movement);
+    document.addEventListener("keydown", movement);
 
     // Makes blocks move down specific amount of seconds
     // function difficulty() {
@@ -177,7 +182,47 @@ document.addEventListener("DOMContentLoaded", () => {
             makeBlocks();
             pause = setInterval(down, 1000);
         }
-    })
+    });
+
+    // function score() {
+    //     let currentScore = parseInt(document.getElementById("point").innerText);
+    //     document.getElementById("point").value = ++currentScore;
+    // }
+
+    function gotPoints() {
+        for (let i = 0; i < 199; i += 10) {
+            const line = [i, i + 1, i + 2, i + 3, i + 4, i + 5, i + 6, i + 7, i + 8, i + 9];
+
+            if (line.every(i => blocks[i].classList.contains("delete"))) {
+                points += 100;
+                currentPoints.innerText = points;
+                line.forEach(i => {
+                    blocks[i].classList.remove("delete");
+                    blocks[i].classList.remove("sqr");
+                });
+
+                const deleteBlock = blocks.splice(i, 10);
+                blocks = deleteBlock.concat(blocks);
+                blocks.forEach(square => gameWrap.appendChild(square));
+            }
+        }
+    }
+    
+    function lost() {
+        if (active.some(i => blocks[location + i].classList.contains("delete"))) {
+            newGame();
+            clearInterval(pause);
+        }
+    }
+
+    function newGame() {
+        const newStart = document.querySelector("[data-close-modal]");
+        const modal = document.querySelector("[data-modal]");
+
+        newStart.addEventListener("click", () => {
+            modal.close();
+        });
+    }
 
 });
 
