@@ -51,11 +51,11 @@ document.addEventListener("DOMContentLoaded", () => {
     // add block shapes to an array
     const blockArr = [blockSqr, blockLine, blockT, blockL, blockZ];
 
-    let location = 6;
-    let locationRotate = 0;
+    let location = 2;
+    let activeRotate = 0;
 
     let randBlock = Math.floor(Math.random() * blockArr.length);
-    let active = blockArr[randBlock][locationRotate];
+    let active = blockArr[randBlock][activeRotate];
     
     /**
      * creates the blocks
@@ -82,8 +82,8 @@ document.addEventListener("DOMContentLoaded", () => {
             active.forEach(i => blocks[location + i].classList.add("delete"));
             
             randBlock = Math.floor(Math.random() * blockArr.length);
-            active = blockArr[randBlock][locationRotate];
-            location = 6;
+            active = blockArr[randBlock][activeRotate];
+            location = 2;
             makeBlocks();
         } 
     }
@@ -105,7 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
     function right() {
         removeBlocks();
-        const stopR = active.some(i => (location + 1) % 10 === 9);
+        const stopR = active.some(i => (location + i) % 10 === 9);
 
         if (stopR === false) {
             location += 1;
@@ -125,23 +125,33 @@ document.addEventListener("DOMContentLoaded", () => {
         stop();
     }
 
+    function turn() {
+        removeBlocks();
+        activeRotate ++;
+
+        if (activeRotate === active.length) {
+            activeRotate = 0;
+        }
+
+        active = blockArr[randBlock][activeRotate];
+        makeBlocks();
+    }
+
     function movement(event) {
-        if (event.keyCode === 37) {
+        if (event.keyCode === 37) { // left arrow
             left();
-        } else if (event.keyCode === 39) {
+        } else if (event.keyCode === 39) { // right arrow
             right();
-        } else if (event.keyCode === 40) {
+        } else if (event.keyCode === 40) { // down arrow
             down();
-        } else if (event.keyCode === 32) {
+        } else if (event.keyCode === 32) { // space bar
             turn();
         }
     }
 
     document.addEventListener("keyup", movement);
 
-    // Easy mode
-
-    // Makes blocks move down every second
+    // Makes blocks move down specific amount of seconds
     function difficulty() {
         const easy = document.getElementById("easy");
         const medium = document.getElementById("medium");
