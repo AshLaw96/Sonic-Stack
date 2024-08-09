@@ -8,31 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let points = 0;
     const currentPoints = document.getElementById("point");
     let dropTime;
-    let pause = false;
-    let play = false;
 
-    function pauseGame() {
-            dropTime = setInterval(down, 1000);
-            if (!play) {
-                clearInterval(dropTime);
-                dropTime = null;
-                return;
-            }
-        pause = !pause;
-    }
-
-    function playGame() {
-            dropTime = null;
-            if (play) {
-                setInterval(down, 1000);
-                makeBlocks();
-                return
-            }
-       play = true;
-       pause = false; 
-    }
-
-  startBtn.addEventListener("click", pauseGame, playGame);  
     // Tetris blocks
 
     //makes square Tetris block in each position
@@ -202,6 +178,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.addEventListener("keydown", movement);
 
+    function pausePlay() {
+        if (dropTime) {
+          clearInterval(dropTime);
+          dropTime = null;
+        } else {
+            makeBlocks();
+            dropTime = setInterval(down, 1000)
+        }
+    }       
+
+    startBtn.addEventListener("click", pausePlay);
+
     // Makes blocks move down specific amount of seconds
     // function difficulty() {
 
@@ -215,31 +203,12 @@ document.addEventListener("DOMContentLoaded", () => {
     // }
 
     // document.addEventListener("click", difficulty);
-    
-    // function gamePlay() {
 
-    //     start.addEventListener("click", () => {
-    //         if (!pause) {
-    //             pause = setInterval(down, 1000);
-    //             makeBlocks();
-    //         }
-    //     })
-    // }
-
-    // pauseBtn.addEventListener("click", () => {
-    //     if (pauseBtn) {
-    //         gamePause();
-    //     } else {
-    //         gamePlay();
-    //     }
-    // })
-
-
-    // function score() {
-    //     let currentScore = parseInt(document.getElementById("point").innerText);
-    //     document.getElementById("point").value = ++currentScore;
-    // }
-
+    /**
+     * checks if full width of game area is full
+     * if full remove the full line 
+     * add 100 points every time full line 
+     */
     function gotPoints() {
         for (let i = 0; i < 199; i += 10) {
             const line = [i, i + 1, i + 2, i + 3, i + 4, i + 5, i + 6, i + 7, i + 8, i + 9];
@@ -259,12 +228,23 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
     
+    /**
+     * checks if Tetris block reach top of game area
+     * if true stops Tetris blocks dropping
+     */
     function lost() {
         if (active.some(i => blocks[location + i].classList.contains("delete"))) {
+            clearInterval(dropTime);
             newGame();
-            clearInterval(pause);
+            alert("you lost");
         }
     }
+
+    function restart() {
+        window.location.reload(); 
+    }
+
+    reset.addEventListener("click", restart);
 
     function newGame() {
         const newStart = document.querySelector("[data-close-modal]");
