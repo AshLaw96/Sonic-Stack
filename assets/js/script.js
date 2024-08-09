@@ -3,12 +3,36 @@ document.addEventListener("DOMContentLoaded", () => {
     const gameWrap = document.getElementById("game-wrap");
     // turns game divs into an array
     let blocks = Array.from(document.querySelectorAll("#game-wrap div"));
-    const start = document.getElementById("start");
+    const startBtn = document.getElementById("start-stop");
     const reset = document.getElementById("reset");
-    let pause;
     let points = 0;
-    const currentPoints = document.getElementById("point")
+    const currentPoints = document.getElementById("point");
+    let dropTime;
+    let pause = false;
+    let play = false;
 
+    function pauseGame() {
+            dropTime = setInterval(down, 1000);
+            if (!play) {
+                clearInterval(dropTime);
+                dropTime = null;
+                return;
+            }
+        pause = !pause;
+    }
+
+    function playGame() {
+            dropTime = null;
+            if (play) {
+                setInterval(down, 1000);
+                makeBlocks();
+                return
+            }
+       play = true;
+       pause = false; 
+    }
+
+  startBtn.addEventListener("click", pauseGame, playGame);  
     // Tetris blocks
 
     //makes square Tetris block in each position
@@ -96,6 +120,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // moving blocks
+
+    /**
+     * moves tetris block left
+     * stops going left at edge of game area
+     */
     function left() {
         removeBlocks();
         const stopL = active.some(i => (location + i) % 10 === 0);
@@ -110,6 +139,10 @@ document.addEventListener("DOMContentLoaded", () => {
         makeBlocks();
     }
     
+    /**
+     * moves tetris block right
+     * stops going right at edge of game area 
+     */
     function right() {
         removeBlocks();
         const stopR = active.some(i => (location + i) % 10 === 9);
@@ -125,6 +158,10 @@ document.addEventListener("DOMContentLoaded", () => {
         makeBlocks();
     }
 
+    /**
+     * moves tetris block down
+     * repeats block when reach bottom of game area
+     */
     function down() {
         removeBlocks();
         location += 10;
@@ -132,6 +169,9 @@ document.addEventListener("DOMContentLoaded", () => {
         stop();
     }
 
+    /**
+     * rotates block through each position
+     */
     function turn() {
         removeBlocks();
         activeRotate ++;
@@ -144,6 +184,10 @@ document.addEventListener("DOMContentLoaded", () => {
         makeBlocks();
     }
 
+    /**
+     * access key board codes
+     * makes tetris block move when specific key pressed
+     */
     function movement(event) {
         if (event.keyCode === 37) { // left arrow
             left();
@@ -171,18 +215,25 @@ document.addEventListener("DOMContentLoaded", () => {
     // }
 
     // document.addEventListener("click", difficulty);
+    
+    // function gamePlay() {
 
-    pause = setInterval(down, 1000);
+    //     start.addEventListener("click", () => {
+    //         if (!pause) {
+    //             pause = setInterval(down, 1000);
+    //             makeBlocks();
+    //         }
+    //     })
+    // }
 
-    start.addEventListener("click", () => {
-        if (pause) {
-            clearInterval(pause);
-            pause = null;
-        } else {
-            makeBlocks();
-            pause = setInterval(down, 1000);
-        }
-    });
+    // pauseBtn.addEventListener("click", () => {
+    //     if (pauseBtn) {
+    //         gamePause();
+    //     } else {
+    //         gamePlay();
+    //     }
+    // })
+
 
     // function score() {
     //     let currentScore = parseInt(document.getElementById("point").innerText);
