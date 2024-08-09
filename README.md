@@ -289,6 +289,7 @@ No differences were found between the local version and the live deployed versio
 | [GitHub Repo](https://github.com/AshLaw96/my-love-maths) | entire site | helped with layout of the site |
 | [W3schools](https://www.w3schools.com/jsref/prop_element_classlist.asp) | JS file | helped with adding style to divs using classList method |
 | [W3schools](https://www.w3schools.com/jsref/jsref_some.asp) | JS file | helped with array checking using some method |
+| [YouTube] all site | helped with basics for creating Tetris game
 
 
 ### Media

@@ -20,12 +20,35 @@
     --s-block3: #F9D71C;
 }
 
+@font-face {
+    font-family: "Tetris";
+    src: url("../square-mile.ttf");
+}
+
+body {
+    font-family: "Tetris";
+    color: var(--p-text);
+    font-size: 16px;
+}
+
+header {
+    background-color: var(--p-highlight);
+    padding: 0 1rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: solid 5px var(--p-text);
+}
+
 #game-wrap {
     width: 300px;
     height: 600px;
     background-color: var(--p-highlight);
     display: flex;
     flex-wrap: wrap;
+    margin: 0 auto;
+    border: 1px solid var(--p-text);
 }
 
 #game-wrap div {
@@ -39,13 +62,20 @@
 
 .sqr {
     background-color: var(--p-block1);
+    box-shadow: 0 0 4px 2px var(--s-block1);
 }
 
-#modal {
-    display: none;
-    padding: 20px;
-    translate: -50% -50%;
-    background-color: grey;
-    border-radius: 5px;
-    z-index: 10;
+.btn-area {
+    margin: 10px 100px;
+}
+
+#reset, #start-stop {
+    margin: auto;
+}
+
+footer {
+    width: 100%;
+    background-color: var(--p-highlight);
+    border-top: solid 5px var(--p-text);
+    padding: 10px;
 }

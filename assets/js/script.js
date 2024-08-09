@@ -5,9 +5,10 @@ document.addEventListener("DOMContentLoaded", () => {
     let blocks = Array.from(document.querySelectorAll("#game-wrap div"));
     const startBtn = document.getElementById("start-stop");
     const reset = document.getElementById("reset");
-    let points = 0;
     const currentPoints = document.getElementById("point");
+    let points = 0;
     let dropTime;
+    const clrArr = ["var(--p-block1)", "var(--p-block2)", "var(--p-block3)"];
 
     // Tetris blocks
 
@@ -66,6 +67,14 @@ document.addEventListener("DOMContentLoaded", () => {
     function makeBlocks() {
         active.forEach(i => {
             blocks[location + i].classList.add("sqr")
+            blocks[location + i].style.backgroundColor = clrArr[randBlock]
+            if (blocks[location + i].style.backgroundColor === "var(--p-block2)") {
+                blocks[location + i].style.boxShadow = "0 0 4px 2px var(--s-block2)";
+            } else if (blocks[location + i].style.backgroundColor === "var(--p-block3)") {
+                blocks[location + i].style.boxShadow = "0 0 4px 2px var(--s-block3)"; 
+            } else {
+                blocks[location + i].style.boxShadow = "0 0 4px 2px var(--s-block1)";
+            }
         });
     }
 
@@ -75,6 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function removeBlocks() {
         active.forEach(i => {
             blocks[location + i].classList.remove("sqr")
+            blocks[location + i].style.backgroundColor = ""
         });
     }
 
@@ -219,6 +229,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 line.forEach(i => {
                     blocks[i].classList.remove("delete");
                     blocks[i].classList.remove("sqr");
+                    blocks[i].style.backgroundColor = ""
                 });
 
                 const deleteBlock = blocks.splice(i, 10);
@@ -235,7 +246,6 @@ document.addEventListener("DOMContentLoaded", () => {
     function lost() {
         if (active.some(i => blocks[location + i].classList.contains("delete"))) {
             clearInterval(dropTime);
-            newGame();
             alert("you lost");
         }
     }
@@ -245,15 +255,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     reset.addEventListener("click", restart);
-
-    function newGame() {
-        const newStart = document.querySelector("[data-close-modal]");
-        const modal = document.querySelector("[data-modal]");
-
-        newStart.addEventListener("click", () => {
-            modal.close();
-        });
-    }
 
 });
 
