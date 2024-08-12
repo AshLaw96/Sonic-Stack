@@ -8,7 +8,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const currentPoints = document.getElementById("point");
     let points = 0;
     const ruleBtn = document.getElementById("instructions");
-    let ruleHide = document.getElementById("rules").style.display = "none";
+    let ruleHide = document.getElementById("rules"); 
+    ruleHide.style.display = "none";
+    const scoreBtn = document.getElementById("score");
+    let pointHide = document.getElementById("points");
+    pointHide.style.display = "none"
     let dropTime;
     const clrArr = ["var(--p-block1)", "var(--p-block2)", "var(--p-block3)"];
     // Tetris blocks
@@ -261,11 +265,21 @@ document.addEventListener("DOMContentLoaded", () => {
         if (ruleHide.style.display === "none") {
             ruleHide.style.display = "block";
         } else {
-            ruleHide = "none"; 
+            ruleHide.style.display = "none"; 
         }
     }
 
     ruleBtn.addEventListener("click", rules);
+
+    function hideScore() {
+        if (pointHide.style.display === "none") {
+            pointHide.style.display = "block";
+        } else {
+            pointHide.style.display = "none";
+        }
+    }
+
+    scoreBtn.addEventListener("click", hideScore);
 
 });
 

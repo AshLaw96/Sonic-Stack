@@ -56,6 +56,8 @@ h1 {
     -webkit-background-clip: text;
 }
 
+
+/* Navigation section */
 #difficulty {
     letter-spacing: 2px;
     position: absolute;
@@ -93,6 +95,7 @@ h1 {
 }
 
 
+/* Game section */
 #game-wrap {
     width: 300px;
     height: 600px;
