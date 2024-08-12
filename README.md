@@ -289,7 +289,7 @@ No differences were found between the local version and the live deployed versio
 | [GitHub Repo](https://github.com/AshLaw96/my-love-maths) | entire site | helped with layout of the site |
 | [W3schools](https://www.w3schools.com/jsref/prop_element_classlist.asp) | JS file | helped with adding style to divs using classList method |
 | [W3schools](https://www.w3schools.com/jsref/jsref_some.asp) | JS file | helped with array checking using some method |
-| [YouTube] all site | helped with basics for creating Tetris game
+| [YouTube] all site | helped with basics for creating Tetris game |
 
 
 ### Media
@@ -306,6 +306,7 @@ by sending yourself the following command: `!freemedia`.
 | [TinyPNG](https://tinypng.com) | entire site | image | tool for image compression |
 | [Pinterest](https://www.pinterest.co.uk/pin/335025659768357500/) | Easy page | image | background image for main section |
 | [Khinsider](https://downloads.khinsider.com/game-soundtracks/album/sonic-1-revisited) | Easy page | audio | background music on easy page |
+| [101SoundBoards](https://www.101soundboards.com/boards/10990-sonic-the-hedgehog-sounds#goog_rewarded) | entire HTML | audio | sound when points gained |
 
 ### Acknowledgements
 

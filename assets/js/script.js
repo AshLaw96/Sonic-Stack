@@ -15,6 +15,10 @@ document.addEventListener("DOMContentLoaded", () => {
     pointHide.style.display = "none";
     const soundBtn = document.getElementById("sound");
     let allAudio = document.getElementsByTagName("audio");
+    const scrSound = document.getElementById("score-sound");
+    const greenHill = document.getElementById("green-hill");
+    const turnSound = document.getElementById("turn-sound");
+    const lostSound = document.getElementById("lost-sound");
     let dropTime;
     const clrArr = ["var(--p-block1)", "var(--p-block2)", "var(--p-block3)"];
     // Tetris blocks
@@ -171,6 +175,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (activeRotate === active.length) {
             activeRotate = 0;
+            turnSound.play();
         }
 
         active = blockArr[randBlock][activeRotate];
@@ -199,9 +204,11 @@ document.addEventListener("DOMContentLoaded", () => {
         if (dropTime) {
           clearInterval(dropTime);
           dropTime = null;
+          greenHill.pause();
         } else {
             makeBlocks();
-            dropTime = setInterval(down, 1000)
+            dropTime = setInterval(down, 1000);
+            greenHill.play();
         }
     }       
 
@@ -236,12 +243,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 line.forEach(i => {
                     blocks[i].classList.remove("delete");
                     blocks[i].classList.remove("sqr");
-                    blocks[i].style.backgroundColor = ""
+                    blocks[i].style.backgroundColor = "";
                 });
 
                 const deleteBlock = blocks.splice(i, 10);
                 blocks = deleteBlock.concat(blocks);
                 blocks.forEach(square => gameWrap.appendChild(square));
+                scrSound.play();
             }
         }
     }
@@ -253,7 +261,8 @@ document.addEventListener("DOMContentLoaded", () => {
     function lost() {
         if (active.some(i => blocks[location + i].classList.contains("delete"))) {
             clearInterval(dropTime);
-            alert("you lost");
+            greenHill.pause();
+            lostSound.play();
         }
     }
 
@@ -285,10 +294,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function stopStart() {
         for (let i = 0; i < allAudio.length; i++) {
-            if (allAudio[i].play()) {
+            if (allAudio[i].play() === "true") {
                 allAudio[i].pause();
             } else {
-                allAudio.play();
+                allAudio[i].play();
+                soundBtn.style.color = "var(--p-block3)"
             }
         }
     }
