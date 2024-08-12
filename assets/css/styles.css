@@ -29,23 +29,69 @@ body {
     font-family: "Tetris";
     color: var(--p-text);
     font-size: 16px;
+    background: url("../images/green-hill.jpg") no-repeat center center / cover;
+}
+
+button {
+    font-family: "Tetris";
+    cursor: pointer;
 }
 
 header {
     background-color: var(--p-highlight);
-    padding: 0 1rem;
+    padding: 2px 10px;
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    border-bottom: solid 5px var(--p-text);
+    border-bottom: solid 5px var(--p-block1);
+    margin-bottom: 5px;
 }
 
 h1 {
+    font-size: 250%;
+    /* makes h1 text 3 colours */
     background: linear-gradient(#3061E3, #FF3131, #FFBF00);
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
 }
+
+#difficulty {
+    letter-spacing: 2px;
+    position: absolute;
+    padding: 2px 18px;
+    display: none;
+    top: 8em;
+    background-color: var(--p-highlight);
+    border: 2px solid var(--p-block1);
+}
+
+#difficulty > button {
+    margin-bottom: 1em;
+    background-color: var(--p-block1);
+}
+
+#difficulty > button:hover {
+    color: var(--p-text);
+    box-shadow: 0 0 6px 4px var(--p-text);
+}
+
+#difficulty .current {
+    background-color: var(--p-block3);
+}
+
+#tog {
+    display: none;
+}
+
+#tog:checked~nav {
+    display: block;
+}
+
+#tog-lab {
+    font-size: 2rem;
+}
+
 
 #game-wrap {
     width: 300px;
@@ -54,16 +100,11 @@ h1 {
     display: flex;
     flex-wrap: wrap;
     margin: 0 auto;
-    border: 1px solid var(--p-text);
 }
 
 #game-wrap div {
     width: 30px;
     height: 30px;
-}
-
-#wrap {
-    background: url("../images/green-hill.jpg") no-repeat center center / cover;
 }
 
 .sqr {
@@ -82,6 +123,6 @@ h1 {
 footer {
     width: 100%;
     background-color: var(--p-highlight);
-    border-top: solid 5px var(--p-text);
+    border-top: solid 5px var(--p-block1);
     padding: 10px;
 }

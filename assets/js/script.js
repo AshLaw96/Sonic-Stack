@@ -7,9 +7,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const reset = document.getElementById("reset");
     const currentPoints = document.getElementById("point");
     let points = 0;
+    const ruleBtn = document.getElementById("instructions");
+    let ruleHide = document.getElementById("rules").style.display = "none";
     let dropTime;
     const clrArr = ["var(--p-block1)", "var(--p-block2)", "var(--p-block3)"];
-
     // Tetris blocks
 
     //makes square Tetris block in each position
@@ -255,6 +256,16 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     reset.addEventListener("click", restart);
+
+    function rules() {
+        if (ruleHide.style.display === "none") {
+            ruleHide.style.display = "block";
+        } else {
+            ruleHide = "none"; 
+        }
+    }
+
+    ruleBtn.addEventListener("click", rules);
 
 });
 
