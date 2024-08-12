@@ -56,6 +56,14 @@ h1 {
     -webkit-background-clip: text;
 }
 
+h3 {
+    font-size: 150%;
+    text-align: center;
+}
+
+p {
+    text-align: center;
+}
 
 /* Navigation section */
 #difficulty {
@@ -94,6 +102,25 @@ h1 {
     font-size: 2rem;
 }
 
+#sound {
+    background: none;
+    margin: auto 10px 10px 0;
+    border: none;
+    font-size: 1em;
+}
+
+#sound i {
+    color: var(--p-text);
+}
+
+#sound i:hover {
+    box-shadow: 0 0 2px 4px var(--p-text);
+}
+
+#instructions, #score, #start-stop, #reset {
+    display: block;
+    margin: 5px auto;
+}
 
 /* Game section */
 #game-wrap {
@@ -115,13 +142,6 @@ h1 {
     box-shadow: 0 0 4px 2px var(--s-block1);
 }
 
-.btn-area {
-    margin: 10px 100px;
-}
-
-#reset, #start-stop {
-    margin: auto;
-}
 
 footer {
     width: 100%;

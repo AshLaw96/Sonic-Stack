@@ -305,6 +305,7 @@ by sending yourself the following command: `!freemedia`.
 | [Audio Micro](https://www.audiomicro.com/free-sound-effects) | game page | audio | free audio files to generate the game sounds |
 | [TinyPNG](https://tinypng.com) | entire site | image | tool for image compression |
 | [Pinterest](https://www.pinterest.co.uk/pin/335025659768357500/) | Easy page | image | background image for main section |
+| [Khinsider](https://downloads.khinsider.com/game-soundtracks/album/sonic-1-revisited) | Easy page | audio | background music on easy page |
 
 ### Acknowledgements
 
