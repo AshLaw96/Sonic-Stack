@@ -159,6 +159,22 @@ p {
     box-shadow: 0 0 4px 2px var(--s-block1);
 }
 
+dialog {
+    z-index: 100;
+    margin: auto;
+    padding: 2px;
+    background-color: var(--p-block2);
+    border-radius: 5px;
+    text-align: center;
+}
+
+dialog::backdrop {
+    background-color: rgba(255, 0, 0, 0.5);
+}
+
+#esc {
+    color: var(--p-text);
+}
 
 footer {
     width: 100%;

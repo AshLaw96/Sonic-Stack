@@ -33,6 +33,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const labSound = document.getElementById("labyrinth");
     const bossSound = document.getElementById("boss");
 
+    const dialog = document.querySelector("dialog");
+
     let dropTime;
 
     const clrArr = ["var(--p-block1)", "var(--p-block2)", "var(--p-block3)"];
@@ -279,6 +281,7 @@ document.addEventListener("DOMContentLoaded", () => {
             clearInterval(dropTime);
             greenHill.pause();
             lostSound.play();
+            dialog.showModal();
         }
     };
 
@@ -341,6 +344,12 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     hardBtn.addEventListener("click", hardChange);
+
+    // function modalOnOff() {
+    //     if (dialog.showModal()) {
+    //         dialog.close();
+    //     }
+    // };
 
 });
 
