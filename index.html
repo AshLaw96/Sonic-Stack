@@ -21,6 +21,9 @@
         <a href="index.html">
             <h1>Sonic Stack </h1>
         </a>
+        <button id="sound">
+            <i class="fa-solid fa-volume-high"></i>
+        </button>
         <!-- Navbar Section -->
         <input type="checkbox" id="tog" name="tog">
         <label for="tog" id="tog-lab">
@@ -31,15 +34,12 @@
             <button id="medium" class="nxt-pg">Medium</button>
             <button id="hard" class="nxt-pg">Hard</button>
         </nav>
-        <button id="sound">
-            <i class="fa-solid fa-volume-high"></i>
-        </button>
     </header>
     <section id="wrap">
         <aside id="side-wrap">
             <button id="instructions">Rules</button>
             <p id="rules">How to Play: <br>
-                <span class="rule">Use arrow keys to move blocks around. Hold down arrow key to move down quicker. Press space bar to turn blocks. Make full horizontal line to gain points.</span>
+                <span class="rule">Use left and right keys to move blocks side to side. Hold down arrow key to move block down quicker. Press space bar to turn blocks. Make full horizontal line to gain points.</span>
             </p>
             <button id="score">Your Score</button>
             <p id="points">Current Points: <span id="point">0</span></p>
@@ -265,7 +265,7 @@
     <audio id="green-hill" src="assets/audio/green-hill.mp3" loop></audio>
     <audio id="score-sound" src="assets/audio/score.mp3"></audio>
     <audio id="turn-sound" src="assets/audio/turn.mp3"></audio>
-    <audio src="assets/audio/game-over.mp3" id="lost-sound"></audio>
+    <audio id="lost-sound" src="assets/audio/game-over.mp3"></audio>
     <footer>
         <a href="https://www.esports.net/news/mobile-games/best-tetris-players/" target="_blank">Top 5 players in the world</a>
     </footer>

@@ -3,24 +3,33 @@ document.addEventListener("DOMContentLoaded", () => {
     const gameWrap = document.getElementById("game-wrap");
     // turns game divs into an array
     let blocks = Array.from(document.querySelectorAll("#game-wrap div"));
+
     const startBtn = document.getElementById("start-stop");
     const reset = document.getElementById("reset");
+
     const currentPoints = document.getElementById("point");
     let points = 0;
+    // Hide variables
     const ruleBtn = document.getElementById("instructions");
     let ruleHide = document.getElementById("rules"); 
     ruleHide.style.display = "none";
     const scoreBtn = document.getElementById("score");
     let pointHide = document.getElementById("points");
     pointHide.style.display = "none";
+    // Sounds
     const soundBtn = document.getElementById("sound");
-    let allAudio = document.getElementsByTagName("audio");
+    const allAudio = document.getElementsByTagName("audio");
+    for (let i = 0; i < allAudio.length; i++) {
+        allAudio[i].volume = 0;
+    }
     const scrSound = document.getElementById("score-sound");
     const greenHill = document.getElementById("green-hill");
     const turnSound = document.getElementById("turn-sound");
     const lostSound = document.getElementById("lost-sound");
+
     let dropTime;
     const clrArr = ["var(--p-block1)", "var(--p-block2)", "var(--p-block3)"];
+
     // Tetris blocks
 
     //makes square Tetris block in each position
@@ -69,6 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let location = 2;
     let activeRotate = 0;
 
+    // picks random block and a random rotation of the block
     let randBlock = Math.floor(Math.random() * blockArr.length);
     let active = blockArr[randBlock][activeRotate];
     
@@ -77,7 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
      */
     function makeBlocks() {
         active.forEach(i => {
-            blocks[location + i].classList.add("sqr")
+            blocks[location + i].classList.add("sqr");
             blocks[location + i].style.backgroundColor = clrArr[randBlock]
             if (blocks[location + i].style.backgroundColor === "var(--p-block2)") {
                 blocks[location + i].style.boxShadow = "0 0 4px 2px var(--s-block2)";
@@ -105,7 +115,6 @@ document.addEventListener("DOMContentLoaded", () => {
     function stop() {
         if (active.some(i => blocks[location + i + 10].classList.contains("delete"))) {
             active.forEach(i => blocks[location + i].classList.add("delete"));
-            
 
             randBlock = Math.floor(Math.random() * blockArr.length);
             active = blockArr[randBlock][activeRotate];
@@ -292,18 +301,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
     scoreBtn.addEventListener("click", hideScore);
 
-    function stopStart() {
+    function muteUnmute() {
         for (let i = 0; i < allAudio.length; i++) {
-            if (allAudio[i].play() === "true") {
-                allAudio[i].pause();
+            if (allAudio[i].volume > 0) {
+                allAudio[i].volume = 0;
+                soundBtn.style.backgroundColor = "var(--p-highlight)";
             } else {
-                allAudio[i].play();
-                soundBtn.style.color = "var(--p-block3)"
+                allAudio[i].volume = 1;
+                soundBtn.style.backgroundColor = "var(--p-block3)";
             }
         }
     }
 
-    soundBtn.addEventListener("click", stopStart);
+    soundBtn.addEventListener("click", muteUnmute);
 
 });
 

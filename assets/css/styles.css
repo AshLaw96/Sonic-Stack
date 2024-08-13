@@ -63,6 +63,8 @@ h3 {
 
 p {
     text-align: center;
+    background-color: var(--p-highlight);
+    margin: 5px;
 }
 
 /* Navigation section */
@@ -107,19 +109,25 @@ p {
     margin: auto 10px 10px 0;
     border: none;
     font-size: 1em;
+    border-radius: 50%;
+    width: 50px;
 }
 
 #sound i {
     color: var(--p-text);
 }
 
-#sound i:hover {
+#sound:hover {
     box-shadow: 0 0 2px 4px var(--p-text);
 }
 
 #instructions, #score, #start-stop, #reset {
     display: block;
     margin: 5px auto;
+}
+
+#wrap {
+    min-height: 100%;
 }
 
 /* Game section */

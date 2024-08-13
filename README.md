@@ -290,6 +290,7 @@ No differences were found between the local version and the live deployed versio
 | [W3schools](https://www.w3schools.com/jsref/prop_element_classlist.asp) | JS file | helped with adding style to divs using classList method |
 | [W3schools](https://www.w3schools.com/jsref/jsref_some.asp) | JS file | helped with array checking using some method |
 | [YouTube] all site | helped with basics for creating Tetris game |
+| [W3Schools](https://www.w3schools.com/jsref/prop_audio_volume.asp#:~:text=Description,) | Js file | audio | volume method to have a mute and un-mute button |
 
 
 ### Media
