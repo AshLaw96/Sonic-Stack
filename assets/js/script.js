@@ -30,6 +30,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const greenHill = document.getElementById("green-hill");
     const turnSound = document.getElementById("turn-sound");
     const lostSound = document.getElementById("lost-sound");
+    const labSound = document.getElementById("labyrinth");
+    const bossSound = document.getElementById("boss");
 
     let dropTime;
 
@@ -186,15 +188,15 @@ document.addEventListener("DOMContentLoaded", () => {
     function turn() {
         removeBlocks();
         activeRotate ++;
+        turnSound.play();
 
         if (activeRotate === active.length) {
             activeRotate = 0;
-            turnSound.play();
         }
 
         active = blockArr[randBlock][activeRotate];
         makeBlocks();
-    }
+    };
 
     /**
      * access key board codes
@@ -210,7 +212,7 @@ document.addEventListener("DOMContentLoaded", () => {
         } else if (event.keyCode === 32) { // space bar
             turn();
         }
-    }
+    };
 
     document.addEventListener("keydown", movement);
 
@@ -224,7 +226,7 @@ document.addEventListener("DOMContentLoaded", () => {
             dropTime = setInterval(down, 1000);
             greenHill.play();
         }
-    }       
+    };
 
     startBtn.addEventListener("click", pausePlay);
 
@@ -278,11 +280,11 @@ document.addEventListener("DOMContentLoaded", () => {
             greenHill.pause();
             lostSound.play();
         }
-    }
+    };
 
     function restart() {
         window.location.reload(); 
-    }
+    };
 
     reset.addEventListener("click", restart);
 
@@ -292,7 +294,7 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
             ruleHide.style.display = "none"; 
         }
-    }
+    };
 
     ruleBtn.addEventListener("click", rules);
 

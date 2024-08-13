@@ -102,6 +102,7 @@ p {
 
 #tog-lab {
     font-size: 2rem;
+    cursor: pointer;
 }
 
 #sound {
@@ -161,7 +162,16 @@ p {
 
 footer {
     width: 100%;
+    text-align: center;
     background-color: var(--p-highlight);
     border-top: solid 5px var(--p-block1);
     padding: 10px;
+}
+
+footer a {
+    color: var(--p-block2);
+}
+
+footer a:hover {
+    text-shadow: 2px 10px 4px var(--s-block2);
 }
