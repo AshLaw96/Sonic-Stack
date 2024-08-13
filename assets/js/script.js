@@ -7,6 +7,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const startBtn = document.getElementById("start-stop");
     const reset = document.getElementById("reset");
 
+    const easyBtn = document.getElementById("easy");
+    const medBtn = document.getElementById("medium");
+    const hardBtn = document.getElementById("hard");
+
     const currentPoints = document.getElementById("point");
     let points = 0;
     // Hide variables
@@ -28,6 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const lostSound = document.getElementById("lost-sound");
 
     let dropTime;
+
     const clrArr = ["var(--p-block1)", "var(--p-block2)", "var(--p-block3)"];
 
     // Tetris blocks
@@ -297,7 +302,7 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
             pointHide.style.display = "none";
         }
-    }
+    };
 
     scoreBtn.addEventListener("click", hideScore);
 
@@ -311,9 +316,29 @@ document.addEventListener("DOMContentLoaded", () => {
                 soundBtn.style.backgroundColor = "var(--p-block3)";
             }
         }
-    }
+    };
 
     soundBtn.addEventListener("click", muteUnmute);
+
+    // change pages & difficulty level
+    
+    function easyChange() {
+        window.location.href = "index.html";
+    };
+
+    easyBtn.addEventListener("click", easyChange);
+
+    function medChange() {
+        window.location.href = "medium.html";
+    };
+
+    medBtn.addEventListener("click", medChange);
+
+    function hardChange() {
+        window.location.href = "hard.html";
+    };
+
+    hardBtn.addEventListener("click", hardChange);
 
 });
 

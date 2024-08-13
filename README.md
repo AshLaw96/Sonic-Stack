@@ -289,8 +289,9 @@ No differences were found between the local version and the live deployed versio
 | [GitHub Repo](https://github.com/AshLaw96/my-love-maths) | entire site | helped with layout of the site |
 | [W3schools](https://www.w3schools.com/jsref/prop_element_classlist.asp) | JS file | helped with adding style to divs using classList method |
 | [W3schools](https://www.w3schools.com/jsref/jsref_some.asp) | JS file | helped with array checking using some method |
-| [YouTube] all site | helped with basics for creating Tetris game |
-| [W3Schools](https://www.w3schools.com/jsref/prop_audio_volume.asp#:~:text=Description,) | Js file | audio | volume method to have a mute and un-mute button |
+| [YouTube]() | entire site | helped with basics for creating Tetris game |
+| [W3Schools](https://www.w3schools.com/jsref/prop_audio_volume.asp#:~:text=Description,) | JS file | volume method to have a mute and un-mute button |
+| [W3Schools](https://www.w3schools.com/howto/howto_js_redirect_webpage.asp) | JS file | location.href to change page | 
 
 
 ### Media
@@ -301,13 +302,13 @@ by sending yourself the following command: `!freemedia`.
 | Source | Location | Type | Notes |
 | --- | --- | --- | --- |
 | [Pinterest](https://www.pinterest.co.uk/pin/8162843068818083/) | website tab bar | image | favicon on the tab bar |
-| [Lorem Picsum](https://picsum.photos) | home page | image | hero image background |
-| [Pixabay](https://pixabay.com) | gallery page | image | group of photos for gallery |
 | [Audio Micro](https://www.audiomicro.com/free-sound-effects) | game page | audio | free audio files to generate the game sounds |
 | [TinyPNG](https://tinypng.com) | entire site | image | tool for image compression |
 | [Pinterest](https://www.pinterest.co.uk/pin/335025659768357500/) | Easy page | image | background image for main section |
 | [Khinsider](https://downloads.khinsider.com/game-soundtracks/album/sonic-1-revisited) | Easy page | audio | background music on easy page |
 | [101SoundBoards](https://www.101soundboards.com/boards/10990-sonic-the-hedgehog-sounds#goog_rewarded) | entire HTML | audio | sound when points gained |
+| [TheGamer](https://www.thegamer.com/sonic-the-hedgehog-labyrinth-zone-nightmares/) | medium page | image | background image main section |
+| [TheGamer](https://www.thegamer.com/sonic-the-hedgehog-best-final-zones-levels-ranked/) | hard page | image | background image main section |
 
 ### Acknowledgements
 
