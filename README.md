@@ -291,7 +291,8 @@ No differences were found between the local version and the live deployed versio
 | [W3schools](https://www.w3schools.com/jsref/jsref_some.asp) | JS file | helped with array checking using some method |
 | [YouTube]() | entire site | helped with basics for creating Tetris game |
 | [W3Schools](https://www.w3schools.com/jsref/prop_audio_volume.asp#:~:text=Description,) | JS file | volume method to have a mute and un-mute button |
-| [W3Schools](https://www.w3schools.com/howto/howto_js_redirect_webpage.asp) | JS file | location.href to change page | 
+| [W3Schools](https://www.w3schools.com/howto/howto_js_redirect_webpage.asp) | JS file | location.href to change page |
+| [Web Dev](https://blog.webdevsimplified.com/2023-04/html-dialog/) | entire site | how to use dialog element | 
 
 
 ### Media

@@ -351,5 +351,15 @@ document.addEventListener("DOMContentLoaded", () => {
     //     }
     // };
 
+    // if(localStorage) {
+    //     localStorage.setItem("currentScore", gotPoints);
+    // }
+
+    // if(localStorage) {
+    //     var getScore = localStorage.getItem("currentScore");
+    // }
+
+    // console.log(getScore);
+
 });
 
