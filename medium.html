@@ -258,17 +258,22 @@
             <div class="delete"></div>
         </div>
         <div class="btn-area">
-            <button id="start-stop">Start/Stop</button>
+            <button id="start-stop">
+                Start Game <br>
+                <i class="fa-solid fa-play"></i> <i class="fa-solid fa-pause"></i>
+            </button>
             <button id="reset">Restart</button>
         </div>
         <dialog>
             <span>You Lost <br> <br> press <span id="esc">esc</span></span>
         </dialog>
     </section>
-    <audio id="labyrinth" src="assets/audio/labyrinth.mp3" loop></audio>
-    <audio id="score-sound" src="assets/audio/score.mp3"></audio>
-    <audio id="turn-sound" src="assets/audio/turn.mp3"></audio>
-    <audio id="lost-sound" src="assets/audio/game-over.mp3"></audio>
+    <div id="sound-wrap">
+        <audio id="labyrinth" src="assets/audio/labyrinth.mp3" loop></audio>
+        <audio id="score-sound" src="assets/audio/score.mp3"></audio>
+        <audio id="turn-sound" src="assets/audio/turn.mp3"></audio>
+        <audio id="lost-sound" src="assets/audio/game-over.mp3"></audio>
+    </div>
     <footer>
         <a href="https://thectwc.com/" target="_blank">Tetris gaming expo</a>
     </footer>

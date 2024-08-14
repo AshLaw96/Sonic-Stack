@@ -21,6 +21,12 @@ document.addEventListener("DOMContentLoaded", () => {
     let pointHide = document.getElementById("points");
     pointHide.style.display = "none";
     // Sounds
+    const soundWrap = document.getElementById("sound-wrap");
+    const soundWrapChildren = soundWrap.children;
+    let soundArr = [];
+    for (let i = 0; i < soundWrapChildren.length; i++) {
+        soundArr.push(soundWrapChildren[i]);
+    };
     const soundBtn = document.getElementById("sound");
     const allAudio = document.getElementsByTagName("audio");
     for (let i = 0; i < allAudio.length; i++) {
@@ -222,11 +228,23 @@ document.addEventListener("DOMContentLoaded", () => {
         if (dropTime) {
           clearInterval(dropTime);
           dropTime = null;
-          greenHill.pause();
+          if (soundArr[0] === greenHill) {
+              greenHill.pause();
+          } else if (soundArr[0] === labSound) {
+              labSound.pause();
+          } else {
+              bossSound.pause();
+          }
         } else {
             makeBlocks();
             dropTime = setInterval(down, 1000);
-            greenHill.play();
+            if (soundArr[0] === greenHill) {
+                greenHill.play();
+            } else if (soundArr[0] === labSound) {
+                labSound.play();
+            } else {
+                bossSound.play();
+            }
         }
     };
 
@@ -279,7 +297,13 @@ document.addEventListener("DOMContentLoaded", () => {
     function lost() {
         if (active.some(i => blocks[location + i].classList.contains("delete"))) {
             clearInterval(dropTime);
-            greenHill.pause();
+            if (soundArr[0] === greenHill) {
+                greenHill.pause();
+            } else if (soundArr[0] === labSound) {
+                labSound.pause();
+            } else {
+                bossSound.pause();
+            }
             lostSound.play();
             dialog.showModal();
         }
