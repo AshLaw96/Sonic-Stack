@@ -287,12 +287,13 @@ No differences were found between the local version and the live deployed versio
 | [Markdown Builder](https://tim.2bn.dev/markdown-builder) | README and TESTING | tool to help generate the Markdown files |
 | [YouTube](https://www.youtube.com/watch?v=AUOzvFzdIk4) | leaderboard | using `localStorage()` in JS for high scores |
 | [GitHub Repo](https://github.com/AshLaw96/my-love-maths) | entire site | helped with layout of the site |
-| [W3schools](https://www.w3schools.com/jsref/prop_element_classlist.asp) | JS file | helped with adding style to divs using classList method |
-| [W3schools](https://www.w3schools.com/jsref/jsref_some.asp) | JS file | helped with array checking using some method |
-| [YouTube]() | entire site | helped with basics for creating Tetris game |
-| [W3Schools](https://www.w3schools.com/jsref/prop_audio_volume.asp#:~:text=Description,) | JS file | volume method to have a mute and un-mute button |
-| [W3Schools](https://www.w3schools.com/howto/howto_js_redirect_webpage.asp) | JS file | location.href to change page |
-| [Web Dev](https://blog.webdevsimplified.com/2023-04/html-dialog/) | entire site | how to use dialog element | 
+| [W3schools](https://www.w3schools.com/jsref/prop_element_classlist.asp) | JS file | helped with adding and removing styles of divs using `.classList` methods |
+| [YouTube](https://www.youtube.com/watch?v=rAUn1Lom6dw) | entire site | helped with basics for creating Tetris game |
+| [W3Schools](https://www.w3schools.com/jsref/prop_audio_volume.asp#:~:text=Description,) | JS file | `.volume` method to have a mute and un-mute button |
+| [W3Schools](https://www.w3schools.com/howto/howto_js_redirect_webpage.asp) | JS file | `location.href` to change pages |
+| [Web Dev](https://blog.webdevsimplified.com/2023-04/html-dialog/) | entire site | how to use `<dialog></dialog>` element |
+| [Medium](https://medium.com/poka-techblog/simplify-your-javascript-use-some-and-find-f9fb9826ddfd) | JS file | helped using `some()` and `find()` to check arrays |
+| [W3Schools](https://www.w3schools.com/jsref/met_audio_pause.asp#:~:text=Description,%2C%20attached%20on%20the%20audio) | JS file | how to use the `play()` and `pause()` methods | 
 
 
 ### Media

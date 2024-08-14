@@ -3,10 +3,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const gameWrap = document.getElementById("game-wrap");
     // turns game divs into an array
     let blocks = Array.from(document.querySelectorAll("#game-wrap div"));
-
+    // start and reset buttons
     const startBtn = document.getElementById("start-stop");
     const reset = document.getElementById("reset");
-
+    // navigation buttons
     const easyBtn = document.getElementById("easy");
     const medBtn = document.getElementById("medium");
     const hardBtn = document.getElementById("hard");
@@ -38,6 +38,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const lostSound = document.getElementById("lost-sound");
     const labSound = document.getElementById("labyrinth");
     const bossSound = document.getElementById("boss");
+
+    const subTitle = document.getElementsByTagName("h3");
 
     const dialog = document.querySelector("dialog");
 
@@ -90,7 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // add block shapes to an array
     const blockArr = [blockSqr, blockLine, blockT, blockL, blockZ];
 
-    let location = 2;
+    let location = 3;
     let activeRotate = 0;
 
     // picks random block and a random rotation of the block
@@ -125,10 +127,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     /**
-     * stops blocks running out of game area
+     * stops blocks running out of bottom of game area
      */
     function stop() {
-        if (active.some(i => blocks[location + i + 10].classList.contains("delete"))) {
+        if (active.find(i => blocks[location + i + 10].classList.contains("delete"))) {
             active.forEach(i => blocks[location + i].classList.add("delete"));
 
             randBlock = Math.floor(Math.random() * blockArr.length);
@@ -237,7 +239,19 @@ document.addEventListener("DOMContentLoaded", () => {
           }
         } else {
             makeBlocks();
-            dropTime = setInterval(down, 1000);
+            for (let i = 0; i < subTitle.length; i++) {
+                if (subTitle[i].textContent === "Easy") {
+                   dropTime = setInterval(down, 1000);
+                   console.log(dropTime, "easy");
+                } else if (subTitle[i].textContent === "Medium") {
+                   dropTime = setInterval(down, 500);
+                   console.log(dropTime, "med");
+                } else {
+                   dropTime = setInterval(down, 200);
+                   console.log(dropTime, "hard");
+                };
+            };
+        
             if (soundArr[0] === greenHill) {
                 greenHill.play();
             } else if (soundArr[0] === labSound) {
@@ -249,20 +263,6 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     startBtn.addEventListener("click", pausePlay);
-
-    // Makes blocks move down specific amount of seconds
-    // function difficulty() {
-
-    //     if (document.getElementById("easy")) { // easy mode        
-    //         setInterval(down, 2000);
-    //     } else if (document.getElementById("medium")) { // medium mode
-    //         setInterval(down, 1000);
-    //     } else if (document.getElementById("hard")) { // hard mode
-    //         setInterval(down, 500);
-    //     }
-    // }
-
-    // document.addEventListener("click", difficulty);
 
     /**
      * checks if full width of game area is full
@@ -295,7 +295,7 @@ document.addEventListener("DOMContentLoaded", () => {
      * if true stops Tetris blocks dropping
      */
     function lost() {
-        if (active.some(i => blocks[location + i].classList.contains("delete"))) {
+        if (active.find(i => blocks[location + i].classList.contains("delete"))) {
             clearInterval(dropTime);
             if (soundArr[0] === greenHill) {
                 greenHill.pause();
@@ -315,6 +315,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     reset.addEventListener("click", restart);
 
+    // hide and un-hide rule text
     function rules() {
         if (ruleHide.style.display === "none") {
             ruleHide.style.display = "block";
@@ -325,6 +326,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     ruleBtn.addEventListener("click", rules);
 
+    // hide and un-hide score text 
     function hideScore() {
         if (pointHide.style.display === "none") {
             pointHide.style.display = "block";
@@ -335,6 +337,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     scoreBtn.addEventListener("click", hideScore);
 
+    // mute and un-mute all sound
     function muteUnmute() {
         for (let i = 0; i < allAudio.length; i++) {
             if (allAudio[i].volume > 0) {
@@ -348,21 +351,25 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     soundBtn.addEventListener("click", muteUnmute);
-
-    // change pages & difficulty level
     
+    //easy
+    // page change
     function easyChange() {
         window.location.href = "index.html";
     };
 
     easyBtn.addEventListener("click", easyChange);
 
+    //medium
+    // page change
     function medChange() {
         window.location.href = "medium.html";
     };
 
     medBtn.addEventListener("click", medChange);
 
+    // hard
+    // page change
     function hardChange() {
         window.location.href = "hard.html";
     };
