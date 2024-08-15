@@ -12,6 +12,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const hardBtn = document.getElementById("hard");
     // Scores
     const currentHigh = document.getElementById("high-scr");
+    const highScore = localStorage.getItem("High Score");
+    currentHigh.innerText = highScore;
     const currentPoints = document.getElementById("point");
     let points = 0;
     // Hide variables
@@ -193,6 +195,33 @@ document.addEventListener("DOMContentLoaded", () => {
         stop();
     };
 
+    function stopRightTurn() {
+        return active.some(i => (location + i + 1) % 10 === 0);
+    };
+
+    function stopLeftTurn() {
+        return active.some(i => (location + i) % 10 === 0);
+    };
+
+    /**
+     * checks if block is turning at either side of game area
+     * if at right adds 1 to location to wrap back around
+     * if at left side takes 1 away from location to wrap back around
+     */
+    function stopTurning() {
+        if ((location + 1) % 10 < 4) {
+            if (stopRightTurn()) {
+               location += 1;
+               stopTurning();
+            }
+        } else if (location % 10 > 4) {
+              if (stopLeftTurn()) {
+                 location -= 1;
+                 stopTurning();
+              }
+          }
+    };
+
     /**
      * rotates block through each position
      */
@@ -206,6 +235,7 @@ document.addEventListener("DOMContentLoaded", () => {
         };
 
         active = blockArr[randBlock][activeRotate];
+        stopTurning();
         makeBlocks();
     };
 
@@ -288,14 +318,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-    let highScr = window.localStorage.getItem("high-Scr");
-
-    if (currentPoints.textContent > currentHigh.textContent) {
-        highScr = currentPoints.textContent;
-
-        window.localStorage.setItem("high-Scr", highScr);
-        console.log(currentHigh.textContent);
-    };
     /**
      * checks if Tetris block reach top of game area
      * if true stops Tetris blocks dropping
@@ -312,7 +334,6 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             lostSound.play();
             dialog.showModal();
-            saveHighScore();
         }
     };
 
@@ -383,15 +404,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     hardBtn.addEventListener("click", hardChange);
 
-    // if(localStorage) {
-    //     localStorage.setItem("currentScore", gotPoints);
-    // }
+    if (currentPoints.innerText > highScore) {
+        highScore = localStorage.setItem("High Score", currentPoints.innerText);
+        console.log("true");
+    } else {
+        currentHigh.innerText = highScore
+    };
 
-    // if(localStorage) {
-    //     var getScore = localStorage.getItem("currentScore");
-    // }
-
-    // console.log(getScore);
+    console.log(highScore, "<<Top", currentHigh.innerText, "<<High");
 
 });
 
