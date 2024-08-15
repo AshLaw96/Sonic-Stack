@@ -160,7 +160,6 @@ p {
 
 .sqr {
     background-color: var(--p-block1);
-    box-shadow: 0 0 4px 2px var(--s-block1);
 }
 
 dialog {
@@ -215,7 +214,7 @@ footer a:hover {
 /* Styles for screens larger than 768px */
 @media screen and (min-width: 768px) {
     #difficulty {
-        right: 10%;
+        left: 50%;
     }
 
     #game-wrap {

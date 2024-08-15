@@ -124,8 +124,9 @@ document.addEventListener("DOMContentLoaded", () => {
      */
     function removeBlocks() {
         active.forEach(i => {
-            blocks[location + i].classList.remove("sqr")
-            blocks[location + i].style.backgroundColor = ""
+            blocks[location + i].classList.remove("sqr");
+            blocks[location + i].style.backgroundColor = "";
+            blocks[location + i].style.boxShadow = "";
         });
     };
 
@@ -308,6 +309,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     blocks[i].classList.remove("delete");
                     blocks[i].classList.remove("sqr");
                     blocks[i].style.backgroundColor = "";
+                    blocks[i].style.boxShadow = "";
                 });
 
                 const deleteBlock = blocks.splice(i, 10);
