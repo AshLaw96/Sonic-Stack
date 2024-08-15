@@ -410,8 +410,5 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
         currentHigh.innerText = highScore
     };
-
-    console.log(highScore, "<<Top", currentHigh.innerText, "<<High");
-
 });
 
