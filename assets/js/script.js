@@ -8,13 +8,21 @@ document.addEventListener("DOMContentLoaded", () => {
     const reset = document.getElementById("reset");
     // movement buttons
     const leftMove = document.getElementById("left");
-    leftMove.addEventListener("click", left);
+    if (leftMove) {
+        leftMove.addEventListener("click", left);
+    }
     const rightMove = document.getElementById("right");
-    rightMove.addEventListener("click", right);
+    if (rightMove) {
+        rightMove.addEventListener("click", right);
+    };
     const twistMove = document.getElementById("twist");
-    twistMove.addEventListener("click", turn);
+    if (twistMove) {
+        twistMove.addEventListener("click", turn);
+    };
     const downMove = document.getElementById("down");
-    downMove.addEventListener("click", down);
+    if (downMove) {
+        downMove.addEventListener("click", down);
+    };
     // Navigation buttons
     const easyBtn = document.getElementById("easy");
     const medBtn = document.getElementById("medium");
@@ -22,16 +30,22 @@ document.addEventListener("DOMContentLoaded", () => {
     // Scores
     const currentHigh = document.getElementById("high-scr");
     const highScore = localStorage.getItem("High Score");
-    currentHigh.innerText = highScore;
+    if (currentHigh) {
+        currentHigh.innerText = highScore;
+    };
     const currentPoints = document.getElementById("point");
     let points = 0;
     // Hide variables
     const ruleBtn = document.getElementById("instructions");
-    let ruleHide = document.getElementById("rules"); 
-    ruleHide.style.display = "none";
+    let ruleHide = document.getElementById("rules");
+    if (ruleHide) {
+        ruleHide.style.display = "none";
+    };
     const scoreBtn = document.getElementById("score");
     let pointHide = document.getElementById("points");
-    pointHide.style.display = "none";
+    if (pointHide) {
+        pointHide.style.display = "none";
+    };
     // Sounds
     const soundWrap = document.getElementById("sound-wrap");
     const soundWrapChildren = soundWrap.children;
@@ -50,7 +64,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const turnSound = document.getElementById("turn-sound");
     const scrSound = document.getElementById("score-sound");
     const lostSound = document.getElementById("lost-sound");
-
+    const eggSound = document.getElementById("eggman");
+    const eggBtn = document.getElementById("eggman-btn");
+    const backBtn = document.getElementById("return");
     const subTitle = document.getElementsByTagName("h3");
 
     const dialog = document.querySelector("dialog");
@@ -295,7 +311,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-    startBtn.addEventListener("click", pausePlay);
+    if (startBtn) {
+        startBtn.addEventListener("click", pausePlay);
+    };
 
     /**
      * checks if full width of game area is full
@@ -347,7 +365,9 @@ document.addEventListener("DOMContentLoaded", () => {
         document.location.reload(); 
     };
 
-    reset.addEventListener("click", restart);
+    if (reset) {
+        reset.addEventListener("click", restart);
+    };
 
     // hide and un-hide rule text
     function rules() {
@@ -358,7 +378,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-    ruleBtn.addEventListener("click", rules);
+    if (ruleBtn) {
+        ruleBtn.addEventListener("click", rules);
+    };
 
     // hide and un-hide score text 
     function hideScore() {
@@ -369,7 +391,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-    scoreBtn.addEventListener("click", hideScore);
+    if (scoreBtn) {
+        scoreBtn.addEventListener("click", hideScore);
+    };
 
     // mute and un-mute all sound
     function muteUnmute() {
@@ -384,7 +408,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-    soundBtn.addEventListener("click", muteUnmute);
+    if (soundBtn) {
+        soundBtn.addEventListener("click", muteUnmute);
+    };
     
     //easy
     // page change
@@ -392,7 +418,9 @@ document.addEventListener("DOMContentLoaded", () => {
         window.location.href = "index.html";
     };
 
-    easyBtn.addEventListener("click", easyChange);
+    if (easyBtn) {
+        easyBtn.addEventListener("click", easyChange);
+    };
 
     //medium
     // page change
@@ -400,7 +428,9 @@ document.addEventListener("DOMContentLoaded", () => {
         window.location.href = "medium.html";
     };
 
-    medBtn.addEventListener("click", medChange);
+    if (medBtn) {
+        medBtn.addEventListener("click", medChange);
+    };
 
     // hard
     // page change
@@ -408,15 +438,33 @@ document.addEventListener("DOMContentLoaded", () => {
         window.location.href = "hard.html";
     };
 
-    hardBtn.addEventListener("click", hardChange);
+    if (hardBtn) {
+        hardBtn.addEventListener("click", hardChange);
+    };
 
-    if (currentPoints.innerText > highScore) {
-        highScore = currentPoints.innerText
-        localStorage.setItem("High Score", highScore);    
-        console.log("true");
-    } else {
-        currentHigh.innerText = localStorage.getItem("High Score");
-        console.log("false");
+    // if (currentPoints.innerText > highScore) {
+    //     highScore = currentPoints.innerText
+    //     localStorage.setItem("High Score", highScore);    
+    //     console.log("true");
+    // } else {
+    //     currentHigh.innerText = localStorage.getItem("High Score");
+    //     console.log("false");
+    // };
+
+    function playEgg() {
+        eggSound.play();
+    };
+
+    if (eggBtn) {
+        eggBtn.addEventListener("click", playEgg);
+    };
+
+    function goBack() {
+        history.back();
+    };
+
+    if (backBtn) {
+        backBtn.addEventListener("click", goBack);
     };
 });
 

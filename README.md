@@ -56,7 +56,7 @@ I've used CSS `:root` variables to easily update the global colour scheme by cha
 
 - [Square Mile](https://www.fontget.com/font/square-mile/) was used for all the text.
 
-- [Font Awesome](https://fontawesome.com) icons were used throughout the site, such as the icons in the navigation dropdown.
+- [Font Awesome](https://fontawesome.com) icons were used throughout the site, such as the icons in the button movement section.
 
 ## User Stories
 
@@ -225,6 +225,7 @@ Consider adding any helpful links or notes to help remind you in the future, if 
 - [![Moqups](https://img.shields.io/badge/Moqups-grey?logo=moqups&logoColor=0096FF)](https://moqups.com) used for creating Wireframes.
 - [![FontGet](https://img.shields.io/badge/FONTGET-grey?logo=data:image/png;base64,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&logoColor=00FFFF)](https://www.fontget.com) used for the text font.
 - [![Real Favicon Generator](https://img.shields.io/badge/RealFaviconGenerator-grey?logo=realfavicongenerator&logoColor=0096FF)](https://realfavicongenerator.net) used to create favicon.
+- [![Removebg](https://img.shields.io/badge/Removebg&logoColor=)](https://www.remove.bg/upload) used to make background of image transparent.
 
 ## Testing
 
@@ -299,9 +300,6 @@ No differences were found between the local version and the live deployed versio
 
 ### Media
 
-Within the Code Institute Slack community, you can find more "free media" links
-by sending yourself the following command: `!freemedia`.
-
 | Source | Location | Type | Notes |
 | --- | --- | --- | --- |
 | [Pinterest](https://www.pinterest.co.uk/pin/8162843068818083/) | website tab bar | image | favicon on the tab bar |
@@ -309,10 +307,11 @@ by sending yourself the following command: `!freemedia`.
 | [TinyPNG](https://tinypng.com) | entire site | image | tool for image compression |
 | [Pinterest](https://www.pinterest.co.uk/pin/335025659768357500/) | Easy page | image | background image for main section |
 | [Khinsider](https://downloads.khinsider.com/game-soundtracks/album/sonic-1-revisited) | index.html | audio | background music on easy page |
-| [101SoundBoards](https://www.101soundboards.com/boards/10990-sonic-the-hedgehog-sounds#goog_rewarded) | entire HTML | audio | sound when points gained |
+| [101SoundBoards](https://www.101soundboards.com/boards/10990-sonic-the-hedgehog-sounds#goog_rewarded) | entire HTML | audio | sound when points gained, losing sound and the turn sound |
 | [TheGamer](https://www.thegamer.com/sonic-the-hedgehog-labyrinth-zone-nightmares/) | medium page | image | background image main section |
 | [TheGamer](https://www.thegamer.com/sonic-the-hedgehog-best-final-zones-levels-ranked/) | hard page | image | background image main section |
 | [SoahCity](https://soahcity.com/sonic-music/sonic-the-hedgehog-1991-music/#google_vignette) | medium/hard HTML | audio | main background theme songs on medium & hard page |
+| [101SoundBoards](https://www.101soundboards.com/boards/10609-dr-eggman-sounds-sonic-adventure-2#goog_rewarded) | 404 HTML | audio | button sound on 404 main section |
 
 ### Acknowledgements
 
