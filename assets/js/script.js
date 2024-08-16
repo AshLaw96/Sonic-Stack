@@ -156,7 +156,6 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     // moving blocks
-
     /**
      * moves tetris block left
      * stops going left at edge of game area
@@ -206,11 +205,11 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     function stopRightTurn() {
-        return active.some(i => (location + i + 1) % 10 === 0);
+        return active.find(i => (location + i + 1) % 10 === 0);
     };
 
     function stopLeftTurn() {
-        return active.some(i => (location + i) % 10 === 0);
+        return active.find(i => (location + i) % 10 === 0);
     };
 
     /**
@@ -219,16 +218,12 @@ document.addEventListener("DOMContentLoaded", () => {
      * if at left side takes 1 away from location to wrap back around
      */
     function stopTurning() {
-        if ((location + 1) % 10 < 4) {
-            if (stopRightTurn()) {
+        if ((location + 1) % 10 < 4 && stopRightTurn()) {
                location += 1;
                stopTurning();
-            }
-        } else if (location % 10 > 4) {
-              if (stopLeftTurn()) {
+        } else if (location % 10 > 4 && stopLeftTurn()) {
                  location -= 1;
                  stopTurning();
-              }
           }
     };
 
@@ -416,10 +411,12 @@ document.addEventListener("DOMContentLoaded", () => {
     hardBtn.addEventListener("click", hardChange);
 
     if (currentPoints.innerText > highScore) {
-        highScore = localStorage.setItem("High Score", currentPoints.innerText);
+        highScore = currentPoints.innerText
+        localStorage.setItem("High Score", highScore);    
         console.log("true");
     } else {
-        currentHigh.innerText = highScore
+        currentHigh.innerText = localStorage.getItem("High Score");
+        console.log("false");
     };
 });
 
