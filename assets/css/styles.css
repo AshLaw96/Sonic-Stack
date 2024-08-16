@@ -29,7 +29,6 @@ body {
     font-family: "Tetris";
     color: var(--p-text);
     font-size: 16px;
-    background: url("../images/green-hill.jpg") no-repeat center center / cover;
 }
 
 button {
@@ -113,12 +112,19 @@ p {
     width: 50px;
 }
 
+#sound:hover {
+    box-shadow: 0 0 2px 4px var(--p-text);
+}
+
 #sound i {
     color: var(--p-text);
 }
 
-#sound:hover {
-    box-shadow: 0 0 2px 4px var(--p-text);
+#left, #right, #twist, #down {
+    width: 30px;
+    height: 30px;
+    margin: 5px 6%;
+    background-color: var(--p-text);
 }
 
 #instructions, #score, #start-stop, #reset {
@@ -127,7 +133,7 @@ p {
     background-color: var(--p-text);
 }
 
-#instructions:hover, #score:hover, #start-stop:hover, #reset:hover {
+#instructions:hover, #score:hover, #start-stop:hover, #reset:hover, #left:hover, #right:hover, #twist:hover, #down:hover {
     background-color: #BCC6CC;
 } 
 

@@ -6,6 +6,15 @@ document.addEventListener("DOMContentLoaded", () => {
     // start and reset buttons
     const startBtn = document.getElementById("start-stop");
     const reset = document.getElementById("reset");
+    // movement buttons
+    const leftMove = document.getElementById("left");
+    leftMove.addEventListener("click", left);
+    const rightMove = document.getElementById("right");
+    rightMove.addEventListener("click", right);
+    const twistMove = document.getElementById("twist");
+    twistMove.addEventListener("click", turn);
+    const downMove = document.getElementById("down");
+    downMove.addEventListener("click", down);
     // Navigation buttons
     const easyBtn = document.getElementById("easy");
     const medBtn = document.getElementById("medium");
