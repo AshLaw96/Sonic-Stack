@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const dialog = document.querySelector("dialog");
 
     let dropTime;
-
+    // colour array
     const clrArr = ["var(--p-block1)", "var(--p-block2)", "var(--p-block3)"];
 
     // Tetris blocks
@@ -128,7 +128,8 @@ document.addEventListener("DOMContentLoaded", () => {
     let active = blockArr[randBlock][activeRotate];
     
     /**
-     * creates the blocks
+     * creates the blocks by adding the style from CSS
+     * adds random colours to the blocks
      */
     function makeBlocks() {
         active.forEach(i => {
@@ -146,6 +147,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /**
      * delete the blocks that have been created
+     * deletes all styling
      */
     function removeBlocks() {
         active.forEach(i => {
@@ -157,11 +159,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /**
      * stops blocks running out of bottom of game area
+     * stops blocks reaching the delete divs
+     * 
      */
     function stop() {
         if (active.find(i => blocks[location + i + 10].classList.contains("delete"))) {
             active.forEach(i => blocks[location + i].classList.add("delete"));
-
+            // starts another random block dropping
             randBlock = Math.floor(Math.random() * blockArr.length);
             active = blockArr[randBlock][activeRotate];
             location = 3;
@@ -179,11 +183,11 @@ document.addEventListener("DOMContentLoaded", () => {
     function left() {
         removeBlocks();
         const stopL = active.some(i => (location + i) % 10 === 0);
-
+        // if above variable wrong, minus block location (move right 1)
         if (stopL === false) {
             location -= 1;
         };
-
+        // if block reached delete div add to location then drop another block
         if (active.some(i => blocks[location + i].classList.contains("delete"))) {
             location += 1;
         };
@@ -197,7 +201,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function right() {
         removeBlocks();
         const stopR = active.some(i => (location + i) % 10 === 9);
-
+        // if above variable wrong, add to block location (move left 1)
         if (stopR === false) {
             location += 1;
         };
@@ -212,6 +216,7 @@ document.addEventListener("DOMContentLoaded", () => {
     /**
      * moves tetris block down
      * repeats block when reach bottom of game area
+     * stop block drop if reach top (stop func)
      */
     function down() {
         removeBlocks();
@@ -220,10 +225,16 @@ document.addEventListener("DOMContentLoaded", () => {
         stop();
     };
 
+    /**
+     * finds first block that reaches right side 
+     */
     function stopRightTurn() {
         return active.find(i => (location + i + 1) % 10 === 0);
     };
 
+    /**
+     * finds first block that reaches left side  
+     */
     function stopLeftTurn() {
         return active.find(i => (location + i) % 10 === 0);
     };
@@ -250,7 +261,7 @@ document.addEventListener("DOMContentLoaded", () => {
         removeBlocks();
         activeRotate ++;
         turnSound.play();
-
+        // if number of rotation is same as array length start again
         if (activeRotate === active.length) {
             activeRotate = 0;
         };
@@ -278,10 +289,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.addEventListener("keydown", movement);
 
+    /**
+     * pauses the drop of blocks when button is pressed
+     * starts drop when button is pressed again
+     */
     function pausePlay() {
         if (dropTime) {
           clearInterval(dropTime);
           dropTime = null;
+        // checks what first audio equals then stops that audio if true
           if (soundArr[0] === greenHill) {
               greenHill.pause();
           } else if (soundArr[0] === labSound) {
@@ -291,6 +307,7 @@ document.addEventListener("DOMContentLoaded", () => {
           }
         } else {
             makeBlocks();
+            // loops all h3 checks what text and changes drop speed of block depending
             for (let i = 0; i < subTitle.length; i++) {
                 if (subTitle[i].textContent === "Easy") {
                    dropTime = setInterval(down, 1000);
@@ -317,7 +334,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /**
      * checks if full width of game area is full
-     * if full remove the full line 
+     * if full remove the full line and all styles
      * add 100 points every time full line 
      */
     function gotPoints() {
@@ -333,7 +350,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     blocks[i].style.backgroundColor = "";
                     blocks[i].style.boxShadow = "";
                 });
-
+                // equals full line then adds to the blocks variables then for each one adds to children of gameWrap
                 const deleteBlock = blocks.splice(i, 10);
                 blocks = deleteBlock.concat(blocks);
                 blocks.forEach(square => gameWrap.appendChild(square));
@@ -345,6 +362,8 @@ document.addEventListener("DOMContentLoaded", () => {
     /**
      * checks if Tetris block reach top of game area
      * if true stops Tetris blocks dropping
+     * stops main sounds play lost sound
+     * shows the dialog
      */
     function lost() {
         if (active.find(i => blocks[location + i].classList.contains("delete"))) {
@@ -395,7 +414,11 @@ document.addEventListener("DOMContentLoaded", () => {
         scoreBtn.addEventListener("click", hideScore);
     };
 
-    // mute and un-mute all sound
+    /**
+     * loops all audio
+     * if volume is above 0 all audio equals 0
+     * if not all audio equals 1
+    */
     function muteUnmute() {
         for (let i = 0; i < allAudio.length; i++) {
             if (allAudio[i].volume > 0) {
@@ -442,15 +465,7 @@ document.addEventListener("DOMContentLoaded", () => {
         hardBtn.addEventListener("click", hardChange);
     };
 
-    // if (currentPoints.innerText > highScore) {
-    //     highScore = currentPoints.innerText
-    //     localStorage.setItem("High Score", highScore);    
-    //     console.log("true");
-    // } else {
-    //     currentHigh.innerText = localStorage.getItem("High Score");
-    //     console.log("false");
-    // };
-
+    // 404 section
     function playEgg() {
         eggSound.play();
     };
