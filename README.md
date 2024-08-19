@@ -18,7 +18,7 @@ source: [amiresponsive](https://ui.dev/amiresponsive?url=https://ashlaw96.github
 
 Sonic Stacks purpose is to help resolve peoples lack of enthusiasm by giving them fun tasks to solve.
 
-The site will have 3 pages, the first page will contain the easy level game area, then the medium game area and finally the hard game area. Each page will comprise with the same layout so the user can easily navigate through the site.
+The site will have 3 pages and a 404 error page, the first page will contain the easy level game area with a background image and buttons within the main section, a header and footer section. Then the medium game area with a different background image and finally the hard game area with a different background image. Each page will comprise with the same layout so the user can easily navigate through the site. The 404 will follow the same layout but with just some error message and image in the main section.
 
 ### Colour Scheme
 
@@ -126,13 +126,13 @@ Main
 
 #### Header
 
-The header will contain the title and the navigation dropdown button. It will be the same on each page except for the 404 where the title will differ it will also have a background colour that follows the colour scheme.
+The header will contain the title, the navigation dropdown button and a mute/un-mute sound button. It will be the same on each page except for the 404 where the navigation will only contain one button. It will also have a background colour that follows the colour scheme of the full site.
 
 Main
-  - ![screenshot](documentation/features)
+  - ![screenshot](documentation/features/main-header.png)
 
 404
-  - ![screenshot](documentation/features)
+  - ![screenshot](documentation/features/404-header.png)
 
 #### Navigation
 
@@ -142,16 +142,16 @@ The navigation will be situated at the top of the screen. There will be a tab bu
 <summary> click here to see the navigation of each page </summary>
 
 Easy
-  - ![screenshot](documentation/features)
+  - ![screenshot](documentation/features/easy-nav.png)
 
 Medium
-  - ![screenshot](documentation/features)
+  - ![screenshot](documentation/features/med-nav.png)
 
 Hard
-  - ![screenshot](documentation/features)
+  - ![screenshot](documentation/features/hard-nav.png)
 
 404
-  - ![screenshot](documentation/features)
+  - ![screenshot](documentation/features/404-nav.png)
 
 </details>
 
@@ -163,22 +163,40 @@ This will be situated at the top of the screen on mobile and tablet and then dow
 <summary> click here to see the aside on each screen </summary>
 
 Mobile
-  - ![screenshot](documentation/features)
+  - ![screenshot](documentation/features/mob-aside.png)
 
 Tablet
-  - ![screenshot](documentation/features)
+  - ![screenshot](documentation/features/ipad-aside.png)
 
 Desktop
-  - ![screenshot](documentation/features)
+  - ![screenshot](documentation/features/desk-aside.png)
 
 </details>
 
 #### Main
 
-The main section for the 3 main pages will contain the game area itself and 2 buttons situated below the game area. The first button will be the start button so the user can actually start playing and a reset button if the user wants to start again. There will be a different background image for each main page. For the 404 page the main section will contain an image and a 404 message telling the user that an error has occurred and they need to navigate to the previous page.
+The main section for the 3 main pages will contain a title, the game area itself, and a button area below containing 4 control buttons and 2 other buttons situated below the control ones. The first button will be the start/pause button so the user can actually start playing and pause if they want and a reset button if the user wants to start again. There will be a different background image for each main page. For the 404 page the main section will contain an image and a 404 message telling the user that an error has occurred and they need to navigate to the previous page.
 
 <details>
 <summary> click here to see the main section of each page </summary>
+
+Easy
+  - ![screenshot](documentation/features/easy-main.png)
+
+Medium
+  - ![screenshot](documentation/features/med-main.png)
+
+Hard
+  - ![screenshot](documentation/features/hard-main.png)
+
+404
+  - ![screenshot](documentation/features/404-main.png)
+
+</details>
+
+#### Footer
+
+The footer will be located at the bottom of the page containing a different link on each of the 3 main pages and just an empty footer on the 404 page but still having the same layout as the other 3.
 
 Easy
   - ![screenshot](documentation/features)
@@ -187,18 +205,6 @@ Medium
   - ![screenshot](documentation/features)
 
 Hard
-  - ![screenshot](documentation/features)
-
-404
-  - ![screenshot](documentation/features)
-
-</details>
-
-#### Footer
-
-The footer will be located at the bottom of the page containing a different link on each of the 3 main pages, of different people playing Tetris games.
-
-Main
   - ![screenshot](documentation/features)
 
 404
