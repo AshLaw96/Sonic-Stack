@@ -3,32 +3,26 @@
 > [!NOTE]  
 > Return back to the [README.md](README.md) file.
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-START OF NOTES (to be deleted)
-
-In this section, you need to convince the assessors that you have conducted enough testing to legitimately believe that the site works well.
-Essentially, in this part, you should go over all of your project's features, and ensure that they all work as intended,
-with the project providing an easy and straightforward way for the users to achieve their goals.
-
 Feature-by-Feature Testing:
 
-Go through each feature of your portfolio site and detail the testing process for each.
-
-Explain the functionality and demonstrate how it aligns with the intended purpose. This could include:
-
-- Navigation: Ensuring smooth transitions between pages, links directing to the correct destinations.
-- Responsive Design: Checking for compatibility across various devices and screen sizes.
-- Portfolio Display: Verifying that projects are properly showcased with accurate descriptions, images, and links.
-- Contact Form: Testing the form submission process, ensuring the user receives a confirmation, and you receive the message.
+- Navigation: I ensured smooth transitions between each page and the links direct to the correct destination.
+- Responsive Design: I've checked for compatibility across multiple devices and screen sizes.
+- Portfolio Display: I have verified that every page is properly showcased with accurate descriptions, images, and links.
+- Game area: I confirmed that the game worked as intended on different devices and screen sizes.
+- Buttons: I made sure that all buttons worked as they should and were easy to understand and read.
 
 User Experience Testing:
 
-- Usability Testing: Have users (or simulated users) interact with the site and provide feedback. Document any issues encountered and the resolutions implemented.
-- Accessibility Testing: Confirm compliance with accessibility standards (e.g., screen reader compatibility, proper alt text for images, keyboard navigation).
+- Usability Testing: I let users interact with my site and provide feedback of their experience with it.
+1.
+2.
+3.
+- Accessibility Testing: I confirmed compliance with accessibility standards e.g. screen reader compatibility, proper alt text for images and keyboard navigation.
 
 Compatibility Testing:
 
-- Browser Compatibility: Testing on different browsers (Chrome, Firefox, Safari, Edge, etc.) to ensure consistent performance.
-- Device Compatibility: Ensuring functionality across various devices (desktops, laptops, tablets, and mobile phones).
+- Browser Compatibility: I Tested on different browsers, to ensure compatible performance.
+- Device Compatibility: I ensured functionality across numerous devices.
 - Performance Testing (optional):
 	- Speed and Load Testing: Tools like PageSpeed Insights or GTmetrix to check page load times and optimize where necessary.
 	- Scalability Testing: Assess how the site handles increased traffic or usage.

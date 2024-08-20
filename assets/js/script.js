@@ -8,21 +8,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const reset = document.getElementById("reset");
     // movement buttons
     const leftMove = document.getElementById("left");
-    if (leftMove) {
-        leftMove.addEventListener("click", left);
-    }
     const rightMove = document.getElementById("right");
-    if (rightMove) {
-        rightMove.addEventListener("click", right);
-    };
     const twistMove = document.getElementById("twist");
-    if (twistMove) {
-        twistMove.addEventListener("click", turn);
-    };
     const downMove = document.getElementById("down");
-    if (downMove) {
-        downMove.addEventListener("click", down);
-    };
     // Navigation buttons
     const easyBtn = document.getElementById("easy");
     const medBtn = document.getElementById("medium");
@@ -32,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const highScore = localStorage.getItem("High Score");
     if (currentHigh) {
         currentHigh.innerText = highScore;
-    };
+    }
     const currentPoints = document.getElementById("point");
     let points = 0;
     // Hide variables
@@ -40,22 +28,22 @@ document.addEventListener("DOMContentLoaded", () => {
     let ruleHide = document.getElementById("rules");
     if (ruleHide) {
         ruleHide.style.display = "none";
-    };
+    }
     const scoreBtn = document.getElementById("score");
     let pointHide = document.getElementById("points");
     if (pointHide) {
         pointHide.style.display = "none";
-    };
+    }
     // Sounds
     const soundWrap = document.getElementById("sound-wrap");
     const soundWrapChildren = soundWrap.children;
     let soundArr = [];
-    for (let i = 0; i < soundWrapChildren.length; i++) {
+    for (let i = 0; i < soundWrapChildren.length; i += 1) {
         soundArr.push(soundWrapChildren[i]);
-    };
+    }
     const soundBtn = document.getElementById("sound");
     const allAudio = document.getElementsByTagName("audio");
-    for (let i = 0; i < allAudio.length; i++) {
+    for (let i = 0; i < allAudio.length; i += 1) {
         allAudio[i].volume = 0;
     }
     const greenHill = document.getElementById("green-hill");
@@ -135,7 +123,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function makeBlocks() {
         active.forEach(i => {
             blocks[location + i].classList.add("sqr");
-            blocks[location + i].style.backgroundColor = clrArr[randBlock]
+            blocks[location + i].style.backgroundColor = clrArr[randBlock];
             if (blocks[location + i].style.backgroundColor === "var(--p-block2)") {
                 blocks[location + i].style.boxShadow = "0 0 4px 2px var(--s-block2)";
             } else if (blocks[location + i].style.backgroundColor === "var(--p-block3)") {
@@ -144,7 +132,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 blocks[location + i].style.boxShadow = "0 0 4px 2px var(--s-block1)";
             }
         });
-    };
+    }
 
     /**
      * delete the blocks that have been created
@@ -156,7 +144,64 @@ document.addEventListener("DOMContentLoaded", () => {
             blocks[location + i].style.backgroundColor = "";
             blocks[location + i].style.boxShadow = "";
         });
-    };
+    }
+
+      /**
+     * checks if full width of game area is full
+     * if full remove the full line and all styles
+     * add 100 points every time full line 
+     */
+      function gotPoints() {
+        for (let i = 0; i < 199; i += 10) {
+            const line = [i, i + 1, i + 2, i + 3, i + 4, i + 5, i + 6, i + 7, i + 8, i + 9];
+
+            if (line.every(j => blocks[j].classList.contains("delete"))) {
+                points += 100;
+                currentPoints.innerText = points;
+                line.forEach(x => {
+                    blocks[x].classList.remove("delete");
+                    blocks[x].classList.remove("sqr");
+                    blocks[x].style.backgroundColor = "";
+                    blocks[x].style.boxShadow = "";
+                });
+
+                const deleteBlock = blocks.splice(i, 10); // remove full line from the blocks
+                blocks = deleteBlock.concat(blocks); // add deleteBlock to blocks variable
+                blocks.forEach(square => gameWrap.appendChild(square)); // add each as child of gameWrap
+                scrSound.play();
+            }
+        }
+    }
+
+    /**
+     * checks if Tetris block reach top of game area
+     * if true stops Tetris blocks dropping
+     * stops main sounds play lost sound
+     * shows the dialog
+     */
+    function lost() {
+        if (active.find(i => blocks[location + i].classList.contains("delete"))) {
+            clearInterval(dropTime);
+            if (soundArr[0] === greenHill) {
+                greenHill.pause();
+            } else if (soundArr[0] === labSound) {
+                labSound.pause();
+            } else {
+                bossSound.pause();
+            }
+            lostSound.play();
+            dialog.showModal();
+        }
+    }
+
+    // dialog can be closed by pressing a button
+    function closeDialog() {
+        dialog.close();
+    }
+
+    if (dialClose) {
+        dialClose.addEventListener("click", closeDialog);
+    }
 
     /**
      * stops blocks running out of bottom of game area
@@ -174,7 +219,7 @@ document.addEventListener("DOMContentLoaded", () => {
             gotPoints();
             lost();
         } 
-    };
+    }
 
     // moving blocks
     /**
@@ -187,13 +232,17 @@ document.addEventListener("DOMContentLoaded", () => {
         // if above variable wrong, minus block location (move right 1)
         if (stopL === false) {
             location -= 1;
-        };
+        }
         // if block reached delete div add to location then drop another block
         if (active.some(i => blocks[location + i].classList.contains("delete"))) {
             location += 1;
-        };
+        }
         makeBlocks();
-    };
+    }
+
+    if (leftMove) {
+        leftMove.addEventListener("click", left);
+    }
     
     /**
      * moves tetris block right
@@ -205,14 +254,18 @@ document.addEventListener("DOMContentLoaded", () => {
         // if above variable wrong, add to block location (move left 1)
         if (stopR === false) {
             location += 1;
-        };
+        }
 
         if (active.some(i => blocks[location + i].classList.contains("delete"))) {
             location -= 1;
-        };
+        }
 
         makeBlocks();
-    };
+    }
+
+    if (rightMove) {
+        rightMove.addEventListener("click", right);
+    }
 
     /**
      * moves tetris block down
@@ -224,21 +277,25 @@ document.addEventListener("DOMContentLoaded", () => {
         location += 10;
         makeBlocks();
         stop();
-    };
+    }
+
+    if (downMove) {
+        downMove.addEventListener("click", down);
+    }
 
     /**
      * finds first block that reaches right side 
      */
     function stopRightTurn() {
         return active.find(i => (location + i + 1) % 10 === 0);
-    };
+    }
 
     /**
      * finds first block that reaches left side  
      */
     function stopLeftTurn() {
         return active.find(i => (location + i) % 10 === 0);
-    };
+    }
 
     /**
      * checks if block is turning at either side of game area
@@ -253,24 +310,28 @@ document.addEventListener("DOMContentLoaded", () => {
                  location -= 1;
                  stopTurning();
           }
-    };
+    }
 
     /**
      * rotates block through each position
      */
     function turn() {
         removeBlocks();
-        activeRotate ++;
+        activeRotate += 1;
         turnSound.play();
         // if number of rotation is same as array length start again
         if (activeRotate === active.length) {
             activeRotate = 0;
-        };
+        }
 
         active = blockArr[randBlock][activeRotate];
         stopTurning();
         makeBlocks();
-    };
+    }
+
+    if (twistMove) {
+        twistMove.addEventListener("click", turn);
+    }
 
     /**
      * access key board codes
@@ -286,7 +347,7 @@ document.addEventListener("DOMContentLoaded", () => {
         } else if (event.keyCode === 32) { // space bar
             turn();
         }
-    };
+    }
 
     document.addEventListener("keydown", movement);
 
@@ -309,7 +370,7 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
             makeBlocks();
             // loops all h3 checks what text and changes drop speed of block depending
-            for (let i = 0; i < subTitle.length; i++) {
+            for (let i = 0; i < subTitle.length; i += 1) {
                 if (subTitle[i].textContent === "Easy") {
                    dropTime = setInterval(down, 1000);
                 } else if (subTitle[i].textContent === "Medium") {
@@ -317,7 +378,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 } else {
                    dropTime = setInterval(down, 200);
                 }
-            };
+            }
         
             if (soundArr[0] === greenHill) {
                 greenHill.play();
@@ -327,76 +388,19 @@ document.addEventListener("DOMContentLoaded", () => {
                 bossSound.play();
             }
         }
-    };
+    }
 
     if (startBtn) {
         startBtn.addEventListener("click", pausePlay);
-    };
-
-    /**
-     * checks if full width of game area is full
-     * if full remove the full line and all styles
-     * add 100 points every time full line 
-     */
-    function gotPoints() {
-        for (let i = 0; i < 199; i += 10) {
-            const line = [i, i + 1, i + 2, i + 3, i + 4, i + 5, i + 6, i + 7, i + 8, i + 9];
-
-            if (line.every(i => blocks[i].classList.contains("delete"))) {
-                points += 100;
-                currentPoints.innerText = points;
-                line.forEach(i => {
-                    blocks[i].classList.remove("delete");
-                    blocks[i].classList.remove("sqr");
-                    blocks[i].style.backgroundColor = "";
-                    blocks[i].style.boxShadow = "";
-                });
-                // equals full line then adds to the blocks variables then for each one adds to children of gameWrap
-                const deleteBlock = blocks.splice(i, 10);
-                blocks = deleteBlock.concat(blocks);
-                blocks.forEach(square => gameWrap.appendChild(square));
-                scrSound.play();
-            }
-        }
-    };
-
-    /**
-     * checks if Tetris block reach top of game area
-     * if true stops Tetris blocks dropping
-     * stops main sounds play lost sound
-     * shows the dialog
-     */
-    function lost() {
-        if (active.find(i => blocks[location + i].classList.contains("delete"))) {
-            clearInterval(dropTime);
-            if (soundArr[0] === greenHill) {
-                greenHill.pause();
-            } else if (soundArr[0] === labSound) {
-                labSound.pause();
-            } else {
-                bossSound.pause();
-            }
-            lostSound.play();
-            dialog.showModal();
-        }
-    };
-
-    // dialog can be closed by pressing a button
-    function closeDialog() {
-        dialog.close();
-    };
-
-    if (dialClose) {
-        dialClose.addEventListener("click", closeDialog);
-    };
+    }
 
     function restart() {
         document.location.reload(); 
-    };
+    }
 
     if (reset) {
         reset.addEventListener("click", restart);
-    };
+    }
 
     // hide and un-hide rule text
     function rules() {
@@ -405,11 +409,11 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
             ruleHide.style.display = "none"; 
         }
-    };
+    }
 
     if (ruleBtn) {
         ruleBtn.addEventListener("click", rules);
-    };
+    }
 
     // hide and un-hide score text 
     function hideScore() {
@@ -418,11 +422,11 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
             pointHide.style.display = "none";
         }
-    };
+    }
 
     if (scoreBtn) {
         scoreBtn.addEventListener("click", hideScore);
-    };
+    }
 
     /**
      * loops all audio
@@ -430,7 +434,7 @@ document.addEventListener("DOMContentLoaded", () => {
      * if not all audio equals 1
     */
     function muteUnmute() {
-        for (let i = 0; i < allAudio.length; i++) {
+        for (let i = 0; i < allAudio.length; i += 1) {
             if (allAudio[i].volume > 0) {
                 allAudio[i].volume = 0;
                 soundBtn.style.backgroundColor = "var(--p-highlight)";
@@ -439,57 +443,57 @@ document.addEventListener("DOMContentLoaded", () => {
                 soundBtn.style.backgroundColor = "var(--p-block3)";
             }
         }
-    };
+    }
 
     if (soundBtn) {
         soundBtn.addEventListener("click", muteUnmute);
-    };
+    }
     
     //easy
     // page change
     function easyChange() {
         window.location.href = "index.html";
-    };
+    }
 
     if (easyBtn) {
         easyBtn.addEventListener("click", easyChange);
-    };
+    }
 
     //medium
     // page change
     function medChange() {
         window.location.href = "medium.html";
-    };
+    }
 
     if (medBtn) {
         medBtn.addEventListener("click", medChange);
-    };
+    }
 
     // hard
     // page change
     function hardChange() {
         window.location.href = "hard.html";
-    };
+    }
 
     if (hardBtn) {
         hardBtn.addEventListener("click", hardChange);
-    };
+    }
 
     // 404 section
     function playEgg() {
         eggSound.play();
-    };
+    }
 
     if (eggBtn) {
         eggBtn.addEventListener("click", playEgg);
-    };
+    }
 
     function goBack() {
         history.back();
-    };
+    }
 
     if (backBtn) {
         backBtn.addEventListener("click", goBack);
-    };
+    }
 });
 
