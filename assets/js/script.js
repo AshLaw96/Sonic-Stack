@@ -70,6 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const subTitle = document.getElementsByTagName("h3");
 
     const dialog = document.querySelector("dialog");
+    const dialClose = document.querySelector("#close-dial");
 
     let dropTime;
     // colour array
@@ -378,6 +379,15 @@ document.addEventListener("DOMContentLoaded", () => {
             lostSound.play();
             dialog.showModal();
         }
+    };
+
+    // dialog can be closed by pressing a button
+    function closeDialog() {
+        dialog.close();
+    };
+
+    if (dialClose) {
+        dialClose.addEventListener("click", closeDialog);
     };
 
     function restart() {

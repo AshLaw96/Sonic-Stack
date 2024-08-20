@@ -167,9 +167,16 @@ dialog {
     z-index: 100;
     margin: auto;
     padding: 2px;
-    background-color: var(--p-block2);
     border-radius: 5px;
     text-align: center;
+}
+
+#close-dial {
+    background-color: var(--p-block2);
+}
+
+#close-dial:hover {
+    background-color: #d60000;
 }
 
 dialog::backdrop {
