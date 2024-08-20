@@ -95,25 +95,12 @@ Documentation and Logs:
 - To fix the issue, I had to add a function that implemented code when the block turned near the edge of the game area, move its location away so it didn't overlap the game area.
 
   - The fix: [fix](documentation/bugs/turn-overlap-fix.png)
-  
+
 User Feedback Incorporation:
 
 If applicable, mention how user feedback has been taken into account and implemented to enhance the user experience.
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
-
 ## Code Validation
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-START OF NOTES (to be deleted)
-
-Use the space to discuss code validation for any of your own code files (where applicable).
-You are not required to validate external libraries/frameworks, such as imported Bootstrap, Materialize, Font Awesome, etc.
-
-**IMPORTANT**: You must provide a screenshot for each file you validate.
-
-**PRO TIP**: Always validate the live site pages, not your local code. There could be subtle/hidden differences.
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
 
 ### HTML
 
@@ -121,7 +108,10 @@ I have used the recommended [HTML W3C Validator](https://validator.w3.org) to va
 
 | Directory | File | Screenshot | Notes |
 | --- | --- | --- | --- |
-|  | index.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
+|  | index.html | ![screenshot](documentation/validate/easy-html-check.png) | no issues were found |
+|  | medium.html | ![screenshot](documentation/validate/med-html-check.png) | no issues were found |
+|  | hard.html | ![screenshot](documentation/validate/hard-html-check.png) | no issues were found |
+|  | 404.html | ![screenshot](documentation/validate/404-html-check.png) | no issues were found |
 
 ### CSS
 
@@ -129,7 +119,7 @@ I have used the recommended [CSS Jigsaw Validator](https://jigsaw.w3.org/css-val
 
 | Directory | File | Screenshot | Notes |
 | --- | --- | --- | --- |
-| assets | styles.css | ![screenshot](documentation/validation/path-to-screenshot.png) | |
+| assets | styles.css | ![screenshot](documentation/validate/css-check.png) | no issues were found |
 
 ## Browser Compatibility
 
