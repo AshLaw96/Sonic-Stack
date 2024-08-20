@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const eggSound = document.getElementById("eggman");
     const eggBtn = document.getElementById("eggman-btn");
     const backBtn = document.getElementById("return");
-    const subTitle = document.getElementsByTagName("h3");
+    const subTitle = document.getElementsByTagName("h2");
 
     const dialog = document.querySelector("dialog");
     const dialClose = document.querySelector("#close-dial");
@@ -369,7 +369,7 @@ document.addEventListener("DOMContentLoaded", () => {
           }
         } else {
             makeBlocks();
-            // loops all h3 checks what text and changes drop speed of block depending
+            // loops all h2 checks what text and changes drop speed of block depending
             for (let i = 0; i < subTitle.length; i += 1) {
                 if (subTitle[i].textContent === "Easy") {
                    dropTime = setInterval(down, 1000);

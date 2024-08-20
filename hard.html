@@ -21,7 +21,7 @@
         <a href="index.html">
             <h1>Sonic Stack </h1>
         </a>
-        <button id="sound">
+        <button id="sound" aria-label="mute/unmute volume">
             <i class="fa-solid fa-volume-high"></i>
         </button>
         <!-- Navbar Section -->
@@ -30,15 +30,15 @@
             <i class="fa-solid fa-bars"></i>
         </label>
         <nav id="difficulty">
-            <button id="easy" class="nxt-pg">Easy</button>
-            <button id="medium" class="nxt-pg">Medium</button>
-            <button id="hard" class="nxt-pg current">Hard</button>
+            <button id="easy" aria-label="easy navigation">Easy</button>
+            <button id="medium" aria-label="medium navigation">Medium</button>
+            <button id="hard" class="current" aria-label="hard navigation">Hard</button>
         </nav>
     </header>
     <main>
         <section id="hard-wrap">
             <aside id="side-wrap">
-                <button id="instructions">Rules</button>
+                <button id="instructions" aria-label="show/hide rules">Rules</button>
                 <p id="rules">How to Play: <br>
                     <span class="rule">Keyboard- Use left and right keys to move blocks side to side. Hold or click down arrow key to move block down quicker. Press space bar to turn blocks.</span>
                     <br>
@@ -46,14 +46,14 @@
                     <br> <br>
                     Make full horizontal line to gain points.
                 </p>
-                <button id="score">Your Score</button>
+                <button id="score" aria-label="show/hide score">Your Score</button>
                 <p id="points">
                     Current Points: <span id="point">0</span>
                     <br>
                     High Score: <span id="high-scr">0</span>
                 </p>
             </aside>
-            <h3>Hard</h3>
+            <h2>Hard</h2>
             <div id="game-wrap">
                 <div></div>
                 <div></div>
@@ -267,26 +267,26 @@
                 <div class="delete"></div>
             </div>
             <div class="btn-area">
-                <button id="left">
+                <button id="left" aria-label="move left">
                     <i class="fa-solid fa-arrow-left"></i>
                 </button>
-                <button id="twist">
+                <button id="twist" aria-label="turn block">
                     <i class="fa-solid fa-arrows-rotate"></i>
                 </button>
-                <button id="down">
+                <button id="down" aria-label="move down">
                     <i class="fa-solid fa-arrow-down"></i>
                 </button>
-                <button id="right">
+                <button id="right" aria-label="move right">
                     <i class="fa-solid fa-arrow-right"></i>
                 </button>
-                <button id="start-stop">
+                <button id="start-stop" aria-label="play/pause game">
                     Start Game <br>
                     <i class="fa-solid fa-play"></i> <i class="fa-solid fa-pause"></i>
                 </button>
-                <button id="reset">Restart</button>
+                <button id="reset" aria-label="restart game">Restart</button>
             </div>
             <dialog>
-                <button id="close-dial">
+                <button id="close-dial" aria-label="close dialog">
                     You Lost <br> <br> press <span id="esc">esc</span>
                 </button>
             </dialog>

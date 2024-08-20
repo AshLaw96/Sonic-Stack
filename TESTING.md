@@ -23,17 +23,79 @@ Compatibility Testing:
 
 - Browser Compatibility: I Tested on different browsers, to ensure compatible performance.
 - Device Compatibility: I ensured functionality across numerous devices.
-- Performance Testing (optional):
-	- Speed and Load Testing: Tools like PageSpeed Insights or GTmetrix to check page load times and optimize where necessary.
-	- Scalability Testing: Assess how the site handles increased traffic or usage.
+- Performance Testing:
+  - Speed and Load Testing: I used PageSpeed Insights to check page load times and optimized where necessary.
+
+  <details>
+  <summary> Click here to see speed tests of each page </summary>
+
+    - easy
+    ![screenshot](documentation/speed)
+
+    - medium
+    ![screenshot](documentation/speed)
+
+    - hard
+    ![screenshot](documentation/speed)
+    
+    </details>
+
+  - Scalability Testing: I assessed how the site handled increased traffic and usage.
 
 Regression Testing:
 
-After implementing fixes or updates, ensure that previous features and functionalities still work as intended. This prevents new changes from breaking existing features.
+After implementing any fixes or updates I ensured that previous features and functionalities still worked as intended.
 
 Documentation and Logs:
 
-Maintain records of testing procedures, results, and any bugs encountered along with their resolutions. This helps demonstrate a systematic approach to testing and problem-solving.
+- whilst creating the blocks, I noticed that where the blocks appeared the box shadow stayed when they left the area.
+
+  - The issue: [issue](documentation/bugs/box-shadow-issue.png)
+
+- To fix this issue I needed to add code into the correct function that removed the box shadow style.
+
+  - The fix: [fix](documentation/bugs/fix-shadow.png)
+
+- Whilst creating the rules hide button, I noticed that it wouldn't show and hide the text as desired.
+
+  - The issue: [issue](documentation/bugs/display-type-issue.png)
+
+- To fix this I had to remove multiple `span` elements inside the button element.
+  
+  - The fix: [fix](documentation/bugs/display-type-fix.png)
+
+- Whilst creating the blocks, I noticed that the blocks were not in the correct designed shapes.
+
+  - The issue: [issue](documentation/bugs/misshaped.png)
+
+- To fix the issue, I had to change the game areas width and height so each div would fit evenly in the game area.
+
+  - The fix: [fix](documentation/bugs/fix-misshaped.png)
+
+- When creating the game, I noticed that when moving the blocks all way left or right of the game area, it would overlap to the opposite side of the game area.
+
+  - The issue: [issue](documentation/bugs/overlap-right.png)
+
+- To fix this issue, I had to add a function that checked if the block had reached the edge of the game area and if so stop.
+
+  - The fix: [fix](documentation/bugs/fix-overlap-right.png)
+
+- When trying to select all the `div` inside the game area I came across a type error.
+
+  - The issue: [issue](documentation/bugs/type-error.png)
+
+- To fix this issue I used the `querySelectorAll` to get all the child elements inside the game area.
+
+  - The fix: [fix](documentation/bugs/fix-type-error.png)
+
+- Whilst testing the game, I noticed that when turning the blocks near the edge of the game area they would overlap to the other side of the game area.
+
+  - The issue: [issue](documentation/bugs/turn-overlap-screen.png)
+
+- To fix the issue, I had to add a function that implemented code when the block turned near the edge of the game area, move its location away so it didn't overlap the game area.
+
+  - The fix: [fix](documentation/bugs/turn-overlap-fix.png)
+  
 User Feedback Incorporation:
 
 If applicable, mention how user feedback has been taken into account and implemented to enhance the user experience.
