@@ -1,6 +1,15 @@
 // wait for DOM to finish loading before running the game
 document.addEventListener("DOMContentLoaded", () => {
     const gameWrap = document.getElementById("game-wrap");
+    for (let i = 0; i < 200; i++) {
+        const div = document.createElement("div");
+        gameWrap.appendChild(div);
+    }
+    for (let i = 0; i < 10; i++) {
+        const div = document.createElement("div");
+        div.classList.add("delete");
+        gameWrap.appendChild(div);
+    }
     // turns game divs into an array
     let blocks = Array.from(document.querySelectorAll("#game-wrap div"));
     // start and reset buttons
