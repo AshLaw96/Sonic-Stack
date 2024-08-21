@@ -375,24 +375,37 @@ document.addEventListener("DOMContentLoaded", () => {
           }
         } else {
             makeBlocks();
+            switch (subTitle.textContent) {
+                case "Medium":
+                    medChange();
+                    labSound.play();
+                    break;
+                case "Hard":
+                    hardChange();
+                    bossSound.play();
+                    break;
+                default:
+                    easyChange();
+                    greenHill.play();
+            }
             // loops all h2 checks what text and changes drop speed of block depending
-            for (let i = 0; i < subTitle.length; i += 1) {
-                if (subTitle[i].textContent === "Easy") {
-                   dropTime = setInterval(down, 1000);
-                } else if (subTitle[i].textContent === "Medium") {
-                   dropTime = setInterval(down, 500);
-                } else {
-                   dropTime = setInterval(down, 200);
-                }
-            }
+            // for (let i = 0; i < subTitle.length; i += 1) {
+            //     if (subTitle[i].textContent === "Easy") {
+            //        dropTime = setInterval(down, 1000);
+            //     } else if (subTitle[i].textContent === "Medium") {
+            //        dropTime = setInterval(down, 500);
+            //     } else {
+            //        dropTime = setInterval(down, 200);
+            //     }
+            // }
         
-            if (soundArr[0] === greenHill) {
-                greenHill.play();
-            } else if (soundArr[0] === labSound) {
-                labSound.play();
-            } else {
-                bossSound.play();
-            }
+            // if (soundArr[0] === greenHill) {
+            //     greenHill.play();
+            // } else if (soundArr[0] === labSound) {
+            //     labSound.play();
+            // } else {
+            //     bossSound.play();
+            // }
         }
     }
 
