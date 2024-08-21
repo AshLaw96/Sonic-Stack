@@ -24,9 +24,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const easyBtn = document.getElementById("easy");
     const medBtn = document.getElementById("medium");
     const hardBtn = document.getElementById("hard");
+
+    let currentLevel = "Easy";
+    let mainWrap = document.getElementById("main-wrap");
     // Scores
     const currentHigh = document.getElementById("high-scr");
-    const highScore = localStorage.getItem("High Score");
+    const highScore = localStorage.getItem("High-Score");
     if (currentHigh) {
         currentHigh.innerText = highScore;
     }
@@ -64,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const eggSound = document.getElementById("eggman");
     const eggBtn = document.getElementById("eggman-btn");
     const backBtn = document.getElementById("return");
-    const subTitle = document.getElementsByTagName("h2");
+    const subTitle = document.getElementById("sub-title");
 
     const dialog = document.querySelector("dialog");
     const dialClose = document.querySelector("#close-dial");
@@ -195,6 +198,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 labSound.pause();
             } else {
                 bossSound.pause();
+            }
+            if (points > highScore) {
+                localStorage.setItem("High-Score", points);
+                currentHigh.innerText = points;
             }
             lostSound.play();
             dialog.showModal();
