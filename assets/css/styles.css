@@ -125,24 +125,25 @@ header {
 }
 
 /* easy page */
-#easy-wrap {
-    background: url("../images/green-hill.jpg") no-repeat center center / cover;
+#main-wrap {
     display: flex;
     flex-direction: column;
+    background-attachment: fixed;
+}
+
+/* easy page */
+.easy-bg {
+    background: url("../images/green-hill.jpg") no-repeat center center / cover;
 }
 
 /* medium page */
-#medium-wrap {
+.medium-bg {
     background: url("../images/labyrinth.avif") no-repeat center center / cover;
-    display: flex;
-    flex-direction: column;
 }
 
 /* hard page */
-#hard-wrap {
+.hard-bg {
     background: url("../images/boss-zone.avif") no-repeat center center / cover;
-    display: flex;
-    flex-direction: column;
 }
 
 /* Game section */
