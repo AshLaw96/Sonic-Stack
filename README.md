@@ -306,8 +306,7 @@ No differences were found between the local version and the live deployed versio
 | [Web Dev](https://blog.webdevsimplified.com/2023-04/html-dialog/) | entire site | how to use `<dialog></dialog>` element |
 | [Medium](https://medium.com/poka-techblog/simplify-your-javascript-use-some-and-find-f9fb9826ddfd) | JS file | helped using `some()` and `find()` to check arrays |
 | [W3Schools](https://www.w3schools.com/jsref/met_audio_pause.asp#:~:text=Description,%2C%20attached%20on%20the%20audio) | JS file | how to use the `play()` and `pause()` methods |
-| [W3Schools](https://www.w3schools.com/jsref/jsref_every.asp) | JS file | how to use the `every()` method | 
-
+| [W3Schools](https://www.w3schools.com/jsref/jsref_every.asp) | JS file | how to use the `every()` method |
 
 ### Media
 

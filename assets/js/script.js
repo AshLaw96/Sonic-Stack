@@ -64,8 +64,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // colour array
     const clrArr = ["var(--p-block1)", "var(--p-block2)", "var(--p-block3)"];
 
-    // Tetris blocks
-
     //makes square Tetris block in each position
     const blockSqr = [
         [0, 1, 10, 10 + 1], 
@@ -146,12 +144,12 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-      /**
+    /**
      * checks if full width of game area is full
      * if full remove the full line and all styles
      * add 100 points every time full line 
      */
-      function gotPoints() {
+    function gotPoints() {
         for (let i = 0; i < 199; i += 10) {
             const line = [i, i + 1, i + 2, i + 3, i + 4, i + 5, i + 6, i + 7, i + 8, i + 9];
 
@@ -194,7 +192,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // dialog can be closed by pressing a button
+    // dialog can close by click button
     function closeDialog() {
         dialog.close();
     }
@@ -221,7 +219,6 @@ document.addEventListener("DOMContentLoaded", () => {
         } 
     }
 
-    // moving blocks
     /**
      * moves tetris block left
      * stops going left at edge of game area
@@ -496,4 +493,3 @@ document.addEventListener("DOMContentLoaded", () => {
         backBtn.addEventListener("click", goBack);
     }
 });
-

@@ -132,7 +132,7 @@ I've tested my deployed project on multiple browsers to check for compatibility 
 | Chrome | ![screenshot](documentation/browser/easy-chrome.png) | ![screenshot](documentation/browser/med-chrome.png) | ![screenshot](documentation/browser/hard-chrome.png) | ![screenshot](documentation/browser/404-chrome.png) | Works as expected |
 | Firefox | ![screenshot](documentation/browser/easy-firefox.png) | ![screenshot](documentation/browser/med-firefox.png) | ![screenshot](documentation/browser/hard-firefox.png) | ![screenshot](documentation/browser/404-firefox.png) | Works as expected |
 | Edge | ![screenshot](documentation/browser) | ![screenshot](documentation/browser) | ![screenshot](documentation/browser) | ![screenshot](documentation/browser) | Works as expected |
-| Amazon Silk | ![screenshot](documentation/browsers/) | ![screenshot](documentation/browsers) | ![screenshot](documentation/browser) | ![screenshot](documentation/browser) | Minor CSS differences |
+| Amazon Silk | ![screenshot](documentation/device/easy-tablet.jpg) | ![screenshot](documentation/device/med-tablet.jpg) | ![screenshot](documentation/device/hard-tablet.jpg) | ![screenshot](documentation/device/404-tablet.jpg) | Minor CSS differences |
 | Bing | ![screenshot](documentation/browser) | ![screenshot](documentation/browser) | ![screenshot](documentation/browser) | ![screenshot](documentation/browser) | Works as expected |
 
 ## Responsiveness
@@ -144,7 +144,7 @@ I've tested my deployed project on multiple devices to check for responsiveness 
 | Device | Easy | Medium | Hard | 404 | Notes |
 | --- | --- | --- | --- | --- | --- |
 | Mobile | ![screenshot](documentation/device/easy-mob.jpg) | ![screenshot](documentation/device/med-mob.jpg) | ![screenshot](documentation/device/hard-mob.jpg) | ![screenshot](documentation/device/404-mob.jpg) | Works as expected |
-| Tablet | ![screenshot](documentation) | ![screenshot](documentation) | ![screenshot](documentation) | ![screenshot](documentation) | Works as expected |
+| Tablet | ![screenshot](documentation/device/easy-tablet.jpg) | ![screenshot](documentation/device/med-tablet.jpg) | ![screenshot](documentation/device/hard-tablet.jpg) | ![screenshot](documentation/device/404-tablet.jpg) | Works as expected |
 | Laptop | ![screenshot](documentation/device/easy-laptop.jpg) | ![screenshot](documentation/device/med-laptop.jpg) | ![screenshot](documentation/device/hard-laptop.jpg) | ![screenshot](documentation/device/404-laptop.jpg) | Works as expected |
 | Desktop | ![screenshot](documentation) | ![screenshot](documentation) | ![screenshot](documentation) | ![screenshot](documentation) | Works as expected |
 | XL screen | ![screenshot](documentation) | ![screenshot](documentation) | ![screenshot](documentation) | ![screenshot](documentation) | Noticeable scaling issues |
