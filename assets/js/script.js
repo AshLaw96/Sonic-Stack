@@ -471,7 +471,12 @@ document.addEventListener("DOMContentLoaded", () => {
     //easy
     // page change
     function easyChange() {
-        window.location.href = "index.html";
+        subTitle.innerText = "Easy";
+        currentLevel = "Easy";
+        dropTime = setInterval(down, 1000);
+        mainWrap.classList.add("easy-bg");
+        mainWrap.classList.remove("medium-bg", "hard-bg");
+        // window.location.href = "index.html";
     }
 
     if (easyBtn) {
@@ -481,7 +486,12 @@ document.addEventListener("DOMContentLoaded", () => {
     //medium
     // page change
     function medChange() {
-        window.location.href = "medium.html";
+        subTitle.innerText = "Medium";
+        currentLevel = "Medium";
+        dropTime = setInterval(down, 500);
+        mainWrap.classList.add("medium-bg");
+        mainWrap.classList.remove("easy-bg", "hard-bg");
+        // window.location.href = "medium.html";
     }
 
     if (medBtn) {
@@ -491,7 +501,12 @@ document.addEventListener("DOMContentLoaded", () => {
     // hard
     // page change
     function hardChange() {
-        window.location.href = "hard.html";
+        subTitle.innerText = "Hard";
+        currentLevel = "Hard";
+        dropTime = setInterval(down, 200);
+        mainWrap.classList.add("hard-bg");
+        mainWrap.classList.remove("medium-bg", "easy-bg");
+        // window.location.href = "hard.html";
     }
 
     if (hardBtn) {
