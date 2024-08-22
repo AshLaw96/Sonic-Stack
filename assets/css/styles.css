@@ -146,14 +146,29 @@ header {
     background: url("../images/boss-zone.avif") no-repeat center center / cover;
 }
 
-/* Game section */
+/* Main section */
+#main-wrap {
+    display: flex;
+    flex-direction: column;
+    background-attachment: fixed;
+}
+
+#side-wrap {
+    margin: 5px auto;
+}
+
+#score-wrap {
+    background-color: var(--p-highlight);
+    padding: 2px;
+}
+
 #game-wrap {
     width: 300px;
     height: 600px;
     background-color: var(--p-highlight);
     display: flex;
     flex-wrap: wrap;
-    margin: 0 auto;
+    margin: 2px auto;
 }
 
 #game-wrap div {
@@ -192,17 +207,21 @@ dialog::backdrop {
 
 /* Buttons */
 #left, #right, #twist, #down {
-    width: 30px;
-    height: 30px;
-    margin: 5px 4%;
+    width: 60px;
+    height: 35px;
+    margin: 5px 5%;
     background-color: var(--p-text);
 }
 
-#left {
-    margin-left: 20%;
+#left-right, #down-twist  {
+    text-align: center;
 }
 
-#instructions, #score, #start-stop, #reset {
+#left-right i, #down-twist i {
+    font-size: x-large;
+}
+
+#instructions, #start-stop, #reset {
     display: block;
     margin: 5px auto;
     background-color: var(--p-text);
@@ -213,7 +232,7 @@ dialog::backdrop {
     background-color: var(--p-text);
 }
 
-#instructions:hover, #score:hover, #start-stop:hover, #reset:hover, #left:hover, #right:hover, #twist:hover, #down:hover, #eggman-btn:hover {
+#instructions:hover, #start-stop:hover, #reset:hover, #left:hover, #right:hover, #twist:hover, #down:hover, #eggman-btn:hover {
     background-color: #BCC6CC;
 }
 
