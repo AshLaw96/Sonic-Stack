@@ -1,11 +1,12 @@
 // wait for DOM to finish loading before running the game
 document.addEventListener("DOMContentLoaded", () => {
+    // creates the game area
     const gameWrap = document.getElementById("game-wrap");
-    for (let i = 0; i < 200; i++) {
+    for (let i = 0; i < 200; i += 1) {
         const div = document.createElement("div");
         gameWrap.appendChild(div);
     }
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 10; i += 1) {
         const div = document.createElement("div");
         div.classList.add("delete");
         gameWrap.appendChild(div);
@@ -40,11 +41,6 @@ document.addEventListener("DOMContentLoaded", () => {
     let ruleHide = document.getElementById("rules");
     if (ruleHide) {
         ruleHide.style.display = "none";
-    }
-    const scoreBtn = document.getElementById("score");
-    let pointHide = document.getElementById("points");
-    if (pointHide) {
-        pointHide.style.display = "none";
     }
     // Sounds
     const soundWrap = document.getElementById("sound-wrap");
@@ -192,9 +188,9 @@ document.addEventListener("DOMContentLoaded", () => {
     function lost() {
         if (active.find(i => blocks[location + i].classList.contains("delete"))) {
             clearInterval(dropTime);
-            if (soundArr[0] === greenHill) {
+            if (subTitle.textContent === "Easy") {
                 greenHill.pause();
-            } else if (soundArr[0] === labSound) {
+            } else if (subTitle.textContent === "Medium") {
                 labSound.pause();
             } else {
                 bossSound.pause();
@@ -370,49 +366,28 @@ document.addEventListener("DOMContentLoaded", () => {
      */
     function pausePlay() {
         if (dropTime) {
-          clearInterval(dropTime);
-          dropTime = null;
-        // checks what first audio equals then stops that audio if true
-          if (soundArr[0] === greenHill) {
-              greenHill.pause();
-          } else if (soundArr[0] === labSound) {
-              labSound.pause();
-          } else {
-              bossSound.pause();
-          }
+            clearInterval(dropTime);
+            dropTime = null;
+            greenHill.pause();
+            labSound.pause();
+            bossSound.pause();
         } else {
-            makeBlocks();
             switch (subTitle.textContent) {
                 case "Medium":
                     medChange();
                     labSound.play();
+                    dropTime = setInterval(down, 500);
                     break;
                 case "Hard":
                     hardChange();
                     bossSound.play();
+                    dropTime = setInterval(down, 200);
                     break;
                 default:
                     easyChange();
                     greenHill.play();
+                    dropTime = setInterval(down, 1000);
             }
-            // loops all h2 checks what text and changes drop speed of block depending
-            // for (let i = 0; i < subTitle.length; i += 1) {
-            //     if (subTitle[i].textContent === "Easy") {
-            //        dropTime = setInterval(down, 1000);
-            //     } else if (subTitle[i].textContent === "Medium") {
-            //        dropTime = setInterval(down, 500);
-            //     } else {
-            //        dropTime = setInterval(down, 200);
-            //     }
-            // }
-        
-            // if (soundArr[0] === greenHill) {
-            //     greenHill.play();
-            // } else if (soundArr[0] === labSound) {
-            //     labSound.play();
-            // } else {
-            //     bossSound.play();
-            // }
         }
     }
 
@@ -441,19 +416,6 @@ document.addEventListener("DOMContentLoaded", () => {
         ruleBtn.addEventListener("click", rules);
     }
 
-    // hide and un-hide score text 
-    function hideScore() {
-        if (pointHide.style.display === "none") {
-            pointHide.style.display = "block";
-        } else {
-            pointHide.style.display = "none";
-        }
-    }
-
-    if (scoreBtn) {
-        scoreBtn.addEventListener("click", hideScore);
-    }
-
     /**
      * loops all audio
      * if volume is above 0 all audio equals 0
@@ -475,45 +437,45 @@ document.addEventListener("DOMContentLoaded", () => {
         soundBtn.addEventListener("click", muteUnmute);
     }
     
-    //easy
-    // page change
+    //easy level change
     function easyChange() {
         subTitle.innerText = "Easy";
         currentLevel = "Easy";
-        dropTime = setInterval(down, 1000);
         mainWrap.classList.add("easy-bg");
         mainWrap.classList.remove("medium-bg", "hard-bg");
-        // window.location.href = "index.html";
+        clearInterval(dropTime);
+        labSound.pause();
+        bossSound.pause();
     }
 
     if (easyBtn) {
         easyBtn.addEventListener("click", easyChange);
     }
 
-    //medium
-    // page change
+    //medium level change
     function medChange() {
         subTitle.innerText = "Medium";
         currentLevel = "Medium";
-        dropTime = setInterval(down, 500);
         mainWrap.classList.add("medium-bg");
         mainWrap.classList.remove("easy-bg", "hard-bg");
-        // window.location.href = "medium.html";
+        clearInterval(dropTime);
+        greenHill.pause();
+        bossSound.pause();
     }
 
     if (medBtn) {
         medBtn.addEventListener("click", medChange);
     }
 
-    // hard
-    // page change
+    // hard level change
     function hardChange() {
         subTitle.innerText = "Hard";
         currentLevel = "Hard";
-        dropTime = setInterval(down, 200);
         mainWrap.classList.add("hard-bg");
         mainWrap.classList.remove("medium-bg", "easy-bg");
-        // window.location.href = "hard.html";
+        clearInterval(dropTime);
+        greenHill.pause();
+        labSound.pause();
     }
 
     if (hardBtn) {

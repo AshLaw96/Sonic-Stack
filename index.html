@@ -46,12 +46,14 @@
                     <br> <br>
                     Make full horizontal line to gain points.
                 </p>
-                <button id="score" aria-label="show/hide score">Your Score</button>
-                <p id="points">
-                    Current Points: <span id="point">0</span>
-                    <br> 
-                    High Score: <span id="high-scr">0</span>
-                </p>                
+                <div>
+                    <h3 id="score">Your Score</h3>
+                    <p id="points">
+                        Current Points: <span id="point">0</span>
+                        <br> 
+                        High Score: <span id="high-scr">0</span>
+                    </p>                
+                </div>
             </aside>
             <h2 id="sub-title">Easy</h2>
             <div id="game-wrap">
@@ -78,16 +80,16 @@
             <dialog>
                 <button id="close-dial" aria-label="close dialog">You Lost <br> <br> press <span id="esc">esc</span></button>
             </dialog>
+            <div id="sound-wrap">
+                <audio id="green-hill" src="assets/audio/green-hill.mp3" loop></audio>
+                <audio id="labyrinth" src="assets/audio/labyrinth.mp3" loop></audio>
+                <audio id="boss" src="assets/audio/boss.mp3" loop></audio>
+                <audio id="score-sound" src="assets/audio/score.mp3"></audio>
+                <audio id="turn-sound" src="assets/audio/turn.mp3"></audio>
+                <audio id="lost-sound" src="assets/audio/game-over.mp3"></audio>
+            </div>
         </section>
     </main>
-    <div id="sound-wrap">
-        <audio id="green-hill" src="assets/audio/green-hill.mp3" loop></audio>
-        <audio id="labyrinth" src="assets/audio/labyrinth.mp3" loop></audio>
-        <audio id="boss" src="assets/audio/boss.mp3" loop></audio>
-        <audio id="score-sound" src="assets/audio/score.mp3"></audio>
-        <audio id="turn-sound" src="assets/audio/turn.mp3"></audio>
-        <audio id="lost-sound" src="assets/audio/game-over.mp3"></audio>
-    </div>
     <footer>
         <a href="https://tetris.com/history-of-tetris" target="_blank">The history of Tetris</a>
     </footer>
