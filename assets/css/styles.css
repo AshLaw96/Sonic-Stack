@@ -124,26 +124,17 @@ header {
     color: var(--p-text);
 }
 
-/* easy page */
-#main-wrap {
-    display: flex;
-    flex-direction: column;
-    background-attachment: fixed;
-}
-
-/* easy page */
+/* Background images */
 .easy-bg {
     background: url("../images/green-hill.jpg") no-repeat center center / cover;
 }
 
-/* medium page */
 .medium-bg {
     background: url("../images/labyrinth.avif") no-repeat center center / cover;
 }
 
-/* hard page */
 .hard-bg {
-    background: url("../images/boss-zone.avif") no-repeat center center / cover;
+    background: url("../images/boss-bg.png") no-repeat center center / cover;
 }
 
 /* Main section */
@@ -187,6 +178,7 @@ dialog {
     padding: 2px;
     border-radius: 5px;
     text-align: center;
+    background-color: var(--p-highlight);
 }
 
 #close-dial {
@@ -267,12 +259,12 @@ footer {
     text-align: center;
     background-color: var(--p-highlight);
     border-top: solid 5px var(--p-block1);
-    padding: 1em;
+    padding: 10px;
 }
 
 footer a {
     color: var(--p-block2);
-    font-size: larger;
+    font-size: medium;
 }
 
 footer a:hover {
