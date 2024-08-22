@@ -396,7 +396,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function restart() {
-        document.location.reload(); 
+        for (let i = 0; i < 200; i += 1) {
+            blocks[i].classList.remove("delete");
+            blocks[i].classList.remove("sqr");
+            blocks[i].style.backgroundColor = "";
+            blocks[i].style.boxShadow = "";
+            location = 3;
+            currentPoints.innerText = 0;
+            clearInterval(dropTime);
+        }
     }
 
     if (reset) {
