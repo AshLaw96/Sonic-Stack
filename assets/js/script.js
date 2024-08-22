@@ -1,3 +1,4 @@
+/* jshint esversion: 11 */
 // wait for DOM to finish loading before running the game
 document.addEventListener("DOMContentLoaded", () => {
     // creates the game area
@@ -347,13 +348,13 @@ document.addEventListener("DOMContentLoaded", () => {
      * makes tetris block move when specific key pressed
      */
     function movement(event) {
-        if (event.keyCode === 37) { // left arrow
+        if (event.code === "ArrowLeft") { // left arrow
             left();
-        } else if (event.keyCode === 39) { // right arrow
+        } else if (event.code === "ArrowRight") { // right arrow
             right();
-        } else if (event.keyCode === 40) { // down arrow
+        } else if (event.code === "ArrowDown") { // down arrow
             down();
-        } else if (event.keyCode === 32) { // space bar
+        } else if (event.code === "Space") { // space bar
             turn();
         }
     }
@@ -371,6 +372,8 @@ document.addEventListener("DOMContentLoaded", () => {
             greenHill.pause();
             labSound.pause();
             bossSound.pause();
+            window.removeEventListener("keydown", stopScroll, false);
+
         } else {
             switch (subTitle.textContent) {
                 case "Medium":
@@ -388,6 +391,18 @@ document.addEventListener("DOMContentLoaded", () => {
                     greenHill.play();
                     dropTime = setInterval(down, 1000);
             }
+            window.addEventListener("keydown", stopScroll, false);
+        }
+    }
+
+    function stopScroll(event) {
+        switch(event.code){
+            case "ArrowUp": 
+            case "ArrowDown": 
+            case "ArrowLeft": 
+            case "ArrowRight": 
+            case "Space": 
+            event.preventDefault(); break;
         }
     }
 
