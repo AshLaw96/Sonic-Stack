@@ -4,13 +4,17 @@ document.addEventListener("DOMContentLoaded", () => {
     // creates the game area
     const gameWrap = document.getElementById("game-wrap");
     for (let i = 0; i < 200; i += 1) {
-        const div = document.createElement("div");
-        gameWrap.appendChild(div);
+        if (gameWrap) {
+            const div = document.createElement("div");
+            gameWrap.appendChild(div);
+        }
     }
     for (let i = 0; i < 10; i += 1) {
-        const div = document.createElement("div");
-        div.classList.add("delete");
-        gameWrap.appendChild(div);
+        if (gameWrap) {
+            const div = document.createElement("div");
+            div.classList.add("delete");
+            gameWrap.appendChild(div);
+        }
     }
     // turns game divs into an array
     let blocks = Array.from(document.querySelectorAll("#game-wrap div"));
@@ -26,6 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const easyBtn = document.getElementById("easy");
     const medBtn = document.getElementById("medium");
     const hardBtn = document.getElementById("hard");
+    const backBtn = document.getElementById("return");
 
     let currentLevel = "Easy";
     let mainWrap = document.getElementById("main-wrap");
@@ -63,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const lostSound = document.getElementById("lost-sound");
     const eggSound = document.getElementById("eggman");
     const eggBtn = document.getElementById("eggman-btn");
-    const backBtn = document.getElementById("return");
+
     const subTitle = document.getElementById("sub-title");
 
     const dialog = document.querySelector("dialog");
@@ -456,9 +461,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    if (soundBtn) {
-        soundBtn.addEventListener("click", muteUnmute);
-    }
+    soundBtn.addEventListener("click", muteUnmute);
     
     //easy level change
     function easyChange() {
@@ -466,6 +469,9 @@ document.addEventListener("DOMContentLoaded", () => {
         currentLevel = "Easy";
         mainWrap.classList.add("easy-bg");
         mainWrap.classList.remove("medium-bg", "hard-bg");
+        easyBtn.classList.add("current");
+        medBtn.classList.remove("current");
+        hardBtn.classList.remove("current");
         clearInterval(dropTime);
         labSound.pause();
         bossSound.pause();
@@ -481,6 +487,9 @@ document.addEventListener("DOMContentLoaded", () => {
         currentLevel = "Medium";
         mainWrap.classList.add("medium-bg");
         mainWrap.classList.remove("easy-bg", "hard-bg");
+        medBtn.classList.add("current");
+        easyBtn.classList.remove("current");
+        hardBtn.classList.remove("current");
         clearInterval(dropTime);
         greenHill.pause();
         bossSound.pause();
@@ -496,6 +505,9 @@ document.addEventListener("DOMContentLoaded", () => {
         currentLevel = "Hard";
         mainWrap.classList.add("hard-bg");
         mainWrap.classList.remove("medium-bg", "easy-bg");
+        hardBtn.classList.add("current");
+        medBtn.classList.remove("current");
+        easyBtn.classList.remove("current");
         clearInterval(dropTime);
         greenHill.pause();
         labSound.pause();

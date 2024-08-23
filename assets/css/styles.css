@@ -235,7 +235,7 @@ dialog::backdrop {
 
 /* 404 image */
 #robotnik {
-    width: 50%;
+    width: 200px;
     display: block;
     margin: 5px auto;
 }
@@ -245,6 +245,7 @@ dialog::backdrop {
     letter-spacing: 3px;
     margin: 8% 5px;
     color: var(--p-block2);
+    font-size: larger;
 }
 
 /* 404 footer */
@@ -325,7 +326,7 @@ footer {
     }
 
     #error-p {
-        font-size: larger;
+        font-size: x-large;
     }
 }
 
@@ -369,7 +370,7 @@ footer {
 
     #error-p {
         margin: 3% 10px;
-        font-size: x-large;
+        font-size: xx-large;
     }
 }
 
@@ -380,10 +381,6 @@ footer {
     }
 
     /* 404 styles */
-    #robotnik {
-        width: 300px;
-    }
-
     #error-foot {
         margin-top: 3%;
     }
