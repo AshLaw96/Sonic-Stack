@@ -316,13 +316,14 @@ No differences were found between the local version and the live deployed versio
 | --- | --- | --- | --- |
 | [Pinterest](https://www.pinterest.co.uk/pin/8162843068818083/) | website tab bar | image | favicon on the tab bar |
 | [TinyPNG](https://tinypng.com) | entire site | image | tool for image compression |
-| [Pinterest](https://www.pinterest.co.uk/pin/335025659768357500/) | Easy page | image | background image for main section |
-| [Khinsider](https://downloads.khinsider.com/game-soundtracks/album/sonic-1-revisited) | index.html | audio | background music on easy page |
-| [101SoundBoards](https://www.101soundboards.com/boards/10990-sonic-the-hedgehog-sounds#goog_rewarded) | entire HTML | audio | sound when points gained, losing sound and the turn sound |
-| [TheGamer](https://www.thegamer.com/sonic-the-hedgehog-labyrinth-zone-nightmares/) | medium page | image | background image main section |
-| [TheGamer](https://www.thegamer.com/sonic-the-hedgehog-best-final-zones-levels-ranked/) | hard page | image | background image main section |
-| [SoahCity](https://soahcity.com/sonic-music/sonic-the-hedgehog-1991-music/#google_vignette) | medium/hard HTML | audio | main background theme songs on medium & hard page |
-| [101SoundBoards](https://www.101soundboards.com/boards/10609-dr-eggman-sounds-sonic-adventure-2#goog_rewarded) | 404 HTML | audio | button sound on 404 main section |
+| [Pinterest](https://www.pinterest.co.uk/pin/335025659768357500/) | index.html | image | background image for main easy section |
+| [Khinsider](https://downloads.khinsider.com/game-soundtracks/album/sonic-1-revisited) | index.html | audio | background music for easy section and medium section |
+| [101SoundBoards](https://www.101soundboards.com/boards/10990-sonic-the-hedgehog-sounds) | entire HTML | audio | sound when points gained, losing sound and turn sound |
+| [TheGamer](https://www.thegamer.com/sonic-the-hedgehog-labyrinth-zone-nightmares/) | index.html | image | background image main medium section |
+| [TheGamer](https://www.thegamer.com/sonic-the-hedgehog-best-final-zones-levels-ranked/) | index.html | image | background image main hard section |
+| [Khinsider](https://downloads.khinsider.com/game-soundtracks/album/sonic-the-hedgehog-3-angel-island-revisited-pc-android-gamerip-flac) | index.html | audio | main background theme song for hard section |
+| [101SoundBoards](https://www.101soundboards.com/boards/10609-dr-eggman-sounds-sonic-adventure-2) | 404 HTML | audio | button sound on 404 main section |
+| [XConvert](https://www.xconvert.com/audio-compressor) | index.html | audio | toll for audi compression |
 
 ### Acknowledgements
 
