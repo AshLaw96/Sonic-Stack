@@ -262,13 +262,49 @@ footer {
     padding: 10px;
 }
 
-footer a {
+#history {
     color: var(--p-block2);
     font-size: medium;
+    letter-spacing: 3px;
+    display: block;
 }
 
-footer a:hover {
+#history:hover {
     text-shadow: 2px 10px 4px var(--s-block2);
+}
+
+#expo {
+    color: var(--p-block1);
+    font-size: medium;
+    letter-spacing: 3px;
+    display: block;
+}
+
+#expo:hover {
+    text-shadow: 2px 10px 4px var(--s-block1);
+}
+
+#top-players {
+    color: var(--p-block3);
+    font-size: medium;
+    letter-spacing: 3px;
+    display: block;
+}
+
+#top-players:hover {
+    text-shadow: 2px 10px 4px var(--s-block3);
+}
+
+#github {
+    color: var(--p-text);
+    font-size: x-small;
+    display: block;
+    letter-spacing: 3px;
+    padding: 5px;
+}
+
+#github:hover {
+    text-shadow: 2px 10px 4px var(--p-text);
 }
 
 /* Styles for screens larger than 575px */
@@ -277,10 +313,6 @@ footer a:hover {
         top: 7%;
         left: 30%;
         letter-spacing: 5px;
-    }
-
-    #left {
-        margin-left: 30%;
     }
 
     /* 404 styles */
@@ -325,10 +357,6 @@ footer a:hover {
         margin-bottom: 5%;
     }
 
-    #left {
-        margin-left: 20%;
-    }
-
     /* 404 styles */
     #eggman-btn {
         float: right;
@@ -347,12 +375,8 @@ footer a:hover {
 
 /* Styles for screens larger than 991px */
 @media screen and (min-width: 992px) {
-    h2 {
+    h2, .btn-area {
         margin-right: 50%;
-    }
-
-    .btn-area {
-        margin-right: 48%;
     }
 
     /* 404 styles */
@@ -391,6 +415,11 @@ footer a:hover {
     #game-wrap div {
         width: 32px;
         height: 32px;
+    }
+
+    #history, #expo, #top-players {
+        display: inline;
+        letter-spacing: 1px;
     }
 
     /* 404 styles */

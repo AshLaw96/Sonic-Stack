@@ -323,7 +323,7 @@ No differences were found between the local version and the live deployed versio
 | [TheGamer](https://www.thegamer.com/sonic-the-hedgehog-best-final-zones-levels-ranked/) | index.html | image | background image main hard section |
 | [Khinsider](https://downloads.khinsider.com/game-soundtracks/album/sonic-the-hedgehog-3-angel-island-revisited-pc-android-gamerip-flac) | index.html | audio | main background theme song for hard section |
 | [101SoundBoards](https://www.101soundboards.com/boards/10609-dr-eggman-sounds-sonic-adventure-2) | 404 HTML | audio | button sound on 404 main section |
-| [XConvert](https://www.xconvert.com/audio-compressor) | index.html | audio | toll for audi compression |
+| [XConvert](https://www.xconvert.com/audio-compressor) | index.html | audio | tool for audi compression |
 
 ### Acknowledgements
 
