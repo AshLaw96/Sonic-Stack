@@ -5,7 +5,7 @@
 
 Feature-by-Feature Testing:
 
-- Navigation: I ensured smooth transitions between each page and the links direct to the correct destination.
+- Navigation: I ensured smooth transitions between each section and the links directed to the correct destination.
 - Responsive Design: I've checked for compatibility across multiple devices and screen sizes.
 - Portfolio Display: I have verified that every page is properly showcased with accurate descriptions, images, and links.
 - Game area: I confirmed that the game worked as intended on different devices and screen sizes.
@@ -29,14 +29,17 @@ Compatibility Testing:
   <details>
   <summary> Click here to see speed tests of each page </summary>
 
-    - easy
+    - main mobile
     ![screenshot](documentation/speed)
 
-    - medium
+    - main desktop
     ![screenshot](documentation/speed)
 
-    - hard
+    - 404 mobile
     ![screenshot](documentation/speed)
+
+    - 404 desktop
+    ![screenshot](documentation)
     
     </details>
 
@@ -96,9 +99,15 @@ Documentation and Logs:
 
   - The fix: [fix](documentation/bugs/turn-overlap-fix.png)
 
-User Feedback Incorporation:
+- When checking if the alteration of using JavaScript to create the game area had any effect with the 404 page I noticed a type error.
 
-If applicable, mention how user feedback has been taken into account and implemented to enhance the user experience.
+  - The issue: [issue](documentation/bugs/type-error-404.png)
+
+- To fix the issue I had to add an if statement inside the for loop to check if the HTML id name was on the current page and if so execute the desired code but if not do nothing.
+
+  - The fix: [fix](documentation/bugs/type-error-404-fix.png)
+
+User Feedback Incorporation:
 
 ## Code Validation
 
@@ -108,9 +117,7 @@ I have used the recommended [HTML W3C Validator](https://validator.w3.org) to va
 
 | Directory | File | Screenshot | Notes |
 | --- | --- | --- | --- |
-|  | index.html | ![screenshot](documentation/validate/easy-html-check.png) | no issues were found |
-|  | medium.html | ![screenshot](documentation/validate/med-html-check.png) | no issues were found |
-|  | hard.html | ![screenshot](documentation/validate/hard-html-check.png) | no issues were found |
+|  | index.html | ![screenshot](documentation/validate/html-check.png) | no issues were found |
 |  | 404.html | ![screenshot](documentation/validate/404-html-check.png) | no issues were found |
 
 ### CSS
@@ -132,7 +139,7 @@ I've tested my deployed project on multiple browsers to check for compatibility 
 | Chrome | ![screenshot](documentation/browser/easy-chrome.png) | ![screenshot](documentation/browser/med-chrome.png) | ![screenshot](documentation/browser/hard-chrome.png) | ![screenshot](documentation/browser/404-chrome.png) | Works as expected |
 | Firefox | ![screenshot](documentation/browser/easy-firefox.png) | ![screenshot](documentation/browser/med-firefox.png) | ![screenshot](documentation/browser/hard-firefox.png) | ![screenshot](documentation/browser/404-firefox.png) | Works as expected |
 | Edge | ![screenshot](documentation/browser) | ![screenshot](documentation/browser) | ![screenshot](documentation/browser) | ![screenshot](documentation/browser) | Works as expected |
-| Amazon Silk | ![screenshot](documentation/device/easy-tablet.jpg) | ![screenshot](documentation/device/med-tablet.jpg) | ![screenshot](documentation/device/hard-tablet.jpg) | ![screenshot](documentation/device/404-tablet.jpg) | Minor CSS differences |
+| Amazon Silk | ![screenshot](documentation/device/easy-ipad.jpg) | ![screenshot](documentation/device/med-ipad.jpg) | ![screenshot](documentation/device/hard-ipad.jpg) | ![screenshot](documentation/device/404-tablet.jpg) | Minor CSS differences |
 | Bing | ![screenshot](documentation/browser) | ![screenshot](documentation/browser) | ![screenshot](documentation/browser) | ![screenshot](documentation/browser) | Works as expected |
 
 ## Responsiveness
@@ -157,10 +164,8 @@ I've tested my deployed project using the Lighthouse Audit tool to check for any
 
 | Page | Mobile | Desktop | Notes |
 | --- | --- | --- | --- |
-| Easy | ![screenshot](documentation/lighthouse/lighthouse-home-mobile.png) | ![screenshot](documentation/lighthouse/lighthouse-home-desktop.png) | Some warnings |
-| Medium | ![screenshot](documentation/lighthouse/lighthouse-about-mobile.png) | ![screenshot](documentation/lighthouse/lighthouse-about-desktop.png) | Some warnings |
-| Hard | ![screenshot](documentation/lighthouse/lighthouse-gallery-mobile.png) | ![screenshot](documentation/lighthouse/lighthouse-gallery-desktop.png) | Some warnings |
-| 404 | ![screenshot]() | ![screenshot]() | Some minor warnings |
+| Main | ![screenshot](documentation/validate/mob-lighthouse.png) | ![screenshot](documentation/validate/desk-lighthouse.png) | Some warnings |
+| 404 | ![screenshot](documentation/validate/404-mob-lighthouse.png) | ![screenshot](documentation/validate/404-desk-lighthouse.png) | Some warnings |
 
 ## Defensive Programming
 

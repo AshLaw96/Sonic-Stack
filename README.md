@@ -128,16 +128,8 @@ Main
 
 The header will contain the title, the navigation dropdown button and a mute/un-mute sound button. It will be the same on each section except for the 404 where the navigation will only contain one button. It will also have a background colour that follows the colour scheme of the full site.
 
-<details>
-<summary> click here to see the header of each page </summary>
-
-- Main
+- Header
   - ![screenshot](documentation/features/main-header.png)
-
-- 404
-  - ![screenshot](documentation/features/404-header.png)
-
-</details>
 
 #### Navigation
 

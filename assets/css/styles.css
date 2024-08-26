@@ -45,7 +45,7 @@ h1 {
     /* makes h1 text 3 colours */
     background: linear-gradient(#3061E3, #FF3131, #FFBF00);
     -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
+    background-clip: text;
 }
 
 h2 {
