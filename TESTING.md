@@ -169,139 +169,61 @@ I've tested my deployed project using the Lighthouse Audit tool to check for any
 
 ## Defensive Programming
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-START OF NOTES (to be deleted)
-
-Defensive programming (defensive design) is extremely important!
-
-When building projects that accept user inputs or forms, you should always test the level of security for each.
-Examples of this could include (not limited to):
-
-Forms:
-- Users cannot submit an empty form
-- Users must enter valid email addresses
-
-PP3 (Python-only):
-- Users must enter a valid letter/word/string when prompted
-- Users must choose from a specific list only
-
-MS3 (Flask) | MS4/PP4/PP5 (Django):
-- Users cannot brute-force a URL to navigate to a restricted page
-- Users cannot perform CRUD functionality while logged-out
-- User-A should not be able to manipulate data belonging to User-B, or vice versa
-- Non-Authenticated users should not be able to access pages that require authentication
-- Standard users should not be able to access pages intended for superusers
-
-You'll want to test all functionality on your application, whether it's a standard form,
-or uses CRUD functionality for data manipulation on a database.
-Make sure to include the `required` attribute on any form-fields that should be mandatory.
-Try to access various pages on your site as different user types (User-A, User-B, guest user, admin, superuser).
-
-You should include any manual tests performed, and the expected results/outcome.
-
-Testing should be replicable.
-Ideally, tests cases should focus on each individual section of every page on the website.
-Each test case should be specific, objective, and step-wise replicable.
-
-Instead of adding a general overview saying that everything works fine,
-consider documenting tests on each element of the page
-(ie. button clicks, input box validation, navigation links, etc.) by testing them in their happy flow,
-and also the bad/exception flow, mentioning the expected and observed results,
-and drawing a parallel between them where applicable.
-
-Consider using the following format for manual test cases:
-
-Expected Outcome / Test Performed / Result Received / Fixes Implemented
-
-- **Expected**: "Feature is expected to do X when the user does Y."
-- **Testing**: "Tested the feature by doing Y."
-- (either) **Result**: "The feature behaved as expected, and it did Y."
-- (or) **Result**: "The feature did not respond to A, B, or C."
-- **Fix**: "I did Z to the code because something was missing."
-
-Use the table below as a basic start, and expand on it using the logic above.
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
-
 Defensive programming was manually tested with the below user acceptance testing:
 
 | Page | Expectation | Test | Result | Fix | Screenshot |
 | --- | --- | --- | --- | --- | --- |
-| Home | | | | | |
-| | Feature is expected to do X when the user does Y | Tested the feature by doing Y | The feature behaved as expected, and it did Y | Test concluded and passed | ![screenshot](documentation/features/feature01.png) |
-| | Feature is expected to do X when the user does Y | Tested the feature by doing Y | The feature did not respond to A, B, or C. | I did Z to the code because something was missing | ![screenshot](documentation/features/feature02.png) |
-| About | | | | | |
-| | Feature is expected to do X when the user does Y | Tested the feature by doing Y | The feature behaved as expected, and it did Y | Test concluded and passed | ![screenshot](documentation/features/feature03.png) |
-| | Feature is expected to do X when the user does Y | Tested the feature by doing Y | The feature did not respond to A, B, or C. | I did Z to the code because something was missing | ![screenshot](documentation/features/feature04.png) |
-| Gallery | | | | | |
-| | Feature is expected to do X when the user does Y | Tested the feature by doing Y | The feature behaved as expected, and it did Y | Test concluded and passed | ![screenshot](documentation/features/feature05.png) |
-| | Feature is expected to do X when the user does Y | Tested the feature by doing Y | The feature did not respond to A, B, or C. | I did Z to the code because something was missing | ![screenshot](documentation/features/feature06.png) |
-| Contact | | | | | |
-| | Feature is expected to do X when the user does Y | Tested the feature by doing Y | The feature behaved as expected, and it did Y | Test concluded and passed | ![screenshot](documentation/features/feature07.png) |
-| | Feature is expected to do X when the user does Y | Tested the feature by doing Y | The feature did not respond to A, B, or C. | I did Z to the code because something was missing | ![screenshot](documentation/features/feature08.png) |
-| repeat for all remaining pages | x | x | x | x | x |
+| Easy | | | | | |
+| | When the navigation icon is clicked, (3 lines/burger symbol) should show navigation buttons | Tested the feature by clicking on a variety of devices and browsers | The feature behaved as expected and it showed the navigation buttons | Test concluded and passed | ![screenshot](documentation) |
+| | When each navigation button is clicked on it should change the colour of the current mode that has been clicked on, should change the game difficulty, the title, the background image and the background theme audio | Tested the feature by pressing each button multiple times and multiple devices and browsers | The feature behaved as expected and changed what needed to change | Test concluded and passed | ![screenshot](documentation) |
+| | When the header title is clicked on should navigate back to the main page | Tested the feature by clicking on the main header title on each section and page on a variety of devices and browsers | The feature behaved as expected and navigated back to the main home page | Test concluded and passed | ![screenshot](documentation) |
+| | (rule btn) |  |  |  | ![screenshot](documentation) |
+| | (play/pause) |  |  |  | ![screenshot](documentation) |
+| | (movement btns) |  |  |  | ![screenshot](documentation) |
+| | (keys during game) |  |  |  | ![screenshot](documentation) |
+| | (points added) |  |  |  | ![screenshot](documentation) |
+| | (show loss) |  |  |  | ![screenshot](documentation) |
+| | (add high score) |  |  |  | ![screenshot](documentation) |
+| | (mute/unmute btn) |  |  |  | ![screenshot](documentation) |
+| | (restart btn) |  |  |  | ![screenshot](documentation) |
+| | (foot links) |  |  |  | ![screenshot](documentation) | 
+| Medium | | | | | |
+| | When the navigation icon is clicked, (3 lines/burger symbol) should show navigation buttons | Tested the feature by clicking on a variety of devices and browsers | The feature behaved as expected and it showed the navigation buttons | Test concluded and passed | ![screenshot](documentation) |
+| | When each navigation button is clicked on it should change the colour of the current mode that has been clicked on, should change the game difficulty, the title, the background image and the background theme audio | Tested the feature by pressing each button multiple times and multiple devices and browsers | The feature behaved as expected and changed what needed to change | Test concluded and passed | ![screenshot](documentation) |
+| | When the header title is clicked on should navigate back to the main page | Tested the feature by clicking on the main header title on each section and page on a variety of devices and browsers | The feature behaved as expected and navigated back to the main home page | Test concluded and passed | ![screenshot](documentation) |
+| | (rule btn) |  |  |  | ![screenshot](documentation) |
+| | (play/pause) |  |  |  | ![screenshot](documentation) |
+| | (movement btns) |  |  |  | ![screenshot](documentation) |
+| | (keys during game) |  |  |  | ![screenshot](documentation) |
+| | (points added) |  |  |  | ![screenshot](documentation) |
+| | (show loss) |  |  |  | ![screenshot](documentation) |
+| | (add high score) |  |  |  | ![screenshot](documentation) |
+| | (mute/unmute btn) |  |  |  | ![screenshot](documentation) |
+| | (restart btn) |  |  |  | ![screenshot](documentation) |
+| | (foot links) |  |  |  | ![screenshot](documentation) | 
+| Hard | | | | | |
+| | When the navigation icon is clicked, (3 lines/burger symbol) should show navigation buttons | Tested the feature by clicking on a variety of devices and browsers | The feature behaved as expected and it showed the navigation buttons | Test concluded and passed | ![screenshot](documentation) |
+| | When each navigation button is clicked on it should change the colour of the current mode that has been clicked on, should change the game difficulty, the title, the background image and the background theme audio | Tested the feature by pressing each button multiple times and multiple devices and browsers | The feature behaved as expected and changed what needed to change | Test concluded and passed | ![screenshot](documentation) |
+| | When the header title is clicked on should navigate back to the main page | Tested the feature by clicking on the main header title on each section and page on a variety of devices and browsers | The feature behaved as expected and navigated back to the main home page | Test concluded and passed | ![screenshot](documentation) |
+| | (rule btn) |  |  |  | ![screenshot](documentation) |
+| | (play/pause) |  |  |  | ![screenshot](documentation) |
+| | (movement btns) |  |  |  | ![screenshot](documentation) |
+| | (keys during game) |  |  |  | ![screenshot](documentation) |
+| | (points added) |  |  |  | ![screenshot](documentation) |
+| | (show loss) |  |  |  | ![screenshot](documentation) |
+| | (add high score) |  |  |  | ![screenshot](documentation) |
+| | (mute/unmute btn) |  |  |  | ![screenshot](documentation) |
+| | (restart btn) |  |  |  | ![screenshot](documentation) |
+| | (foot links) |  |  |  | ![screenshot](documentation) | 
+| 404 | | | | | |
+| | When the navigation icon is clicked, (3 lines/burger symbol) should show navigation button | Tested the feature by clicking on a variety of devices and browsers | The feature behaved as expected and it showed the navigation buttons | Test concluded and passed | ![screenshot](documentation) |
+| | When the header title is clicked on should navigate back to the main page | Tested the feature by clicking on the main header title on each section and page on a variety of devices and browsers | The feature behaved as expected and navigated back to the main home page | Test concluded and passed | ![screenshot](documentation) |
+| | (run away btn) |  |  |  | ![screenshot](documentation) |
+| | (mute/unmute btn) |  |  |  | ![screenshot](documentation) |
+| | (click me btn) |  |  |  | ![screenshot](documentation) |
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-START OF NOTES (to be deleted)
-
-Another way of performing defensive testing is a simple Pass/Fail for each test.
-The assessors prefer the above method, with the full test explained, but this is also acceptable in most cases.
-
-When in doubt, use the above method instead, and delete the table below.
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
-
-| Page | User Action | Expected Result | Pass/Fail | Comments |
-| --- | --- | --- | --- | --- |
-| Home | | | | |
-| | Click on Logo | Redirection to Home page | Pass | |
-| | Click on Home link in navbar | Redirection to Home page | Pass | |
-| Gallery | | | | |
-| | Click on Gallery link in navbar | Redirection to Gallery page | Pass | |
-| | Load gallery images | All images load as expected | Pass | |
-| Contact | | | | |
-| | Click on Contact link in navbar | Redirection to Contact page | Pass | |
-| | Enter first/last name | Field will accept freeform text | Pass | |
-| | Enter valid email address | Field will only accept email address format | Pass | |
-| | Enter message in textarea | Field will accept freeform text | Pass | |
-| | Click the Submit button | Redirects user to form-dump | Pass | User must click 'Back' button to return |
-| Sign Up | | | | |
-| | Click on Sign Up button | Redirection to Sign Up page | Pass | |
-| | Enter valid email address | Field will only accept email address format | Pass | |
-| | Enter valid password (twice) | Field will only accept password format | Pass | |
-| | Click on Sign Up button | Asks user to confirm email page | Pass | Email sent to user |
-| | Confirm email | Redirects user to blank Sign In page | Pass | |
-| Log In | | | | |
-| | Click on the Login link | Redirection to Login page | Pass | |
-| | Enter valid email address | Field will only accept email address format | Pass | |
-| | Enter valid password | Field will only accept password format | Pass | |
-| | Click Login button | Redirects user to home page | Pass | |
-| Log Out | | | | |
-| | Click Logout button | Redirects user to logout page | Pass | Confirms logout first |
-| | Click Confirm Logout button | Redirects user to home page | Pass | |
-| Profile | | | | |
-| | Click on Profile button | User will be redirected to the Profile page | Pass | |
-| | Click on the Edit button | User will be redirected to the edit profile page | Pass | |
-| | Click on the My Orders link | User will be redirected to the My Orders page | Pass | |
-| | Brute forcing the URL to get to another user's profile | User should be given an error | Pass | Redirects user back to own profile |
-| repeat for all remaining pages | x | x | x | x |
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-START OF NOTES (to be deleted)
-
-Repeat for all other tests, as applicable to your own site.
-The aforementioned tests are just an example of a few different project scenarios.
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
 
 ## User Story Testing
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-START OF NOTES (to be deleted)
-
-Testing user stories is actually quite simple, once you've already got the stories defined on your README.
-
-Most of your project's **features** should already align with the **user stories**,
-so this should as simple as creating a table with the user story, matching with the re-used screenshot
-from the respective feature.
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
 
 | User Story | Screenshot |
 | --- | --- |
@@ -318,18 +240,6 @@ from the respective feature.
 
 ## Bugs
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-START OF NOTES (to be deleted)
-
-This section is primarily used for JavaScript and Python applications,
-but feel free to use this section to document any HTML/CSS bugs you might run into.
-
-It's very important to document any bugs you've discovered while developing the project.
-Make sure to include any necessary steps you've implemented to fix the bug(s) as well.
-
-**PRO TIP**: screenshots of bugs are extremely helpful, and go a long way!
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
-
 - JS Uncaught ReferenceError: `foobar` is undefined/not defined
 
     ![screenshot](documentation/bugs/bug01.png)
@@ -342,27 +252,7 @@ Make sure to include any necessary steps you've implemented to fix the bug(s) as
 
     - To fix this, I _____________________.
 
-- Python `'ModuleNotFoundError'` when trying to import module from imported package
-
-    ![screenshot](documentation/bugs/bug03.png)
-
-    - To fix this, I _____________________.
-
-- Django `TemplateDoesNotExist` at /appname/path appname/template_name.html
-
-    ![screenshot](documentation/bugs/bug04.png)
-
-    - To fix this, I _____________________.
-
-- Python `E501 line too long` (93 > 79 characters)
-
-    ![screenshot](documentation/bugs/bug04.png)
-
-    - To fix this, I _____________________.
-
 ## Unfixed Bugs
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-START OF NOTES (to be deleted)
 
 You will need to mention unfixed bugs and why they were not fixed.
 This section should include shortcomings of the frameworks or technologies used.
@@ -374,8 +264,6 @@ It's better to be honest and list them, because if it's not documented and an as
 they need to know whether or not you're aware of them as well, and why you've not corrected/fixed them.
 
 Some examples:
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
 
 - On devices smaller than 375px, the page starts to have `overflow-x` scrolling.
 
@@ -395,11 +283,7 @@ Some examples:
 
     - Attempted fix: this is a known warning and acceptable, and my section doesn't require a header since it's dynamically added via JS.
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-START OF NOTES (to be deleted)
-
 If you legitimately cannot find any unfixed bugs or warnings, then use the following sentence:
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
 
 > [!NOTE]  
 > There are no remaining bugs that I am aware of.
