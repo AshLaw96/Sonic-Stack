@@ -150,7 +150,7 @@ header {
 
 #score-wrap {
     background-color: var(--p-highlight);
-    padding: 2px;
+    margin: 2em 5px;
 }
 
 #game-wrap {
@@ -341,7 +341,7 @@ footer {
         display: flex;
         flex-direction: column;
         position: absolute;
-        top: 16%;
+        top: 13%;
     }
 
     #game-wrap {

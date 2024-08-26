@@ -18,7 +18,7 @@ source: [amiresponsive](https://ui.dev/amiresponsive?url=https://ashlaw96.github
 
 Sonic Stacks purpose is to help resolve peoples lack of enthusiasm by giving them fun tasks to solve.
 
-The site will have 3 pages and a 404 error page, the first page will contain the easy level game area with a background image and buttons within the main section, a header and footer section. Then the medium game area with a different background image and finally the hard game area with a different background image. Each page will comprise with the same layout so the user can easily navigate through the site. The 404 will follow the same layout but with just some error message and image in the main section.
+The site will have 1 main page with 3 different levels that make it feel like 3 separate pages and a 404 error page, the first main section will contain the easy level game area with a background image a rules and score area, a button area within the main section, a header and footer section. Then the medium section will have a different background image and title and finally the hard section will also have a different background image and title. Each will comprise with the same layout so the user can easily navigate through the site. The 404 will follow the same layout but with just some error message and image in the main section.
 
 ### Colour Scheme
 
@@ -126,13 +126,18 @@ Main
 
 #### Header
 
-The header will contain the title, the navigation dropdown button and a mute/un-mute sound button. It will be the same on each page except for the 404 where the navigation will only contain one button. It will also have a background colour that follows the colour scheme of the full site.
+The header will contain the title, the navigation dropdown button and a mute/un-mute sound button. It will be the same on each section except for the 404 where the navigation will only contain one button. It will also have a background colour that follows the colour scheme of the full site.
+
+<details>
+<summary> click here to see the header of each page </summary>
 
 - Main
   - ![screenshot](documentation/features/main-header.png)
 
 - 404
   - ![screenshot](documentation/features/404-header.png)
+
+</details>
 
 #### Navigation
 
@@ -157,7 +162,7 @@ Hard
 
 #### Aside
 
-This will be situated at the top of the screen on mobile and tablet and then down the side on larger. It will contain 2 dropdown buttons one when clicked by the user will show how to play the game and the other one will contain the current score and the high score.
+This will be situated at the top of the screen on mobile and small tablets and then down the side on larger screens. It will contain 1 dropdown button that when clicked by the user will show how to play the game and another block will contain the current score and the high score of the user.
 
 <details>
 <summary> click here to see the aside on each screen </summary>
@@ -175,7 +180,7 @@ Desktop
 
 #### Main
 
-The main section for the 3 main pages will contain a title, the game area itself, and a button area below containing 4 control buttons and 2 other buttons situated below the control ones. The first button will be the start/pause button so the user can actually start playing and pause if they want and a reset button if the user wants to start again. There will be a different background image for each main page. For the 404 page the main section will contain an image and a 404 message telling the user that an error has occurred and they need to navigate to the previous page.
+The main section for the 3 main sections will contain a title, the game area itself, an aside section and a button area below containing 4 control buttons and 2 other buttons situated below the control ones. The first button will be the start/pause button so the user can actually start playing and pause if they want and a reset button if the user wants to start again. There will be a different background image for each main page. For the 404 page the main section will contain an image and a 404 message telling the user that an error has occurred and they need to navigate to the previous page.
 
 <details>
 <summary> click here to see the main section of each page </summary>
@@ -196,19 +201,16 @@ Hard
 
 #### Footer
 
-The footer will be located at the bottom of the page containing a different link on each of the 3 main pages and just an empty footer on the 404 page but still having the same layout as the other 3.
+The footer will be located at the bottom of the page containing 4 different links on the main pages and just an empty footer on the 404 page but still having the same layout as the main page.
 
 <details>
 <summary> click here to see the footer section of each page </summary>
 
-Easy
-  - ![screenshot](documentation/features/easy-foot.png)
+Main mobile/tablet
+  - ![screenshot](documentation/features/mob-foot.png)
 
-Medium
-  - ![screenshot](documentation/features/med-foot.png)
-
-Hard
-  - ![screenshot](documentation/features/hard-foot.png)
+Main desktop
+  - ![screenshot](documentation/features/desk-foot.png)
 
 404
   - ![screenshot](documentation/features/404-foot.png)
@@ -218,8 +220,10 @@ Hard
 ### Future Features
 
 1. Add a backend database to keep high scores of each game mode. 
-2. Add another page to add different levels when a user gets so many points and when they do automatically change speed of block drop and the background image changes.
+2. Add another page to add different levels when a user gets so many points and when they do automatically change speed of block drop and background music.
 3. Add a multiplayer/split-screen mode so people can play together online.
+4. Add a mini image area to show what blocks are coming up next.
+5. Add an area where you can store one block until you need it.
 
 ## Tools & Technologies Used
 
@@ -237,6 +241,7 @@ Hard
 - [![Real Favicon Generator](https://img.shields.io/badge/Real_Favicon_Generator-grey?logo=realfavicongenerator&logoColor=0096FF)](https://realfavicongenerator.net) used to create favicon.
 - [![Removebg](https://img.shields.io/badge/Removebg-grey?logo=removebg&logoColor=FFBF00)](https://www.remove.bg/upload) used to make background of image transparent.
 - [![ChatGPT](https://img.shields.io/badge/chatGPT-grey?logo=openai&logoColor=74AA9C)](https://chatgpt.com/) used to generate 404 message.
+- [![XConvert](https://img.shields.io/badge/XConvert-grey?logo=xconvert&logoColor=3F00FF)](https://www.xconvert.com/audio-compressor) used to compress the audio files.
 
 ## Testing
 
@@ -302,7 +307,6 @@ No differences were found between the local version and the live deployed versio
 | [W3schools](https://www.w3schools.com/jsref/prop_element_classlist.asp) | JS file | helped with adding and removing styles of divs using `.classList` methods |
 | [YouTube](https://www.youtube.com/watch?v=rAUn1Lom6dw) | entire site | helped with basics for creating Tetris game |
 | [W3Schools](https://www.w3schools.com/jsref/prop_audio_volume.asp#:~:text=Description,) | JS file | `.volume` method to have a mute and un-mute button |
-| [W3Schools](https://www.w3schools.com/howto/howto_js_redirect_webpage.asp) | JS file | `location.href` to change pages |
 | [Web Dev](https://blog.webdevsimplified.com/2023-04/html-dialog/) | entire site | how to use `<dialog></dialog>` element |
 | [Medium](https://medium.com/poka-techblog/simplify-your-javascript-use-some-and-find-f9fb9826ddfd) | JS file | helped using `some()` and `find()` to check arrays |
 | [W3Schools](https://www.w3schools.com/jsref/met_audio_pause.asp#:~:text=Description,%2C%20attached%20on%20the%20audio) | JS file | how to use the `play()` and `pause()` methods |
@@ -318,12 +322,13 @@ No differences were found between the local version and the live deployed versio
 | [TinyPNG](https://tinypng.com) | entire site | image | tool for image compression |
 | [Pinterest](https://www.pinterest.co.uk/pin/335025659768357500/) | index.html | image | background image for main easy section |
 | [Khinsider](https://downloads.khinsider.com/game-soundtracks/album/sonic-1-revisited) | index.html | audio | background music for easy section and medium section |
-| [101SoundBoards](https://www.101soundboards.com/boards/10990-sonic-the-hedgehog-sounds) | entire HTML | audio | sound when points gained, losing sound and turn sound |
+| [101SoundBoards](https://www.101soundboards.com/boards/10990-sonic-the-hedgehog-sounds) | index.html | audio | sound when points gained, losing sound and turn sound |
 | [TheGamer](https://www.thegamer.com/sonic-the-hedgehog-labyrinth-zone-nightmares/) | index.html | image | background image main medium section |
 | [TheGamer](https://www.thegamer.com/sonic-the-hedgehog-best-final-zones-levels-ranked/) | index.html | image | background image main hard section |
 | [Khinsider](https://downloads.khinsider.com/game-soundtracks/album/sonic-the-hedgehog-3-angel-island-revisited-pc-android-gamerip-flac) | index.html | audio | main background theme song for hard section |
 | [101SoundBoards](https://www.101soundboards.com/boards/10609-dr-eggman-sounds-sonic-adventure-2) | 404 HTML | audio | button sound on 404 main section |
-| [XConvert](https://www.xconvert.com/audio-compressor) | index.html | audio | tool for audi compression |
+| [XConvert](https://www.xconvert.com/audio-compressor) | index.html | audio | tool for audio compression |
+| [Pinterest](https://www.pinterest.co.uk/pin/756112224926051701/) | 404.html | image | main image on 404 page |
 
 ### Acknowledgements
 
