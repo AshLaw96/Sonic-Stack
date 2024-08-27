@@ -349,7 +349,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     /**
-     * access key board codes
+     * access key board codes by names
      * makes tetris block move when specific key pressed
      */
     function movement(event) {
@@ -377,6 +377,7 @@ document.addEventListener("DOMContentLoaded", () => {
             greenHill.pause();
             labSound.pause();
             bossSound.pause();
+            // removes event listener allowing keyboard buttons to move screen
             window.removeEventListener("keydown", stopScroll, false);
 
         } else {
@@ -396,6 +397,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     greenHill.play();
                     dropTime = setInterval(down, 1000);
             }
+            // adds event listener stopping keyboard buttons to move screen
             window.addEventListener("keydown", stopScroll, false);
         }
     }
