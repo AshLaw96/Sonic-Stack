@@ -423,10 +423,10 @@ document.addEventListener("DOMContentLoaded", () => {
             blocks[i].classList.remove("sqr");
             blocks[i].style.backgroundColor = "";
             blocks[i].style.boxShadow = "";
-            location = 3;
-            currentPoints.innerText = 0;
-            clearInterval(dropTime);
         }
+        location = 3;
+        currentPoints.innerText = 0;
+        clearInterval(dropTime);
     }
 
     if (reset) {
