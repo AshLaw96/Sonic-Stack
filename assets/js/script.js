@@ -529,7 +529,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function goBack() {
-        history.back();
+        window.location.href = "index.html";
     }
 
     if (backBtn) {
