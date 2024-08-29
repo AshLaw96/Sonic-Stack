@@ -73,7 +73,7 @@ I've used CSS `:root` variables to easily update the global colour scheme by cha
 - As a returning site user, I would like to pause the game, so that I can come back to where I left off.
 - As a returning site user, I would like to play multiplayer, so that I can play with my friends.
 - As a returning site user, I would like to have different levels, so that it feels like I'm accomplishing something.
-- As a returning site user, I would like to hear old school Tetris/Sonic music, so that it feels like the old games when I'm playing.
+- As a returning site user, I would like to hear old school Sonic music, so that it feels like the old games when I'm playing.
 - As a returning site user, I would like to see a scoreboard, so that I can see other peoples score and try and beat them.
 
 ## Wireframes

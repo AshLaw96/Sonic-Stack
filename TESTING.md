@@ -217,21 +217,25 @@ Defensive programming was manually tested with the below user acceptance testing
 | | When the mute/un-mute button hasn't been clicked on no audio should happen, only when the user clicks the button should audio be enabled and the buttons background colour will be visible, then when clicked again the audio should stop and the background colour should not be visible | This was tested on a variety of browsers clicking it on and off many times | The feature did what was expected firstly un-muting the audio and changing it's background colour then muting it and changing the background colour when clicked again | Test concluded and passed | ![screenshot](documentation/features/404-mute.png) |
 | | When the un-mute button is been clicked and then the user clicks the click me button it should play an audio sound | Tested this feature by clicking the button on different devices and browsers | The feature behaved as expected and played the audio when the button was clicked | Test concluded and passed | ![screenshot](documentation/features/404-audio-btn.png) |
 
-
 ## User Story Testing
 
 | User Story | Screenshot |
 | --- | --- |
-| As a new site user, I would like to ____________, so that I can ____________. | ![screenshot](documentation/features/feature01.png) |
-| As a new site user, I would like to ____________, so that I can ____________. | ![screenshot](documentation/features/feature02.png) |
-| As a new site user, I would like to ____________, so that I can ____________. | ![screenshot](documentation/features/feature03.png) |
-| As a returning site user, I would like to ____________, so that I can ____________. | ![screenshot](documentation/features/feature04.png) |
-| As a returning site user, I would like to ____________, so that I can ____________. | ![screenshot](documentation/features/feature05.png) |
-| As a returning site user, I would like to ____________, so that I can ____________. | ![screenshot](documentation/features/feature06.png) |
-| As a site administrator, I should be able to ____________, so that I can ____________. | ![screenshot](documentation/features/feature07.png) |
-| As a site administrator, I should be able to ____________, so that I can ____________. | ![screenshot](documentation/features/feature08.png) |
-| As a site administrator, I should be able to ____________, so that I can ____________. | ![screenshot](documentation/features/feature09.png) |
-| repeat for all remaining user stories | x |
+| As a new site user, I would like to easily understand the instructions, so that I can play the game as soon as possible. | ![screenshot](documentation/features/easy-rule-btn.png) |
+| As a new site user, I would like to be able to choose different difficulties, so that I can have fun and challenge myself. | ![screenshot](documentation/stories/game-mode.png) |
+| As a new site user, I would like to be able to see my score, so that I can see what I need to be better. | ![screenshot](documentation/stories/score.png) |
+| As a new site user, I would like to see what the high score is, so that I can try and beat it | ![screenshot](documentation/stories/high-score.png) |
+| As a new site user, I would like to be able to see others play, so that it can help me improve how I play | ![screenshot](documentation/stories/watch-players.png) | 
+| --- | --- |
+| As a returning site user, I would like to pause the game, so that I can come back to where I left off. | ![screenshot](documentation/stories/pause-btn.png) |
+| As a returning site user, I would like to hear old school Sonic music, so that it can feel like the old games when I'm playing. | ![screenshot](documentation/stories/old-school-snd.png) |
+| As a returning site user, I would like to play multiplayer/split-screen, so that I can play with my friends. | (Need to add more CSS to add separate boxes in the main section and add JS to open and close it) |
+| As a returning site user, I would like to have different levels, so that it feels like I've accomplished something | (Need to add CSS to style another section and JS to add a levels section that changes the game speed and amount of points gained when a user gets so many points) |
+| As a returning site user, I would like to see a scoreboard, so that I can see all the different scores of other people and try to beat them | (Need to add JS to save users names and users high score to the `localStorage()` then use backend library to save scores and add both the name and score to a table)
+| --- | --- |
+| As a site administrator, I should be able to check how much traffic my site is getting, so that I can try to improve and gain more if needed. | ![screenshot](documentation/stories/traffic-check.png) |
+| As a site administrator, I should be able to see how many people play each level, so that I can add more levels if needed. | ![screenshot](documentation/stories/level-check.png) |
+| As a site administrator, I should be able to see the load speed of the site, so that I can improve where needed. | ![screenshot](documentation/stories/load-check.png) |
 
 ## Bugs
 
