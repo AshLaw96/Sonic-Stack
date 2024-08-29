@@ -10,13 +10,15 @@ Feature-by-Feature Testing:
 - Portfolio Display: I have verified that every page is properly showcased with accurate descriptions, images, and links.
 - Game area: I confirmed that the game worked as intended on different devices and screen sizes.
 - Buttons: I made sure that all buttons worked as they should and were easy to understand and read.
+- Mute/Un-mute: I made sure that no audio would play unless the user clicked on the un-mute button.
 
 User Experience Testing:
 
 - Usability Testing: I let users interact with my site and provide feedback of their experience with it.
-1.
+1. 
 2.
 3.
+
 - Accessibility Testing: I confirmed compliance with accessibility standards e.g. screen reader compatibility, proper alt text for images and keyboard navigation.
 
 Compatibility Testing:
@@ -29,10 +31,12 @@ Compatibility Testing:
   <details>
   <summary> Click here to see speed tests of both pages </summary>
 
-    - main
+    main
+
     ![screenshot](documentation/validate/main-load.png)
 
-    - 404
+    404
+    
     ![screenshot](documentation/validate/404-load.png)
     
     </details>
@@ -146,7 +150,7 @@ I've tested my deployed project on multiple devices to check for responsiveness 
 | Tablet | ![screenshot](documentation/device/easy-ipad.jpg) | ![screenshot](documentation/device/med-ipad.jpg) | ![screenshot](documentation/device/hard-ipad.jpg) | ![screenshot](documentation/device/404-tablet.jpg) | Works as expected |
 | Laptop | ![screenshot](documentation/device/easy-laptop.jpg) | ![screenshot](documentation/device/med-laptop.jpg) | ![screenshot](documentation/device/hard-laptop.jpg) | ![screenshot](documentation/device/404-laptop.jpg) | Works as expected |
 | Desktop | ![screenshot](documentation) | ![screenshot](documentation) | ![screenshot](documentation) | ![screenshot](documentation) | Works as expected |
-| XL screen | ![screenshot](documentation) | ![screenshot](documentation) | ![screenshot](documentation) | ![screenshot](documentation) | Noticeable scaling issues |
+| XL screen | ![screenshot](documentation/device/easy-xl.jpg) | ![screenshot](documentation/device/med-xl.jpg) | ![screenshot](documentation/device/hard-xl.jpg) | ![screenshot](documentation/device/404-xl.jpg) | Noticeable scaling issues |
 
 ## Lighthouse Audit
 
@@ -311,40 +315,7 @@ Defensive programming was manually tested with the below user acceptance testing
 
 - To see more information about the bugs and fixes, see here - [The Bugs/Fixes:](#documentation-and-logs)
 
-
-
 ## Unfixed Bugs
-
-You will need to mention unfixed bugs and why they were not fixed.
-This section should include shortcomings of the frameworks or technologies used.
-Although time can be a big variable to consider, paucity of time and difficulty understanding
-implementation is not a valid reason to leave bugs unfixed.
-
-If you've identified any unfixed bugs, no matter how small, be sure to list them here.
-It's better to be honest and list them, because if it's not documented and an assessor finds the issue,
-they need to know whether or not you're aware of them as well, and why you've not corrected/fixed them.
-
-Some examples:
-
-- On devices smaller than 375px, the page starts to have `overflow-x` scrolling.
-
-    ![screenshot](documentation/bugs/unfixed-bug01.png)
-
-    - Attempted fix: I tried to add additional media queries to handle this, but things started becoming too small to read.
-
-- For PP3, when using a helper `clear()` function, any text above the height of the terminal does not clear, and remains when you scroll up.
-
-    ![screenshot](documentation/bugs/unfixed-bug02.png)
-
-    - Attempted fix: I tried to adjust the terminal size, but it only resizes the actual terminal, not the allowable area for text.
-
-- When validating HTML with a semantic `section` element, the validator warns about lacking a header `h2-h6`. This is acceptable.
-
-    ![screenshot](documentation/bugs/unfixed-bug03.png)
-
-    - Attempted fix: this is a known warning and acceptable, and my section doesn't require a header since it's dynamically added via JS.
-
-If you legitimately cannot find any unfixed bugs or warnings, then use the following sentence:
 
 > [!NOTE]  
 > There are no remaining bugs that I am aware of.

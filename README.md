@@ -87,10 +87,12 @@ I've used [Moqups](https://app.moqups.com) to design my site wireframes.
 <summary> Click here to see the Mobile Wireframes </summary>
 
 Main
-  - ![screenshot](documentation/wireframes/mob-wireframe.png)
+
+- ![screenshot](documentation/wireframes/mob-wireframe.png)
 
 404
-  - ![screenshot](documentation/wireframes/404-mob-wireframe.png)
+
+- ![screenshot](documentation/wireframes/404-mob-wireframe.png)
 
 </details>
 
@@ -100,10 +102,12 @@ Main
 <summary> Click here to see the Tablet Wireframes </summary>
 
 Main
-  - ![screenshot](documentation/wireframes/tablet-wireframe.png)
+
+- ![screenshot](documentation/wireframes/tablet-wireframe.png)
 
 404
-  - ![screenshot](documentation/wireframes/404-ipad-wireframe.png)
+
+- ![screenshot](documentation/wireframes/404-ipad-wireframe.png)
 
 </details>
 
@@ -113,10 +117,12 @@ Main
 <summary> Click here to see the Desktop Wireframes </summary>
 
 Main
-  - ![screenshot](documentation/wireframes/wireframe.png)
+
+- ![screenshot](documentation/wireframes/wireframe.png)
 
 404
-  - ![screenshot](documentation/wireframes/404-wireframe.png)
+
+- ![screenshot](documentation/wireframes/404-wireframe.png)
 
 </details>
 
@@ -139,16 +145,20 @@ The navigation will be situated at the top of the screen. There will be a tab bu
 <summary> click here to see the navigation of each page </summary>
 
 Easy
-  - ![screenshot](documentation/features/easy-nav.png)
+
+- ![screenshot](documentation/features/easy-nav.png)
 
 Medium
-  - ![screenshot](documentation/features/med-nav.png)
+
+- ![screenshot](documentation/features/med-nav.png)
 
 Hard
-  - ![screenshot](documentation/features/hard-nav.png)
+
+- ![screenshot](documentation/features/hard-nav.png)
 
 404
-  - ![screenshot](documentation/features/404-nav.png)
+
+- ![screenshot](documentation/features/404-nav.png)
 
 </details>
 
@@ -160,13 +170,16 @@ This will be situated at the top of the screen on mobile and small tablets and t
 <summary> click here to see the aside on each screen </summary>
 
 Mobile
-  - ![screenshot](documentation/features/mob-aside.png)
+
+- ![screenshot](documentation/features/mob-aside.png)
 
 Tablet
-  - ![screenshot](documentation/features/ipad-aside.png)
+
+- ![screenshot](documentation/features/ipad-aside.png)
 
 Desktop
-  - ![screenshot](documentation/features/desk-aside.png)
+
+- ![screenshot](documentation/features/desk-aside.png)
 
 </details>
 
@@ -178,16 +191,20 @@ The main section for the 3 main sections will contain a title, the game area its
 <summary> click here to see the main section of each page </summary>
 
 Easy
-  - ![screenshot](documentation/features/easy-main.png)
+
+- ![screenshot](documentation/features/easy-main.png)
 
 Medium
-  - ![screenshot](documentation/features/med-main.png)
+
+- ![screenshot](documentation/features/med-main.png)
 
 Hard
-  - ![screenshot](documentation/features/hard-main.png)
+
+- ![screenshot](documentation/features/hard-main.png)
 
 404
-  - ![screenshot](documentation/features/404-main.png)
+
+- ![screenshot](documentation/features/404-main.png)
 
 </details>
 
@@ -199,13 +216,16 @@ The footer will be located at the bottom of the page containing 4 different link
 <summary> click here to see the footer section of each page </summary>
 
 Main mobile/tablet
-  - ![screenshot](documentation/features/mob-foot.png)
+
+- ![screenshot](documentation/features/mob-foot.png)
 
 Main desktop
-  - ![screenshot](documentation/features/desk-foot.png)
+
+- ![screenshot](documentation/features/desk-foot.png)
 
 404
-  - ![screenshot](documentation/features/404-foot.png)
+
+- ![screenshot](documentation/features/404-foot.png)
 
 </details>
 
