@@ -43,7 +43,7 @@ Regression Testing:
 
 After implementing any fixes or updates I ensured that previous features and functionalities still worked as intended.
 
-Documentation and Logs:
+#### Documentation and Logs:
 
 - whilst creating the blocks, I noticed that where the blocks appeared the box shadow stayed when they left the area.
 
@@ -239,17 +239,79 @@ Defensive programming was manually tested with the below user acceptance testing
 
 ## Bugs
 
-- JS Uncaught ReferenceError: `foobar` is undefined/not defined
+- Style error: box shadow remains when blocks move
 
-    ![screenshot](documentation/bugs/bug01.png)
+  Issue
 
-    - To fix this, I _____________________.
+  ![screenshot](documentation/bugs/box-shadow-issue.png)
 
-- JS `'let'` or `'const'` or `'template literal syntax'` or `'arrow function syntax (=>)'` is available in ES6 (use `'esversion: 11'`) or Mozilla JS extensions (use moz).
+  Fix
 
-    ![screenshot](documentation/bugs/bug02.png)
+  ![screenshot](documentation/bugs/fix-shadow.png)
 
-    - To fix this, I _____________________.
+- JS Uncaught TypeError: cannot read properties of undefined (reading `display`)
+
+  Issue
+
+  ![screenshot](documentation/bugs/display-type-issue.png)
+
+  Fix
+
+  ![screenshot](documentation/bugs/display-type-fix.png)
+
+- Style error: the blocks are incorrectly shaped 
+
+  Issue
+
+  ![screenshot](documentation/bugs/misshaped.png)
+
+  Fix
+
+  ![screenshot](documentation/bugs/fix-misshaped.png)
+
+- Style error: the blocks move into the opposite side of the game area
+
+  Issue
+
+  ![screenshot](documentation/bugs/overlap-right.png)
+
+  Fix
+
+  ![screenshot](documentation/bugs/fix-overlap-right.png)
+
+- Style error: when turning the blocks move into the opposite side of the game area
+
+  Issue
+
+  ![screenshot](documentation/bugs/turn-overlap-screen.png)
+
+  Fix
+
+  ![screenshot](documentation/bugs/turn-overlap-fix.png)
+
+- JS Uncaught TypeError: cannot read properties of null (reading `appendChild`)
+
+  Issue
+
+  ![screenshot](documentation/bugs/type-error-404.png)
+
+  Fix
+
+  ![screenshot](documentation/bugs/type-error-404-fix.png)
+
+- JS Uncaught TypeError: cannot read properties of undefined (reading `classList`)
+
+  Issue
+
+  ![screenshot](documentation/bugs/type-error.png)
+
+  Fix
+
+  ![screenshot](documentation/bugs/fix-type-error.png)
+
+- To see more information about the bugs and fixes, see here - [The Bugs/Fixes:](#documentation-and-logs)
+
+
 
 ## Unfixed Bugs
 
