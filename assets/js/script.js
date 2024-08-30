@@ -121,7 +121,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // add block shapes to an array
     const blockArr = [blockSqr, blockLine, blockT, blockL, blockZ];
 
-    let location = 3;
+    let location = 4;
     let activeRotate = 0;
 
     // picks random block and a random rotation of the block
@@ -230,7 +230,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // starts another random block dropping
             randBlock = Math.floor(Math.random() * blockArr.length);
             active = blockArr[randBlock][activeRotate];
-            location = 3;
+            location = 4;
             makeBlocks();
             gotPoints();
             lost();
@@ -402,6 +402,10 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    /**
+     * Checks specified keys been clicked
+     * Then cancels event
+     */
     function stopScroll(event) {
         switch(event.code){
             case "ArrowUp": 
@@ -417,6 +421,11 @@ document.addEventListener("DOMContentLoaded", () => {
         startBtn.addEventListener("click", pausePlay);
     }
 
+    /**
+     * Removes all blocks
+     * stops blocks dropping
+     * sets points to 0
+     */
     function restart() {
         for (let i = 0; i < 200; i += 1) {
             blocks[i].classList.remove("delete");
@@ -424,7 +433,7 @@ document.addEventListener("DOMContentLoaded", () => {
             blocks[i].style.backgroundColor = "";
             blocks[i].style.boxShadow = "";
         }
-        location = 3;
+        location = 4;
         currentPoints.innerText = 0;
         clearInterval(dropTime);
     }

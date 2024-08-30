@@ -10,7 +10,7 @@ Feature-by-Feature Testing:
 - Portfolio Display: I have verified that every page is properly showcased with accurate descriptions, images, and links.
 - Game area: I confirmed that the game worked as intended on different devices and screen sizes.
 - Buttons: I made sure that all buttons worked as they should and were easy to understand and read.
-- Mute/Un-mute: I made sure that no audio would play unless the user clicked on the un-mute button.
+- Mute/Un-mute: I ensured that no audio would play unless the user clicked on the un-mute button.
 
 User Experience Testing:
 
@@ -134,9 +134,9 @@ I've tested my deployed project on multiple browsers to check for compatibility 
 | --- | --- | --- | --- | --- | --- |
 | Chrome | ![screenshot](documentation/browser/easy-chrome.png) | ![screenshot](documentation/browser/med-chrome.png) | ![screenshot](documentation/browser/hard-chrome.png) | ![screenshot](documentation/browser/404-chrome.png) | Works as expected |
 | Firefox | ![screenshot](documentation/browser/easy-firefox.png) | ![screenshot](documentation/browser/med-firefox.png) | ![screenshot](documentation/browser/hard-firefox.png) | ![screenshot](documentation/browser/404-firefox.png) | Works as expected |
-| Edge | ![screenshot](documentation/browser) | ![screenshot](documentation/browser) | ![screenshot](documentation/browser) | ![screenshot](documentation/browser) | Works as expected |
+| Edge | ![screenshot](documentation/device/easy-desk.jpg) | ![screenshot](documentation/device/med-desk.jpg) | ![screenshot](documentation/device/hard-desk.jpg) | ![screenshot](documentation/device/404-desk.jpg) | Works as expected |
 | Amazon Silk | ![screenshot](documentation/device/easy-ipad.jpg) | ![screenshot](documentation/device/med-ipad.jpg) | ![screenshot](documentation/device/hard-ipad.jpg) | ![screenshot](documentation/device/404-tablet.jpg) | Minor CSS differences |
-| Bing | ![screenshot](documentation/browser) | ![screenshot](documentation/browser) | ![screenshot](documentation/browser) | ![screenshot](documentation/browser) | Works as expected |
+| Bing | ![screenshot](documentation/device/easy-xl.jpg) | ![screenshot](documentation/device/med-xl.jpg) | ![screenshot](documentation/device/hard-xl.jpg) | ![screenshot](documentation/device/404-xl.jpg) | Works as expected |
 
 ## Responsiveness
 
@@ -149,7 +149,7 @@ I've tested my deployed project on multiple devices to check for responsiveness 
 | Mobile | ![screenshot](documentation/device/easy-mob.jpg) | ![screenshot](documentation/device/med-mob.jpg) | ![screenshot](documentation/device/hard-mob.jpg) | ![screenshot](documentation/device/404-mob.jpg) | Works as expected |
 | Tablet | ![screenshot](documentation/device/easy-ipad.jpg) | ![screenshot](documentation/device/med-ipad.jpg) | ![screenshot](documentation/device/hard-ipad.jpg) | ![screenshot](documentation/device/404-tablet.jpg) | Works as expected |
 | Laptop | ![screenshot](documentation/device/easy-laptop.jpg) | ![screenshot](documentation/device/med-laptop.jpg) | ![screenshot](documentation/device/hard-laptop.jpg) | ![screenshot](documentation/device/404-laptop.jpg) | Works as expected |
-| Desktop | ![screenshot](documentation) | ![screenshot](documentation) | ![screenshot](documentation) | ![screenshot](documentation) | Works as expected |
+| Desktop | ![screenshot](documentation/device/easy-desk.jpg) | ![screenshot](documentation/device/med-desk.jpg) | ![screenshot](documentation/device/hard-desk.jpg) | ![screenshot](documentation/device/404-desk.jpg) | Works as expected |
 | XL screen | ![screenshot](documentation/device/easy-xl.jpg) | ![screenshot](documentation/device/med-xl.jpg) | ![screenshot](documentation/device/hard-xl.jpg) | ![screenshot](documentation/device/404-xl.jpg) | Noticeable scaling issues |
 
 ## Lighthouse Audit
