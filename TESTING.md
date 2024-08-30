@@ -15,9 +15,10 @@ Feature-by-Feature Testing:
 User Experience Testing:
 
 - Usability Testing: I let users interact with my site and provide feedback of their experience with it.
-1. 
-2.
-3.
+
+1. My first user was a late-20s woman who had played a lot of retro games. She stated how she enjoyed the Easy, Medium and Hard levels of the game and was a great way to progress which made her become more involved with the game. She also enjoyed the backgrounds and sound effects of the game which made it more enjoyable for her. She played this on her phone & explained how it was a great way to pass time in her commute to and from work. 
+2. My next participant was a 60-year old man who had played the original Tetris game when he was younger but hadn't played in many decades. He spoke about how the game was somewhat nostalgic but gave a great sense of something different. He enjoyed how the different coloured blocks were a great touch to keep him focused and he enjoyed the fact he could use controls on the screen as he played on his very old & dated laptop where his buttons would occasionally stick. Therefore having buttons on the screen which he could use with a cursor meant he could play.
+3. The last person I asked to test and review my game was a young boy who had recently got into playing modern games. He enjoyed the concept of this game and being of a younger generation, he knew of Sonic & liked that he could relate to that. He played in the car on his tablet with his Mum, who used to play the original Tetris game when she was younger. Together they both enjoyed the fact they could play together & made their own game out of trying to beat each other's high score. 
 
 - Accessibility Testing: I confirmed compliance with accessibility standards e.g. screen reader compatibility, proper alt text for images and keyboard navigation.
 

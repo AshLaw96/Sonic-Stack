@@ -169,6 +169,7 @@ header {
 
 .sqr {
     background-color: var(--p-block1);
+    box-shadow: 0 0 4px 2px var(--s-block1);
 }
 
 /* dialog styles */

@@ -33,6 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const backBtn = document.getElementById("return");
 
     let currentLevel = "Easy";
+
     let mainWrap = document.getElementById("main-wrap");
     // Scores
     const currentHigh = document.getElementById("high-scr");
@@ -70,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const eggBtn = document.getElementById("eggman-btn");
 
     const subTitle = document.getElementById("sub-title");
-
+    // dialog section
     const dialog = document.querySelector("dialog");
     const dialClose = document.querySelector("#close-dial");
 
@@ -140,8 +141,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 blocks[location + i].style.boxShadow = "0 0 4px 2px var(--s-block2)";
             } else if (blocks[location + i].style.backgroundColor === "var(--p-block3)") {
                 blocks[location + i].style.boxShadow = "0 0 4px 2px var(--s-block3)"; 
-            } else {
-                blocks[location + i].style.boxShadow = "0 0 4px 2px var(--s-block1)";
             }
         });
     }
@@ -181,7 +180,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 blocks = deleteBlock.concat(blocks); // add deleteBlock to blocks variable
                 blocks.forEach(square => gameWrap.appendChild(square)); // add each as child of gameWrap
                 scrSound.play();
-                console.log(points, "<< >>", currentPoints);
             }
         }
     }
@@ -234,6 +232,7 @@ document.addEventListener("DOMContentLoaded", () => {
             location = 4;
             makeBlocks();
             gotPoints();
+            stopTurning();
             lost();
         } 
     }
@@ -275,7 +274,6 @@ document.addEventListener("DOMContentLoaded", () => {
         if (active.some(i => blocks[location + i].classList.contains("delete"))) {
             location -= 1;
         }
-
         makeBlocks();
     }
 
@@ -319,7 +317,7 @@ document.addEventListener("DOMContentLoaded", () => {
      * if at left side takes 1 away from location to wrap back around
      */
     function stopTurning() {
-        if ((location + 1) % 10 < 4 && stopRightTurn()) {
+        if ((location + 1) % 10 < 5 && stopRightTurn()) {
                location += 1;
                stopTurning();
         } else if (location % 10 > 4 && stopLeftTurn()) {
