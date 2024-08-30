@@ -181,6 +181,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 blocks = deleteBlock.concat(blocks); // add deleteBlock to blocks variable
                 blocks.forEach(square => gameWrap.appendChild(square)); // add each as child of gameWrap
                 scrSound.play();
+                console.log(points, "<< >>", currentPoints);
             }
         }
     }
@@ -435,6 +436,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         location = 4;
         currentPoints.innerText = 0;
+        points = 0;
         clearInterval(dropTime);
     }
 

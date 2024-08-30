@@ -134,8 +134,9 @@ Main
 
 The header will contain the title, the navigation dropdown button and a mute/un-mute sound button. It will be the same on each section except for the 404 where the navigation will only contain one button. It will also have a background colour that follows the colour scheme of the full site.
 
-- Header
-  - ![screenshot](documentation/features/main-header.png)
+Header
+
+- ![screenshot](documentation/features/main-header.png)
 
 #### Navigation
 
@@ -231,8 +232,8 @@ Main desktop
 
 ### Future Features
 
-1. Add a backend database to keep high scores of each game mode. 
-2. Add another page to add different levels when a user gets so many points and when they do automatically change speed of block drop and background music.
+1. Add a backend database to keep high scores of each game mode and other players. 
+2. Add another page to add different levels when a user gets so many points and when they do automatically change speed of block drop and background music/image.
 3. Add a multiplayer/split-screen mode so people can play together online.
 4. Add a mini image area to show what blocks are coming up next.
 5. Add an area where you can store one block until you need it.
@@ -347,4 +348,4 @@ No differences were found between the local version and the live deployed versio
 - I would like to thank my Code Institute mentor, [Tim Nelson](https://github.com/TravelTimN) for his support throughout the development of this project.
 - I would like to thank the [Code Institute](https://codeinstitute.net) tutor team for their assistance with the lessons provided to give me the knowledge I needed to make this game.
 - I would like to thank the [Code Institute Slack community](https://code-institute-room.slack.com) for the moral support; it kept me going during periods of self doubt and imposter syndrome.
-- I would like to thank my partner (Megan), for believing in me, and allowing me to make this transition into software development.
+- I would like to thank my wife (Megan), for believing in me, and allowing me to make this transition into software development.

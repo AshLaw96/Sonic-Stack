@@ -105,6 +105,14 @@ After implementing any fixes or updates I ensured that previous features and fun
 
   - The fix: [fix](documentation/bugs/type-error-404-fix.png)
 
+- When clicking the reset button, I noticed when starting a new game and receiving my first points, my current score would automatically carry on from the previous games score.
+
+  - The issue: [issue](documentation/bugs/score-reset-issue.png)
+
+- To fix this I had to reset both my current score to 0 and my points variable to 0 to start the score count again.
+
+  - The fix: [fix](documentation/bugs/score-reset-fix.png)
+
 ## Code Validation
 
 ### HTML
@@ -312,6 +320,16 @@ Defensive programming was manually tested with the below user acceptance testing
   Fix
 
   ![screenshot](documentation/bugs/fix-type-error.png)
+
+- Inner text error: When restart game score added previous score when gaining first points
+
+  Issue
+
+  ![screenshot](documentation/bugs/score-reset-issue.png)
+
+  Fix
+
+  ![screenshot](documentation/bugs/score-reset-fix.png)
 
 - To see more information about the bugs and fixes, see here - [The Bugs/Fixes:](#documentation-and-logs)
 
