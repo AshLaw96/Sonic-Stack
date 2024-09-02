@@ -224,18 +224,18 @@ document.addEventListener("DOMContentLoaded", () => {
      * 
      */
     function stop() {
-        if (active.find(i => blocks[location + i + 10].classList.contains("delete"))) {
+        // if (active.find(i => blocks[location + i + 10].classList.contains("delete"))) {
             active.forEach(i => blocks[location + i].classList.add("delete"));
             // starts another random block dropping
             randBlock = Math.floor(Math.random() * blockArr.length);
             active = blockArr[randBlock][activeRotate];
             location = 4;
-            makeBlocks();
             gotPoints();
+            makeBlocks();
             stopTurning();
             lost();
         } 
-    }
+    // }
 
     /**
      * moves tetris block left
@@ -287,10 +287,14 @@ document.addEventListener("DOMContentLoaded", () => {
      * stop block drop if reach top (stop func)
      */
     function down() {
-        removeBlocks();
-        location += 10;
-        makeBlocks();
-        stop();
+        // allows to move blocks before stop at bottom
+        if (!active.find(i => blocks[location + i + 10].classList.contains("delete"))) {
+            removeBlocks();
+            location += 10;
+            makeBlocks();
+        } else {
+            stop();
+        }
     }
 
     if (downMove) {

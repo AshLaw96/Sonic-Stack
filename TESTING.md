@@ -114,6 +114,14 @@ After implementing any fixes or updates I ensured that previous features and fun
 
   - The fix: [fix](documentation/bugs/score-reset-fix.png)
 
+- After receiving points and the next block starts dropping some other squares also appear.
+
+  - The issue: [issue](documentation/bugs/blocks-appear.png)
+
+- To fix this I had to call the `gotPoints` function earlier in the `stop` function so it would action the code in the `gotPoints` function before any of the others.
+
+  - The fix: [fix](documentation/bugs/blocks-appear-fix.png)
+
 ## Code Validation
 
 ### HTML
@@ -332,9 +340,17 @@ Defensive programming was manually tested with the below user acceptance testing
 
   ![screenshot](documentation/bugs/score-reset-fix.png)
 
-- To see more information about the bugs and fixes, see here - [The Bugs/Fixes:](#documentation-and-logs)
+- Style error: after getting points when the next block started dropping, squares would appear inside the game area
 
-## Unfixed Bugs
+  Issue
+
+  ![screenshot](documentation/bugs/blocks-appear.png)
+
+  Fix
+
+  ![screenshot](documentation/bugs/blocks-appear-fix.png)
+
+- To see more information about the bugs and fixes, see here - [The Bugs/Fixes:](#documentation-and-logs)
 
 > [!NOTE]  
 > There are no remaining bugs that I am aware of.
