@@ -49,6 +49,11 @@ document.addEventListener("DOMContentLoaded", () => {
     if (ruleHide) {
         ruleHide.style.display = "none";
     }
+    const drone = document.getElementById("drone");
+    const droneTxt = document.getElementById("drone-txt");
+    if (drone) {
+        drone.style.display = "none";
+    }
     // Sounds
     const soundWrap = document.getElementById("sound-wrap");
     const soundWrapChildren = soundWrap.children;
@@ -166,7 +171,7 @@ document.addEventListener("DOMContentLoaded", () => {
         for (let i = 0; i < 199; i += 10) {
             const line = [i, i + 1, i + 2, i + 3, i + 4, i + 5, i + 6, i + 7, i + 8, i + 9];
 
-            if (line.every(j => blocks[j].classList.contains("delete"))) {
+            if (line.every(y => blocks[y].classList.contains("delete"))) {
                 points += 100;
                 currentPoints.innerText = points;
                 line.forEach(x => {
@@ -216,6 +221,35 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (dialClose) {
         dialClose.addEventListener("click", closeDialog);
+    }
+
+        /**
+     * finds first block that reaches right side 
+     */
+        function stopRightTurn() {
+            return active.find(i => (location + i + 1) % 10 === 0);
+        }
+    
+        /**
+         * finds first block that reaches left side  
+         */
+        function stopLeftTurn() {
+            return active.find(i => (location + i) % 10 === 0);
+        }
+    
+        /**
+         * checks if block is turning at either side of game area
+         * if at right adds 1 to location to wrap back around
+         * if at left side takes 1 away from location to wrap back around
+         */
+        function stopTurning() {
+            if ((location + 1) % 10 < 5 && stopRightTurn()) {
+                   location += 1;
+                   stopTurning();
+            } else if (location % 10 > 4 && stopLeftTurn()) {
+                     location -= 1;
+                     stopTurning();
+              }
     }
 
     /**
@@ -369,6 +403,72 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.addEventListener("keydown", movement);
 
+     //easy level change
+     function easyChange() {
+        subTitle.innerText = "Easy";
+        currentLevel = "Easy";
+        mainWrap.classList.add("easy-bg");
+        mainWrap.classList.remove("medium-bg", "hard-bg");
+        easyBtn.classList.add("current");
+        medBtn.classList.remove("current");
+        hardBtn.classList.remove("current");
+        clearInterval(dropTime);
+        labSound.pause();
+        bossSound.pause();
+    }
+
+    if (easyBtn) {
+        easyBtn.addEventListener("click", easyChange);
+    }
+
+    //medium level change
+    function medChange() {
+        subTitle.innerText = "Medium";
+        currentLevel = "Medium";
+        mainWrap.classList.add("medium-bg");
+        mainWrap.classList.remove("easy-bg", "hard-bg");
+        medBtn.classList.add("current");
+        easyBtn.classList.remove("current");
+        hardBtn.classList.remove("current");
+        clearInterval(dropTime);
+        greenHill.pause();
+        bossSound.pause();
+    }
+
+    if (medBtn) {
+        medBtn.addEventListener("click", medChange);
+    }
+
+    // hard level change
+    function hardChange() {
+        subTitle.innerText = "Hard";
+        currentLevel = "Hard";
+        mainWrap.classList.add("hard-bg");
+        mainWrap.classList.remove("medium-bg", "easy-bg");
+        hardBtn.classList.add("current");
+        medBtn.classList.remove("current");
+        easyBtn.classList.remove("current");
+        clearInterval(dropTime);
+        greenHill.pause();
+        labSound.pause();
+    }
+
+    /**
+     * Checks specified keys been clicked
+     * Then cancels event
+     */
+    function stopScroll(event) {
+        switch(event.code){
+            case "ArrowUp": 
+            case "ArrowDown": 
+            case "ArrowLeft": 
+            case "ArrowRight": 
+            case "Space": 
+            event.preventDefault(); break;
+            default:
+        }
+    }
+
     /**
      * pauses the drop of blocks when button is pressed
      * starts drop when button is pressed again
@@ -459,6 +559,14 @@ document.addEventListener("DOMContentLoaded", () => {
         ruleBtn.addEventListener("click", rules);
     }
 
+    // hide text and un-hide img
+    function hideDrone() {
+        if (drone.style.display === "none") {
+            drone.style.display = "block";
+            droneTxt.style.display = "none";
+        }
+    }
+
     /**
      * loops all audio
      * if volume is above 0 all audio equals 0
@@ -538,7 +646,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (eggBtn) {
-        eggBtn.addEventListener("click", playEgg);
+        eggBtn.addEventListener("click", () => {
+            playEgg();
+            hideDrone();
+        });
     }
 
     function goBack() {

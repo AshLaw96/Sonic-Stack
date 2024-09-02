@@ -342,6 +342,7 @@ No differences were found between the local version and the live deployed versio
 | [101SoundBoards](https://www.101soundboards.com/boards/10609-dr-eggman-sounds-sonic-adventure-2) | 404 HTML | audio | button sound on 404 main section |
 | [XConvert](https://www.xconvert.com/audio-compressor) | index.html | audio | tool for audio compression |
 | [Pinterest](https://www.pinterest.co.uk/pin/756112224926051701/) | 404.html | image | main image on 404 page |
+| [DevianArt](https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.deviantart.com%2Fkeronianniroro%2Fart%2FEgg-Drone-in-Sonic-X-style-836287813&psig=AOvVaw2u7I_iqDCSvmRSUO1-Vskj&ust=1725374863777000&source=images&cd=vfe&opi=89978449&ved=0CBUQjhxqFwoTCMiansHApIgDFQAAAAAdAAAAABAE) | 404.html | image | button image on 404 page |
 
 ### Acknowledgements
 

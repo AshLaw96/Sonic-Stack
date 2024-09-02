@@ -223,6 +223,10 @@ dialog::backdrop {
 #eggman-btn {
     margin: 5px;
     background-color: var(--p-text);
+    border: none;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
 }
 
 #instructions:hover, #start-stop:hover, #reset:hover, #left:hover, #right:hover, #twist:hover, #down:hover, #eggman-btn:hover {
@@ -239,6 +243,16 @@ dialog::backdrop {
     width: 200px;
     display: block;
     margin: 5px auto;
+}
+
+#drone {
+    margin: 6%;
+    width: 80px;
+    height: 80px;
+}
+
+#drone-txt {
+    font-size: 16px;
 }
 
 /* 404 main text */
