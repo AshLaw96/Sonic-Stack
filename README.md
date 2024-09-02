@@ -6,9 +6,9 @@
 
 ---
 
-Sonic Stack is a Tetris game with a Sonic design. This is to draw all those Sonic and Tetris lovers all into one awesome box.
+Sonic Stack is a Tetris game with a Sonic styling. This is to draw all those Sonic and Tetris lovers all into one awesome box.
 
-When users visit the website they will be able to quickly find the difficulty level they want to start their gaming session and then easily start Tetrissing away. The demographic for the website is anyone that loves old school gaming, anyone that loves Sonic and anyone that enjoys Tetris. It is perfect for all ages and can be played alone our with others.
+When users visit the website, they will be able to easily navigate to the difficulty mode they would like to start their gaming session so the user can quickly start Tetrissing away. The demographic for the website is anyone that loves old school retro gaming, anyone that loves Sonic and anyone that enjoys playing games. It is perfect for all ages and can be played alone our with others which can make it fun for everyone.
 
 ![screenshot](documentation/mockup.png)
 
@@ -16,9 +16,9 @@ source: [amiresponsive](https://ui.dev/amiresponsive?url=https://ashlaw96.github
 
 ## UX
 
-Sonic Stacks purpose is to help resolve peoples lack of enthusiasm by giving them fun tasks to solve.
+Sonic Stacks purpose is to help resolve peoples lack of enthusiasm by giving them a fun challenge to solve.
 
-The site will have 1 main page with 3 different levels that make it feel like 3 separate pages and a 404 error page, the first main section will contain the easy level game area with a background image a rules and score area, a button area within the main section, a header and footer section. Then the medium section will have a different background image and title and finally the hard section will also have a different background image and title. Each will comprise with the same layout so the user can easily navigate through the site. The 404 will follow the same layout but with just some error message and image in the main section.
+The site will have 1 main page with 3 different levels/sections, that make it feel like 3 separate pages and a 404 error page. The first main section will contain the easy level game area with a background image a rules and score area, a button area containing movement buttons, a start/pause button and a reset button. The next segment is the medium section, which will have a different background image and title and the final part will contain the hard section, which will also have a different background image and title. Each section will consist with the same header and footer elements and follow the same layout design so the user can easily navigate through the site. The 404 will follow the same layout but with just some error message and image in the main section and with no content in the footer.
 
 ### Colour Scheme
 
@@ -88,11 +88,11 @@ I've used [Moqups](https://app.moqups.com) to design my site wireframes.
 
 Main
 
-- ![screenshot](documentation/wireframes/mob-wireframe.png)
+![screenshot](documentation/wireframes/mob-wireframe.png)
 
 404
 
-- ![screenshot](documentation/wireframes/404-mob-wireframe.png)
+![screenshot](documentation/wireframes/404-mob-wireframe.png)
 
 </details>
 
@@ -103,11 +103,11 @@ Main
 
 Main
 
-- ![screenshot](documentation/wireframes/tablet-wireframe.png)
+![screenshot](documentation/wireframes/tablet-wireframe.png)
 
 404
 
-- ![screenshot](documentation/wireframes/404-ipad-wireframe.png)
+![screenshot](documentation/wireframes/404-ipad-wireframe.png)
 
 </details>
 
@@ -118,11 +118,11 @@ Main
 
 Main
 
-- ![screenshot](documentation/wireframes/wireframe.png)
+![screenshot](documentation/wireframes/wireframe.png)
 
 404
 
-- ![screenshot](documentation/wireframes/404-wireframe.png)
+![screenshot](documentation/wireframes/404-wireframe.png)
 
 </details>
 
@@ -132,111 +132,116 @@ Main
 
 #### Header
 
-The header will contain the title, the navigation dropdown button and a mute/un-mute sound button. It will be the same on each section except for the 404 where the navigation will only contain one button. It will also have a background colour that follows the colour scheme of the full site.
+The header will contain the title, the navigation dropdown button and a mute/un-mute sound button. It will be the same on each section to make the site feel more professional. It will also have a background colour that follows the colour scheme of the full site.
 
-Header
+<details>
+<summary> Click here to see the header for different screen sizes </summary>
 
-- ![screenshot](documentation/features/main-header.png)
+Large header
+
+![screenshot](documentation/features/large-head.png)
+
+Small header
+
+![screenshot](documentation/features/mob-head.png)
+
+</details>
 
 #### Navigation
 
-The navigation will be situated at the top of the screen. There will be a tab button within the header section that when pressed will show 3 buttons for the level selectors, so that the user can change the difficulty which will also be highlighted with the current page they are on. On the 404 page there will only be the one button that will help the user return to the previous page.
+The navigation will be situated at the top of the screen. There will be a tab button within the header section that when pressed will show 3 buttons for the level selectors, so that the user can change the difficulty which will also be highlighted with the current page they are on. On the 404 page there will only be the one button that will help the user return to the main page.
 
 <details>
-<summary> click here to see the navigation of each page </summary>
+<summary> click here to see the navigation of each page/section </summary>
 
 Easy
 
-- ![screenshot](documentation/features/easy-nav.png)
+![screenshot](documentation/features/easy-nav.png)
 
 Medium
 
-- ![screenshot](documentation/features/med-nav.png)
+![screenshot](documentation/features/med-nav.png)
 
 Hard
 
-- ![screenshot](documentation/features/hard-nav.png)
+![screenshot](documentation/features/hard-nav.png)
 
 404
 
-- ![screenshot](documentation/features/404-nav.png)
+![screenshot](documentation/features/404-nav.png)
 
 </details>
 
 #### Aside
 
-This will be situated at the top of the screen on mobile and small tablets and then down the side on larger screens. It will contain 1 dropdown button that when clicked by the user will show how to play the game and another block will contain the current score and the high score of the user.
+This will be situated at the top of the screen on mobile and small tablets and then down the right hand side on larger screens. It will contain 1 dropdown button that when clicked by the user will show how to play the game and another block will contain the current score and the high score of the user.
 
 <details>
-<summary> click here to see the aside on each screen </summary>
+<summary> click here to see the aside on different screen sizes </summary>
 
-Mobile
+Small screens
 
-- ![screenshot](documentation/features/mob-aside.png)
+![screenshot](documentation/features/mob-aside.png)
 
-Tablet
+Large screens
 
-- ![screenshot](documentation/features/ipad-aside.png)
-
-Desktop
-
-- ![screenshot](documentation/features/desk-aside.png)
+![screenshot](documentation/features/desk-aside.png)
 
 </details>
 
 #### Main
 
-The main section for the 3 main sections will contain a title, the game area itself, an aside section and a button area below containing 4 control buttons and 2 other buttons situated below the control ones. The first button will be the start/pause button so the user can actually start playing and pause if they want and a reset button if the user wants to start again. There will be a different background image for each main page. For the 404 page the main section will contain an image and a 404 message telling the user that an error has occurred and they need to navigate to the previous page.
+The main section for the 3 main segments will contain a title, the game area itself, an aside section and a button area below containing 4 control buttons and 2 other buttons situated below the control ones. The first button will be the start/pause button so the user can actually start playing the game and can pause if they want, and below that a reset button if the user wants to start the game again. There will be a different background image for each main segment and a different title. For the 404 page the main section will contain an image and a 404 message telling the user that an error has occurred and they need to navigate to the previous page, it will also contain a button that will play audio when clicked.
 
 <details>
-<summary> click here to see the main section of each page </summary>
+<summary> click here to see the main section of each page/segment </summary>
 
 Easy
 
-- ![screenshot](documentation/features/easy-main.png)
+![screenshot](documentation/features/easy-main.png)
 
 Medium
 
-- ![screenshot](documentation/features/med-main.png)
+![screenshot](documentation/features/med-main.png)
 
 Hard
 
-- ![screenshot](documentation/features/hard-main.png)
+![screenshot](documentation/features/hard-main.png)
 
 404
 
-- ![screenshot](documentation/features/404-main.png)
+![screenshot](documentation/features/404-main.png)
 
 </details>
 
 #### Footer
 
-The footer will be located at the bottom of the page containing 4 different links on the main pages and just an empty footer on the 404 page but still having the same layout as the main page.
+The footer will be located at the bottom of the page containing 4 different links on the main pages and just an empty footer on the 404 page, but still having the same layout as the main page.
 
 <details>
-<summary> click here to see the footer section of each page </summary>
+<summary> click here to see the footer section of each page/section </summary>
 
 Main mobile/tablet
 
-- ![screenshot](documentation/features/mob-foot.png)
+![screenshot](documentation/features/mob-foot.png)
 
 Main desktop
 
-- ![screenshot](documentation/features/desk-foot.png)
+![screenshot](documentation/features/desk-foot.png)
 
 404
 
-- ![screenshot](documentation/features/404-foot.png)
+![screenshot](documentation/features/404-foot.png)
 
 </details>
 
 ### Future Features
 
-1. Add a backend database to keep high scores of each game mode and other players. 
+1. Add a backend database to keep high scores of each game mode and other players(online leaderboard). 
 2. Add another page to add different levels when a user gets so many points and when they do automatically change speed of block drop and background music/image.
 3. Add a multiplayer/split-screen mode so people can play together online.
 4. Add a mini image area to show what blocks are coming up next.
-5. Add an area where you can store one block until you need it.
+5. Add an area where you can store one block at a time until you need it.
 
 ## Tools & Technologies Used
 

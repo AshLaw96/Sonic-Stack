@@ -32,8 +32,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const hardBtn = document.getElementById("hard");
     const backBtn = document.getElementById("return");
 
-    let currentLevel = "Easy";
-
     let mainWrap = document.getElementById("main-wrap");
     // Scores
     const currentHigh = document.getElementById("high-scr");
@@ -250,7 +248,7 @@ document.addEventListener("DOMContentLoaded", () => {
                      location -= 1;
                      stopTurning();
               }
-    }
+        }
 
     /**
      * stops blocks running out of bottom of game area
@@ -258,7 +256,6 @@ document.addEventListener("DOMContentLoaded", () => {
      * 
      */
     function stop() {
-        // if (active.find(i => blocks[location + i + 10].classList.contains("delete"))) {
             active.forEach(i => blocks[location + i].classList.add("delete"));
             // starts another random block dropping
             randBlock = Math.floor(Math.random() * blockArr.length);
@@ -268,8 +265,7 @@ document.addEventListener("DOMContentLoaded", () => {
             makeBlocks();
             stopTurning();
             lost();
-        } 
-    // }
+        }
 
     /**
      * moves tetris block left
@@ -333,35 +329,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (downMove) {
         downMove.addEventListener("click", down);
-    }
-
-    /**
-     * finds first block that reaches right side 
-     */
-    function stopRightTurn() {
-        return active.find(i => (location + i + 1) % 10 === 0);
-    }
-
-    /**
-     * finds first block that reaches left side  
-     */
-    function stopLeftTurn() {
-        return active.find(i => (location + i) % 10 === 0);
-    }
-
-    /**
-     * checks if block is turning at either side of game area
-     * if at right adds 1 to location to wrap back around
-     * if at left side takes 1 away from location to wrap back around
-     */
-    function stopTurning() {
-        if ((location + 1) % 10 < 5 && stopRightTurn()) {
-               location += 1;
-               stopTurning();
-        } else if (location % 10 > 4 && stopLeftTurn()) {
-                 location -= 1;
-                 stopTurning();
-          }
     }
 
     /**
@@ -505,21 +472,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    /**
-     * Checks specified keys been clicked
-     * Then cancels event
-     */
-    function stopScroll(event) {
-        switch(event.code){
-            case "ArrowUp": 
-            case "ArrowDown": 
-            case "ArrowLeft": 
-            case "ArrowRight": 
-            case "Space": 
-            event.preventDefault(); break;
-        }
-    }
-
     if (startBtn) {
         startBtn.addEventListener("click", pausePlay);
     }
@@ -585,56 +537,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     soundBtn.addEventListener("click", muteUnmute);
-    
-    //easy level change
-    function easyChange() {
-        subTitle.innerText = "Easy";
-        currentLevel = "Easy";
-        mainWrap.classList.add("easy-bg");
-        mainWrap.classList.remove("medium-bg", "hard-bg");
-        easyBtn.classList.add("current");
-        medBtn.classList.remove("current");
-        hardBtn.classList.remove("current");
-        clearInterval(dropTime);
-        labSound.pause();
-        bossSound.pause();
-    }
-
-    if (easyBtn) {
-        easyBtn.addEventListener("click", easyChange);
-    }
-
-    //medium level change
-    function medChange() {
-        subTitle.innerText = "Medium";
-        currentLevel = "Medium";
-        mainWrap.classList.add("medium-bg");
-        mainWrap.classList.remove("easy-bg", "hard-bg");
-        medBtn.classList.add("current");
-        easyBtn.classList.remove("current");
-        hardBtn.classList.remove("current");
-        clearInterval(dropTime);
-        greenHill.pause();
-        bossSound.pause();
-    }
-
-    if (medBtn) {
-        medBtn.addEventListener("click", medChange);
-    }
-
-    // hard level change
-    function hardChange() {
-        subTitle.innerText = "Hard";
-        currentLevel = "Hard";
-        mainWrap.classList.add("hard-bg");
-        mainWrap.classList.remove("medium-bg", "easy-bg");
-        hardBtn.classList.add("current");
-        medBtn.classList.remove("current");
-        easyBtn.classList.remove("current");
-        clearInterval(dropTime);
-        greenHill.pause();
-        labSound.pause();
-    }
 
     if (hardBtn) {
         hardBtn.addEventListener("click", hardChange);

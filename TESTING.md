@@ -5,7 +5,7 @@
 
 Feature-by-Feature Testing:
 
-- Navigation: I ensured smooth transitions between each section and the links directed to the correct destination.
+- Navigation: I ensured smooth transitions between each section and that each button directed to the correct destination.
 - Responsive Design: I've checked for compatibility across multiple devices and screen sizes.
 - Portfolio Display: I have verified that every page is properly showcased with accurate descriptions, images, and links.
 - Game area: I confirmed that the game worked as intended on different devices and screen sizes.
@@ -32,17 +32,17 @@ Compatibility Testing:
   <details>
   <summary> Click here to see speed tests of both pages </summary>
 
-    main
+  main
 
-    ![screenshot](documentation/validate/main-load.png)
+  ![screenshot](documentation/validate/main-load.png)
 
-    404
+  404
     
-    ![screenshot](documentation/validate/404-load.png)
+  ![screenshot](documentation/validate/404-load.png)
     
-    </details>
+  </details>
 
-  - Scalability Testing: I assessed how the site handled increased traffic and usage.
+- Scalability Testing: I assessed how the site handled increased traffic and usage.
 
 Regression Testing:
 
@@ -143,8 +143,6 @@ I have used the recommended [CSS Jigsaw Validator](https://jigsaw.w3.org/css-val
 
 ## Browser Compatibility
 
-Sample browser testing documentation:
-
 I've tested my deployed project on multiple browsers to check for compatibility issues.
 
 | Browser | Easy | Medium | Hard | 404 | Notes |
@@ -157,8 +155,6 @@ I've tested my deployed project on multiple browsers to check for compatibility 
 
 ## Responsiveness
 
-Sample responsiveness testing documentation:
-
 I've tested my deployed project on multiple devices to check for responsiveness issues.
 
 | Device | Easy | Medium | Hard | 404 | Notes |
@@ -170,8 +166,6 @@ I've tested my deployed project on multiple devices to check for responsiveness 
 | XL screen | ![screenshot](documentation/device/easy-xl.jpg) | ![screenshot](documentation/device/med-xl.jpg) | ![screenshot](documentation/device/hard-xl.jpg) | ![screenshot](documentation/device/404-xl.jpg) | Noticeable scaling issues |
 
 ## Lighthouse Audit
-
-Sample Lighthouse testing documentation:
 
 I've tested my deployed project using the Lighthouse Audit tool to check for any major issues.
 
@@ -250,9 +244,9 @@ Defensive programming was manually tested with the below user acceptance testing
 | --- | --- |
 | As a returning site user, I would like to pause the game, so that I can come back to where I left off. | ![screenshot](documentation/stories/pause-btn.png) |
 | As a returning site user, I would like to hear old school Sonic music, so that it can feel like the old games when I'm playing. | ![screenshot](documentation/stories/old-school-snd.png) |
-| As a returning site user, I would like to play multiplayer/split-screen, so that I can play with my friends. | (Need to add more CSS to add separate boxes in the main section and add JS to open and close it) |
-| As a returning site user, I would like to have different levels, so that it feels like I've accomplished something | (Need to add CSS to style another section and JS to add a levels section that changes the game speed and amount of points gained when a user gets so many points) |
-| As a returning site user, I would like to see a scoreboard, so that I can see all the different scores of other people and try to beat them | (Need to add JS to save users names and users high score to the `localStorage()` then use backend library to save scores and add both the name and score to a table)
+| As a returning site user, I would like to play multiplayer/split-screen, so that I can play with my friends. | Need to add more CSS to add separate boxes in the main section and add JS to open and close it |
+| As a returning site user, I would like to have different levels, so that it feels like I've accomplished something | Need to add CSS to style another section and JS to add a levels section that changes the game speed and amount of points gained when a user gets so many points |
+| As a returning site user, I would like to see a scoreboard, so that I can see all the different scores of other people and try to beat them | Need to add JS to save users names and users high score to the `localStorage()` then use backend library to save scores and add both the name and score to a table
 | --- | --- |
 | As a site administrator, I should be able to check how much traffic my site is getting, so that I can try to improve and gain more if needed. | ![screenshot](documentation/stories/traffic-check.png) |
 | As a site administrator, I should be able to see how many people play each level, so that I can add more levels if needed. | ![screenshot](documentation/stories/level-check.png) |
