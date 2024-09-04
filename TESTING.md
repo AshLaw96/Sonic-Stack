@@ -50,77 +50,7 @@ After implementing any fixes or updates I ensured that previous features and fun
 
 #### Documentation and Logs:
 
-- whilst creating the blocks, I noticed that where the blocks appeared the box shadow stayed when they left the area.
-
-  - The issue: [issue](documentation/bugs/box-shadow-issue.png)
-
-- To fix this issue I needed to add code into the correct function that removed the box shadow style.
-
-  - The fix: [fix](documentation/bugs/fix-shadow.png)
-
-- Whilst creating the rules hide button, I noticed that it wouldn't show and hide the text as desired.
-
-  - The issue: [issue](documentation/bugs/display-type-issue.png)
-
-- To fix this I had to remove multiple `span` elements inside the button element.
-  
-  - The fix: [fix](documentation/bugs/display-type-fix.png)
-
-- Whilst creating the blocks, I noticed that the blocks were not in the correct designed shapes.
-
-  - The issue: [issue](documentation/bugs/misshaped.png)
-
-- To fix the issue, I had to change the game areas width and height so each div would fit evenly in the game area.
-
-  - The fix: [fix](documentation/bugs/fix-misshaped.png)
-
-- When creating the game, I noticed that when moving the blocks all way left or right of the game area, it would overlap to the opposite side of the game area.
-
-  - The issue: [issue](documentation/bugs/overlap-right.png)
-
-- To fix this issue, I had to add a function that checked if the block had reached the edge of the game area and if so stop.
-
-  - The fix: [fix](documentation/bugs/fix-overlap-right.png)
-
-- When trying to select all the `div` inside the game area I came across a type error.
-
-  - The issue: [issue](documentation/bugs/type-error.png)
-
-- To fix this issue I used the `querySelectorAll` to get all the child elements inside the game area.
-
-  - The fix: [fix](documentation/bugs/fix-type-error.png)
-
-- Whilst testing the game, I noticed that when turning the blocks near the edge of the game area they would overlap to the other side of the game area.
-
-  - The issue: [issue](documentation/bugs/turn-overlap-screen.png)
-
-- To fix the issue, I had to add a function that implemented code when the block turned near the edge of the game area, move its location away so it didn't overlap the game area.
-
-  - The fix: [fix](documentation/bugs/turn-overlap-fix.png)
-
-- When checking if the alteration of using JavaScript to create the game area had any effect with the 404 page I noticed a type error.
-
-  - The issue: [issue](documentation/bugs/type-error-404.png)
-
-- To fix the issue I had to add an if statement inside the for loop to check if the HTML id name was on the current page and if so execute the desired code but if not do nothing.
-
-  - The fix: [fix](documentation/bugs/type-error-404-fix.png)
-
-- When clicking the reset button, I noticed when starting a new game and receiving my first points, my current score would automatically carry on from the previous games score.
-
-  - The issue: [issue](documentation/bugs/score-reset-issue.png)
-
-- To fix this I had to reset both my current score to 0 and my points variable to 0 to start the score count again.
-
-  - The fix: [fix](documentation/bugs/score-reset-fix.png)
-
-- After receiving points and the next block starts dropping some other squares also appear.
-
-  - The issue: [issue](documentation/bugs/blocks-appear.png)
-
-- To fix this I had to call the `gotPoints` function earlier in the `stop` function so it would action the code in the `gotPoints` function before any of the others.
-
-  - The fix: [fix](documentation/bugs/blocks-appear-fix.png)
+| Whilst validating my JS file a warning appeared about functions declared in a loop could cause issues | ![screenshot](documentation/bugs/func-inside-loop-issue.png) | To fix this I wrote the second internal function outside the first loop and put another loop in this to fix these warnings. | ![screenshot](documentation/bugs/func-inside-loop-fix.png) | 
 
 ## Code Validation
 
@@ -140,6 +70,14 @@ I have used the recommended [CSS Jigsaw Validator](https://jigsaw.w3.org/css-val
 | Directory | File | Screenshot | Notes |
 | --- | --- | --- | --- |
 | assets | styles.css | ![screenshot](documentation/validate/css-check.png) | no issues were found |
+
+### JavaScript
+
+I have used the recommended [JShint Validator](https://jshint.com) to validate all of my JS files.
+
+| File | Screenshot | Notes |
+| --- | --- | --- |
+| script.js | ![screenshot](documentation/validate/js-check.png) | no issues were found |
 
 ## Browser Compatibility
 

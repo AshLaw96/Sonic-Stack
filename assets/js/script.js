@@ -162,28 +162,39 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /**
      * checks if full width of game area is full
-     * if full remove the full line and all styles
-     * add 100 points every time full line 
+     * if full, remove the full line and all styles
+     * add 100 points every time full line is cleared
      */
     function gotPoints() {
+        let deleteLines = [];
+    
+        const fullLine = y => blocks[y].classList.contains("delete");
+    
         for (let i = 0; i < 199; i += 10) {
             const line = [i, i + 1, i + 2, i + 3, i + 4, i + 5, i + 6, i + 7, i + 8, i + 9];
 
-            if (line.every(y => blocks[y].classList.contains("delete"))) {
+            if (line.every(fullLine)) {
                 points += 100;
                 currentPoints.innerText = points;
-                line.forEach(x => {
-                    blocks[x].classList.remove("delete");
-                    blocks[x].classList.remove("sqr");
-                    blocks[x].style.backgroundColor = "";
-                    blocks[x].style.boxShadow = "";
-                });
-
-                const deleteBlock = blocks.splice(i, 10); // remove full line from the blocks
-                blocks = deleteBlock.concat(blocks); // add deleteBlock to blocks variable
-                blocks.forEach(square => gameWrap.appendChild(square)); // add each as child of gameWrap
-                scrSound.play();
+                deleteLines.push(i); // Collect the start index of the line to delete
             }
+        }
+    
+        // Now, delete all the lines that were fully completed
+        deleteLines.forEach(start => {
+            for (let j = 0; j < 10; j++) {
+                blocks[start + j].classList.remove("delete", "sqr");
+                blocks[start + j].style.backgroundColor = "";
+                blocks[start + j].style.boxShadow = "";
+            }
+
+            const deleteBlock = blocks.splice(start, 10); // remove full line from the blocks
+                blocks = deleteBlock.concat(blocks); // add deleteBlock to blocks variable
+        });
+    
+                blocks.forEach(square => gameWrap.appendChild(square)); // add each as child of gameWrap
+        if (deleteLines.length > 0) {
+                scrSound.play();
         }
     }
 
