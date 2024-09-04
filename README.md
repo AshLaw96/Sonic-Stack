@@ -255,11 +255,11 @@ Main desktop
 - [![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-grey?logo=githubpages&logoColor=222222)](https://pages.github.com) used for hosting the deployed front-end site.
 - [![Font Awesome](https://img.shields.io/badge/Font_Awesome-grey?logo=fontawesome&logoColor=528DD7)](https://fontawesome.com) used for the icons.
 - [![Moqups](https://img.shields.io/badge/Moqups-grey?logo=moqups&logoColor=0096FF)](https://moqups.com) used for creating Wireframes.
-- [![FontGet](https://img.shields.io/badge/FONTGET-grey?logo=realfavicongenerator&logoColor=00FFFF)](https://www.fontget.com) used for the text font.
-- [![Real Favicon Generator](https://img.shields.io/badge/Real_Favicon_Generator-grey?logo=realfavicongenerator&logoColor=0096FF)](https://realfavicongenerator.net) used to create favicon.
-- [![Removebg](https://img.shields.io/badge/Removebg-grey?logo=removebg&logoColor=FFBF00)](https://www.remove.bg/upload) used to make background of image transparent.
+- [![FontGet](https://img.shields.io/badge/FontGet-grey?logo=lightning&logoColor=00FFFF)](https://www.fontget.com) used for the text font.
+- [![Real Favicon Generator](https://img.shields.io/badge/Real_Favicon_Generator-grey?logo=resend&logoColor=0096FF)](https://realfavicongenerator.net) used to create favicon.
+- [![Removebg](https://img.shields.io/badge/Removebg-grey?logo=openlayers&logoColor=FFBF00)](https://www.remove.bg/upload) used to make background of image transparent.
 - [![ChatGPT](https://img.shields.io/badge/chatGPT-grey?logo=openai&logoColor=74AA9C)](https://chatgpt.com/) used to generate 404 message.
-- [![XConvert](https://img.shields.io/badge/XConvert-grey?logo=xconvert&logoColor=3F00FF)](https://www.xconvert.com/audio-compressor) used to compress the audio files.
+- [![XConvert](https://img.shields.io/badge/XConvert-grey?logo=xstate&logoColor=CC0000)](https://www.xconvert.com/audio-compressor) used to compress the audio files.
 
 ## Testing
 

@@ -24,7 +24,7 @@
         <button id="sound" aria-label="mute/unmute volume">
             <i class="fa-solid fa-volume-high"></i>
         </button>
-        <!-- Navbar Section -->
+        <!-- Navbar/Level Section -->
         <input type="checkbox" id="tog" name="tog">
         <label for="tog" id="tog-lab">
             <i class="fa-solid fa-bars"></i>
@@ -35,9 +35,11 @@
             <button id="hard" aria-label="hard level">Hard</button>
         </nav>
     </header>
+    <!-- Main section -->
     <main>
         <section id="main-wrap" class="easy-bg">
             <aside id="side-wrap">
+                <!-- Rules section -->
                 <button id="instructions" aria-label="show/hide rules">Rules</button>
                 <p id="rules">How to Play: <br>
                     <span class="rule">Keyboard- Use left and right keys to move blocks side to side. Hold or click down arrow key to move block down quicker. Press space bar to turn blocks.</span>
@@ -46,6 +48,7 @@
                     <br> <br>
                     Make full horizontal line to gain points.
                 </p>
+                <!-- Scores section -->
                 <div id="score-wrap">
                     <p id="points">
                         Current Points: <span id="point">0</span>
@@ -55,8 +58,10 @@
                 </div>
             </aside>
             <h2 id="sub-title">Easy</h2>
+            <!-- Game area -->
             <div id="game-wrap">
             </div>
+            <!-- Button movements -->
             <div class="btn-area">
                 <div id="left-right">
                     <button id="left" aria-label="move left">
@@ -74,6 +79,7 @@
                         <i class="fa-solid fa-arrows-rotate"></i>
                     </button>
                 </div>
+                <!-- Pause/Play & reset game -->
                 <button id="start-stop" aria-label="play/pause game">
                     Start Game <br>
                     <i class="fa-solid fa-play"></i> <i class="fa-solid fa-pause"></i>
@@ -83,6 +89,7 @@
             <dialog>
                 <button id="close-dial" aria-label="close dialog">You Lost <br> <br> press <span id="esc">esc</span></button>
             </dialog>
+            <!-- Game sounds -->
             <div id="sound-wrap">
                 <audio id="green-hill" src="assets/audio/green-hill.mp3" loop></audio>
                 <audio id="labyrinth" src="assets/audio/labyrinth.mp3" loop></audio>
@@ -93,6 +100,7 @@
             </div>
         </section>
     </main>
+    <!-- Footer section -->
     <footer>
         <a id="history" href="https://tetris.com/history-of-tetris" target="_blank">The history of Tetris</a>
         <a id="tetris-vids" href="https://www.youtube.com/watch?v=1L_l4dj0KRA" target="_blank">2023 Tetris final</a>

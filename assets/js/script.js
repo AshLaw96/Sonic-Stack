@@ -172,7 +172,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
         for (let i = 0; i < 199; i += 10) {
             const line = [i, i + 1, i + 2, i + 3, i + 4, i + 5, i + 6, i + 7, i + 8, i + 9];
-
+    
             if (line.every(fullLine)) {
                 points += 100;
                 currentPoints.innerText = points;
@@ -187,14 +187,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 blocks[start + j].style.backgroundColor = "";
                 blocks[start + j].style.boxShadow = "";
             }
-
+    
             const deleteBlock = blocks.splice(start, 10); // remove full line from the blocks
-                blocks = deleteBlock.concat(blocks); // add deleteBlock to blocks variable
+            blocks = deleteBlock.concat(blocks); // add deleteBlock to blocks variable
         });
     
-                blocks.forEach(square => gameWrap.appendChild(square)); // add each as child of gameWrap
+        blocks.forEach(square => gameWrap.appendChild(square)); // add each as child of gameWrap
         if (deleteLines.length > 0) {
-                scrSound.play();
+            scrSound.play();
         }
     }
 
@@ -384,7 +384,6 @@ document.addEventListener("DOMContentLoaded", () => {
      //easy level change
      function easyChange() {
         subTitle.innerText = "Easy";
-        currentLevel = "Easy";
         mainWrap.classList.add("easy-bg");
         mainWrap.classList.remove("medium-bg", "hard-bg");
         easyBtn.classList.add("current");
@@ -402,7 +401,6 @@ document.addEventListener("DOMContentLoaded", () => {
     //medium level change
     function medChange() {
         subTitle.innerText = "Medium";
-        currentLevel = "Medium";
         mainWrap.classList.add("medium-bg");
         mainWrap.classList.remove("easy-bg", "hard-bg");
         medBtn.classList.add("current");
@@ -420,7 +418,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // hard level change
     function hardChange() {
         subTitle.innerText = "Hard";
-        currentLevel = "Hard";
         mainWrap.classList.add("hard-bg");
         mainWrap.classList.remove("medium-bg", "easy-bg");
         hardBtn.classList.add("current");
@@ -494,8 +491,7 @@ document.addEventListener("DOMContentLoaded", () => {
      */
     function restart() {
         for (let i = 0; i < 200; i += 1) {
-            blocks[i].classList.remove("delete");
-            blocks[i].classList.remove("sqr");
+            blocks[i].classList.remove("delete", "sqr");
             blocks[i].style.backgroundColor = "";
             blocks[i].style.boxShadow = "";
         }
