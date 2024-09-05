@@ -6,9 +6,9 @@
 
 ---
 
-Sonic Stack is a Tetris game with a Sonic styling. This is to draw all those Sonic and Tetris lovers all into one awesome box.
+Sonic Stack is a Tetris-style game with a Sonic theme. This is to draw all those Sonic and Tetris lovers in to one awesome box.
 
-When users visit the website, they will be able to easily navigate to the difficulty mode they would like to start their gaming session so the user can quickly start Tetrissing away. The demographic for the website is anyone that loves old school retro gaming, anyone that loves Sonic and anyone that enjoys playing games. It is perfect for all ages and can be played alone our with others which can make it fun for everyone.
+When users visit the website they will be able to easily navigate to the difficulty mode they would like to start their gaming session on so that the user can quickly start Tetrissing away. The demographic for the website is anyone that loves old school retro gaming, anyone that loves Sonic and anyone that enjoys playing games. It is perfect for all ages and can be played alone or with others which can make it fun for everyone.
 
 ![screenshot](documentation/mockup.png)
 
@@ -16,13 +16,13 @@ source: [amiresponsive](https://ui.dev/amiresponsive?url=https://ashlaw96.github
 
 ## UX
 
-Sonic Stacks purpose is to help resolve peoples lack of enthusiasm by giving them a fun challenge to solve.
+Sonic Stack's purpose is to help resolve people's boredom and lack of enthusiasm by giving them a fun challenge to solve.
 
-The site will have 1 main page with 3 different levels/sections, that make it feel like 3 separate pages and a 404 error page. The first main section will contain the easy level game area with a background image a rules and score area, a button area containing movement buttons, a start/pause button and a reset button. The next segment is the medium section, which will have a different background image and title and the final part will contain the hard section, which will also have a different background image and title. Each section will consist with the same header and footer elements and follow the same layout design so the user can easily navigate through the site. The 404 will follow the same layout but with just some error message and image in the main section and with no content in the footer.
+The site will have 1 main page with 3 different levels/sections which makes it feel like 3 separate pages, alongside a 404 error page. The first main section will contain the easy level game area with a background image, a rules and score area, a button area containing movement buttons, a start/pause button and a reset button. The next segment is the medium section, which will have a different background image and title, and the final part will contain the hard section, which will also have a different background image and title. Each section will consist with the same header and footer elements and follow the same layout design so the user can easily navigate through the site. The 404 will follow the same layout but with just an error message and image in the main section and have no content in the footer.
 
 ### Colour Scheme
 
-- The design of the Tetris game will incorporate both the slick colours from Sonic and old school styles from Tetris.
+- The design of the Tetris-style game will incorporate both the slick colours from Sonic and old school styles from Tetris.
   - `#FFFFFF` used for primary text.
   - `#000000` used for main background.
   - `#3061E3` used for blocks.
@@ -62,23 +62,23 @@ I've used CSS `:root` variables to easily update the global colour scheme by cha
 
 ### New Site Users
 
-- As a new site user, I would like to easily understand the instructions, so that I can play the game as soon as possible.
-- As a new site user, I would like to be able to choose different difficulties, so that I can have fun and challenge myself.
-- As a new site user, I would like to be able to see my score, so that I know what I need to do better.
-- As a new site user, I would like to see what the high score is, so that I can try and beat it.
-- As a new site user, I would like to be able to watch others play, so that I can try improve how I play.
+- As a new site user, I would like to easily understand the instructions so that I can play the game as soon as possible.
+- As a new site user, I would like to be able to choose different difficulties so that I can have fun and challenge myself.
+- As a new site user, I would like to be able to see my score so that I know what I need to do better.
+- As a new site user, I would like to see what the high score is so that I can try and beat it.
+- As a new site user, I would like to be able to watch others play so that I can try improve how I play.
 
 ### Returning Site Users
 
-- As a returning site user, I would like to pause the game, so that I can come back to where I left off.
-- As a returning site user, I would like to play multiplayer, so that I can play with my friends.
-- As a returning site user, I would like to have different levels, so that it feels like I'm accomplishing something.
-- As a returning site user, I would like to hear old school Sonic music, so that it feels like the old games when I'm playing.
-- As a returning site user, I would like to see a scoreboard, so that I can see other peoples score and try and beat them.
+- As a returning site user, I would like to pause the game so that I can come back to where I left off.
+- As a returning site user, I would like to play multiplayer so that I can play with my friends.
+- As a returning site user, I would like to have different levels so that it feels like I'm accomplishing something.
+- As a returning site user, I would like to hear old school Sonic music so that it feels like the old games when I'm playing.
+- As a returning site user, I would like to see a scoreboard so that I can see other people's score and try and beat them.
 
 ## Wireframes
 
-To follow best practice, wireframes were developed for mobile, tablet, and desktop sizes.
+To follow best practice, wireframes were developed for mobile, tablet and desktop sizes.
 I've used [Moqups](https://app.moqups.com) to design my site wireframes.
 
 ### Mobile Wireframes
@@ -149,7 +149,7 @@ Small header
 
 #### Navigation
 
-The navigation will be situated at the top of the screen. There will be a tab button within the header section that when pressed will show 3 buttons for the level selectors, so that the user can change the difficulty which will also be highlighted with the current page they are on. On the 404 page there will only be the one button that will help the user return to the main page.
+The navigation will be situated at the top of the screen. There will be a tab button within the header section that when pressed will show 3 buttons for the level selectors so that the user can change the difficulty which will also be highlighted with the current page they are on. On the 404 page there will only be the one button that will help the user return to the main page.
 
 <details>
 <summary> click here to see the navigation of each page/section </summary>
@@ -174,7 +174,7 @@ Hard
 
 #### Aside
 
-This will be situated at the top of the screen on mobile and small tablets and then down the right hand side on larger screens. It will contain 1 dropdown button that when clicked by the user will show how to play the game and another block will contain the current score and the high score of the user.
+This will be situated at the top of the screen on mobile and small tablets and then down the right-hand side on larger screens. It will contain 1 dropdown button that when clicked by the user will show how to play the game and another block will contain the current score and the high score of the user.
 
 <details>
 <summary> click here to see the aside on different screen sizes </summary>
@@ -353,5 +353,5 @@ No differences were found between the local version and the live deployed versio
 
 - I would like to thank my Code Institute mentor, [Tim Nelson](https://github.com/TravelTimN) for his support throughout the development of this project.
 - I would like to thank the [Code Institute](https://codeinstitute.net) tutor team for their assistance with the lessons provided to give me the knowledge I needed to make this game.
-- I would like to thank the [Code Institute Slack community](https://code-institute-room.slack.com) for the moral support; it kept me going during periods of self doubt and imposter syndrome.
+- I would like to thank the [Code Institute Slack community](https://code-institute-room.slack.com) for the moral support; it kept me going during periods of self-doubt and imposter syndrome.
 - I would like to thank my wife (Megan), for believing in me, and allowing me to make this transition into software development.
