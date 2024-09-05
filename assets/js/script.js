@@ -137,14 +137,17 @@ document.addEventListener("DOMContentLoaded", () => {
      * adds random colours to the blocks
      */
     function makeBlocks() {
+        const shadows = {
+            "var(--p-block2)": "0 0 4px 2px var(--s-block2)",
+            "var(--p-block3)": "0 0 4px 2px var(--s-block3)"
+        };
+    
         active.forEach(i => {
             blocks[location + i].classList.add("sqr");
             blocks[location + i].style.backgroundColor = clrArr[randBlock];
-            if (blocks[location + i].style.backgroundColor === "var(--p-block2)") {
-                blocks[location + i].style.boxShadow = "0 0 4px 2px var(--s-block2)";
-            } else if (blocks[location + i].style.backgroundColor === "var(--p-block3)") {
-                blocks[location + i].style.boxShadow = "0 0 4px 2px var(--s-block3)"; 
-            }
+    
+            // Set boxShadow based on color if it exists in shadows 
+            blocks[location + i].style.boxShadow = shadows[clrArr[randBlock]] || "";
         });
     }
 
@@ -205,19 +208,23 @@ document.addEventListener("DOMContentLoaded", () => {
      * shows the dialog
      */
     function lost() {
-        if (active.find(i => blocks[location + i].classList.contains("delete"))) {
+        if (active.some(i => blocks[location + i].classList.contains("delete"))) {
             clearInterval(dropTime);
-            if (subTitle.textContent === "Easy") {
-                greenHill.pause();
-            } else if (subTitle.textContent === "Medium") {
-                labSound.pause();
-            } else {
-                bossSound.pause();
-            }
+    
+            const bgSongs = {
+                "Easy": greenHill,
+                "Medium": labSound,
+                "Hard": bossSound
+            };
+            
+            const currentSound = bgSongs[subTitle.textContent];
+            if (currentSound) currentSound.pause();
+    
             if (points > highScore) {
                 localStorage.setItem("High-Score", points);
                 currentHigh.innerText = points;
             }
+    
             lostSound.play();
             dialog.showModal();
         }
@@ -446,39 +453,41 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /**
      * pauses the drop of blocks when button is pressed
+     * pauses all bg sounds
      * starts drop when button is pressed again
+     * calls levelChange function when pressed again
      */
     function pausePlay() {
         if (dropTime) {
             clearInterval(dropTime);
             dropTime = null;
-            greenHill.pause();
-            labSound.pause();
-            bossSound.pause();
+            [greenHill, labSound, bossSound].forEach(sound => sound.pause());
             // removes event listener allowing keyboard buttons to move screen
             window.removeEventListener("keydown", stopScroll, false);
-
         } else {
-            switch (subTitle.textContent) {
-                case "Medium":
-                    medChange();
-                    labSound.play();
-                    dropTime = setInterval(down, 500);
-                    break;
-                case "Hard":
-                    hardChange();
-                    bossSound.play();
-                    dropTime = setInterval(down, 200);
-                    break;
-                default:
-                    easyChange();
-                    greenHill.play();
-                    dropTime = setInterval(down, 1000);
-            }
+            levelChange(subTitle.textContent);
             // adds event listener stopping keyboard buttons to move screen
             window.addEventListener("keydown", stopScroll, false);
         }
     }
+    
+    /**
+     * Allows drop time, sound and mode to change
+     * Changes each depending on level 
+     */ 
+    function levelChange(level) {
+        const levelSettings = {
+            "Easy": { change: easyChange, sound: greenHill, interval: 1000 },
+            "Medium": { change: medChange, sound: labSound, interval: 500 },
+            "Hard": { change: hardChange, sound: bossSound, interval: 200 }
+        };
+    
+        const { change, sound, interval } = levelSettings[level];
+        change();
+        sound.play();
+        dropTime = setInterval(down, interval);
+    }
+    
 
     if (startBtn) {
         startBtn.addEventListener("click", pausePlay);
