@@ -202,6 +202,9 @@ Defensive programming was manually tested with the below user acceptance testing
 
 ## Bugs
 
+<details>
+<summary> Click here to see all bugs </summary>
+
 - Style error: box shadow remains when blocks move
 
   Issue
@@ -292,7 +295,19 @@ Defensive programming was manually tested with the below user acceptance testing
 
   ![screenshot](documentation/bugs/blocks-appear-fix.png)
 
-- To see more information about the bugs and fixes, see here - [The Bugs/Fixes:](#documentation-and-logs)
+- JShint warning: after running my code through a validator 2 warnings appeared about functions inside a loop
+
+  Issue
+
+  ![screenshot](documentation/bugs/func-inside-loop-issue.png)
+
+  Fix
+
+  ![screenshot](documentation/bugs/func-inside-loop-fix.png)
+
+- To see more information about the bugs and fixes, see here - [Bugs/Fixes:](#documentation-and-logs)
+
+</details>
 
 > [!NOTE]  
 > There are no remaining bugs that I am aware of.
