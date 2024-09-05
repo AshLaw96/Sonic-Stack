@@ -25,7 +25,7 @@
     font-family: "Tetris";
     src: url("../square-mile.ttf");
     /* uses custom font if font not ready */
-    font-display: swap;
+    font-display: fallback;
 }
 
 body {
@@ -65,7 +65,7 @@ header {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    border-bottom: solid 5px var(--p-block1);
+    border-bottom: 5px solid var(--p-block1);
 }
 
 /* Nav styles */
@@ -153,18 +153,15 @@ header {
     margin: 2em 5px;
 }
 
+/* uses grid to create game are template */
 #game-wrap {
+    display: grid;
+    grid-template-columns: repeat(10, 30px);
+    grid-auto-rows: 30px;
     width: 300px;
     height: 600px;
     background-color: var(--p-highlight);
-    display: flex;
-    flex-wrap: wrap;
     margin: 2px auto;
-}
-
-#game-wrap div {
-    width: 30px;
-    height: 30px;
 }
 
 .sqr {
@@ -220,15 +217,6 @@ dialog::backdrop {
     background-color: var(--p-text);
 }
 
-#eggman-btn {
-    margin: 5px;
-    background-color: var(--p-text);
-    border: none;
-    border-radius: 50%;
-    width: 80px;
-    height: 80px;
-}
-
 #instructions:hover, #start-stop:hover, #reset:hover, #left:hover, #right:hover, #twist:hover, #down:hover {
     background-color: #BCC6CC;
 }
@@ -253,6 +241,15 @@ dialog::backdrop {
 
 #drone-txt {
     font-size: 30px;
+}
+
+#eggman-btn {
+    margin: 5px;
+    background-color: var(--p-text);
+    border: none;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
 }
 
 /* 404 main text */
@@ -422,11 +419,8 @@ footer {
     #game-wrap {
         width: 320px;
         height: 640px;
-    }
-
-    #game-wrap div {
-        width: 32px;
-        height: 32px;
+        grid-template-columns: repeat(10, 32px);
+        grid-auto-rows: 32px;
     }
 
     #history, #tetris-vids, #top-players {

@@ -3,13 +3,13 @@
 document.addEventListener("DOMContentLoaded", () => {
     // creates the game area
     const gameWrap = document.getElementById("game-wrap");
-    for (let i = 0; i < 200; i += 1) {
+    for (let i = 0; i < 200; ++i) {
         if (gameWrap) {
             const div = document.createElement("div");
             gameWrap.appendChild(div);
         }
     }
-    for (let i = 0; i < 10; i += 1) {
+    for (let i = 0; i < 10; ++i) {
         if (gameWrap) {
             const div = document.createElement("div");
             div.classList.add("delete");
@@ -56,12 +56,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const soundWrap = document.getElementById("sound-wrap");
     const soundWrapChildren = soundWrap.children;
     let soundArr = [];
-    for (let i = 0; i < soundWrapChildren.length; i += 1) {
+    for (let i = 0; i < soundWrapChildren.length; ++i) {
         soundArr.push(soundWrapChildren[i]);
     }
     const soundBtn = document.getElementById("sound");
     const allAudio = document.getElementsByTagName("audio");
-    for (let i = 0; i < allAudio.length; i += 1) {
+    for (let i = 0; i < allAudio.length; ++i) {
         allAudio[i].volume = 0;
     }
     const greenHill = document.getElementById("green-hill");
@@ -185,7 +185,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
         // Now, delete all the lines that were fully completed
         deleteLines.forEach(start => {
-            for (let j = 0; j < 10; j++) {
+            for (let j = 0; j < 10; ++j) {
                 blocks[start + j].classList.remove("delete", "sqr");
                 blocks[start + j].style.backgroundColor = "";
                 blocks[start + j].style.boxShadow = "";
@@ -260,10 +260,10 @@ document.addEventListener("DOMContentLoaded", () => {
          */
         function stopTurning() {
             if ((location + 1) % 10 < 5 && stopRightTurn()) {
-                   location += 1;
+                   ++location;
                    stopTurning();
             } else if (location % 10 > 4 && stopLeftTurn()) {
-                     location -= 1;
+                     --location;
                      stopTurning();
               }
         }
@@ -271,7 +271,6 @@ document.addEventListener("DOMContentLoaded", () => {
     /**
      * stops blocks running out of bottom of game area
      * stops blocks reaching the delete divs
-     * 
      */
     function stop() {
             active.forEach(i => blocks[location + i].classList.add("delete"));
@@ -294,11 +293,11 @@ document.addEventListener("DOMContentLoaded", () => {
         const stopL = active.some(i => (location + i) % 10 === 0);
         // if above variable wrong, minus block location (move right 1)
         if (stopL === false) {
-            location -= 1;
+            --location;
         }
         // if block reached delete div add to location then drop another block
         if (active.some(i => blocks[location + i].classList.contains("delete"))) {
-            location += 1;
+            ++location;
         }
         makeBlocks();
     }
@@ -316,11 +315,11 @@ document.addEventListener("DOMContentLoaded", () => {
         const stopR = active.some(i => (location + i) % 10 === 9);
         // if above variable wrong, add to block location (move left 1)
         if (stopR === false) {
-            location += 1;
+            ++location;
         }
 
         if (active.some(i => blocks[location + i].classList.contains("delete"))) {
-            location -= 1;
+            --location;
         }
         makeBlocks();
     }
@@ -354,7 +353,7 @@ document.addEventListener("DOMContentLoaded", () => {
      */
     function turn() {
         removeBlocks();
-        activeRotate += 1;
+        ++activeRotate;
         turnSound.play();
         // if number of rotation is same as array length start again
         if (activeRotate === active.length) {
@@ -402,7 +401,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (easyBtn) {
-        easyBtn.addEventListener("click", easyChange);
+        easyBtn.addEventListener("click", () => {
+            easyChange();
+            restart();
+        }); 
     }
 
     //medium level change
@@ -419,7 +421,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (medBtn) {
-        medBtn.addEventListener("click", medChange);
+        medBtn.addEventListener("click", () => {
+            medChange();
+            restart();
+        });
     }
 
     // hard level change
@@ -433,6 +438,13 @@ document.addEventListener("DOMContentLoaded", () => {
         clearInterval(dropTime);
         greenHill.pause();
         labSound.pause();
+    }
+
+    if (hardBtn) {
+        hardBtn.addEventListener("click", () => {
+            hardChange();
+            restart();
+        });
     }
 
     /**
@@ -466,7 +478,7 @@ document.addEventListener("DOMContentLoaded", () => {
             window.removeEventListener("keydown", stopScroll, false);
         } else {
             levelChange(subTitle.textContent);
-            // adds event listener stopping keyboard buttons to move screen
+             // adds event listener stopping keyboard buttons to move screen
             window.addEventListener("keydown", stopScroll, false);
         }
     }
@@ -499,7 +511,7 @@ document.addEventListener("DOMContentLoaded", () => {
      * sets points to 0
      */
     function restart() {
-        for (let i = 0; i < 200; i += 1) {
+        for (let i = 0; i < 200; ++i) {
             blocks[i].classList.remove("delete", "sqr");
             blocks[i].style.backgroundColor = "";
             blocks[i].style.boxShadow = "";
@@ -527,7 +539,7 @@ document.addEventListener("DOMContentLoaded", () => {
         ruleBtn.addEventListener("click", rules);
     }
 
-    // hide text and un-hide img
+    // hide icon and un-hide img
     function hideDrone() {
         if (drone.style.display === "none") {
             drone.style.display = "block";
@@ -541,7 +553,7 @@ document.addEventListener("DOMContentLoaded", () => {
      * if not all audio equals 1
     */
     function muteUnmute() {
-        for (let i = 0; i < allAudio.length; i += 1) {
+        for (let i = 0; i < allAudio.length; ++i) {
             if (allAudio[i].volume > 0) {
                 allAudio[i].volume = 0;
                 soundBtn.style.backgroundColor = "var(--p-highlight)";
@@ -553,10 +565,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     soundBtn.addEventListener("click", muteUnmute);
-
-    if (hardBtn) {
-        hardBtn.addEventListener("click", hardChange);
-    }
 
     // 404 section
     function playEgg() {
