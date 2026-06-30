@@ -153,7 +153,14 @@ function init() {
         dialog: document.querySelector("dialog"),
         closeDialog: document.getElementById("close-dial"),
 
-        soundButton: document.getElementById("sound")
+        soundButton: document.getElementById("sound"),
+
+        drone: document.getElementById("drone"),
+        droneText: document.getElementById("drone-txt"),
+
+        eggButton: document.getElementById("eggman-btn"),
+
+        backButton: document.getElementById("return")
     };
 
     // ==========================================
@@ -1066,87 +1073,153 @@ function stopScroll(event) {
         restart
     );
 
+    // ==========================================
+    // UI & Audio Controls
+    // ==========================================
 
-/**
- * Shows or hides the rules.
- */
-function toggleRules() {
 
-    ui.rules.hidden = !ui.rules.hidden;
-}
+    /**
+     * Shows or hides the rules.
+     */
+    function toggleRules() {
 
-ui.rulesButton.addEventListener("click", toggleRules);
+        ui.rules.hidden =
+            !ui.rules.hidden;
 
-/**
- * Shows the hidden drone image.
- */
-function hideDrone() {
-
-    if (!drone) {
-        return;
     }
 
-    drone.hidden = false;
 
-    if (droneTxt) {
-        droneTxt.hidden = true;
-    }
-}
+    ui.rulesButton.addEventListener(
+        "click",
+        toggleRules
+    );
 
-/**
- * Toggles game audio.
- */
-function muteUnmute() {
 
-    const muted = audio.greenHill.volume === 0;
 
-    document.querySelectorAll("audio").forEach(sound => {
-        sound.volume = muted ? 1 : 0;
-    });
+    /**
+     * Shows the hidden drone image.
+     */
+    function hideDrone() {
 
-    ui.soundButton.style.backgroundColor = muted
-        ? "var(--p-block3)"
-        : "var(--p-highlight)";
-}
 
-ui.soundButton.addEventListener("click", muteUnmute);
+        if (!ui.drone) {
 
-/**
- * Plays the hidden Eggman sound.
- */
-function playEgg() {
+            return;
 
-    if (!audio.eggman) {
-        return;
+        }
+
+
+        ui.drone.hidden = false;
+
+
+        if (ui.droneText) {
+
+            ui.droneText.hidden = true;
+
+        }
+
     }
 
-    audio.eggman.currentTime = 0;
-    audio.eggman.play();
-}
 
-if (eggBtn) {
+    /**
+     * Toggles game audio.
+     */
+    function muteUnmute() {
 
-    eggBtn.addEventListener("click", () => {
 
-        playEgg();
+        gameState.isMuted =
+            !gameState.isMuted;
 
-        hideDrone();
 
-    });
 
-}
+        Object.values(audio).forEach(sound => {
 
-/**
- * Returns to the home page.
- */
-function goBack() {
 
-        window.location.href = "index.html";
+            if (sound) {
+
+                sound.volume =
+                    gameState.isMuted ? 0 : 1;
+
+            }
+
+
+        });
+
+
+
+        ui.soundButton.style.backgroundColor =
+            gameState.isMuted
+
+                ? "var(--p-highlight)"
+
+                : "var(--p-block3)";
+
     }
 
-    if (backBtn) {
 
-        backBtn.addEventListener("click", goBack);
+
+    ui.soundButton.addEventListener(
+        "click",
+        muteUnmute
+    );
+
+
+    /**
+     * Plays the hidden Eggman sound.
+     */
+    function playEgg() {
+
+
+        if (!audio.eggman) {
+
+            return;
+
+        }
+
+
+        audio.eggman.currentTime = 0;
+
+        audio.eggman.play();
+
+    }
+
+
+    if (ui.eggButton) {
+
+
+        ui.eggButton.addEventListener(
+            "click",
+            () => {
+
+
+                playEgg();
+
+                hideDrone();
+
+
+            }
+        );
+
+    }
+
+
+    /**
+     * Returns to the home page.
+     */
+    function goBack() {
+
+        window.location.href =
+            "index.html";
+
+    }
+
+
+    if (ui.backButton) {
+
+        ui.backButton.addEventListener(
+            "click",
+            goBack
+        );
 
     }
 
