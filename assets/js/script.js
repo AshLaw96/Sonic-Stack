@@ -113,12 +113,30 @@ function init() {
     }
 
     // ==========================================
-    // Game Variables
+    // Game State
     // ==========================================
 
-    let dropTime;
-    let location = START_POSITION;
-    let activeRotate = 0;
+    const gameState = {
+        score: 0,
+        highScore: Number(localStorage.getItem("High-Score")) || 0,
+
+        position: START_POSITION,
+        rotation: 0,
+
+        currentPiece: null,
+        currentPieceIndex: 0,
+
+        difficulty: "easy",
+
+        dropInterval: null,
+
+        isPaused: true,
+        isMuted: true
+    };
+
+    ui.highScore.textContent = gameState.highScore;
+    ui.currentScore.textContent = gameState.score;
+
 
    /**
  * Removes the current active tetromino from the board.
