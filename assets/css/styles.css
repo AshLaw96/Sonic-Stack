@@ -1,32 +1,89 @@
-/* Asterisk selector to not interfere with specific designs */
-* {
+/* ==========================================
+   Global Reset
+========================================== */
+
+*,
+*::before,
+*::after {
+
     margin: 0;
     padding: 0;
-    text-decoration: none;
     box-sizing: border-box;
-    list-style: none;
+
 }
 
-/* Root colour scheme for easy styling */
+
+html {
+
+    scroll-behavior: smooth;
+
+}
+
+
+body {
+
+    min-height: 100vh;
+
+}
+
+
+
+/* ==========================================
+   Theme Variables
+========================================== */
+
 :root {
-    /* P = Primary | S = Shadow */
+
+    /* Text */
     --p-text: #FFFFFF;
+
+
+    /* Background */
     --p-highlight: #000000;
+
+
+    /* Block Colours */
     --p-block1: #3061E3;
     --p-block2: #FF3131;
     --p-block3: #FFBF00;
+
+
+    /* Block Shadows */
     --s-block1: #1F51FF;
     --s-block2: #FF0000;
     --s-block3: #F9D71C;
+
+
+    /* Layout */
+    --game-width: 300px;
+    --game-height: 600px;
+    --cell-size:30px;
+
+
+    /* UI */
+    --border-radius: 8px;
+
+    --transition-fast: 0.2s ease;
+
 }
 
-/* font styling */
+
+
+/* ==========================================
+   Font
+========================================== */
+
 @font-face {
+
     font-family: "Tetris";
+
     src: url("../square-mile.ttf");
-    /* uses custom font if font not ready */
-    font-display: fallback;
+
+    font-display: swap;
+
 }
+
+
 
 body {
     font-family: "Tetris";
