@@ -234,191 +234,337 @@ function init() {
     ui.highScore.textContent = gameState.highScore;
     ui.currentScore.textContent = gameState.score;
 
+    // ==========================================
+    // Rendering & Scoring
+    // ==========================================
 
-   /**
- * Removes the current active tetromino from the board.
- */
-function removeBlocks() {
-    active.forEach(offset => {
-        const cell = blocks[location + offset];
+    /**
+     * Removes the current active tetromino from the board.
+     */
+    function removeBlocks() {
 
-        cell.classList.remove("sqr");
-        cell.style.backgroundColor = "";
-        cell.style.boxShadow = "";
-    });
-}
+        active.forEach(offset => {
 
-/**
- * Updates the score display.
- */
-function updateScore() {
-    ui.currentScore.textContent = points;
-}
+            const cell = boardCells[gameState.position + offset];
 
-/**
- * Returns a random tetromino index.
- */
-function getRandomBlock() {
-    return Math.floor(Math.random() * blockArr.length);
-}
+            if (!cell) return;
 
-/**
- * Clears any completed lines and awards points.
- */
-function gotPoints() {
-
-    const completedRows = [];
-
-    for (let row = 0; row < CELL_COUNT; row += GRID_WIDTH) {
-
-        const currentRow = Array.from(
-            { length: GRID_WIDTH },
-            (_, index) => row + index
-        );
-
-        const isComplete = currentRow.every(index =>
-            blocks[index].classList.contains("delete")
-        );
-
-        if (isComplete) {
-            completedRows.push(row);
-        }
-    }
-
-    if (completedRows.length === 0) {
-        return;
-    }
-
-    completedRows.forEach(row => {
-
-        for (let i = 0; i < GRID_WIDTH; i++) {
-
-            const cell = blocks[row + i];
-
-            cell.classList.remove("delete", "sqr");
+            cell.classList.remove("sqr");
             cell.style.backgroundColor = "";
             cell.style.boxShadow = "";
+
+        });
+
+    }
+
+
+    /**
+     * Updates the score display.
+     */
+    function updateScore() {
+
+        ui.currentScore.textContent = gameState.score;
+
+    }
+
+
+    /**
+     * Returns a random tetromino index.
+     */
+    function getRandomBlock() {
+
+        return Math.floor(
+            Math.random() * TETROMINOES.length
+        );
+
+    }
+
+
+    /**
+     * Clears completed rows and awards points.
+     */
+    function gotPoints() {
+
+        const completedRows = [];
+
+
+        for (let row = 0; row < CELL_COUNT; row += GRID_WIDTH) {
+
+
+            const currentRow = Array.from(
+                { length: GRID_WIDTH },
+                (_, index) => row + index
+            );
+
+
+            const isComplete = currentRow.every(index =>
+                boardCells[index].classList.contains("delete")
+            );
+
+
+            if (isComplete) {
+
+                completedRows.push(row);
+
+            }
+
         }
 
-        const removedRow = blocks.splice(row, GRID_WIDTH);
-        blocks = removedRow.concat(blocks);
-    });
 
-    blocks.forEach(cell => ui.gameBoard.appendChild(cell));
+        if (completedRows.length === 0) {
 
-    points += completedRows.length * 100;
+            return;
 
-    updateScore();
+        }
 
-    audio.score.currentTime = 0;
-    audio.score.play();
-}
 
-/**
- * Ends the game if a new piece cannot spawn.
- */
-function lost() {
+        completedRows.forEach(row => {
 
-    const gameOver = active.some(offset =>
-        blocks[location + offset].classList.contains("delete")
+
+            for (let i = 0; i < GRID_WIDTH; i++) {
+
+
+                const cell = boardCells[row + i];
+
+
+                cell.classList.remove(
+                    "delete",
+                    "sqr"
+                );
+
+
+                cell.style.backgroundColor = "";
+                cell.style.boxShadow = "";
+
+
+            }
+
+
+            const removedRow = boardCells.splice(
+                row,
+                GRID_WIDTH
+            );
+
+
+            boardCells = removedRow.concat(boardCells);
+
+
+        });
+
+
+        boardCells.forEach(cell =>
+            ui.gameBoard.appendChild(cell)
+        );
+
+
+        gameState.score +=
+            completedRows.length * POINTS_PER_LINE;
+
+
+        updateScore();
+
+
+        audio.score.currentTime = 0;
+        audio.score.play();
+
+    }
+
+    // ==========================================
+    // Game State & Piece Lifecycle
+    // ==========================================
+
+    /**
+     * Ends the game if a new piece cannot spawn.
+     */
+    function lost() {
+
+        const gameOver = active.some(offset => {
+
+            const cell = boardCells[
+                gameState.position + offset
+            ];
+
+            return cell?.classList.contains("delete");
+
+        });
+
+
+        if (!gameOver) {
+            return;
+        }
+
+
+        clearInterval(gameState.dropInterval);
+
+
+        const music = {
+            easy: audio.greenHill,
+            medium: audio.labyrinth,
+            hard: audio.boss
+        };
+
+
+        music[gameState.difficulty]?.pause();
+
+
+        if (gameState.score > gameState.highScore) {
+
+            gameState.highScore = gameState.score;
+
+            localStorage.setItem(
+                "High-Score",
+                gameState.highScore
+            );
+
+
+            ui.highScore.textContent =
+                gameState.highScore;
+        }
+
+
+        audio.gameOver.currentTime = 0;
+        audio.gameOver.play();
+
+
+        ui.dialog.showModal();
+
+    }
+
+
+    /**
+     * Closes the Game Over dialog.
+     */
+    function closeDialog() {
+
+        ui.dialog.close();
+
+    }
+
+
+    ui.closeDialog.addEventListener(
+        "click",
+        closeDialog
     );
 
-    if (!gameOver) {
-        return;
+
+
+    /**
+     * Returns true if any part of the active piece
+     * is touching the right edge.
+     */
+    function stopRightTurn() {
+
+        return active.some(offset =>
+            (
+                gameState.position +
+                offset +
+                1
+            ) % GRID_WIDTH === 0
+        );
+
     }
 
-    clearInterval(dropTime);
 
-    const music = {
-        easy: audio.greenHill,
-        medium: audio.labyrinth,
-        hard: audio.boss
-    };
 
-    music[currentDifficulty]?.pause();
+    /**
+     * Returns true if any part of the active piece
+     * is touching the left edge.
+     */
+    function stopLeftTurn() {
 
-    if (points > highScore) {
+        return active.some(offset =>
+            (
+                gameState.position +
+                offset
+            ) % GRID_WIDTH === 0
+        );
 
-        highScore = points;
-
-        localStorage.setItem("High-Score", highScore);
-
-        ui.highScore.textContent = highScore;
     }
 
-    audio.gameOver.currentTime = 0;
-    audio.gameOver.play();
 
-    ui.dialog.showModal();
-}
 
-/**
- * Closes the Game Over dialog.
- */
-function closeDialog() {
-    ui.dialog.close();
-}
+    /**
+     * Prevents pieces wrapping around the board
+     * while rotating.
+     */
+    function stopTurning() {
 
-ui.closeDialog.addEventListener("click", closeDialog);
 
-/**
- * Returns true if any part of the active piece
- * is touching the right edge.
- */
-function stopRightTurn() {
-    return active.some(offset =>
-        (location + offset + 1) % GRID_WIDTH === 0
-    );
-}
+        while (
+            (gameState.position + 1) % GRID_WIDTH <
+            GRID_WIDTH / 2 &&
+            stopRightTurn()
+        ) {
 
-/**
- * Returns true if any part of the active piece
- * is touching the left edge.
- */
-function stopLeftTurn() {
-    return active.some(offset =>
-        (location + offset) % GRID_WIDTH === 0
-    );
-}
+            gameState.position++;
 
-/**
- * Prevents pieces wrapping around the board while rotating.
- */
-function stopTurning() {
+        }
 
-    while ((location + 1) % GRID_WIDTH < GRID_WIDTH / 2 && stopRightTurn()) {
-        location++;
+
+        while (
+            gameState.position % GRID_WIDTH >
+            (GRID_WIDTH / 2) - 1 &&
+            stopLeftTurn()
+        ) {
+
+            gameState.position--;
+
+        }
+
     }
 
-    while (location % GRID_WIDTH > (GRID_WIDTH / 2) - 1 && stopLeftTurn()) {
-        location--;
+
+
+    /**
+     * Locks the current tetromino
+     * and creates the next piece.
+     */
+    function stop() {
+
+
+        active.forEach(offset => {
+
+            boardCells[
+                gameState.position + offset
+            ]
+            .classList.add("delete");
+
+        });
+
+
+        gameState.currentPieceIndex =
+            getRandomBlock();
+
+
+        gameState.rotation = 0;
+
+
+        active =
+            TETROMINOES[
+                gameState.currentPieceIndex
+            ]
+            .rotations[
+                gameState.rotation
+            ];
+
+
+        gameState.position =
+            START_POSITION;
+
+
+        gotPoints();
+
+
+        makeBlocks();
+
+
+        stopTurning();
+
+
+        lost();
+
     }
-}
 
-/**
- * Locks the current tetromino in place
- * and spawns the next one.
- */
-function stop() {
-
-    active.forEach(offset => {
-        blocks[location + offset].classList.add("delete");
-    });
-
-    randBlock = getRandomBlock();
-    activeRotate = 0;
-    active = blockArr[randBlock][activeRotate];
-
-    location = START_POSITION;
-
-    gotPoints();
-
-    makeBlocks();
-
-    stopTurning();
-
-    lost();
-}
 
 /**
  * Moves the active tetromino left.
