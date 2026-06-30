@@ -86,32 +86,23 @@ function init() {
 
     createBoard();
 
-    const blocks = Array.from(ui.gameBoard.querySelectorAll("div"));
+    const boardCells = Array.from(
+        ui.gameBoard.querySelectorAll("div")
+    );
 
     function createBoard() {
 
         for (let i = 0; i < CELL_COUNT; i++) {
-            ui.gameBoard.appendChild(document.createElement("div"));
+            const cell = document.createElement("div");
+            ui.gameBoard.appendChild(cell);
         }
 
         for (let i = 0; i < GRID_WIDTH; i++) {
-            const cell = document.createElement("div");
-            cell.classList.add("delete");
-            ui.gameBoard.appendChild(cell);
+            const floor = document.createElement("div");
+            floor.classList.add("delete");
+            ui.gameBoard.appendChild(floor);
         }
     }
-
-    // ==========================================
-    // Score
-    // ==========================================
-
-    let points = 0;
-
-    const savedHighScore =
-        Number(localStorage.getItem("High-Score")) || 0;
-
-    ui.highScore.textContent = savedHighScore;
-    ui.currentScore.textContent = points;
 
     // ==========================================
     // Initial UI State
