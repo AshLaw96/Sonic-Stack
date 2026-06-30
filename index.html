@@ -1,115 +1,320 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- Meta tags for search engines -->
-    <meta name="description" content="Sonic Stack. Sonic styled Tetris game for all ages to play and enjoy.">
-    <meta name="keywords" content="sonic stack, sonic, stack, tetris, old school game, block.">
-    <title>Sonic Stack</title>
-    <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
-    <!-- CSS file -->
-    <link rel="stylesheet" href="assets/css/styles.css"> 
+    <meta name="description"
+        content="Sonic Stack is a Sonic-inspired browser puzzle game where you stack blocks, clear lines and chase high scores.">
+
+    <meta name="theme-color" content="#0d6efd">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Sonic Stack">
+    <meta property="og:description"
+        content="Play Sonic Stack, a Sonic-inspired browser puzzle game.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="assets/images/preview.png">
+
+    <title>Sonic Stack | Sonic Inspired Puzzle Game</title>
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180"
+        href="assets/favicon/apple-touch-icon.png">
+
+    <link rel="icon"
+        type="image/png"
+        sizes="32x32"
+        href="assets/favicon/favicon-32x32.png">
+
+    <link rel="icon"
+        type="image/png"
+        sizes="16x16"
+        href="assets/favicon/favicon-16x16.png">
+
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
+
 <body>
-    <!-- Header Section -->
-    <header>
-        <a href="index.html">
-            <h1>Sonic Stack</h1>
-        </a>
-        <button id="sound" aria-label="mute/unmute volume">
+
+<header>
+
+    <a href="index.html" class="logo">
+        <h1>Sonic Stack</h1>
+    </a>
+
+    <div class="header-controls">
+
+        <button
+            id="sound"
+            type="button"
+            aria-label="Toggle sound">
+
             <i class="fa-solid fa-volume-high"></i>
+
         </button>
-        <!-- Navbar/Level Section -->
-        <input type="checkbox" id="tog" name="tog">
-        <label for="tog" id="tog-lab">
+
+        <button
+            id="menu-toggle"
+            type="button"
+            aria-label="Toggle difficulty menu"
+            aria-expanded="false"
+            aria-controls="difficulty">
+
             <i class="fa-solid fa-bars"></i>
-        </label>
-        <nav id="difficulty">
-            <button id="easy" class="current" aria-label="easy level">Easy</button>
-            <button id="medium" aria-label="medium level">Medium</button>
-            <button id="hard" aria-label="hard level">Hard</button>
-        </nav>
-    </header>
-    <!-- Main section -->
-    <main>
-        <section id="main-wrap" class="easy-bg">
-            <aside id="side-wrap">
-                <!-- Rules section -->
-                <button id="instructions" aria-label="show/hide rules">Rules</button>
-                <p id="rules">How to Play: <br>
-                    <span class="rule">Keyboard- Use left and right keys to move blocks side to side. Hold or click down arrow key to move block down quicker. Press space bar to turn blocks.</span>
-                    <br>
-                    <span class="rule">Buttons- Use left button and right button to move blocks side to side. Click down button to move block down quicker. Press twist button to turn block.</span>
-                    <br> <br>
-                    Make full horizontal line to gain points.
+
+        </button>
+
+    </div>
+
+    <nav id="difficulty" aria-label="Difficulty">
+
+        <button
+            id="easy"
+            class="current"
+            type="button">
+            Easy
+        </button>
+
+        <button
+            id="medium"
+            type="button">
+            Medium
+        </button>
+
+        <button
+            id="hard"
+            type="button">
+            Hard
+        </button>
+
+    </nav>
+
+</header>
+
+<main>
+
+<section id="main-wrap" class="easy-bg">
+
+    <aside id="side-wrap">
+
+        <section class="panel">
+
+            <details>
+
+                <summary>How to Play</summary>
+
+                <h3>Keyboard</h3>
+
+                <ul>
+                    <li>← → Move left/right</li>
+                    <li>↓ Soft drop</li>
+                    <li>Space Rotate piece</li>
+                </ul>
+
+                <h3>Touch Controls</h3>
+
+                <ul>
+                    <li>Use on-screen buttons to move.</li>
+                    <li>Down speeds up the piece.</li>
+                    <li>Rotate twists the current piece.</li>
+                </ul>
+
+                <p>
+                    Complete horizontal rows to earn points.
                 </p>
-                <!-- Scores section -->
-                <div id="score-wrap">
-                    <p id="points">
-                        Current Points: <span id="point">0</span>
-                        <br> 
-                        High Score: <span id="high-scr">0</span>
-                    </p>                
-                </div>
-            </aside>
-            <h2 id="sub-title">Easy</h2>
-            <!-- Game area -->
-            <div id="game-wrap">
-            </div>
-            <!-- Button movements -->
-            <div class="btn-area">
-                <div id="left-right">
-                    <button id="left" aria-label="move left">
-                        <i class="fa-solid fa-arrow-left"></i>
-                    </button>
-                    <button id="right" aria-label="move right">
-                        <i class="fa-solid fa-arrow-right"></i>
-                    </button>
-                </div>
-                <div id="down-twist">
-                    <button id="down" aria-label="move down">
-                        <i class="fa-solid fa-arrow-down"></i>
-                    </button>
-                    <button id="twist" aria-label="turn block">
-                        <i class="fa-solid fa-arrows-rotate"></i>
-                    </button>
-                </div>
-                <!-- Pause/Play & reset game -->
-                <button id="start-stop" aria-label="play/pause game">
-                    Start Game <br>
-                    <i class="fa-solid fa-play"></i> <i class="fa-solid fa-pause"></i>
-                </button>
-                <button id="reset" aria-label="restart game">Restart</button>
-            </div>
-            <dialog>
-                <button id="close-dial" aria-label="close dialog">You Lost <br> <br> press <span id="esc">esc</span></button>
-            </dialog>
-            <!-- Game sounds -->
-            <div id="sound-wrap">
-                <audio id="green-hill" src="assets/audio/green-hill.mp3" loop></audio>
-                <audio id="labyrinth" src="assets/audio/labyrinth.mp3" loop></audio>
-                <audio id="boss" src="assets/audio/boss.mp3" loop></audio>
-                <audio id="score-sound" src="assets/audio/score.mp3"></audio>
-                <audio id="turn-sound" src="assets/audio/turn.mp3"></audio>
-                <audio id="lost-sound" src="assets/audio/game-over.mp3"></audio>
-            </div>
+
+            </details>
+
         </section>
-    </main>
-    <!-- Footer section -->
-    <footer>
-        <a id="history" href="https://tetris.com/history-of-tetris" target="_blank">The history of Tetris</a>
-        <a id="tetris-vids" href="https://www.youtube.com/watch?v=1L_l4dj0KRA" target="_blank">2023 Tetris final</a>
-        <a id="top-players" href="https://www.esports.net/news/mobile-games/best-tetris-players/" target="_blank">Top 5 players in the world</a>
-        <a id="github" href="https://github.com/AshLaw96" target="_blank">My GitHub</a>
-    </footer>
-      <!-- font awesome kit --> 
-      <script src="https://kit.fontawesome.com/5c8b8e6738.js" crossorigin="anonymous"></script>
-      <!-- JS file -->
-    <script src="assets/js/script.js"></script>
+
+        <section class="panel">
+
+            <h2>Score</h2>
+
+            <dl class="score-board">
+
+                <div>
+
+                    <dt>Current</dt>
+
+                    <dd id="point">0</dd>
+
+                </div>
+
+                <div>
+
+                    <dt>High Score</dt>
+
+                    <dd id="high-scr">0</dd>
+
+                </div>
+
+            </dl>
+
+        </section>
+
+        <!-- Future feature -->
+
+        <section class="panel next-piece">
+
+            <h2>Next Piece</h2>
+
+            <div id="next-piece"></div>
+
+        </section>
+
+    </aside>
+
+    <section id="game-section">
+
+        <h2 id="sub-title">Easy</h2>
+
+        <div id="game-wrap" aria-label="Game board"></div>
+
+    </section>
+
+</section>
+
+<section class="controls">
+
+    <div class="movement-controls">
+
+        <button id="left" type="button" aria-label="Move left">
+
+            <i class="fa-solid fa-arrow-left"></i>
+
+        </button>
+
+        <button id="right" type="button" aria-label="Move right">
+
+            <i class="fa-solid fa-arrow-right"></i>
+
+        </button>
+
+    </div>
+
+    <div class="action-controls">
+
+        <button id="down" type="button" aria-label="Move down">
+
+            <i class="fa-solid fa-arrow-down"></i>
+
+        </button>
+
+        <button id="twist" type="button" aria-label="Rotate">
+
+            <i class="fa-solid fa-arrows-rotate"></i>
+
+        </button>
+
+    </div>
+
+    <div class="game-controls">
+
+        <button
+            id="start-stop"
+            type="button">
+
+            Start Game
+
+            <br>
+
+            <i class="fa-solid fa-play"></i>
+
+            <i class="fa-solid fa-pause"></i>
+
+        </button>
+
+        <button
+            id="reset"
+            type="button">
+
+            Restart
+
+        </button>
+
+    </div>
+
+</section>
+
+<dialog id="game-over-dialog">
+
+    <h2>Game Over</h2>
+
+    <p>Your stack reached the top.</p>
+
+    <button id="close-dial">
+
+        Play Again
+
+    </button>
+
+</dialog>
+
+</main>
+
+<footer>
+
+    <nav aria-label="Resources">
+
+        <a
+            href="https://tetris.com/history-of-tetris"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            History of Tetris
+
+        </a>
+
+        <a
+            href="https://www.youtube.com/watch?v=1L_l4dj0KRA"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            2023 Championship
+
+        </a>
+
+        <a
+            href="https://www.esports.net/news/mobile-games/best-tetris-players/"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            Top Players
+
+        </a>
+
+        <a
+            href="https://github.com/AshLaw96"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            GitHub
+
+        </a>
+
+    </nav>
+
+</footer>
+
+<!-- Audio -->
+
+<audio id="green-hill" src="assets/audio/green-hill.mp3" loop></audio>
+<audio id="labyrinth" src="assets/audio/labyrinth.mp3" loop></audio>
+<audio id="boss" src="assets/audio/boss.mp3" loop></audio>
+
+<audio id="score-sound" src="assets/audio/score.mp3"></audio>
+<audio id="turn-sound" src="assets/audio/turn.mp3"></audio>
+<audio id="lost-sound" src="assets/audio/game-over.mp3"></audio>
+
+<script
+    src="https://kit.fontawesome.com/5c8b8e6738.js"
+    crossorigin="anonymous">
+</script>
+
+<script type="module" src="assets/js/main.js"></script>
+
 </body>
+
 </html>
