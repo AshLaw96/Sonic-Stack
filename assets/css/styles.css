@@ -86,35 +86,110 @@ body {
 
 
 body {
-    font-family: "Tetris";
+
+    font-family: "Tetris", Arial, sans-serif;
+
     color: var(--p-text);
+
+    background-color: var(--p-highlight);
+
     font-size: 16px;
+
 }
+
+
+
+/* ==========================================
+   Global Elements
+========================================== */
+
 
 button {
-    font-family: "Tetris";
+
+    font-family: inherit;
+
     cursor: pointer;
-    padding: 2px;
+
+    padding: 6px 10px;
+
+    border-radius: var(--border-radius);
+
+    border: none;
+
+    transition:
+        transform var(--transition-fast),
+        box-shadow var(--transition-fast);
+
 }
+
+
+button:hover {
+
+    transform: translateY(-2px);
+
+}
+
+
+button:active {
+
+    transform: translateY(1px);
+
+}
+
+
+button:focus-visible {
+
+    outline: 3px solid var(--p-block3);
+
+}
+
+
 
 h1 {
-    font-size: 245%;
-    /* makes h1 text 3 colours */
-    background: linear-gradient(#3061E3, #FF3131, #FFBF00);
-    -webkit-text-fill-color: transparent;
+
+    font-size: clamp(2rem, 5vw, 2.8rem);
+
+
+    background:
+        linear-gradient(
+            #3061E3,
+            #FF3131,
+            #FFBF00
+        );
+
+
+    -webkit-background-clip: text;
+
     background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+
 }
+
+
 
 h2 {
-    font-size: 150%;
+
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
+
     text-align: center;
+
 }
 
+
+
 p {
+
     text-align: center;
+
     background-color: var(--p-highlight);
+
     margin: 5px;
+
 }
+
+
+
 
 header {
     background-color: var(--p-highlight);
