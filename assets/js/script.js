@@ -565,141 +565,257 @@ function init() {
 
     }
 
+    // ==========================================
+    // Movement & Controls
+    // ==========================================
 
-/**
- * Moves the active tetromino left.
- */
-function left() {
-
-    removeBlocks();
-
-    const touchingLeftWall = active.some(offset =>
-        (location + offset) % GRID_WIDTH === 0
-    );
-
-    if (!touchingLeftWall) {
-        location--;
-    }
-
-    const hitLockedBlock = active.some(offset =>
-        blocks[location + offset].classList.contains("delete")
-    );
-
-    if (hitLockedBlock) {
-        location++;
-    }
-
-    makeBlocks();
-}
-
-ui.left.addEventListener("click", left);
-    
-  /**
- * Moves the active tetromino right.
- */
-function right() {
-
-    removeBlocks();
-
-    const touchingRightWall = active.some(offset =>
-        (location + offset) % GRID_WIDTH === GRID_WIDTH - 1
-    );
-
-    if (!touchingRightWall) {
-        location++;
-    }
-
-    const hitLockedBlock = active.some(offset =>
-        blocks[location + offset].classList.contains("delete")
-    );
-
-    if (hitLockedBlock) {
-        location--;
-    }
-
-    makeBlocks();
-}
-
-ui.right.addEventListener("click", right);
-
-/**
- * Moves the active tetromino down.
- */
-function down() {
-
-    const canMoveDown = !active.some(offset =>
-        blocks[location + offset + GRID_WIDTH].classList.contains("delete")
-    );
-
-    if (canMoveDown) {
+    /**
+     * Moves the active tetromino left.
+     */
+    function left() {
 
         removeBlocks();
 
-        location += GRID_WIDTH;
+
+        const touchingLeftWall = active.some(offset =>
+            (
+                gameState.position +
+                offset
+            ) % GRID_WIDTH === 0
+        );
+
+
+        if (!touchingLeftWall) {
+
+            gameState.position--;
+
+        }
+
+
+        const hitLockedBlock = active.some(offset =>
+            boardCells[
+                gameState.position + offset
+            ].classList.contains("delete")
+        );
+
+
+        if (hitLockedBlock) {
+
+            gameState.position++;
+
+        }
+
 
         makeBlocks();
 
-    } else {
-
-        stop();
-
-    }
-}
-
-ui.down.addEventListener("click", down);
-
-/**
- * Rotates the active tetromino.
- */
-function turn() {
-
-    removeBlocks();
-
-    activeRotate++;
-
-    if (activeRotate >= active.length) {
-        activeRotate = 0;
     }
 
-    active = blockArr[randBlock][activeRotate];
 
-    stopTurning();
+    ui.left.addEventListener(
+        "click",
+        left
+    );
 
-    makeBlocks();
 
-    audio.rotate.currentTime = 0;
-    audio.rotate.play();
-}
 
-ui.rotate.addEventListener("click", turn);
+    /**
+     * Moves the active tetromino right.
+     */
+    function right() {
 
-/**
- * Handles keyboard controls.
- */
-function movement(event) {
+        removeBlocks();
 
-    switch (event.code) {
 
-        case "ArrowLeft":
-            left();
-            break;
+        const touchingRightWall = active.some(offset =>
+            (
+                gameState.position +
+                offset
+            ) % GRID_WIDTH === GRID_WIDTH - 1
+        );
 
-        case "ArrowRight":
-            right();
-            break;
 
-        case "ArrowDown":
-            down();
-            break;
+        if (!touchingRightWall) {
 
-        case "Space":
-            event.preventDefault();
-            turn();
-            break;
+            gameState.position++;
+
+        }
+
+
+        const hitLockedBlock = active.some(offset =>
+            boardCells[
+                gameState.position + offset
+            ].classList.contains("delete")
+        );
+
+
+        if (hitLockedBlock) {
+
+            gameState.position--;
+
+        }
+
+
+        makeBlocks();
+
     }
-}
 
-document.addEventListener("keydown", movement);
+
+    ui.right.addEventListener(
+        "click",
+        right
+    );
+
+
+
+    /**
+     * Moves the active tetromino down.
+     */
+    function down() {
+
+
+        const canMoveDown = !active.some(offset =>
+            boardCells[
+                gameState.position +
+                offset +
+                GRID_WIDTH
+            ].classList.contains("delete")
+        );
+
+
+        if (canMoveDown) {
+
+
+            removeBlocks();
+
+
+            gameState.position += GRID_WIDTH;
+
+
+            makeBlocks();
+
+
+        } else {
+
+
+            stop();
+
+
+        }
+
+    }
+
+
+    ui.down.addEventListener(
+        "click",
+        down
+    );
+
+
+
+    /**
+     * Rotates the active tetromino.
+     */
+    function turn() {
+
+
+        removeBlocks();
+
+
+        gameState.rotation++;
+
+
+        if (
+            gameState.rotation >=
+            TETROMINOES[
+                gameState.currentPieceIndex
+            ]
+            .rotations.length
+        ) {
+
+            gameState.rotation = 0;
+
+        }
+
+
+        active =
+            TETROMINOES[
+                gameState.currentPieceIndex
+            ]
+            .rotations[
+                gameState.rotation
+            ];
+
+
+        stopTurning();
+
+
+        makeBlocks();
+
+
+        audio.rotate.currentTime = 0;
+        audio.rotate.play();
+
+    }
+
+
+    ui.rotate.addEventListener(
+        "click",
+        turn
+    );
+
+
+
+    /**
+     * Handles keyboard controls.
+     */
+    function movement(event) {
+
+
+        switch (event.code) {
+
+
+            case "ArrowLeft":
+
+                left();
+
+                break;
+
+
+
+            case "ArrowRight":
+
+                right();
+
+                break;
+
+
+
+            case "ArrowDown":
+
+                down();
+
+                break;
+
+
+
+            case "Space":
+
+                event.preventDefault();
+
+                turn();
+
+                break;
+
+
+        }
+
+    }
+
+    document.addEventListener(
+        "keydown",
+        movement
+    );
+
 
 /**
  * Changes the current difficulty.
