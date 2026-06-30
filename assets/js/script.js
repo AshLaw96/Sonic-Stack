@@ -823,56 +823,118 @@ function init() {
         movement
     );
 
+    // ==========================================
+    // Difficulty & Keyboard Utilities
+    // ==========================================
 
-/**
- * Changes the current difficulty.
- */
-function setDifficulty(level) {
-
-    currentDifficulty = level;
-
-    ui.subtitle.textContent =
-        level.charAt(0).toUpperCase() + level.slice(1);
-
-    ui.mainWrap.classList.remove(
-        "easy-bg",
-        "medium-bg",
-        "hard-bg"
-    );
-
-    ui.mainWrap.classList.add(`${level}-bg`);
-
-    ui.easy.classList.toggle("current", level === "easy");
-    ui.medium.classList.toggle("current", level === "medium");
-    ui.hard.classList.toggle("current", level === "hard");
-
-    clearInterval(dropTime);
-
-    audio.greenHill.pause();
-    audio.labyrinth.pause();
-    audio.boss.pause();
-
-    restart();
-}
-
-ui.easy.addEventListener("click", () => setDifficulty("easy"));
-ui.medium.addEventListener("click", () => setDifficulty("medium"));
-ui.hard.addEventListener("click", () => setDifficulty("hard"));
 
     /**
- * Prevents the browser from scrolling
- * while using the keyboard controls.
- */
-function stopScroll(event) {
+     * Changes the current difficulty.
+     */
+    function setDifficulty(level) {
 
-    const blockedKeys = [
-        "ArrowUp",
-        "ArrowDown",
-        "ArrowLeft",
-        "ArrowRight",
-        "Space"
-    ];
 
+        gameState.difficulty = level;
+
+
+        ui.subtitle.textContent =
+            level.charAt(0).toUpperCase() +
+            level.slice(1);
+
+
+
+        ui.mainWrap.classList.remove(
+            "easy-bg",
+            "medium-bg",
+            "hard-bg"
+        );
+
+
+        ui.mainWrap.classList.add(
+            `${level}-bg`
+        );
+
+
+
+        ui.easy.classList.toggle(
+            "current",
+            level === "easy"
+        );
+
+
+        ui.medium.classList.toggle(
+            "current",
+            level === "medium"
+        );
+
+
+        ui.hard.classList.toggle(
+            "current",
+            level === "hard"
+        );
+
+
+
+        clearInterval(
+            gameState.dropInterval
+        );
+
+
+
+        audio.greenHill.pause();
+        audio.labyrinth.pause();
+        audio.boss.pause();
+
+
+
+        restart();
+
+    }
+
+
+    ui.easy.addEventListener(
+        "click",
+        () => setDifficulty("easy")
+    );
+
+
+    ui.medium.addEventListener(
+        "click",
+        () => setDifficulty("medium")
+    );
+
+
+    ui.hard.addEventListener(
+        "click",
+        () => setDifficulty("hard")
+    );
+
+
+
+
+    /**
+     * Prevents the browser from scrolling
+     * while using the keyboard controls.
+     */
+    function stopScroll(event) {
+
+
+        const blockedKeys = [
+            "ArrowUp",
+            "ArrowDown",
+            "ArrowLeft",
+            "ArrowRight",
+            "Space"
+        ];
+
+
+        if (blockedKeys.includes(event.code)) {
+
+            event.preventDefault();
+
+        }
+
+    }
 
     // ==========================================
     // Game Loop & Lifecycle
