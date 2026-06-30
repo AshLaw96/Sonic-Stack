@@ -12,6 +12,7 @@ function init() {
     const GRID_HEIGHT = 20;
     const CELL_COUNT = GRID_WIDTH * GRID_HEIGHT;
     const START_POSITION = 4;
+    const POINTS_PER_LINE = 100;
 
     const BLOCK_COLORS = [
         "var(--p-block1)",
@@ -23,6 +24,102 @@ function init() {
         "var(--p-block2)": "0 0 4px 2px var(--s-block2)",
         "var(--p-block3)": "0 0 4px 2px var(--s-block3)"
     };
+
+    // ==========================================
+    // Tetromino Definitions
+    // ==========================================
+
+    const TETROMINOES = [
+
+        {
+            name: "O",
+
+            color: BLOCK_COLORS[0],
+
+            rotations: [
+                [0, 1, 10, 11],
+                [0, 1, 10, 11],
+                [0, 1, 10, 11],
+                [0, 1, 10, 11]
+            ]
+        },
+
+        {
+            name: "I",
+
+            color: BLOCK_COLORS[1],
+
+            rotations: [
+                [1, 11, 21, 31],
+                [10, 11, 12, 13],
+                [1, 11, 21, 31],
+                [10, 11, 12, 13]
+            ]
+        },
+
+        {
+            name: "T",
+
+            color: BLOCK_COLORS[2],
+
+            rotations: [
+                [1, 10, 11, 12],
+                [1, 11, 12, 21],
+                [10, 11, 12, 21],
+                [1, 10, 11, 21]
+            ]
+        },
+
+        {
+            name: "L",
+
+            color: BLOCK_COLORS[0],
+
+            rotations: [
+                [1, 11, 21, 2],
+                [10, 11, 12, 22],
+                [1, 11, 21, 20],
+                [10, 20, 21, 22]
+            ]
+        },
+
+        {
+            name: "Z",
+
+            color: BLOCK_COLORS[1],
+
+            rotations: [
+                [0, 10, 11, 21],
+                [12, 11, 20, 21],
+                [0, 10, 11, 21],
+                [12, 11, 20, 21]
+            ]
+        }
+
+    ];
+
+
+    // ==========================================
+    // Active Piece State
+    // ==========================================
+
+    let currentPieceIndex = getRandomPiece();
+
+    let active = TETROMINOES[currentPieceIndex].rotations[0];
+
+    let nextPieceIndex = getRandomPiece();
+
+    // ==========================================
+    // Piece Utilities
+    // ==========================================
+
+    function getRandomPiece() {
+
+        return Math.floor(
+            Math.random() * TETROMINOES.length
+        );
+
+    }
 
     // ==========================================
     // UI Elements
