@@ -866,104 +866,206 @@ function stopScroll(event) {
         "Space"
     ];
 
-    if (blockedKeys.includes(event.code)) {
-        event.preventDefault();
+
+    // ==========================================
+    // Game Loop & Lifecycle
+    // ==========================================
+
+
+    /**
+     * Starts the game loop.
+     */
+    function startGame() {
+
+
+        const settings = {
+
+            easy: {
+                music: audio.greenHill,
+                interval: 1000
+            },
+
+            medium: {
+                music: audio.labyrinth,
+                interval: 500
+            },
+
+            hard: {
+                music: audio.boss,
+                interval: 200
+            }
+
+        };
+
+
+        const {
+            music,
+            interval
+        } = settings[gameState.difficulty];
+
+
+
+        music.currentTime = 0;
+        music.play();
+
+
+
+        gameState.dropInterval =
+            setInterval(
+                down,
+                interval
+            );
+
+
+
+        window.addEventListener(
+            "keydown",
+            stopScroll
+        );
+
+
+        gameState.isPaused = false;
+
     }
-}
 
-/**
- * Starts the game loop.
- */
-function startGame() {
 
-    const settings = {
-        easy: {
-            music: audio.greenHill,
-            interval: 1000
-        },
-        medium: {
-            music: audio.labyrinth,
-            interval: 500
-        },
-        hard: {
-            music: audio.boss,
-            interval: 200
+
+    /**
+     * Stops the game loop.
+     */
+    function stopGame() {
+
+
+        clearInterval(
+            gameState.dropInterval
+        );
+
+
+        gameState.dropInterval = null;
+
+
+
+        audio.greenHill.pause();
+        audio.labyrinth.pause();
+        audio.boss.pause();
+
+
+
+        window.removeEventListener(
+            "keydown",
+            stopScroll
+        );
+
+
+        gameState.isPaused = true;
+
+    }
+
+
+
+    /**
+     * Toggles between playing and paused.
+     */
+    function pausePlay() {
+
+
+        if (gameState.dropInterval) {
+
+
+            stopGame();
+
+
+        } else {
+
+
+            startGame();
+
+
         }
-    };
 
-    const { music, interval } = settings[currentDifficulty];
+    }
 
-    music.currentTime = 0;
-    music.play();
 
-    dropTime = setInterval(down, interval);
+    ui.start.addEventListener(
+        "click",
+        pausePlay
+    );
 
-    window.addEventListener("keydown", stopScroll);
-}
 
-/**
- * Stops the game loop.
- */
-function stopGame() {
 
-    clearInterval(dropTime);
+    /**
+     * Restarts the current game.
+     */
+    function restart() {
 
-    dropTime = null;
 
-    audio.greenHill.pause();
-    audio.labyrinth.pause();
-    audio.boss.pause();
+        for (
+            let i = 0;
+            i < CELL_COUNT;
+            i++
+        ) {
 
-    window.removeEventListener("keydown", stopScroll);
-}
 
-/**
- * Toggles between playing and paused.
- */
-function pausePlay() {
+            const cell = boardCells[i];
 
-    if (dropTime) {
+
+            cell.classList.remove(
+                "delete",
+                "sqr"
+            );
+
+
+            cell.style.backgroundColor = "";
+            cell.style.boxShadow = "";
+
+
+        }
+
+
+
+        gameState.score = 0;
+
+        gameState.position =
+            START_POSITION;
+
+
+        gameState.rotation = 0;
+
+
+
+        updateScore();
+
+
 
         stopGame();
 
-    } else {
 
-        startGame();
+
+        gameState.currentPieceIndex =
+            getRandomBlock();
+
+
+
+        active =
+            TETROMINOES[
+                gameState.currentPieceIndex
+            ]
+            .rotations[
+                gameState.rotation
+            ];
+
+
+
+        makeBlocks();
 
     }
-}
 
-ui.start.addEventListener("click", pausePlay);
 
-/**
- * Restarts the current game.
- */
-function restart() {
+    ui.reset.addEventListener(
+        "click",
+        restart
+    );
 
-    for (let i = 0; i < CELL_COUNT; i++) {
-
-        const cell = blocks[i];
-
-        cell.classList.remove("delete", "sqr");
-        cell.style.backgroundColor = "";
-        cell.style.boxShadow = "";
-    }
-
-    points = 0;
-    location = START_POSITION;
-    activeRotate = 0;
-
-    updateScore();
-
-    stopGame();
-
-    randBlock = getRandomBlock();
-    active = blockArr[randBlock][activeRotate];
-
-    makeBlocks();
-}
-
-ui.reset.addEventListener("click", restart);
 
 /**
  * Shows or hides the rules.
