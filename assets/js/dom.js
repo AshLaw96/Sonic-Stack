@@ -1,0 +1,80 @@
+/**
+ * Cached DOM elements.
+ */
+export const ui = {
+
+    gameBoard:
+        document.getElementById("game-wrap"),
+
+    start:
+        document.getElementById("start-stop"),
+
+    reset:
+        document.getElementById("reset"),
+
+    left:
+        document.getElementById("left"),
+
+    right:
+        document.getElementById("right"),
+
+    down:
+        document.getElementById("down"),
+
+    rotate:
+        document.getElementById("twist"),
+
+    soundButton:
+        document.getElementById("sound"),
+
+    menuToggle:
+        document.getElementById("menu-toggle"),
+ 
+    difficultyNav:
+        document.getElementById("difficulty"),
+ 
+    nextPiece:
+        document.getElementById("next-piece"),
+
+    rules:
+        document.querySelector("details"),
+
+    dialog:
+        document.getElementById("game-over-dialog"),
+
+    playAgain:
+        document.getElementById("play-again"),
+
+    currentScore:
+        document.getElementById("point"),
+
+    highScore:
+        document.getElementById("high-scr"),
+
+    subtitle:
+        document.getElementById("sub-title"),
+
+    easy:
+        document.getElementById("easy"),
+
+    medium:
+        document.getElementById("medium"),
+
+    hard:
+        document.getElementById("hard"),
+
+    eggButton:
+        document.getElementById("eggman-btn"),
+
+    backButton:
+        document.getElementById("return"),
+
+    drone:
+        document.getElementById("drone"),
+
+    droneText:
+        document.getElementById("drone-txt"),
+
+    mainWrap:
+        document.getElementById("main-wrap")
+};
