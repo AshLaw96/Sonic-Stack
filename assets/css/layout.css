@@ -125,6 +125,141 @@ header {
 }
 
 /* ==========================================
+   Hero / Landing Section
+========================================== */
+#hero {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 30px 15px;
+
+    text-align: center; 
+}
+
+#hero-intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#hero-intro h1 {
+    font-size:
+        clamp(2.5rem, 8vw, 4rem); 
+}
+
+#hero-tagline {
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+    letter-spacing: 1px; 
+}
+
+.zone-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 15px; 
+}
+
+.zone-card {
+    position: relative;
+    width: min(90vw, 220px);
+    padding: 20px 15px;
+    border-radius:
+        var(--border-radius);
+    overflow: hidden;
+    color: var(--p-text);
+    border:
+        3px solid var(--p-block1);
+    transition:
+        transform var(--transition-fast);
+}
+
+.zone-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.35),
+            rgba(0, 0, 0, 0.8)
+        );
+    z-index: 0;
+}
+
+.zone-card > * {
+    position: relative;
+    z-index: 1;
+}
+
+.zone-card:hover {
+    transform:
+        translateY(-4px);
+}
+
+.zone-card:nth-child(2) {
+    border-color:
+        var(--p-block3); 
+}
+
+.zone-card:nth-child(3) {
+    border-color:
+        var(--p-block2);
+}
+
+.zone-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 4px; 
+}
+
+.zone-card p {
+    background: transparent;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 0 0 15px; 
+}
+
+.start-zone { 
+    background-color:
+        var(--p-block1);
+    color: var(--p-text);
+    font-weight: bold;
+    width: 100%; 
+}
+
+.zone-card:nth-child(2) .start-zone {
+    background-color:
+        var(--p-block3);
+    color:
+        var(--p-highlight);
+}
+ 
+.zone-card:nth-child(3) .start-zone {
+    background-color:
+        var(--p-block2); 
+}
+
+.start-zone:hover {
+    box-shadow:
+        0 0 8px var(--p-text); 
+}
+
+/* Game area is hidden until a zone is
+   chosen from the hero section */
+#main-wrap[hidden],
+.controls[hidden] {
+    display: none;
+}
+
+/* ==========================================
    Main Game Layout
 ========================================== */
 #main-wrap {
@@ -179,7 +314,6 @@ header {
 /* On small screens, lay side panels
    out side by side instead of stacked. */
 @media screen and (max-width: 767px) {
-
     #side-wrap {
         display: flex;
         flex-wrap: wrap;
@@ -370,14 +504,12 @@ dialog::backdrop {
    Responsive Layout
 ========================================== */ 
 @media screen and (min-width: 576px) {
-
     :root {
         --cell-size: 24px; 
     }
 }
 
 @media screen and (min-width: 768px) {
- 
      :root {
         --cell-size: 28px; 
     }
@@ -405,7 +537,6 @@ dialog::backdrop {
 }
 
 @media screen and (min-width: 1200px) {
- 
      :root {
         --cell-size: 32px;
     }
