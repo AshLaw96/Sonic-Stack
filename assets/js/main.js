@@ -1,7 +1,6 @@
-/* Main JavaScript file for the Tetris game */
+import { initialiseGame } from "./gameController.js";
 
-import { initGame } from './game.js';
-
-document.addEventListener('DOMContentLoaded', () => {
-    initGame();
-});
+document.addEventListener(
+    "DOMContentLoaded",
+    initialiseGame
+);
