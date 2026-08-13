@@ -14,7 +14,10 @@
     <meta property="og:description"
         content="Play Sonic Stack, a Sonic-inspired browser puzzle game.">
     <meta property="og:type" content="website">
+    <!-- TODO: replace with an absolute URL once the site has a live domain,
+         e.g. https://yourdomain.com/assets/images/preview.png -->
     <meta property="og:image" content="assets/images/preview.png">
+    <meta property="og:url" content="https://ashlaw96.github.io/Sonic-Stack/">
 
     <title>Sonic Stack | Sonic Inspired Puzzle Game</title>
 
@@ -32,289 +35,229 @@
         sizes="16x16"
         href="assets/favicon/favicon-16x16.png">
 
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/pages.css">
 </head>
-
 <body>
+    <header>
+        <a href="index.html" class="logo">
+            <h1>Sonic Stack</h1>
+        </a>
 
-<header>
+        <div class="header-controls">
+            <button
+                id="sound"
+                type="button"
+                aria-label="Toggle sound"
+                aria-pressed="true">
+                <i class="fa-solid fa-volume-high"></i>
+            </button>
 
-    <a href="index.html" class="logo">
-        <h1>Sonic Stack</h1>
-    </a>
+            <button
+                id="menu-toggle"
+                type="button"
+                aria-label="Toggle difficulty menu"
+                aria-expanded="false"
+                aria-controls="difficulty">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
 
-    <div class="header-controls">
+        <nav id="difficulty" aria-label="Difficulty">
+            <button
+                id="easy"
+                class="current"
+                type="button">
+                Easy
+            </button>
 
-        <button
-            id="sound"
-            type="button"
-            aria-label="Toggle sound">
+            <button
+                id="medium"
+                type="button">
+                Medium
+            </button>
 
-            <i class="fa-solid fa-volume-high"></i>
+            <button
+                id="hard"
+                type="button">
+                Hard
+            </button>
+        </nav>
+    </header>
 
-        </button>
+    <main>
+        <section id="main-wrap" class="easy-bg">
+            <aside id="side-wrap">
+                <section class="panel">
+                    <details class="rules-panel">
 
-        <button
-            id="menu-toggle"
-            type="button"
-            aria-label="Toggle difficulty menu"
-            aria-expanded="false"
-            aria-controls="difficulty">
+                        <summary>How to Play</summary>
 
-            <i class="fa-solid fa-bars"></i>
+                        <h3>Keyboard</h3>
 
-        </button>
+                        <ul>
+                            <li>← → Move left/right</li>
+                            <li>↓ Soft drop</li>
+                            <li>Space Rotate piece</li>
+                        </ul>
 
-    </div>
+                        <h3>Touch Controls</h3>
 
-    <nav id="difficulty" aria-label="Difficulty">
+                        <ul>
+                            <li>Use on-screen buttons to move.</li>
+                            <li>Down speeds up the piece.</li>
+                            <li>Rotate twists the current piece.</li>
+                        </ul>
 
-        <button
-            id="easy"
-            class="current"
-            type="button">
-            Easy
-        </button>
+                        <p>
+                            Complete horizontal rows to earn points.
+                        </p>
+                    </details>
+                </section>
 
-        <button
-            id="medium"
-            type="button">
-            Medium
-        </button>
+                <section class="panel">
 
-        <button
-            id="hard"
-            type="button">
-            Hard
-        </button>
+                    <h2>Score</h2>
 
-    </nav>
+                    <dl class="score-board">
 
-</header>
+                        <div>
+                            <dt>Current</dt>
 
-<main>
+                            <dd id="point" aria-live="polite">0</dd>
+                        </div>
 
-<section id="main-wrap" class="easy-bg">
+                        <div>
+                            <dt>High Score</dt>
 
-    <aside id="side-wrap">
+                            <dd id="high-scr" aria-live="polite">0</dd>
+                        </div>
+                    </dl>
+                </section>
 
-        <section class="panel">
+                <section class="panel next-piece">
 
-            <details>
+                    <h2>Next Piece</h2>
 
-                <summary>How to Play</summary>
+                    <div id="next-piece"></div>
+                </section>
+            </aside>
 
-                <h3>Keyboard</h3>
+            <section id="game-section">
 
-                <ul>
-                    <li>← → Move left/right</li>
-                    <li>↓ Soft drop</li>
-                    <li>Space Rotate piece</li>
-                </ul>
+                <h2 id="sub-title">Easy</h2>
 
-                <h3>Touch Controls</h3>
-
-                <ul>
-                    <li>Use on-screen buttons to move.</li>
-                    <li>Down speeds up the piece.</li>
-                    <li>Rotate twists the current piece.</li>
-                </ul>
-
-                <p>
-                    Complete horizontal rows to earn points.
-                </p>
-
-            </details>
-
+                <div id="game-wrap" aria-label="Game board"></div>
+            </section>
         </section>
 
-        <section class="panel">
+        <section class="controls">
+            <div class="movement-controls">
+                <button id="left" type="button" aria-label="Move left">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </button>
 
-            <h2>Score</h2>
+                <button id="right" type="button" aria-label="Move right">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
 
-            <dl class="score-board">
+            <div class="action-controls">
+                <button id="down" type="button" aria-label="Move down">
+                    <i class="fa-solid fa-arrow-down"></i>
+                </button>
 
-                <div>
+                <button id="twist" type="button" aria-label="Rotate">
+                    <i class="fa-solid fa-arrows-rotate"></i>
+                </button>
+            </div>
 
-                    <dt>Current</dt>
+            <div class="game-controls">
+                <button
+                    id="start-stop"
+                    type="button">
 
-                    <dd id="point">0</dd>
+                    Start Game
 
-                </div>
+                    <br>
 
-                <div>
+                    <i class="fa-solid fa-play"></i>
 
-                    <dt>High Score</dt>
+                    <i class="fa-solid fa-pause"></i>
+                </button>
 
-                    <dd id="high-scr">0</dd>
+                <button
+                    id="reset"
+                    type="button">
 
-                </div>
-
-            </dl>
-
+                    Restart
+                </button>
+            </div>
         </section>
 
-        <!-- Future feature -->
-
-        <section class="panel next-piece">
-
-            <h2>Next Piece</h2>
-
-            <div id="next-piece"></div>
-
-        </section>
-
-    </aside>
-
-    <section id="game-section">
-
-        <h2 id="sub-title">Easy</h2>
-
-        <div id="game-wrap" aria-label="Game board"></div>
-
-    </section>
-
-</section>
-
-<section class="controls">
-
-    <div class="movement-controls">
-
-        <button id="left" type="button" aria-label="Move left">
-
-            <i class="fa-solid fa-arrow-left"></i>
-
-        </button>
-
-        <button id="right" type="button" aria-label="Move right">
-
-            <i class="fa-solid fa-arrow-right"></i>
-
-        </button>
-
-    </div>
-
-    <div class="action-controls">
-
-        <button id="down" type="button" aria-label="Move down">
-
-            <i class="fa-solid fa-arrow-down"></i>
-
-        </button>
-
-        <button id="twist" type="button" aria-label="Rotate">
-
-            <i class="fa-solid fa-arrows-rotate"></i>
-
-        </button>
-
-    </div>
-
-    <div class="game-controls">
-
-        <button
-            id="start-stop"
-            type="button">
-
-            Start Game
-
-            <br>
-
-            <i class="fa-solid fa-play"></i>
-
-            <i class="fa-solid fa-pause"></i>
-
-        </button>
-
-        <button
-            id="reset"
-            type="button">
-
-            Restart
-
-        </button>
-
-    </div>
-
-</section>
-
-<dialog id="game-over-dialog">
-
-    <h2>Game Over</h2>
-
-    <p>Your stack reached the top.</p>
-
-    <button id="close-dial">
-
-        Play Again
-
-    </button>
-
-</dialog>
-
-</main>
-
-<footer>
-
-    <nav aria-label="Resources">
-
-        <a
-            href="https://tetris.com/history-of-tetris"
-            target="_blank"
-            rel="noopener noreferrer">
-
-            History of Tetris
-
-        </a>
-
-        <a
-            href="https://www.youtube.com/watch?v=1L_l4dj0KRA"
-            target="_blank"
-            rel="noopener noreferrer">
-
-            2023 Championship
-
-        </a>
-
-        <a
-            href="https://www.esports.net/news/mobile-games/best-tetris-players/"
-            target="_blank"
-            rel="noopener noreferrer">
-
-            Top Players
-
-        </a>
-
-        <a
-            href="https://github.com/AshLaw96"
-            target="_blank"
-            rel="noopener noreferrer">
-
-            GitHub
-
-        </a>
-
-    </nav>
-
-</footer>
-
-<!-- Audio -->
-
-<audio id="green-hill" src="assets/audio/green-hill.mp3" loop></audio>
-<audio id="labyrinth" src="assets/audio/labyrinth.mp3" loop></audio>
-<audio id="boss" src="assets/audio/boss.mp3" loop></audio>
-
-<audio id="score-sound" src="assets/audio/score.mp3"></audio>
-<audio id="turn-sound" src="assets/audio/turn.mp3"></audio>
-<audio id="lost-sound" src="assets/audio/game-over.mp3"></audio>
-
-<script
-    src="https://kit.fontawesome.com/5c8b8e6738.js"
-    crossorigin="anonymous">
-</script>
-
-<script type="module" src="assets/js/main.js"></script>
-
+        <dialog id="game-over-dialog">
+
+            <h2>Game Over</h2>
+
+            <p>Your stack reached the top.</p>
+
+            <button id="play-again" type="button">
+
+                Play Again
+            </button>
+        </dialog>
+    </main>
+
+    <footer>
+        <nav aria-label="Resources">
+            <a
+                href="https://tetris.com/history-of-tetris"
+                target="_blank"
+                rel="noopener noreferrer">
+
+                History of Tetris
+            </a>
+
+            <a
+                href="https://www.youtube.com/watch?v=1L_l4dj0KRA"
+                target="_blank"
+                rel="noopener noreferrer">
+
+                2023 Championship
+            </a>
+
+            <a
+                href="https://www.esports.net/news/mobile-games/best-tetris-players/"
+                target="_blank"
+                rel="noopener noreferrer">
+
+                Top Players
+            </a>
+
+            <a
+                href="https://github.com/AshLaw96"
+                target="_blank"
+                rel="noopener noreferrer">
+
+                GitHub
+            </a>
+        </nav>
+    </footer>
+
+    <!-- Audio -->
+    <audio id="green-hill" src="assets/audio/green-hill.mp3" loop></audio>
+    <audio id="labyrinth" src="assets/audio/labyrinth.mp3" loop></audio>
+    <audio id="boss" src="assets/audio/boss.mp3" loop></audio>
+
+    <audio id="score-sound" src="assets/audio/score.mp3"></audio>
+    <audio id="turn-sound" src="assets/audio/turn.mp3"></audio>
+    <audio id="lost-sound" src="assets/audio/game-over.mp3"></audio>
+
+    <script
+        src="https://kit.fontawesome.com/5c8b8e6738.js"
+        crossorigin="anonymous">
+    </script>
+    <script type="module" src="assets/js/main.js"></script>
 </body>
-
 </html>
