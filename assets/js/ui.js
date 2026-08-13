@@ -86,11 +86,10 @@ export function toggleMenu(ui) {
 }
 
 /**
- * Applies a difficulty to the UI (buttons, background, subtitle)
- * and persists the choice.
+ * Applies a difficulty to the UI (buttons, background
+ * , subtitle) and persists the choice.
  */
 export function applyDifficulty(
-
     difficulty,
     ui,
     gameState
@@ -134,6 +133,51 @@ export function applyDifficulty(
             difficulty.slice(1); 
     }
 }
+
+/**
+ * Wires up the hero section's zone cards:
+ * picking one applies that difficulty
+ * and starts the game.
+ */
+export function initialiseHero(
+    ui,
+    gameState
+) {
+
+    if (!ui.hero || !ui.zoneButtons) {
+        return;
+    }
+
+    ui.zoneButtons.forEach(button => {
+
+        button.addEventListener(
+            "click",
+            () => {
+
+                applyDifficulty(
+                    button.dataset.difficulty,
+                    ui,
+                    gameState
+                );
+
+            ui.hero.hidden = true;
+
+            if (ui.mainWrap) {
+                ui.mainWrap.hidden = false;
+            }
+
+            if (ui.controlsSection) {
+                    ui.controlsSection.hidden = false;
+                }
+ 
+                if (ui.start) {
+                    ui.start.click();
+                }
+            }
+        );
+    });
+}
+
 
 /**
  * Registers all UI event listeners.
