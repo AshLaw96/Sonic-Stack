@@ -1,19 +1,126 @@
-/* Game initialization function */
+// Game state and shared constants.
 
-export const GRID_WIDTH = 10;
-export const GRID_HEIGHT = 20;
-export const CELL_COUNT = GRID_WIDTH * GRID_HEIGHT;
-export const STARTING_POSITION = 4;
+import { TETROMINOES, getRandomPiece } from "./pieces.js";
 
-export let score = 0;
-export let highScore = Number(localStorage.getItem('highScore')) || 0
+import { START_POSITION } from "./config.js";
 
-export let currentDifficulty = 'easy';
+export const gameState = {
 
-export let dropInterval = null;
+    score: 0,
 
-export function initGame() {
+    highScore:
+        Number(localStorage.getItem("High-Score")) || 0,
 
-    console.log('Initializing game...');
+    position: START_POSITION,
 
+    rotation: 0,
+
+    currentPieceIndex: 0,
+
+    currentPiece: null,
+
+    nextPieceIndex: 0,
+
+    difficulty: 
+        localStorage.getItem("Difficulty") || "easy",
+
+    dropInterval: null,
+
+    isPaused: true,
+
+    isLocking: false,
+
+    isMuted: true
+};
+
+/**
+ * Creates the first active piece and
+ * prepares the next piece.
+ */
+export function initialisePieces() {
+
+    gameState.rotation = 0;
+
+    gameState.position = START_POSITION;
+
+    gameState.currentPieceIndex =
+        getRandomPiece();
+
+    gameState.currentPiece =
+        TETROMINOES[
+            gameState.currentPieceIndex
+        ].rotations[
+            gameState.rotation
+        ];
+
+    gameState.nextPieceIndex =
+        getRandomPiece();
+}
+
+export function spawnNextPiece() {
+
+    gameState.currentPieceIndex =
+        gameState.nextPieceIndex;
+
+    gameState.nextPieceIndex =
+        getRandomPiece();
+
+    gameState.rotation = 0;
+
+    gameState.position = START_POSITION;
+
+    gameState.currentPiece =
+        TETROMINOES[
+            gameState.currentPieceIndex
+        ].rotations[
+            gameState.rotation
+        ];
+}
+
+export function updateRotation(rotation) {
+
+    gameState.rotation = rotation;
+
+    gameState.currentPiece =
+        TETROMINOES[
+            gameState.currentPieceIndex
+        ].rotations[
+            rotation
+        ];
+}
+
+
+export function resetScore() {
+
+    gameState.score = 0;
+}
+
+export function saveHighScore() {
+
+    if (
+        gameState.score >
+        gameState.highScore
+    ) {
+
+        gameState.highScore =
+            gameState.score;
+
+        localStorage.setItem(
+            "High-Score",
+            gameState.highScore
+        );
+    }
+}
+
+export function resetGameState() {
+
+    gameState.score = 0;
+
+    gameState.dropInterval = null;
+
+    gameState.isPaused = true;
+
+    gameState.currentPiece = null;
+
+    initialisePieces();
 }
