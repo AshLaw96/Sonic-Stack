@@ -1,57 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- Meta tags for search engines -->
-    <meta name="description" content="Sonic Stack. Sonic styled Tetris game for all ages to play and enjoy.">
-    <meta name="keywords" content="sonic stack, sonic, stack, tetris, old school game, block.">
-    <title>Sonic Stack</title>
-    <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
-    <!-- CSS file -->
-    <link rel="stylesheet" href="assets/css/styles.css"> 
+    <meta name="description"
+        content="Sonic Stack is a Sonic-inspired browser puzzle game where you stack blocks, clear lines and chase high scores.">
+
+    <meta name="theme-color" content="#0d6efd">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Sonic Stack | 404">
+    <meta property="og:description"
+        content="Page not found — Sonic Stack, a Sonic-inspired browser puzzle game.">
+    <meta property="og:type" content="website">
+    <!-- TODO: replace with an absolute URL once the site has a live domain -->
+    <meta property="og:image" content="assets/images/preview.png">
+    <meta property="og:url" content="https://ashlaw96.github.io/Sonic-Stack/">
+
+    <title>Sonic Stack | Page Not Found</title>
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180"
+        href="assets/favicon/apple-touch-icon.png">
+
+    <link rel="icon"
+        type="image/png"
+        sizes="32x32"
+        href="assets/favicon/favicon-32x32.png">
+
+    <link rel="icon"
+        type="image/png"
+        sizes="16x16"
+        href="assets/favicon/favicon-16x16.png">
+
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/pages.css">
 </head>
+
 <body>
-    <!-- Header Section -->
+
     <header>
-        <a href="index.html">
-            <h1>Sonic Stack </h1>
+        <a href="index.html" class="logo">
+            <h1>Sonic Stack</h1>
         </a>
-        <!-- Navbar Section -->
-        <input type="checkbox" id="tog" name="tog">
-        <label for="tog" id="tog-lab">
-            <i class="fa-solid fa-bars"></i>
-        </label>
-        <nav id="difficulty">
-            <button id="return" class="current" aria-label="previous page">Run Away</button>
+
+        <div class="header-controls">
+            <button
+                id="eggman-sound-toggle"
+                type="button"
+                aria-label="Toggle Dr Eggman sound"
+                aria-pressed="true">
+                <i class="fa-solid fa-volume-high"></i>
+            </button>
+
+            <button
+                id="menu-toggle"
+                type="button"
+                aria-label="Toggle navigation menu"
+                aria-expanded="false"
+                aria-controls="difficulty">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <nav id="difficulty" aria-label="Navigation">
+            <button
+                id="return"
+                class="current"
+                type="button"
+                aria-label="Return to homepage">
+                Run Away
+            </button>
         </nav>
     </header>
-    <!-- Main section -->
+
     <main>
         <section id="error-wrap">
             <h2 id="error-h2">404</h2>
-            <button id="eggman-btn" aria-label="dr eggman sound">
-                <img id="drone" src="assets/images/drone.png" alt="Robotnik drone"> 
+
+            <button id="eggman-btn" type="button" aria-label="Dr Eggman sound">
+                <img id="drone" src="assets/images/drone.png" alt="Robotnik drone">
+
                 <span id="drone-txt">
-                    <i id="sound" class="fa-solid fa-volume-high"></i>
+                    <i class="fa-solid fa-volume-high"></i>
                 </span>
             </button>
+
             <img id="robotnik" src="assets/images/eggman.png" alt="Dr Eggman stood with his finger pointing up.">
-            <p id="error-p">Uh-oh! You've dropped into a blocky 404, faster than Sonic catching rings! It looks like the page is missing a piece, just like that one Tetris block you needed. Try stacking your way back to the homepage before Robotnik spots you!</p>
+
+            <p id="error-p">
+                Uh-oh! You've dropped into a blocky 404, faster than Sonic catching
+                rings! It looks like the page is missing a piece, just like that one
+                Tetris block you needed. Try stacking your way back to the homepage
+                before Robotnik spots you!
+            </p>
         </section>
     </main>
-    <!-- sounds -->
-    <div id="sound-wrap">
-        <audio id="eggman" src="assets/audio/eggman-sound.mp3"></audio>
-    </div>
+
     <footer id="error-foot"></footer>
-      <!-- font awesome kit --> 
-      <script src="https://kit.fontawesome.com/5c8b8e6738.js" crossorigin="anonymous"></script>
-      <!-- JS file -->
-    <script src="assets/js/script.js"></script>
+
+    <!-- Audio -->
+    <audio id="eggman" src="assets/audio/eggman-sound.mp3"></audio>
+
+    <script
+        src="https://kit.fontawesome.com/5c8b8e6738.js"
+        crossorigin="anonymous">
+    </script>
+
+    <script type="module" src="assets/js/main.js"></script>
+
 </body>
+
 </html>
