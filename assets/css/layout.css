@@ -1,0 +1,412 @@
+/* ==========================================
+   Header
+========================================== */
+header {
+    position: relative;
+    background-color: 
+        var(--p-highlight);
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: 
+        space-between;
+    border-bottom:
+        5px solid var(--p-block1);
+}
+
+/* ==========================================
+   Difficulty Navigation
+========================================== */
+#difficulty {
+    letter-spacing: 1px;
+    position: absolute;
+    top: 100%;
+    right: 10px;
+    display: none;
+    padding: 10px;
+    background-color: 
+        var(--p-highlight);
+    border:
+        2px solid var(--p-block1);
+    border-radius:
+        var(--border-radius);
+    z-index: 10;
+}
+
+#difficulty.open {
+    display: block;
+}
+
+#difficulty > button {
+    display: block;
+    width: 100%;
+    margin-bottom: 8px;
+    background-color:
+        var(--p-block1);
+    color:
+        var(--p-text);
+}
+
+#difficulty > button:last-child {
+    margin-bottom: 0;
+}
+
+#difficulty > button:hover {
+    box-shadow:
+        0 0 8px var(--p-text);
+}
+
+#difficulty .current {
+    background-color:
+        var(--p-block3);
+    color:
+        var(--p-highlight);
+}
+
+/* ==========================================
+   Sound Button
+========================================== */
+#sound {
+    background:
+        transparent;
+    border: none;
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#sound:hover {
+    box-shadow:
+        0 0 8px var(--p-text);
+}
+
+#sound i {
+    color:
+        var(--p-text);
+    font-size: 1.2rem;
+}
+
+/* ==========================================
+   Difficulty Background Themes
+========================================== */
+.easy-bg {
+    background:
+        url("../images/green-hill.jpg")
+        no-repeat
+        center
+        center
+        /
+        cover;
+}
+
+.medium-bg {
+    background:
+        url("../images/labyrinth.avif")
+        no-repeat
+        center
+        center
+        /
+        cover;
+}
+
+.hard-bg {
+    background:
+        url("../images/boss-bg.png")
+        no-repeat
+        center
+        center
+        /
+        cover;
+}
+
+/* ==========================================
+   Main Game Layout
+========================================== */
+#main-wrap {
+    min-height:
+        calc(100vh - 100px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-attachment:
+        fixed;
+    padding: 10px;
+}
+
+/* ==========================================
+   Side Information Panel
+========================================== */
+#side-wrap {
+    width: min(95%, 320px);
+    margin: 10px auto;
+}
+
+.panel {
+    background-color:
+        var(--p-highlight);
+    border-radius:
+        var(--border-radius);
+    padding: 10px;
+    margin: 20px 5px;
+}
+
+.rules-panel summary {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.score-board {
+    display: flex;
+    justify-content:
+        space-between;
+    gap: 10px;
+}
+
+.score-board dt {
+    font-size: 0.85rem;
+    opacity: 0.8;
+}
+
+.score-board dd {
+    font-size: 1.3rem;
+}
+
+/* On small screens, lay side panels
+   out side by side instead of stacked. */
+@media screen and (max-width: 767px) {
+
+    #side-wrap {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        width: 100%;
+    }
+    #side-wrap .panel {
+        flex:
+            1 1 140px;
+        margin: 0;
+    }
+}
+
+/* ==========================================
+   Game Board
+========================================== */
+#game-wrap {
+    display: grid;
+    grid-template-columns:
+        repeat(10, var(--cell-size, 30px));
+    grid-template-rows:
+        repeat(20, var(--cell-size, 30px));
+    width:
+        var(--game-width);
+    height:
+        var(--game-height);
+    background-color:
+        var(--p-highlight);
+    margin: 10px auto;
+    border:
+        3px solid var(--p-block1);
+    border-radius:
+        var(--border-radius);
+    overflow: hidden;
+}
+
+/* Active falling blocks */
+.sqr {
+    background-color:
+        var(--p-block1);
+    box-shadow:
+        0 0 4px 2px var(--s-block1);
+}
+
+/* Ghost piece preview */
+.ghost {
+    background-color: transparent;
+    border:
+        2px solid
+        var(--ghost-colour, var(--p-text));
+    box-sizing: border-box;
+    opacity: 0.5; 
+}
+
+/* Line-clear flash */
+.clearing {
+    animation:
+        flash-clear 0.2s ease-in-out; 
+}
+ 
+@keyframes flash-clear {
+
+    0%,
+    100% {
+        filter:
+            brightness(1);
+    }
+    50% {
+        filter:
+            brightness(2.5);
+        background-color:
+            var(--p-text);
+    } 
+}
+
+/* Next piece preview */
+.next-piece-grid {
+    display: grid;
+    grid-template-columns:
+        repeat(4, 16px);
+    grid-template-rows:
+        repeat(4, 16px);
+    gap: 2px;
+    margin: 0 auto;
+    justify-content: center;
+    background-color:
+        var(--p-highlight);
+    border:
+        2px solid var(--p-block1);
+    border-radius:
+        var(--border-radius);
+    padding: 6px; 
+}
+ 
+.next-piece-grid > div {
+    border-radius: 2px;
+}
+
+/* ==========================================
+   Game Over Dialog
+========================================== */
+dialog {
+    z-index: 100;
+    margin: auto;
+    padding: 15px;
+    border:
+        2px solid var(--p-block1);
+    border-radius:
+        var(--border-radius);
+    text-align: center;
+    background-color:
+        var(--p-highlight);
+    color:
+        var(--p-text);
+}
+
+#play-again {
+    background-color:
+        var(--p-block2);
+}
+
+#play-again:hover {
+    background-color:
+        #d60000;
+}
+
+dialog::backdrop {
+    background:
+        rgba(255,0,0,0.5);
+}
+
+/* ==========================================
+   Game Controls
+========================================== */
+.controls {
+    width: min(95%, 400px);
+    margin: 10px auto;
+}
+
+#left,
+#right,
+#twist,
+#down {
+    width: 60px;
+    height: 40px;
+    margin: 5px;
+    background-color:
+        var(--p-text);
+}
+
+.movement-controls,
+.action-controls {
+    display: flex;
+    justify-content: center;
+}
+
+.movement-controls i,
+.action-controls i {
+    font-size: 1.4rem;
+}
+
+.game-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#start-stop,
+#reset {
+    display: block;
+    margin: 8px auto;
+    background-color:
+        var(--p-text);
+}
+
+#start-stop:hover,
+#reset:hover,
+#left:hover,
+#right:hover,
+#twist:hover,
+#down:hover {
+    background-color:
+        #BCC6CC;
+}
+
+/* ==========================================
+   Responsive Layout
+========================================== */ 
+@media screen and (min-width: 576px) {
+
+    :root {
+        --cell-size: 24px; 
+    }
+}
+
+@media screen and (min-width: 768px) {
+ 
+     :root {
+        --cell-size: 28px; 
+    }
+     #main-wrap {
+        display: grid;
+        grid-template-columns:
+            250px 1fr 220px;
+        grid-template-areas:
+            "side game-section controls";
+        align-items: start;
+        gap: 20px;
+    }
+    #side-wrap {
+        grid-area: side;
+        width: 250px;
+    }
+    #game-section {
+        grid-area:
+            game-section;
+    }
+    .controls {
+        grid-area: controls;
+        width: 100%;
+    } 
+}
+
+@media screen and (min-width: 1200px) {
+ 
+     :root {
+        --cell-size: 32px;
+    }
+}

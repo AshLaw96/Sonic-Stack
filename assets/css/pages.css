@@ -1,0 +1,185 @@
+/* 404 title */
+#error-h2 {
+    color: var(--p-block2);
+}
+
+/* 404 image */
+#robotnik {
+    width: 200px;
+    display: block;
+    margin: 5px auto;
+}
+
+#drone {
+    margin: 8%;
+    width: 60px;
+    height: 60px;
+}
+
+#drone-txt {
+    font-size: 30px;
+}
+
+#eggman-btn {
+    margin: 5px;
+    background-color: 
+        var(--p-text);
+    border: none;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+}
+
+/* 404 main text */
+#error-p {
+    letter-spacing: 3px;
+    margin: 8% 5px;
+    color: var(--p-block2);
+    font-size: larger;
+}
+
+/* 404 footer */
+#error-foot {
+    height: 4em;
+    margin-top: 5%;
+}
+
+/* ==========================================
+   Footer
+========================================== */
+footer {
+    width: 100%;
+    text-align: center;
+    background-color:
+        var(--p-highlight);
+    border-top:
+        5px solid var(--p-block1);
+    padding: 15px;
+}
+
+/* ==========================================
+   Footer Links
+========================================== */
+footer a {
+    display: block;
+    margin: 8px auto;
+    font-size: 1rem;
+    letter-spacing: 3px;
+    transition:
+        text-shadow var(--transition-fast),
+        transform var(--transition-fast);
+}
+
+footer a:hover {
+    transform:
+        translateY(-2px);
+}
+
+/* Tetris History */
+footer a:nth-child(1) {
+    color:
+        var(--p-block2);
+}
+
+footer a:nth-child(1):hover {
+    text-shadow:
+        2px 10px 4px var(--s-block2);
+}
+
+/* Tetris Competition */
+footer a:nth-child(2) {
+    color:
+        var(--p-block1);
+}
+
+footer a:nth-child(2):hover {
+    text-shadow:
+        2px 10px 4px var(--s-block1);
+}
+
+/* Player Information */
+footer a:nth-child(3) {
+    color:
+        var(--p-block3);
+}
+
+footer a:nth-child(3):hover {
+    text-shadow:
+        2px 10px 4px var(--s-block3);
+}
+
+/* GitHub */
+footer a:nth-child(4) {
+    color:
+        var(--p-text);
+    font-size: 0.8rem;
+}
+
+footer a:nth-child(4):hover {
+    text-shadow:
+        2px 10px 4px var(--p-text);
+}
+
+/* ==========================================
+   Responsive Layout
+========================================== */
+
+/* Mobile */
+@media screen and (min-width: 576px) {
+
+    /* 404 styles */
+    #error-h2 {
+        font-size: xx-large;
+    }
+    #robotnik {
+        width: 250px;
+    }
+    #error-p {
+        font-size: x-large;
+    }
+}
+
+/* Tablet and above */
+@media screen and (min-width: 768px) {
+
+    /* 404 styles */
+    #eggman-btn {
+        float: right;
+        margin-right: 6em;
+    }
+    #robotnik {
+        margin-top: 10px;
+    }
+    #error-p {
+        margin: 3% 10px;
+        font-size: xx-large;
+    }
+}
+
+@media screen and (min-width: 992px) {
+
+    /* 404 styles */
+    #error-foot {
+        margin-top: 3%;
+    }
+}
+
+/* Desktop */
+@media screen and (min-width: 1200px) {
+
+    footer a {
+        display: inline-block;
+        margin: 5px 15px;
+    }
+    /* 404 styles */
+    #error-h2 {
+        font-size: xxx-large;
+    }
+    #eggman-btn {
+        margin-right: 20%;
+    }
+    #error-p {
+        font-size: xx-large;
+        margin: 3% 15px;
+    }
+}
