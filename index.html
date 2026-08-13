@@ -60,7 +60,9 @@
                 aria-label="Toggle difficulty menu"
                 aria-expanded="false"
                 aria-controls="difficulty">
+
                 <i class="fa-solid fa-bars"></i>
+
             </button>
         </div>
 
@@ -87,6 +89,73 @@
     </header>
 
     <main>
+        <section id="hero">
+            <div id="hero-intro">
+        
+                <h1>Sonic Stack</h1>
+        
+                <p id="hero-tagline">
+                    Tetris meets Sonic! Stack blocks, clear
+                    lines and chase your high score.
+                </p>
+            </div>
+
+            <div id="zone-select">
+        
+                <h2>Start Session</h2>
+        
+                <div class="zone-cards">        
+                    <article class="zone-card easy-bg">
+        
+                        <h3>Green Hill Zone</h3>
+
+                        <p>Easy</p>
+
+                        <button
+                            type="button"
+                            class="start-zone"
+                            data-difficulty="easy">
+
+                            Start Easy
+
+                        </button>        
+                    </article>
+
+                    <article class="zone-card medium-bg">
+
+                        <h3>Star Light Zone</h3>
+
+                        <p>Medium</p>
+
+                        <button
+                            type="button"
+                            class="start-zone"
+                            data-difficulty="medium">
+
+                            Start Medium
+
+                        </button>
+                    </article>
+
+                    <article class="zone-card hard-bg">
+        
+                        <h3>Scrap Brain Zone</h3>
+        
+                        <p>Hard</p>
+
+                        <button
+                            type="button"
+                            class="start-zone"
+                            data-difficulty="hard">
+
+                            Start Hard
+
+                        </button>
+                    </article>
+                </div>
+            </div>
+        </section>
+
         <section id="main-wrap" class="easy-bg">
             <aside id="side-wrap">
                 <section class="panel">
