@@ -76,5 +76,14 @@ export const ui = {
         document.getElementById("drone-txt"),
 
     mainWrap:
-        document.getElementById("main-wrap")
+        document.getElementById("main-wrap"),
+    
+    hero:
+        document.getElementById("hero"),
+
+    zoneButtons:
+        document.querySelectorAll(".start-zone"),
+
+    controlsSection:
+        document.querySelector("controls"),
 };
