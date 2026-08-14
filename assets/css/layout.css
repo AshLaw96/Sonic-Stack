@@ -296,36 +296,50 @@ header {
 }
 
 .score-board {
-    display: flex;
-    justify-content:
-        space-between;
+    display: grid;
+    grid-template-columns: 
+        repeat(3, 1fr);
     gap: 10px;
+    margin-top: 18px;
+    text-align: center;
 }
 
 .score-board dt {
-    font-size: 0.85rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    min-width: 0;
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
     opacity: 0.8;
 }
 
 .score-board dd {
-    font-size: 1.3rem;
+    min-width: 0;
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-top: 4px;
 }
 
-/* On small screens, lay side panels
-   out side by side instead of stacked. */
-@media screen and (max-width: 767px) {
-    #side-wrap {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 10px;
-        width: 100%;
-    }
-    #side-wrap .panel {
-        flex:
-            1 1 140px;
-        margin: 0;
-    }
+.score-board div:nth-child(1) dd {
+    color: var(--p-block1);
+    text-shadow:
+        0 0 6px var(--s-block1); 
+}
+
+.score-board div:nth-child(2) dd {
+    color: var(--p-block3);
+    text-shadow:
+        0 0 6px var(--s-block3); 
+}
+
+.score-board div:nth-child(3) dd {
+    color: var(--p-block2);
+    text-shadow:
+        0 0 6px var(--s-block2);
 }
 
 /* ==========================================
@@ -506,6 +520,28 @@ dialog::backdrop {
 @media screen and (min-width: 576px) {
     :root {
         --cell-size: 24px; 
+    }
+}
+
+/* On small screens, lay side panels
+   out side by side instead of stacked. */
+@media screen and (max-width: 767px) {
+    #side-wrap {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        width: 100%;
+    }
+    #side-wrap .panel {
+        flex:
+            1 1 140px;
+        margin: 0;
+    }
+    /* Stack stats as 3 columns get cramped */
+    .score-board {
+        grid-template-columns: 1fr;
+        gap: 6px;
     }
 }
 
