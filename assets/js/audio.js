@@ -7,11 +7,11 @@ export const audio = {
     greenHill:
         document.getElementById("green-hill"),
 
-    labyrinth:
-        document.getElementById("labyrinth"),
+    starlight:
+        document.getElementById("starlight"),
 
-    boss:
-        document.getElementById("boss"),
+    scrapBrain:
+        document.getElementById("scrap-brain"),
 
     rotate:
         document.getElementById("turn-sound"),
@@ -91,8 +91,8 @@ export function stopSound(sound) {
 export function stopMusic() {
 
     stopSound(audio.greenHill);
-    stopSound(audio.labyrinth);
-    stopSound(audio.boss);
+    stopSound(audio.starlight);
+    stopSound(audio.scrapBrain);
 
 }
 
@@ -107,8 +107,8 @@ export function playMusic(difficulty) {
     const tracks = {
 
         easy: audio.greenHill,
-        medium: audio.labyrinth,
-        hard: audio.boss
+        medium: audio.starlight,
+        hard: audio.scrapBrain
 
     };
 
