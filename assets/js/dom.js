@@ -51,6 +51,9 @@ export const ui = {
     highScore:
         document.getElementById("high-scr"),
 
+    level:
+        document.getElementById("level"),
+
     subtitle:
         document.getElementById("sub-title"),
 
