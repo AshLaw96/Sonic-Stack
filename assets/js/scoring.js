@@ -1,7 +1,8 @@
 import {
     GRID_WIDTH,
     CELL_COUNT,
-    LINE_CLEAR_POINTS
+    LINE_CLEAR_POINTS,
+    SPEED_UP_THRESHOLD
 } from "./config.js";
 
 import {
@@ -13,10 +14,20 @@ import { adjustDropSpeed } from "./controls.js";
 
 const CLEAR_ANIMATION_MS = 200;
 
+/**
+ * Updates the score and level display.
+ */
 export function updateScore(ui, gameState) {
 
     ui.currentScore.textContent =
         gameState.score;
+
+    if (ui.level) {
+        ui.level.textContent =
+            Math.floor(
+                gameState.score / SPEED_UP_THRESHOLD
+            ) + 1;
+    }
 }
 
 /**
