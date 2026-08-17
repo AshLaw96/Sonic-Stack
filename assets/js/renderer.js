@@ -23,7 +23,7 @@ export function makeBlocks(gameState, boardCells) {
 
     const colour = tetromino.color;
 
-    const shadow = tetromino.shadow;
+    const glow = tetromino.glow;
 
     // Clear previous ghost before redrawing new one.
     boardCells.forEach(cell => {
@@ -37,16 +37,14 @@ export function makeBlocks(gameState, boardCells) {
     pieceOffsets.forEach(offset => {
 
         const ghostCell =
-            boardCells[
-                ghostPosition + offset
-            ];
+            boardCells[ghostPosition + offset];
 
         if (ghostCell && !ghostCell.classList.contains("sqr")) {
 
             ghostCell.classList.add("ghost");
 
             ghostCell.style.setProperty(
-                "--ghost-color",
+                "--ghost-colour",
                 colour
             );
         }
@@ -55,9 +53,7 @@ export function makeBlocks(gameState, boardCells) {
     pieceOffsets.forEach(offset => {
 
         const cell =
-            boardCells[
-                gameState.position + offset
-            ];
+            boardCells[gameState.position + offset];
 
         if (!cell) {
             return;
@@ -65,12 +61,16 @@ export function makeBlocks(gameState, boardCells) {
 
         cell.classList.add("sqr");
 
-        cell.style.backgroundColor = colour;
+        cell.style.setProperty(
+            "--block-colour",
+            colour
+        );
 
-        cell.style.boxShadow = shadow;
-
+        cell.style.setProperty(
+            "--block-glow",
+            glow
+        );
     });
-
 }
 
 /**
@@ -87,9 +87,7 @@ export function removeBlocks(gameState, boardCells) {
     pieceOffsets.forEach(offset => {
 
         const cell =
-            boardCells[
-                gameState.position + offset
-            ];
+            boardCells[gameState.position + offset];
 
         if (!cell) {
             return;
@@ -97,10 +95,9 @@ export function removeBlocks(gameState, boardCells) {
 
         cell.classList.remove("sqr");
 
-        cell.style.backgroundColor = "";
+        cell.style.removeProperty("--block-colour");
 
-        cell.style.boxShadow = "";
-
+        cell.style.removeProperty("--block-glow");
     });
 }
 
@@ -159,12 +156,18 @@ export function renderNextPiece(ui, gameState) {
         const previewCell = grid.children[index];
  
         if (previewCell) {
+
+            previewCell.classList.add("piece-cell");
  
-            previewCell.style.backgroundColor =
-                tetromino.color;
+            previewCell.style.setProperty(
+                "--block-colour",
+                tetromino.color
+            );
  
-            previewCell.style.boxShadow =
-                tetromino.shadow;
+            previewCell.style.setProperty(
+                "--block-glow",
+                tetromino.glow
+            );
         }
     });
  
