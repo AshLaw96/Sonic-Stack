@@ -3,14 +3,12 @@
 ========================================== */
 header {
     position: relative;
-    background-color: 
-        var(--p-highlight);
+    background-color: var(--p-highlight);
     padding: 10px;
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: 
-        space-between;
+    justify-content: space-between;
     border-bottom:
         5px solid var(--p-block1);
 }
@@ -25,12 +23,9 @@ header {
     right: 10px;
     display: none;
     padding: 10px;
-    background-color: 
-        var(--p-highlight);
-    border:
-        2px solid var(--p-block1);
-    border-radius:
-        var(--border-radius);
+    background-color: var(--p-highlight);
+    border: 2px solid var(--p-block1);
+    border-radius: var(--border-radius);
     z-index: 10;
 }
 
@@ -42,10 +37,8 @@ header {
     display: block;
     width: 100%;
     margin-bottom: 8px;
-    background-color:
-        var(--p-block1);
-    color:
-        var(--p-text);
+    background-color: var(--p-block1);
+    color: var(--p-text);
 }
 
 #difficulty > button:last-child {
@@ -58,18 +51,15 @@ header {
 }
 
 #difficulty .current {
-    background-color:
-        var(--p-block3);
-    color:
-        var(--p-highlight);
+    background-color: var(--p-block3);
+    color: var(--p-highlight);
 }
 
 /* ==========================================
    Sound Button
 ========================================== */
 #sound {
-    background:
-        transparent;
+    background: transparent;
     border: none;
     width: 42px;
     height: 42px;
@@ -86,8 +76,7 @@ header {
 }
 
 #sound i {
-    color:
-        var(--p-text);
+    color: var(--p-text);
     font-size: 1.2rem;
 }
 
@@ -129,15 +118,10 @@ header {
 ========================================== */
 #hero {
     display: flex;
-
     flex-direction: column;
-
     align-items: center;
-
     gap: 20px;
-
     padding: 30px 15px;
-
     text-align: center; 
 }
 
@@ -200,8 +184,7 @@ header {
 }
 
 .zone-card:hover {
-    transform:
-        translateY(-4px);
+    transform: translateY(-4px);
 }
 
 .zone-card:nth-child(2) {
@@ -238,8 +221,7 @@ header {
 .zone-card:nth-child(2) .start-zone {
     background-color:
         var(--p-block3);
-    color:
-        var(--p-highlight);
+    color: var(--p-highlight);
 }
  
 .zone-card:nth-child(3) .start-zone {
@@ -263,13 +245,11 @@ header {
    Main Game Layout
 ========================================== */
 #main-wrap {
-    min-height:
-        calc(100vh - 100px);
+    min-height: calc(100vh - 100px);
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-attachment:
-        fixed;
+    background-attachment: fixed;
     padding: 10px;
 }
 
@@ -351,26 +331,35 @@ header {
         repeat(10, var(--cell-size, 30px));
     grid-template-rows:
         repeat(20, var(--cell-size, 30px));
-    width:
-        var(--game-width);
-    height:
-        var(--game-height);
-    background-color:
-        var(--p-highlight);
+    width: var(--game-width);
+    height: var(--game-height);
+    background-color: var(--p-highlight);
     margin: 10px auto;
-    border:
-        3px solid var(--p-block1);
-    border-radius:
-        var(--border-radius);
+    border: 3px solid var(--p-block1);
+    border-radius: var(--border-radius);
     overflow: hidden;
+    box-shadow:
+        inset 0 0 20px rgba(0, 0, 0, 0.6);
 }
 
 /* Active falling blocks */
-.sqr {
-    background-color:
-        var(--p-block1);
+.sqr, .piece-cell {
+    background:
+        linear-gradient(
+            135deg,
+            var(--block-colour, var(--p-block1)) 0%,
+            color-mix(
+                in srgb,
+                var(--block-colour, var(--p-block1)) 65%,
+                black
+            ) 100%
+        );
     box-shadow:
-        0 0 4px 2px var(--s-block1);
+        inset -3px -3px 5px rgba(0, 0, 0, 0.45),
+        inset 3px 3px 5px rgba(255, 255, 255, 0.3),
+        0 0 4px 2px var(--block-glow, var(--s-block1)
+        );
+    border-radius: 3px;
 }
 
 /* Ghost piece preview */
@@ -390,17 +379,13 @@ header {
 }
  
 @keyframes flash-clear {
-
     0%,
     100% {
-        filter:
-            brightness(1);
+        filter: brightness(1);
     }
     50% {
-        filter:
-            brightness(2.5);
-        background-color:
-            var(--p-text);
+        filter: brightness(2.5);
+        background-color: var(--p-text);
     } 
 }
 
@@ -414,12 +399,9 @@ header {
     gap: 2px;
     margin: 0 auto;
     justify-content: center;
-    background-color:
-        var(--p-highlight);
-    border:
-        2px solid var(--p-block1);
-    border-radius:
-        var(--border-radius);
+    background-color: var(--p-highlight);
+    border: 2px solid var(--p-block1);
+    border-radius: var(--border-radius);
     padding: 6px; 
 }
  
@@ -434,30 +416,23 @@ dialog {
     z-index: 100;
     margin: auto;
     padding: 15px;
-    border:
-        2px solid var(--p-block1);
-    border-radius:
-        var(--border-radius);
+    border: 2px solid var(--p-block1);
+    border-radius: var(--border-radius);
     text-align: center;
-    background-color:
-        var(--p-highlight);
-    color:
-        var(--p-text);
+    background-color: var(--p-highlight);
+    color: var(--p-text);
 }
 
 #play-again {
-    background-color:
-        var(--p-block2);
+    background-color: var(--p-block2);
 }
 
 #play-again:hover {
-    background-color:
-        #d60000;
+    background-color: #d60000;
 }
 
 dialog::backdrop {
-    background:
-        rgba(255,0,0,0.5);
+    background: rgba(255,0,0,0.5);
 }
 
 /* ==========================================
@@ -475,8 +450,7 @@ dialog::backdrop {
     width: 60px;
     height: 40px;
     margin: 5px;
-    background-color:
-        var(--p-text);
+    background-color: var(--p-text);
 }
 
 .movement-controls,
@@ -500,8 +474,7 @@ dialog::backdrop {
 #reset {
     display: block;
     margin: 8px auto;
-    background-color:
-        var(--p-text);
+    background-color: var(--p-text);
 }
 
 #start-stop:hover,
@@ -510,8 +483,7 @@ dialog::backdrop {
 #right:hover,
 #twist:hover,
 #down:hover {
-    background-color:
-        #BCC6CC;
+    background-color: #BCC6CC;
 }
 
 /* ==========================================
@@ -563,8 +535,7 @@ dialog::backdrop {
         width: 250px;
     }
     #game-section {
-        grid-area:
-            game-section;
+        grid-area: game-section;
     }
     .controls {
         grid-area: controls;
