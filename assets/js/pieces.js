@@ -11,6 +11,8 @@ export const TETROMINOES = [
 
         shadow: "0 0 4px 2px var(--s-block1)",
 
+        glow: "var(--s-block1)",
+
         rotations: [
 
             [0, 1, 10, 11],
@@ -28,6 +30,8 @@ export const TETROMINOES = [
         color: "var(--p-block2)",
 
         shadow: "0 0 4px 2px var(--s-block2)",
+
+        glow: "var(--s-block2)",
 
         rotations: [
 
@@ -47,6 +51,8 @@ export const TETROMINOES = [
 
         shadow: "0 0 4px 2px var(--s-block3)",
 
+        glow: "var(--s-block3)",
+
         rotations: [
 
             [1, 10, 11, 12],
@@ -65,6 +71,8 @@ export const TETROMINOES = [
 
         shadow: "0 0 4px 2px var(--s-block1)",
 
+        glow: "var(--s-block1)",
+
         rotations: [
 
             [1, 11, 21, 2],
@@ -82,6 +90,8 @@ export const TETROMINOES = [
         color: "var(--p-block2)",
 
         shadow: "0 0 4px 2px var(--s-block2)",
+
+        glow: "var(--s-block2)",
 
         rotations: [
 
@@ -104,7 +114,6 @@ export function getRandomPiece() {
     return Math.floor(
         Math.random() * TETROMINOES.length
     );
-
 }
 
 /**
@@ -113,7 +122,6 @@ export function getRandomPiece() {
 export function getPiece(index) {
 
     return TETROMINOES[index];
-
 }
 
 /**
@@ -123,7 +131,6 @@ export function getRotation(index, rotation) {
 
     return TETROMINOES[index]
         .rotations[rotation];
-
 }
 
 /**
@@ -134,7 +141,6 @@ export function getRotationCount(index) {
 
     return TETROMINOES[index]
         .rotations.length;
-
 }
 
 /**
@@ -145,7 +151,6 @@ export function getPieceColour(index) {
 
     return TETROMINOES[index]
         .color;
-
 }
 
 /**
@@ -156,5 +161,4 @@ export function getPieceShadow(index) {
 
     return TETROMINOES[index]
         .shadow;
-
 }
