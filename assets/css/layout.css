@@ -251,6 +251,8 @@ header {
     align-items: center;
     background-attachment: fixed;
     padding: 10px;
+    box-sizing: border-box;
+    width: 100%;
 }
 
 /* ==========================================
@@ -270,6 +272,27 @@ header {
     margin: 20px 5px;
 }
 
+.hud-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    max-width: 320px;
+    margin-bottom: 8px;
+}
+
+.hud-group .panel {
+    flex: 1;
+    margin: 0;
+    padding: 6px 10px;
+}
+
+.rules-panel-wrapper {
+    width: min(95%, 320px);
+    margin: 4px auto;
+}
+
 .rules-panel summary {
     cursor: pointer;
     font-weight: bold;
@@ -277,10 +300,9 @@ header {
 
 .score-board {
     display: grid;
-    grid-template-columns: 
-        repeat(3, 1fr);
-    gap: 10px;
-    margin-top: 18px;
+    grid-template-columns: 1fr;
+    gap: 8px;
+    margin-top: 10px;
     text-align: center;
 }
 
@@ -299,9 +321,9 @@ header {
 
 .score-board dd {
     min-width: 0;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     font-weight: bold;
-    margin-top: 4px;
+    margin-top: 2px;
 }
 
 .score-board div:nth-child(1) dd {
@@ -328,7 +350,6 @@ header {
 #game-wrap {
     position: relative;
     z-index: 1;
-    margin: 0;
     display: grid;
     grid-template-columns:
         repeat(10, var(--cell-size, 30px));
@@ -345,10 +366,20 @@ header {
         inset 0 0 20px rgba(0, 0, 0, 0.6);
 }
 
+/* Game cells need to sit above the
+   decorative rings and be transparent
+   when empty so the rings show through. */
 #game-wrap > div:not(.decor) {
     position: relative;
     z-index: 2;
     background-color: transparent;
+}
+
+#game-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 4px 0;
 }
 
 /* Active falling blocks */
@@ -418,6 +449,10 @@ header {
     border-radius: 2px;
 }
 
+.next-piece h2 {
+    margin-bottom: 12px;
+}
+
 /* ==========================================
    Game Over Dialog
 ========================================== */
@@ -448,24 +483,39 @@ dialog::backdrop {
    Game Controls
 ========================================== */
 .controls {
-    width: min(95%, 400px);
-    margin: 10px auto;
+    width: min(95%, 320px);
+    margin: 6px auto;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.controls h2 {
+    display: none;
+}
+
+.dpad-actions-row {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
 }
 
 #left,
 #right,
 #twist,
 #down {
-    width: 60px;
-    height: 40px;
-    margin: 5px;
+    width: 48px;
+    height: 38px;
+    margin: 2px;
     background-color: var(--p-text);
+    border-radius: var(--border-radius);
+    cursor: pointer;
 }
 
 .movement-controls,
 .action-controls {
     display: flex;
-    justify-content: center;
+    gap: 6px;
 }
 
 .movement-controls i,
@@ -475,15 +525,21 @@ dialog::backdrop {
 
 .game-controls {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 6px;
 }
 
 #start-stop,
 #reset {
-    display: block;
-    margin: 8px auto;
+    flex: 1;
+    padding: 6px;
+    margin: 0;
     background-color: var(--p-text);
+    border-radius: var(--border-radius);
+    font-size: 0.85rem;
+    cursor: pointer;
 }
 
 #start-stop:hover,
@@ -498,12 +554,6 @@ dialog::backdrop {
 /* ==========================================
    Responsive Layout
 ========================================== */ 
-@media screen and (min-width: 576px) {
-    :root {
-        --cell-size: 24px; 
-    }
-}
-
 /* On small screens, lay side panels
    out side by side instead of stacked. */
 @media screen and (max-width: 767px) {
@@ -515,8 +565,7 @@ dialog::backdrop {
         width: 100%;
     }
     #side-wrap .panel {
-        flex:
-            1 1 140px;
+        flex: 1 1 140px;
         margin: 0;
     }
     /* Stack stats as 3 columns get cramped */
@@ -528,20 +577,35 @@ dialog::backdrop {
 
 @media screen and (min-width: 768px) {
      :root {
-        --cell-size: 28px; 
+        --cell-size: 
+            clamp(18px, 2.3vh, 22px); 
     }
      #main-wrap {
         display: grid;
         grid-template-columns:
-            250px 1fr 220px;
+            190px auto 180px;
         grid-template-areas:
             "side game-section controls";
         align-items: start;
-        gap: 20px;
+        justify-content: center;
+        gap: 12px;
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 10px;
+        max-height: calc(100vh - 40px);
+    }
+    .hud-group {
+        flex-direction: column;
+        max-width: 100%;
+        gap: 12px;
+    }
+    .rules-panel-wrapper {
+        width: 100%;
+        margin-top: 12px;
     }
     #side-wrap {
         grid-area: side;
-        width: 250px;
+        width: 100%;
     }
     #game-section {
         grid-area: game-section;
@@ -549,11 +613,36 @@ dialog::backdrop {
     .controls {
         grid-area: controls;
         width: 100%;
-    } 
+        margin: 0;
+    }
+    .controls h2 {
+        display: block;
+        text-align: center;
+        margin-bottom: 8px;
+        font-size: 1.1rem;
+    }
+    .dpad-actions-row {
+        flex-direction: column;
+        gap: 6px;
+    }
+    .game-controls {
+        flex-direction: column;
+        gap: 6px;
+    }
+    #start-stop, #reset {
+        width: 100%;
+        padding: 8px;
+    }
 }
 
-@media screen and (min-width: 1200px) {
-     :root {
-        --cell-size: 32px;
+@media screen and (min-width: 1024px) {
+    :root {
+        --cell-size: 28px;
+    }
+    #main-wrap {
+        grid-template-columns: 
+            220px auto 200px;
+        gap: 20px;
+        max-width: none;
     }
 }

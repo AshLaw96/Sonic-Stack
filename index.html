@@ -155,146 +155,114 @@
             </div>
         </section>
 
-        <section id="main-wrap" class="easy-bg">
+        <section id="main-wrap" class="easy-bg" hidden>
+    
+            <!-- LEFT SIDEBAR (Desktop) / TOP HUD (Mobile) -->
             <aside id="side-wrap">
-                <section class="panel">
+                <div class="hud-group">
+                    <section class="panel next-piece-panel">
+                        <h2>Next Piece</h2>
+                        <div id="next-piece"></div>
+                    </section>
+
+                    <section class="panel score-panel">
+                        <h2>Score</h2>
+                        <dl class="score-board">
+                            <div>
+                                <dt class="fa-solid fa-gem" aria-hidden="true">Current</dt>
+                                <dd id="point" aria-live="polite">0</dd>
+                            </div>
+                            <div>
+                                <dt class="fa-solid fa-bolt" aria-hidden="true">Level</dt>
+                                <dd id="level" aria-live="polite">1</dd>
+                            </div>
+                            <div>
+                                <dt class="fa-solid fa-trophy" aria-hidden="true">High Score</dt>
+                                <dd id="high-scr" aria-live="polite">0</dd>
+                            </div>
+                        </dl>
+                    </section>
+                </div>
+
+                <section class="panel rules-panel-wrapper">
                     <details class="rules-panel">
-
                         <summary>How to Play</summary>
-
                         <h3>Keyboard</h3>
-
                         <ul>
                             <li>← → Move left/right</li>
                             <li>↓ Soft drop</li>
                             <li>Space Rotate piece</li>
                         </ul>
-
                         <h3>Touch Controls</h3>
-
                         <ul>
                             <li>Use on-screen buttons to move.</li>
                             <li>Down speeds up the piece.</li>
                             <li>Rotate twists the current piece.</li>
                         </ul>
-
-                        <p>
-                            Complete horizontal rows to earn points.
-                        </p>
+                        <p>Complete horizontal rows to earn points.</p>
                     </details>
-                </section>
-
-                <section class="panel">
-
-                    <h2>Score</h2>
-
-                    <dl class="score-board">
-
-                        <div>
-                            <dt class="fa-solid fa-gem" aria-hidden="true">
-                                Current
-                            </dt>
-
-                            <dd id="point" aria-live="polite">0</dd>
-                        </div>
-
-                        <div>
-                            <dt class="fa-solid fa-bolt" aria-hidden="true">
-                                Level
-                            </dt>
-
-                            <dd id="level" aria-live="polite">1</dd>
-                        </div>
-
-                        <div>
-                            <dt class="fa-solid fa-trophy" aria-hidden="true">
-                                High Score
-                            </dt>
-
-                            <dd id="high-scr" aria-live="polite">0</dd>
-                        </div>
-                    </dl>
-                </section>
-
-                <section class="panel next-piece">
-
-                    <h2>Next Piece</h2>
-
-                    <div id="next-piece"></div>
                 </section>
             </aside>
 
+            <!-- CENTER GAME BOARD -->
             <section id="game-section">
-
                 <h2 id="sub-title">Easy</h2>
-
-                    <div id="game-wrap" aria-label="Game board">
-                        <div class="decor" aria-hidden="true">
-                            <span class="decor-ring ring-1"></span>
-                            <span class="decor-ring ring-2"></span>
-                            <span class="decor-ring ring-3"></span>
-                            <span class="decor-ring ring-4"></span>
-                            <span class="decor-ring ring-5"></span>
-                            <span class="decor-ring ring-6"></span>
-                        </div>
+                <div id="game-wrap" aria-label="Game board">
+                    <div class="decor" aria-hidden="true">
+                        <span class="decor-ring ring-1"></span>
+                        <span class="decor-ring ring-2"></span>
+                        <span class="decor-ring ring-3"></span>
+                        <span class="decor-ring ring-4"></span>
+                        <span class="decor-ring ring-5"></span>
+                        <span class="decor-ring ring-6"></span>
                     </div>
+                </div>
             </section>
-        </section>
 
-        <section class="controls">
-            <div class="movement-controls">
-                <button id="left" type="button" aria-label="Move left">
-                    <i class="fa-solid fa-arrow-left"></i>
-                </button>
+            <!-- RIGHT SIDEBAR (Desktop) / BOTTOM CONTROLS (Mobile) -->
+            <section class="controls panel">
+                <h2>Controls</h2>
+                
+                <div class="dpad-actions-row">
+                    <div class="movement-controls">
+                        <button id="left" type="button" aria-label="Move left">
+                            <i class="fa-solid fa-arrow-left"></i>
+                        </button>
+                        <button id="right" type="button" aria-label="Move right">
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
 
-                <button id="right" type="button" aria-label="Move right">
-                    <i class="fa-solid fa-arrow-right"></i>
-                </button>
-            </div>
+                    <div class="action-controls">
+                        <button id="down" type="button" aria-label="Move down">
+                            <i class="fa-solid fa-arrow-down"></i>
+                        </button>
+                        <button id="twist" type="button" aria-label="Rotate">
+                            <i class="fa-solid fa-arrows-rotate"></i>
+                        </button>
+                    </div>
+                </div>
 
-            <div class="action-controls">
-                <button id="down" type="button" aria-label="Move down">
-                    <i class="fa-solid fa-arrow-down"></i>
-                </button>
+                <div class="game-controls">
+                    <button id="start-stop" type="button">
+                        Start Game 
+                        <i class="fa-solid fa-play"></i>
+                        <i class="fa-solid fa-pause"></i>
+                    </button>
+                    <button id="reset" type="button">
+                        Restart
+                    </button>
+                </div>
+            </section>
 
-                <button id="twist" type="button" aria-label="Rotate">
-                    <i class="fa-solid fa-arrows-rotate"></i>
-                </button>
-            </div>
-
-            <div class="game-controls">
-                <button
-                    id="start-stop"
-                    type="button">
-
-                    Start Game
-
-                    <br>
-
-                    <i class="fa-solid fa-play"></i>
-
-                    <i class="fa-solid fa-pause"></i>
-                </button>
-
-                <button
-                    id="reset"
-                    type="button">
-
-                    Restart
-                </button>
-            </div>
         </section>
 
         <dialog id="game-over-dialog">
-
             <h2>Game Over</h2>
 
             <p>Your stack reached the top.</p>
 
-            <button id="play-again" type="button">
-
-                Play Again
-            </button>
+            <button id="play-again" type="button">Play Again</button>
         </dialog>
     </main>
 
