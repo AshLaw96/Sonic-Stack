@@ -16,14 +16,20 @@ export function createBoard(gameBoard) {
         return [];
     }
 
+    // Preserve the decorative rings before wiping the board
+    const decorElement = gameBoard.querySelector(".decor");
+
     gameBoard.innerHTML = "";
+
+    if (decorElement) {
+        gameBoard.appendChild(decorElement);
+    }
 
     for (let i = 0; i < CELL_COUNT; i++) {
 
         gameBoard.appendChild(
             document.createElement("div")
         );
-
     }
 
     for (let i = 0; i < GRID_WIDTH; i++) {
@@ -33,13 +39,11 @@ export function createBoard(gameBoard) {
         cell.classList.add("delete");
 
         gameBoard.appendChild(cell);
-
     }
 
     return Array.from(
-        gameBoard.children
+        gameBoard.querySelectorAll("div:not(.decor)")
     );
-
 }
 
 /**
@@ -56,7 +60,5 @@ export function clearBoard(boardCells) {
             cell.style.backgroundColor = "";
 
             cell.style.boxShadow = "";
-
         });
-
 }
