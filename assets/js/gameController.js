@@ -15,7 +15,7 @@ import { createBoard, clearBoard } from "./board.js";
 
 import { initialiseControls, stopGame } from "./controls.js";
 
-import { initialiseUI, closeDialog } from "./ui.js";
+import { initialiseUI, initialiseHero, closeDialog } from "./ui.js";
 
 import { makeBlocks, renderNextPiece } from "./renderer.js";
 
@@ -40,19 +40,13 @@ export function initialiseGame() {
 
     initialisePieces();
 
-    renderNextPiece(
-        ui, 
-        gameState
-    );
+    renderNextPiece(ui, gameState);
 
-    initialiseUI(
-        ui,
-        gameState
-    );
+    initialiseUI(ui, gameState);
 
-    setMuted(
-        gameState.isMuted
-    );
+    initialiseHero(ui, gameState);
+
+    setMuted(gameState.isMuted);
 
     if (!ui.gameBoard) {
         return;
@@ -78,16 +72,10 @@ export function initialiseGame() {
             ),
 
         rotate: () =>
-            turn(
-                boardCells,
-                audio
-            ),
+            turn(boardCells, audio),
 
         renderBoard: () =>
-            makeBlocks(
-                gameState,
-                boardCells
-            )
+            makeBlocks(gameState, boardCells)
     });
 }
 
@@ -104,20 +92,11 @@ export function resetGame() {
 
     initialisePieces();
 
-    renderNextPiece(
-        ui,
-        gameState
-    );
+    renderNextPiece(ui, gameState);
 
-    makeBlocks(
-        gameState,
-        boardCells
-    );
+    makeBlocks(gameState, boardCells);
 
-    updateScore(
-        ui,
-        gameState
-    );
+    updateScore(ui, gameState);
 
     ui.highScore.textContent =
         gameState.highScore;

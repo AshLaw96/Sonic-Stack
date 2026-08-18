@@ -88,5 +88,5 @@ export const ui = {
         document.querySelectorAll(".start-zone"),
 
     controlsSection:
-        document.querySelector("controls"),
+        document.querySelector(".controls"),
 };

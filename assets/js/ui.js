@@ -139,10 +139,7 @@ export function applyDifficulty(
  * picking one applies that difficulty
  * and starts the game.
  */
-export function initialiseHero(
-    ui,
-    gameState
-) {
+export function initialiseHero(ui, gameState) {
 
     if (!ui.hero || !ui.zoneButtons) {
         return;
@@ -150,31 +147,18 @@ export function initialiseHero(
 
     ui.zoneButtons.forEach(button => {
 
-        button.addEventListener(
-            "click",
-            () => {
+        button.addEventListener("click", () => {
 
-                applyDifficulty(
-                    button.dataset.difficulty,
-                    ui,
-                    gameState
-                );
+            const chosenDifficulty = button.dataset.difficulty;
+
+            applyDifficulty(chosenDifficulty, ui, gameState);
 
             ui.hero.hidden = true;
 
             if (ui.mainWrap) {
                 ui.mainWrap.hidden = false;
             }
-
-            if (ui.controlsSection) {
-                    ui.controlsSection.hidden = false;
-                }
- 
-                if (ui.start) {
-                    ui.start.click();
-                }
-            }
-        );
+        });
     });
 }
 
