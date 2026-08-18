@@ -498,29 +498,37 @@ dialog::backdrop {
     justify-content: space-around;
     align-items: center;
     width: 100%;
+    gap: 4px;
 }
 
 #left,
 #right,
 #twist,
-#down {
-    width: 48px;
-    height: 38px;
-    margin: 2px;
+#down,
+#hard-drop {
+    flex: 1;
+    max-width: 52px;
+    height: 42px;
+    padding: 0;
+    margin: 0;
     background-color: var(--p-text);
     border-radius: var(--border-radius);
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.movement-controls,
+.movement-controls, 
 .action-controls {
     display: flex;
-    gap: 6px;
+    gap: 4px;
+    flex: 1;
 }
 
 .movement-controls i,
 .action-controls i {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
 }
 
 .game-controls {
@@ -528,7 +536,7 @@ dialog::backdrop {
     flex-direction: row;
     justify-content: center;
     gap: 8px;
-    margin-top: 6px;
+    margin-top: 8px;
 }
 
 #start-stop,
@@ -547,13 +555,44 @@ dialog::backdrop {
 #left:hover,
 #right:hover,
 #twist:hover,
-#down:hover {
+#down:hover,
+#hard-drop:hover {
     background-color: #BCC6CC;
 }
 
 /* ==========================================
    Responsive Layout
 ========================================== */ 
+@media (min-width: 600px) {
+    .controls {
+        width: 100%;
+        max-width: 340px;
+    }
+    /* Restore distinct cluster spacing */
+    .dpad-actions-row {
+        justify-content: space-around;
+        gap: 12px;
+    }
+    .movement-controls,
+    .action-controls {
+        flex: initial; /* Stop stretching */
+        gap: 6px;
+    }
+    /* Return to fixed desktop button dimensions */
+    #left,
+    #right,
+    #twist,
+    #down,
+    #hard-drop {
+        width: 48px;
+        height: 38px;
+        flex: initial;
+    }
+    .dpad-actions-row i {
+        font-size: 1.4rem;
+    }
+}
+
 /* On small screens, lay side panels
    out side by side instead of stacked. */
 @media screen and (max-width: 767px) {
@@ -623,11 +662,35 @@ dialog::backdrop {
     }
     .dpad-actions-row {
         flex-direction: column;
-        gap: 6px;
+        align-items: center;
+        gap: 8px;
+    }
+    /* Wrap movement buttons into a 2x2 grid in the 180px sidebar */
+    .movement-controls {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        max-width: 110px; /* Forces 2 buttons per line */
+        gap: 4px;
+    }
+    .action-controls {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+    #left,
+    #right,
+    #twist,
+    #down,
+    #hard-drop {
+        width: 46px;
+        height: 38px;
+        flex: initial;
     }
     .game-controls {
         flex-direction: column;
         gap: 6px;
+        margin-top: 8px;
     }
     #start-stop, #reset {
         width: 100%;
