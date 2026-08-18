@@ -21,15 +21,11 @@ import {
 
 import { clearLines } from "./scoring.js";
 
-import {
-    stopTurning,
-    isGameOver
-} from "./collision.js";
+import { stopTurning, isGameOver}
+    from "./collision.js";
 
-import {
-    audio,
-    playSound
-} from "./audio.js";
+import {audio, playSound} 
+    from "./audio.js";
 
 /**
  * Locks the current tetromino and
@@ -59,26 +55,15 @@ export async function lockPiece(
 
     spawnNextPiece();
 
-    renderNextPiece(
-        ui,
-        gameState
-    );
+    renderNextPiece(ui, gameState);
 
-    makeBlocks(
-        gameState,
-        boardCells
-    );
+    makeBlocks(gameState, boardCells);
 
     stopTurning(gameState);
 
     gameState.isLocking = false;
 
-    if (
-        isGameOver(
-            gameState,
-            boardCells
-        )
-    ) {
+    if (isGameOver(gameState,boardCells)) {
 
         endGame(
             gameState,
@@ -97,10 +82,7 @@ export function left(boardCells) {
         return;
     }
 
-    removeBlocks(
-        gameState,
-        boardCells
-    );
+    removeBlocks(gameState, boardCells);
 
     const touchingWall =
         gameState.currentPiece.some(offset =>
@@ -111,7 +93,6 @@ export function left(boardCells) {
         );
 
     if (!touchingWall) {
-
         gameState.position--;
     }
 
@@ -123,14 +104,10 @@ export function left(boardCells) {
         );
 
     if (blocked) {
-
         gameState.position++;
     }
 
-    makeBlocks(
-        gameState,
-        boardCells
-    );
+    makeBlocks(gameState, boardCells);
 }
 
 /**
@@ -142,10 +119,7 @@ export function right(boardCells) {
         return;
     }
 
-    removeBlocks(
-        gameState,
-        boardCells
-    );
+    removeBlocks(gameState, boardCells);
 
     const touchingWall =
         gameState.currentPiece.some(offset =>
@@ -156,7 +130,6 @@ export function right(boardCells) {
         );
 
     if (!touchingWall) {
-
         gameState.position++;
     }
 
@@ -168,14 +141,10 @@ export function right(boardCells) {
         );
 
     if (blocked) {
-
         gameState.position--;
     }
 
-    makeBlocks(
-        gameState,
-        boardCells
-    );
+    makeBlocks(gameState, boardCells);
 }
 
 /**
@@ -202,17 +171,11 @@ export function down(
 
     if (canMove) {
 
-        removeBlocks(
-            gameState,
-            boardCells
-        );
+        removeBlocks(gameState, boardCells);
 
         gameState.position += GRID_WIDTH;
     
-        makeBlocks(
-            gameState,
-            boardCells
-        );
+        makeBlocks(gameState, boardCells);
 
         return;
     }
@@ -233,10 +196,7 @@ export function turn(boardCells) {
         return;
     }
 
-    removeBlocks(
-        gameState,
-        boardCells
-    );
+    removeBlocks(gameState, boardCells);
 
     let rotation =
         gameState.rotation + 1;
@@ -255,10 +215,47 @@ export function turn(boardCells) {
 
     stopTurning(gameState);
 
-    makeBlocks(
-        gameState,
-        boardCells
-    );
+    makeBlocks(gameState, boardCells);
 
     playSound(audio.rotate);
+}
+
+/**
+ * Hard drops the active piece directly to the bottom.
+ */
+export function hardDrop(
+    boardCells,
+    ui,
+    audio
+) {
+    if (gameState.isLocking) {
+        return;
+    }
+
+    // Helper to check if piece can move down 1 step
+    const canMoveDown = () =>
+        !gameState.currentPiece.some(offset =>
+            boardCells[
+                gameState.position +
+                offset +
+                GRID_WIDTH
+            ].classList.contains("delete")
+        );
+
+    // Remove active block CSS before moving
+    removeBlocks(gameState, boardCells);
+
+    // Keep dropping while path is clear
+    while (canMoveDown()) {
+        gameState.position += GRID_WIDTH;
+    }
+
+    // Draw blocks at final position and lock
+    makeBlocks(gameState, boardCells);
+
+    lockPiece(
+        boardCells,
+        ui,
+        audio
+    );
 }

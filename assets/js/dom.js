@@ -21,6 +21,9 @@ export const ui = {
     down:
         document.getElementById("down"),
 
+    hardDrop:
+        document.getElementById("hard-drop"),
+
     rotate:
         document.getElementById("twist"),
 

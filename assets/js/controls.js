@@ -17,11 +17,22 @@ export function initialiseControls({
     moveLeft,
     moveRight,
     moveDown,
+    hardDrop,
     rotate,
     renderBoard
 }) {
 
     function handleKeyboardInput(event) {
+
+        // Allow 'P' or 'p' key to toggle pause at any time
+        if (event.code === "KeyP") {
+
+            if (gameState.isPaused) {
+                renderBoard();
+            }
+            pausePlay(gameState, moveDown);
+            return;
+        }
 
         if (gameState.isPaused) {
             return;
@@ -35,6 +46,11 @@ export function initialiseControls({
 
             case "ArrowRight":
                 moveRight();
+                break;
+
+            case "ArrowUp":
+                event.preventDefault();
+                hardDrop();
                 break;
 
             case "ArrowDown":
@@ -65,10 +81,7 @@ export function initialiseControls({
                 renderBoard();
             }
 
-            pausePlay(
-                gameState,
-                moveDown
-            );
+            pausePlay(gameState, moveDown);
         }
     );
 
@@ -101,6 +114,18 @@ export function initialiseControls({
             }
         }
     );
+
+    if (ui.hardDrop) {
+        ui.hardDrop.addEventListener(
+            "click",
+            () => {
+
+                if (!gameState.isPaused) {
+                    hardDrop();
+                }
+            }
+        );
+    }
  
     ui.rotate.addEventListener(
         "click",
@@ -172,10 +197,7 @@ export function calculateInterval(gameState) {
     );
 }
 
-export function startGame(
-    gameState,
-    down
-) {
+export function startGame(gameState, down) {
 
     if (gameState.dropInterval) {
         return;
@@ -192,8 +214,7 @@ export function startGame(
 
     window.addEventListener(
         "keydown",
-        stopScroll
-    );
+        stopScroll);
 
     gameState.isPaused = false;
 }
@@ -219,8 +240,7 @@ export function adjustDropSpeed(gameState) {
 export function stopGame(gameState) {
 
     clearInterval(
-        gameState.dropInterval
-    );
+        gameState.dropInterval);
 
     gameState.dropInterval = null;
 
@@ -237,17 +257,11 @@ export function stopGame(gameState) {
 /**
  * Toggles between play and pause.
  */
-export function pausePlay(
-    gameState,
-    down
-) {
+export function pausePlay(gameState, down) {
 
     if (gameState.isPaused) {
 
-        startGame(
-            gameState,
-            down
-        );
+        startGame(gameState, down);
 
     } else {
 

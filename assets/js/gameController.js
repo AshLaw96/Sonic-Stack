@@ -25,6 +25,7 @@ import {
     left,
     right,
     down,
+    hardDrop,
     turn
 } from "./gameplay.js";
 
@@ -66,6 +67,13 @@ export function initialiseGame() {
 
         moveDown: () =>
             down(
+                boardCells,
+                ui,
+                audio
+            ),
+
+        hardDrop: () =>
+            hardDrop(
                 boardCells,
                 ui,
                 audio

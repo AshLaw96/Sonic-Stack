@@ -191,12 +191,15 @@
                         <ul>
                             <li>← → Move left/right</li>
                             <li>↓ Soft drop</li>
+                            <li>↑ Hard drop (instant)</li>
                             <li>Space Rotate piece</li>
+                            <li>P Pause / Play game</li>
                         </ul>
                         <h3>Touch Controls</h3>
                         <ul>
                             <li>Use on-screen buttons to move.</li>
                             <li>Down speeds up the piece.</li>
+                            <li>Double arrow down for instant drop</li>
                             <li>Rotate twists the current piece.</li>
                         </ul>
                         <p>Complete horizontal rows to earn points.</p>
@@ -225,18 +228,23 @@
                 
                 <div class="dpad-actions-row">
                     <div class="movement-controls">
+
                         <button id="left" type="button" aria-label="Move left">
                             <i class="fa-solid fa-arrow-left"></i>
                         </button>
+
                         <button id="right" type="button" aria-label="Move right">
                             <i class="fa-solid fa-arrow-right"></i>
                         </button>
-                    </div>
-
-                    <div class="action-controls">
+                        
                         <button id="down" type="button" aria-label="Move down">
                             <i class="fa-solid fa-arrow-down"></i>
                         </button>
+                        
+                        <button id="hard-drop" type="button" aria-label="Hard drop">
+                            <i class="fa-solid fa-angles-down"></i>
+                        </button>
+                        
                         <button id="twist" type="button" aria-label="Rotate">
                             <i class="fa-solid fa-arrows-rotate"></i>
                         </button>
