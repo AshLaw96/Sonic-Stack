@@ -17,11 +17,11 @@ html {
 body {
     min-height: 100vh;
     font-family: 
-        "Tetris", Arial, sans-serif;
+        "VT323", "Courier New", monospace;
+    font-display: swap;
     color: var(--p-text);
-    background-color: 
-        var(--p-highlight);
-    font-size: 16px;
+    background-color: var(--p-highlight);
+    font-size: 20px;
     overflow-x: hidden;
 }
 
@@ -67,15 +67,6 @@ body {
 }
 
 /* ==========================================
-   Font
-========================================== */
-@font-face {
-    font-family: "Tetris";
-    src: url("../square-mile.ttf");
-    font-display: swap;
-}
-
-/* ==========================================
    Global Elements
 ========================================== */
 button {
@@ -103,8 +94,12 @@ button:focus-visible {
 }
 
 h1 {
+    font-family: 
+        "Press Start 2P", "Courier New", monospace;
+    font-display: swap;
     font-size: 
-        clamp(2rem, 5vw, 2.8rem);
+        clamp(1.5rem, 5vw, 2.2rem);
+    line-height: 1.4;
     color: var(--p-block1);
     background:
         linear-gradient(
@@ -114,20 +109,22 @@ h1 {
         );
     -webkit-background-clip: text;
     background-clip: text;
-    -webkit-text-fill-color: 
-        transparent;
+    -webkit-text-fill-color: transparent;
 }
 
 h2 {
+    font-family: 
+        "Press Start 2P", "Courier New", monospace;
+    font-display: swap;
     font-size: 
-        clamp(1.2rem, 3vw, 1.5rem);
+        clamp(0.9rem, 3vw, 1.1rem);
+    line-height: 1.6;
     text-align: center;
 }
 
 p {
     text-align: center;
-    background-color: 
-        var(--p-highlight);
+    background-color: var(--p-highlight);
     margin: 5px;
 }
 
