@@ -3,15 +3,14 @@
  */
 
 export const TETROMINOES = [
-
     {
         name: "Square",
 
-        color: "var(--p-block1)",
+        color: "var(--p-block6)",
 
-        shadow: "0 0 4px 2px var(--s-block1)",
+        shadow: "0 0 4px 2px var(--s-block6)",
 
-        glow: "var(--s-block1)",
+        glow: "var(--s-block6)",
 
         rotations: [
 
@@ -19,53 +18,10 @@ export const TETROMINOES = [
             [0, 1, 10, 11],
             [0, 1, 10, 11],
             [0, 1, 10, 11]
-
         ]
-
     },
-
     {
         name: "Line",
-
-        color: "var(--p-block2)",
-
-        shadow: "0 0 4px 2px var(--s-block2)",
-
-        glow: "var(--s-block2)",
-
-        rotations: [
-
-            [1, 11, 21, 31],
-            [10, 11, 12, 13],
-            [1, 11, 21, 31],
-            [10, 11, 12, 13]
-
-        ]
-
-    },
-
-    {
-        name: "T",
-
-        color: "var(--p-block3)",
-
-        shadow: "0 0 4px 2px var(--s-block3)",
-
-        glow: "var(--s-block3)",
-
-        rotations: [
-
-            [1, 10, 11, 12],
-            [1, 11, 12, 21],
-            [10, 11, 12, 21],
-            [1, 10, 11, 21]
-
-        ]
-
-    },
-
-    {
-        name: "L",
 
         color: "var(--p-block1)",
 
@@ -75,15 +31,46 @@ export const TETROMINOES = [
 
         rotations: [
 
+            [1, 11, 21, 31],
+            [10, 11, 12, 13],
+            [1, 11, 21, 31],
+            [10, 11, 12, 13]
+        ]
+    },
+    {
+        name: "T",
+
+        color: "var(--p-block5)",
+
+        shadow: "0 0 4px 2px var(--s-block5)",
+
+        glow: "var(--s-block5)",
+
+        rotations: [
+
+            [1, 10, 11, 12],
+            [1, 11, 12, 21],
+            [10, 11, 12, 21],
+            [1, 10, 11, 21]
+        ]
+    },
+    {
+        name: "L",
+
+        color: "var(--p-block4)",
+
+        shadow: "0 0 4px 2px var(--s-block4)",
+
+        glow: "var(--s-block4)",
+
+        rotations: [
+
             [1, 11, 21, 2],
             [10, 11, 12, 22],
             [1, 11, 21, 20],
             [10, 20, 21, 22]
-
         ]
-
     },
-
     {
         name: "Z",
 
@@ -99,11 +86,43 @@ export const TETROMINOES = [
             [11, 12, 20, 21],
             [0, 10, 11, 21],
             [11, 12, 20, 21]
-
         ]
-
+    },
+    {
+        name: "S",
+ 
+        color: "var(--p-block3)",
+ 
+        shadow: "0 0 4px 2px var(--s-block3)",
+ 
+        glow: "var(--s-block3)",
+ 
+        rotations: [
+ 
+            [1, 10, 11, 20],
+            [10, 11, 21, 22],
+            [1, 10, 11, 20],
+            [10, 11, 21, 22]
+ 
+        ]
+    },
+    {
+        name: "J",
+ 
+        color: "var(--p-block7)",
+ 
+        shadow: "0 0 4px 2px var(--s-block7)",
+ 
+        glow: "var(--s-block7)",
+ 
+        rotations: [
+ 
+            [1, 2, 12, 22],
+            [10, 11, 12, 20],
+            [0, 10, 20, 21],
+            [12, 20, 21, 22]
+        ]
     }
-
 ];
 
 /**
