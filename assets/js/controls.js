@@ -19,6 +19,7 @@ export function initialiseControls({
     moveDown,
     hardDrop,
     rotate,
+    hold,
     renderBoard
 }) {
 
@@ -60,6 +61,13 @@ export function initialiseControls({
             case "Space":
                 event.preventDefault();
                 rotate();
+                break;
+
+            case "KeyH":
+            case "ShiftLeft":
+            case "ShiftRight":
+                event.preventDefault();
+                hold();
                 break;
 
             default:
@@ -137,6 +145,18 @@ export function initialiseControls({
         }
     );
 
+    if (ui.hold) {
+        ui.hold.addEventListener(
+            "click",
+            () => {
+
+                if (!gameState.isPaused) {
+                    hold();
+                }
+            }
+        );
+    }
+
     ui.reset.addEventListener(
         "click",
         resetGame
@@ -159,7 +179,10 @@ export function stopScroll(event) {
         "ArrowDown",
         "ArrowLeft",
         "ArrowRight",
-        "Space"
+        "Space",
+        "KeyH",
+        "ShiftLeft",
+        "ShiftRight"
     ];
 
     if (blockedKeys.includes(event.code)) {

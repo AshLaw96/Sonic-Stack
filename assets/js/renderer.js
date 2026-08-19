@@ -138,9 +138,7 @@ export function renderNextPiece(ui, gameState) {
  
     for (let i = 0; i < previewSize * previewSize; i++) {
  
-        grid.appendChild(
-            document.createElement("div")
-        );
+        grid.appendChild(document.createElement("div"));
     }
  
     cells.forEach(({ row, col }) => {
@@ -172,4 +170,63 @@ export function renderNextPiece(ui, gameState) {
     });
  
     ui.nextPiece.appendChild(grid);
+}
+
+/**
+ * Draws a small preview of the held tetromino.
+ */
+export function renderHoldPiece(ui, gameState) {
+
+    if (!ui.holdPiece) {
+        return;
+    }
+
+    ui.holdPiece.innerHTML = "";
+
+    // If nothing held yet, leave box clear
+    if (gameState.holdPieceIndex === null) {
+        return;
+    }
+
+    const tetromino = getPiece(gameState.holdPieceIndex);
+    const offsets = tetromino.rotations[0];
+
+    const cells = offsets.map(offset => ({
+        row: Math.floor(offset / GRID_WIDTH),
+        col: offset % GRID_WIDTH
+    }));
+
+    const minRow = Math.min(...cells.map(cell => cell.row));
+    const minCol = Math.min(...cells.map(cell => cell.col));
+
+    const previewSize = 4;
+    const grid = document.createElement("div");
+    grid.classList.add("hold-piece-grid");
+
+    for (let i = 0; i < previewSize * previewSize; i++) {
+        grid.appendChild(document.createElement("div"));
+    }
+
+    cells.forEach(({ row, col }) => {
+        const normalisedRow = row - minRow;
+        const normalisedCol = col - minCol;
+        const index = (normalisedRow * previewSize) + normalisedCol;
+
+        const previewCell = grid.children[index];
+
+        if (previewCell) {
+            previewCell.classList.add("piece-cell");
+
+            previewCell.style.setProperty(
+                "--block-colour",
+                tetromino.color
+            );
+            previewCell.style.setProperty(
+                "--block-glow",
+                tetromino.glow
+            );
+        }
+    });
+
+    ui.holdPiece.appendChild(grid);
 }

@@ -1,5 +1,4 @@
 // Game state and shared constants.
-
 import { TETROMINOES, getRandomPiece } from "./pieces.js";
 
 import { START_POSITION } from "./config.js";
@@ -20,6 +19,10 @@ export const gameState = {
     currentPiece: null,
 
     nextPieceIndex: 0,
+
+    holdPieceIndex: null,
+
+    canHold: true,
 
     difficulty: 
         localStorage.getItem("Difficulty") || "easy",
@@ -56,6 +59,10 @@ export function initialisePieces() {
 
     gameState.nextPieceIndex =
         getRandomPiece();
+
+    gameState.holdPieceIndex = null;
+
+    gameState.canHold = true;
 }
 
 export function spawnNextPiece() {
@@ -76,6 +83,45 @@ export function spawnNextPiece() {
         ].rotations[
             gameState.rotation
         ];
+
+    gameState.canHold = true;
+}
+
+/**
+ * Swaps current piece into hold slot (once per drop).
+ * Returns true if hold operation succeeded.
+ */
+export function holdPiece() {
+
+    if (!gameState.canHold || gameState.isPaused) {
+        return false;
+    }
+
+    gameState.rotation = 0;
+    gameState.position = START_POSITION;
+
+    if (gameState.holdPieceIndex === null) {
+
+        gameState.holdPieceIndex = gameState.currentPieceIndex;
+
+        gameState.currentPieceIndex = gameState.nextPieceIndex;
+
+        gameState.nextPieceIndex = getRandomPiece();
+
+    } else {
+
+        const tempIndex = gameState.currentPieceIndex;
+
+        gameState.currentPieceIndex = gameState.holdPieceIndex;
+
+        gameState.holdPieceIndex = tempIndex;
+    }
+
+    gameState.currentPiece = TETROMINOES[gameState.currentPieceIndex].rotations[0];
+
+    gameState.canHold = false;
+
+    return true;
 }
 
 export function updateRotation(rotation) {
@@ -99,12 +145,10 @@ export function resetScore() {
 export function saveHighScore() {
 
     if (
-        gameState.score >
-        gameState.highScore
+        gameState.score > gameState.highScore
     ) {
 
-        gameState.highScore =
-            gameState.score;
+        gameState.highScore = gameState.score;
 
         localStorage.setItem(
             "High-Score",
@@ -122,6 +166,10 @@ export function resetGameState() {
     gameState.isPaused = true;
 
     gameState.currentPiece = null;
+
+    gameState.holdPieceIndex = null;
+
+    gameState.canHold = true;
 
     initialisePieces();
 }

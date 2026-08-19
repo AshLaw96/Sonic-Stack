@@ -530,6 +530,38 @@ dialog::backdrop {
     margin-top: 8px;
 }
 
+/* Hold Preview Container */
+.hold-panel {
+    text-align: center;
+}
+
+.hold-piece-grid {
+    display: grid;
+    grid-template-columns: 
+        repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 2px;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+}
+
+/* Share block styles with the main grid/next piece */
+.hold-piece-grid .piece-cell {
+    background-color: var(--block-colour);
+    box-shadow: 0 0 8px var(--block-glow);
+    border-radius: 2px;
+}
+
+/* Optional: ID selector for mobile touch button if included */
+#hold-btn {
+    width: 48px;
+    height: 38px;
+    background-color: var(--p-text);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+}
+
 #start-stop,
 #reset {
     flex: 1;
@@ -547,7 +579,8 @@ dialog::backdrop {
 #right:hover,
 #twist:hover,
 #down:hover,
-#hard-drop:hover {
+#hard-drop:hover,
+#hold-btn:hover {
     background-color: #BCC6CC;
 }
 

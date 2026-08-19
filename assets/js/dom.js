@@ -92,4 +92,10 @@ export const ui = {
 
     controlsSection:
         document.querySelector(".controls"),
+
+    holdPiece:
+        document.querySelector("#hold-piece"),
+
+    hold:
+        document.querySelector("#hold-btn")
 };

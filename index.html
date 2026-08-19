@@ -168,6 +168,11 @@
                         <div id="next-piece"></div>
                     </section>
 
+                    <section class="panel hold-panel">
+                        <h3>Hold</h3>
+                        <div id="hold-piece" class="preview-box"></div>
+                    </section>
+
                     <section class="panel score-panel">
                         <h2>Score</h2>
                         <dl class="score-board">
@@ -196,6 +201,7 @@
                             <li>↓ Soft drop</li>
                             <li>↑ Hard drop (instant)</li>
                             <li>Space Rotate piece</li>
+                            <li>H / Shift Hold piece</li>
                             <li>P Pause / Play game</li>
                         </ul>
                         <h3>Touch Controls</h3>
@@ -204,6 +210,7 @@
                             <li>Down speeds up the piece.</li>
                             <li>Double arrow down for instant drop</li>
                             <li>Rotate twists the current piece.</li>
+                            <li>Hand icon holds current piece.</li>
                         </ul>
                         <p>Complete horizontal rows to earn points.</p>
                     </details>
@@ -244,6 +251,10 @@
 
                         <button id="twist" type="button" aria-label="Rotate">
                             <i class="fa-solid fa-arrows-rotate"></i>
+                        </button>
+
+                        <button id="hold-btn" type="button" aria-label="Hold Piece">
+                            <i class="fa-solid fa-hand"></i>
                         </button>
                     </div>
                 </div>

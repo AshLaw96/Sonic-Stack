@@ -8,8 +8,9 @@ import { audio, setMuted } from "./audio.js";
 import { 
     gameState, 
     initialisePieces,
-    resetGameState
- } from "./game.js";
+    resetGameState,
+    holdPiece,
+} from "./game.js";
 
 import { createBoard, clearBoard } from "./board.js";
 
@@ -17,7 +18,12 @@ import { initialiseControls, stopGame } from "./controls.js";
 
 import { initialiseUI, initialiseHero, closeDialog } from "./ui.js";
 
-import { makeBlocks, renderNextPiece } from "./renderer.js";
+import { 
+    makeBlocks,
+    renderNextPiece,
+    removeBlocks,
+    renderHoldPiece
+} from "./renderer.js";
 
 import { updateScore } from "./scoring.js";
 
@@ -82,6 +88,22 @@ export function initialiseGame() {
         rotate: () =>
             turn(boardCells, audio),
 
+        hold: () => {
+
+            removeBlocks(gameState, boardCells);
+
+
+            const holdSuccess = holdPiece();
+
+            if (holdSuccess) {
+
+                renderHoldPiece(ui, gameState);
+                renderNextPiece(ui, gameState);
+            }
+
+            makeBlocks(gameState, boardCells);
+        },
+
         renderBoard: () =>
             makeBlocks(gameState, boardCells)
     });
@@ -99,6 +121,8 @@ export function resetGame() {
     resetGameState();
 
     initialisePieces();
+
+    renderHoldPiece(ui, gameState);
 
     renderNextPiece(ui, gameState);
 
