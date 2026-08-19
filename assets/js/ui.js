@@ -31,13 +31,15 @@ export function showHiddenDrone(ui) {
     }
 }
 
-export function toggleMute(
-    gameState,
-    ui
-) {
+export function toggleMute(gameState, ui) {
 
     gameState.isMuted =
         !gameState.isMuted;
+
+    localStorage.setItem(
+        "Muted",
+        gameState.isMuted
+    );
 
     setMuted(gameState.isMuted);
 
@@ -166,19 +168,13 @@ export function initialiseHero(ui, gameState) {
 /**
  * Registers all UI event listeners.
  */
-export function initialiseUI(
-    ui,
-    gameState
-) {
+export function initialiseUI(ui, gameState) {
  
     if (ui.soundButton) {
  
         ui.soundButton.addEventListener(
             "click",
-            () => toggleMute(
-                gameState,
-                ui
-            )
+            () => toggleMute(gameState, ui)
         );
     }
  

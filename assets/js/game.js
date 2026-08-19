@@ -30,7 +30,8 @@ export const gameState = {
 
     isLocking: false,
 
-    isMuted: true
+    isMuted:
+        localStorage.getItem("Muted") !== "false"
 };
 
 /**
