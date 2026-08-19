@@ -16,14 +16,7 @@ export function createBoard(gameBoard) {
         return [];
     }
 
-    // Preserve the decorative rings before wiping the board
-    const decorElement = gameBoard.querySelector(".decor");
-
     gameBoard.innerHTML = "";
-
-    if (decorElement) {
-        gameBoard.appendChild(decorElement);
-    }
 
     for (let i = 0; i < CELL_COUNT; i++) {
 
@@ -41,9 +34,7 @@ export function createBoard(gameBoard) {
         gameBoard.appendChild(cell);
     }
 
-    return Array.from(
-        gameBoard.querySelectorAll("div:not(.decor)")
-    );
+    return Array.from(gameBoard.children);
 }
 
 /**

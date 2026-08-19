@@ -366,15 +366,6 @@ header {
         inset 0 0 20px rgba(0, 0, 0, 0.6);
 }
 
-/* Game cells need to sit above the
-   decorative rings and be transparent
-   when empty so the rings show through. */
-#game-wrap > div:not(.decor) {
-    position: relative;
-    z-index: 2;
-    background-color: transparent;
-}
-
 #game-section {
     display: flex;
     flex-direction: column;
