@@ -41,10 +41,18 @@ body {
     --p-block1: #3061E3;
     --p-block2: #FF3131;
     --p-block3: #FFBF00;
+    --p-block4: #FF69B4;
+    --p-block5: #BA55D3;
+    --p-block6: #FFA500;
+    --p-block7: #C0C0C0;
     /* Block Shadows */
     --s-block1: #1F51FF;
     --s-block2: #FF0000;
     --s-block3: #F9D71C;
+    --s-block4: #FF1493;
+    --s-block5: #9400D3;
+    --s-block6: #FF8C00;
+    --s-block7: #A9A9A9;
     /* Layout — game width/height derive from
        cell-size so only one value needs to
        change per breakpoint. */
@@ -126,77 +134,4 @@ p {
 #sub-title {
     margin: 0 0 4px 0;
     font-size: 1.1rem;
-}
-
-/* ==========================================
-   Decorative Background Flourishes
-========================================== */
-.decor {
-    position: absolute;
-    inset: 0;
-    grid-column: 1 / -1;
-    grid-row: 1 / -1;
-    z-index: 1;
-    overflow: hidden;
-    pointer-events: none; 
-    perspective: 800px;
-}
-
-.decor-ring {
-    position: absolute;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    /* Golden Sonic Metallic Gradient */
-    background: conic-gradient(
-        from 0deg,
-        #ffd700 0deg,
-        #fff7ab 40deg,
-        #b8860b 90deg,
-        #ffd700 180deg,
-        #ffffff 220deg,
-        #d4af37 280deg,
-        #ffd700 360deg
-    );
-    -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 7px), #fff calc(100% - 6px));
-    mask: radial-gradient(farthest-side, transparent calc(100% - 7px), #fff calc(100% - 6px));
-    box-shadow: 
-        inset 1px 1px 2px rgba(255, 255, 255, 0.9),
-        inset -1px -1px 2px rgba(0, 0, 0, 0.6),
-        0 0 10px rgba(255, 215, 0, 0.6);
-    transform-style: preserve-3d;
-    animation: 
-        decor-coin-spin 5s linear infinite; 
-}
-
-.decor-ring::after {
-    content: '';
-    position: absolute;
-    border-radius: 50%;
-    top: 2px;
-    left: 4px;
-    width: 6px;
-    height: 6px;
-    background-color: var(--p-text);
-    box-shadow: 0 0 4px var(--p-text);
-}
- 
-/* Individual ring positions & delay offsets */
-.ring-1 { top: 8%; left: 4%; animation-delay: 0s; }
-.ring-2 { top: 70%; left: 90%; animation-delay: 1.1s; }
-.ring-3 { top: 45%; left: 92%; animation-delay: 0.4s; }
-.ring-4 { top: 15%; left: 90%; animation-delay: 1.6s; }
-.ring-5 { top: 60%; left: 3%; animation-delay: 0.7s; }
-.ring-6 { top: 80%; left: 15%; animation-delay: 1.3s; }
-
-@keyframes decor-coin-spin {
-    0% {
-        transform: translateY(0) rotateX(15deg) rotateY(0deg);
-    }
-    50% {
-        transform: translateY(-12px) rotateX(15deg) rotateY(180deg);
-    }
-    100% {
-        transform: translateY(0) rotateX(15deg) rotateY(360deg);
-    }
 }
