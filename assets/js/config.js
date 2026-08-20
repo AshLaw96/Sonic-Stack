@@ -49,3 +49,6 @@ export const MIN_INTERVAL = 100;
  * cleared resets the streak).
  */
 export const COMBO_BONUS = 50;
+
+export const LEADERBOARD_SIZE = 5;
+export const LEADERBOARD_KEY = "Leaderboard";

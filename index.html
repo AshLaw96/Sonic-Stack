@@ -278,6 +278,27 @@
 
             <p>Your stack reached the top.</p>
 
+            <div id="initials-form" class="initials-container">
+                <label for="player-initials">Enter Initials:</label>
+
+                <div class="initials-input-group">
+
+                    <input 
+                        type="text" 
+                        id="player-initials" 
+                        maxlength="3" 
+                        placeholder="AAA" 
+                        autocomplete="off"
+                    />
+
+                    <button id="save-score-btn" type="button">Submit</button>
+                </div>
+            </div>
+
+            <h3>High Score</h3>
+
+            <ol id="leaderboard-list" class="leaderboard"></ol>
+
             <button id="play-again" type="button">Play Again</button>
         </dialog>
     </main>

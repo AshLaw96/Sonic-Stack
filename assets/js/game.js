@@ -3,6 +3,8 @@ import { TETROMINOES, getRandomPiece } from "./pieces.js";
 
 import { START_POSITION } from "./config.js";
 
+import { LEADERBOARD_KEY, LEADERBOARD_SIZE } from "./config.js";
+
 export const gameState = {
 
     score: 0,
@@ -176,4 +178,60 @@ export function resetGameState() {
     gameState.canHold = true;
 
     initialisePieces();
+}
+
+export function getLeaderboard() {
+
+    try {
+        const stored = JSON.parse(
+            localStorage.getItem(LEADERBOARD_KEY)
+        );
+        return Array.isArray(stored) ? stored : [];
+
+    } catch {
+
+        return [];
+    }
+}
+
+/**
+ * Records the current score into the leaderboard,
+ * keeping only the top LEADERBOARD_SIZE scores.
+ * Returns the updated leaderboard plus a reference
+ * to this run's entry.
+ */
+export function saveToLeaderboard(gameState, initials = "AAA") {
+
+    const leaderboard = getLeaderboard();
+
+    const formattedInitials = 
+        (initials.trim().toUpperCase() || "AAA").slice(0, 3);
+
+    const entry = {
+
+        name: formattedInitials,
+        score: gameState.score,
+        date: new Date().toLocaleDateString()
+    };
+
+    leaderboard.push(entry);
+
+    leaderboard.sort((a, b) => b.score - a.score);
+
+    const trimmedLeaderboard = leaderboard.slice(0, LEADERBOARD_SIZE);
+
+    localStorage.setItem(
+        LEADERBOARD_KEY,
+        JSON.stringify(trimmedLeaderboard)
+    );
+
+    return {
+
+        leaderboard: trimmedLeaderboard,
+
+        currentEntry:
+            trimmedLeaderboard.includes(entry)
+                ? entry
+                : null
+    };
 }

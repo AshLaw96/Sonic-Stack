@@ -458,8 +458,80 @@ dialog {
     color: var(--p-text);
 }
 
-#play-again {
+dialog h3 {
+    font-family: 
+        "Press Start 2P", "Courier New", monospace;
+    font-size: 0.8rem;
+    margin-top: 15px;
+}
+
+.leaderboard {
+    list-style: none;
+    counter-reset: list-item;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 0 10px;
+    margin: 10px 0;
+}
+
+.leaderboard li {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    font-size: 1.1rem;
+    counter-increment: list-item;
+}
+
+.leaderboard li::before {
+    content: counter(list-item) ".";
+    font-weight: bold;
+    color: var(--p-block3);
+    margin-right: 6px;
+}
+
+.leaderboard .current-score {
+    color: var(--p-block3);
+    text-shadow:
+        0 0 6px var(--s-block3);
     background-color: var(--p-block2);
+}
+
+.initials-container {
+    margin: 12px 0;
+    text-align: center;
+}
+
+.initials-container label {
+    display: block;
+    font-size: 0.8rem;
+    margin-bottom: 6px;
+}
+
+.initials-input-group {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+#player-initials {
+    width: 70px;
+    text-align: center;
+    font-family: "Press Start 2P", "Courier New", monospace;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background: #000;
+    color: var(--p-block3);
+    border: 2px solid var(--p-block3);
+    padding: 4px;
+}
+
+#save-score-btn {
+    font-family: "Press Start 2P", "Courier New", monospace;
+    font-size: 0.7rem;
+    padding: 6px 12px;
+    cursor: pointer;
 }
 
 #play-again:hover {

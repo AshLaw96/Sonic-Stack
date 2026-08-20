@@ -48,6 +48,18 @@ export const ui = {
     playAgain:
         document.getElementById("play-again"),
 
+    initialsForm:
+        document.getElementById("initials-form"),
+
+    initialsInput:
+        document.getElementById("player-initials"),
+
+    saveScoreButton:
+        document.getElementById("save-score-btn"),
+
+    leaderboardList:
+        document.getElementById("leaderboard-list"),
+
     currentScore:
         document.getElementById("point"),
 

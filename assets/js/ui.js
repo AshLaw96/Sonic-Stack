@@ -5,6 +5,37 @@ import {
 } from "./audio.js";
 
 /**
+ * Renders the leaderboard into the Game
+ * Over dialog, marking this run's entry.
+ */
+export function renderLeaderboard(
+    ui,
+    leaderboard,
+    currentEntry
+) {
+    if (!ui.leaderboardList) {
+        return;
+    }
+    ui.leaderboardList.innerHTML = "";
+
+    leaderboard.forEach(entry => {
+
+        const item = document.createElement("li");
+
+        item.textContent = 
+           `${entry.name || "AAA"} - ${
+                entry.score.toLocaleString()
+            } pts`;
+
+        if (currentEntry && entry === currentEntry) {
+
+            item.classList.add("current-score");
+        }
+        ui.leaderboardList.appendChild(item);
+    });
+}
+
+/**
  * Closes the Game Over dialog.
  */
 export function closeDialog(ui) {
@@ -23,7 +54,6 @@ export function showHiddenDrone(ui) {
     if (!ui.drone) {
         return;
     }
-
     ui.drone.hidden = false;
 
     if (ui.droneText) {
@@ -40,7 +70,6 @@ export function toggleMute(gameState, ui) {
         "Muted",
         gameState.isMuted
     );
-
     setMuted(gameState.isMuted);
 
     ui.soundButton.style.backgroundColor =
@@ -57,7 +86,6 @@ export function playEggman() {
     if (!audio.eggman) {
         return;
     }
-
     playSound(audio.eggman);
 }
 
@@ -77,7 +105,6 @@ export function toggleMenu(ui) {
     if (!ui.difficultyNav || !ui.menuToggle) {
         return;
     }
-
     const isOpen =
         ui.difficultyNav.classList.toggle("open");
  
@@ -96,25 +123,21 @@ export function applyDifficulty(
     ui,
     gameState
 ) {
-
     gameState.difficulty = difficulty;
 
     localStorage.setItem(
         "Difficulty",
         difficulty
     );
- 
     [ui.easy, ui.medium, ui.hard].forEach(button => {
  
         if (button) {
             button.classList.remove("current");
         }
     });
- 
     if (ui[difficulty]) {
         ui[difficulty].classList.add("current");
     }
- 
     if (ui.mainWrap) {
  
         ui.mainWrap.classList.remove(
@@ -122,12 +145,10 @@ export function applyDifficulty(
             "medium-bg",
             "hard-bg"
         );
- 
         ui.mainWrap.classList.add(
             `${difficulty}-bg`
         ); 
     }
-
     if (ui.subtitle) {
  
         ui.subtitle.textContent =
@@ -146,7 +167,6 @@ export function initialiseHero(ui, gameState) {
     if (!ui.hero || !ui.zoneButtons) {
         return;
     }
-
     ui.zoneButtons.forEach(button => {
 
         button.addEventListener("click", () => {
@@ -177,7 +197,6 @@ export function initialiseUI(ui, gameState) {
             () => toggleMute(gameState, ui)
         );
     }
- 
     if (ui.menuToggle) {
  
         ui.menuToggle.addEventListener(
@@ -185,7 +204,6 @@ export function initialiseUI(ui, gameState) {
             () => toggleMenu(ui)
         ); 
     }
- 
     [
         ["easy", ui.easy],
         ["medium", ui.medium],
@@ -203,13 +221,11 @@ export function initialiseUI(ui, gameState) {
                         ui,
                         gameState
                     );
-
                     toggleMenu(ui);
                 }
             );
         }
     });
-
     /**
      * Sync the UI to whatever difficulty
      * was loaded without opening menu.
@@ -219,7 +235,6 @@ export function initialiseUI(ui, gameState) {
         ui,
         gameState
     );
-
     if (ui.eggButton) {
 
         ui.eggButton.addEventListener(
@@ -231,7 +246,6 @@ export function initialiseUI(ui, gameState) {
             }
         );
     }
-
     if (ui.backButton) {
 
         ui.backButton.addEventListener(
