@@ -42,3 +42,10 @@ export const GAME_SETTINGS = {
 export const SPEED_UP_THRESHOLD = 500;
 export const SPEED_UP_STEP = 50;
 export const MIN_INTERVAL = 100;
+
+/**
+ * Bonus points per consecutive line
+ * clear (a lock with zero lines
+ * cleared resets the streak).
+ */
+export const COMBO_BONUS = 50;

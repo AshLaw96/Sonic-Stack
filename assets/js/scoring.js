@@ -2,13 +2,11 @@ import {
     GRID_WIDTH,
     CELL_COUNT,
     LINE_CLEAR_POINTS,
-    SPEED_UP_THRESHOLD
+    SPEED_UP_THRESHOLD,
+    COMBO_BONUS
 } from "./config.js";
 
-import {
-    audio, 
-    playSound
-} from "./audio.js";
+import {audio, playSound} from "./audio.js";
 
 import { adjustDropSpeed } from "./controls.js";
 
@@ -49,7 +47,6 @@ export function clearLines(
         row <= CELL_COUNT - GRID_WIDTH;
         row += GRID_WIDTH
     ) {
-
         const currentRow = [];
  
         for (
@@ -57,7 +54,6 @@ export function clearLines(
             i < GRID_WIDTH;
             i++
         ) {
-
             currentRow.push(row + i);
         }
  
@@ -66,7 +62,6 @@ export function clearLines(
                 boardCells[index]
                     .classList.contains("delete")
             );
- 
         if (!rowComplete) {
             continue;
         }
@@ -81,9 +76,11 @@ export function clearLines(
     }
  
     if (completedRows.length === 0) {
+
+        gameState.combo = 0;
+
         return Promise.resolve();
     }
-
     return new Promise(resolve => {
  
         setTimeout(() => {
@@ -99,36 +96,34 @@ export function clearLines(
                     i < GRID_WIDTH;
                     i++
                 ) {
-    
                     const cell = boardCells[row + i];
     
                     cell.className = "";
                     cell.style.backgroundColor = "";
                     cell.style.boxShadow = "";
                 }
-    
                 const removedRow =
-                    boardCells.splice(
-                        row,
-                        GRID_WIDTH
-                    );
-    
+                    boardCells.splice(row, GRID_WIDTH);
+
                 boardCells.unshift(...removedRow); 
             });
-
             boardCells.forEach(cell => {
     
                 ui.gameBoard.appendChild(cell);
             });
-    
+            const comboBonus =
+                gameState.combo > 0
+                    ? gameState.combo * COMBO_BONUS
+                    : 0;
+
             gameState.score +=
-                LINE_CLEAR_POINTS[completedRows.length] ||
-                completedRows.length * 100;
-    
-            updateScore(
-                ui,
-                gameState
-            );
+                (LINE_CLEAR_POINTS[completedRows.length] ||
+                    completedRows.length * 100) + 
+                comboBonus;
+
+            gameState.combo += 1;
+
+            updateScore(ui, gameState);
     
             adjustDropSpeed(gameState);
     
@@ -136,10 +131,8 @@ export function clearLines(
     
                 playSound(audio.score); 
             }
-
             resolve();
 
         }, CLEAR_ANIMATION_MS);
-
     });
 }

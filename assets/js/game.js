@@ -33,6 +33,8 @@ export const gameState = {
 
     isLocking: false,
 
+    combo: 0,
+
     isMuted:
         localStorage.getItem("Muted") !== "false"
 };
@@ -164,6 +166,8 @@ export function resetGameState() {
     gameState.dropInterval = null;
 
     gameState.isPaused = true;
+
+    gameState.combo = 0;
 
     gameState.currentPiece = null;
 
