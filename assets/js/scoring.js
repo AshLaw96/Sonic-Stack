@@ -20,11 +20,13 @@ export function updateScore(ui, gameState) {
     ui.currentScore.textContent =
         gameState.score;
 
+    gameState.level =
+        Math.floor(
+            gameState.score / SPEED_UP_THRESHOLD
+        ) + 1;
+
     if (ui.level) {
-        ui.level.textContent =
-            Math.floor(
-                gameState.score / SPEED_UP_THRESHOLD
-            ) + 1;
+        ui.level.textContent = gameState.level;
     }
 }
 
@@ -39,7 +41,6 @@ export function clearLines(
     ui,
     audio
 ) {
- 
     const completedRows = [];
  
     for (
@@ -48,56 +49,38 @@ export function clearLines(
         row += GRID_WIDTH
     ) {
         const currentRow = [];
- 
-        for (
-            let i = 0;
-            i < GRID_WIDTH;
-            i++
-        ) {
-            currentRow.push(row + i);
-        }
- 
-        const rowComplete =
-            currentRow.every(index =>
-                boardCells[index]
-                    .classList.contains("delete")
+
+            for (let i = 0; i < GRID_WIDTH; i++) {
+                currentRow.push(boardCells[row + i]);
+            }
+        const rowComplete = currentRow.every(cell =>
+                cell.classList.contains("delete")
             );
         if (!rowComplete) {
             continue;
         }
- 
         completedRows.push(row);
  
-        currentRow.forEach(index => {
- 
-            boardCells[index]
-                .classList.add("clearing");
+        currentRow.forEach(cell => {
+            cell.classList.add("clearing");
         });
     }
- 
     if (completedRows.length === 0) {
-
         gameState.combo = 0;
 
         return Promise.resolve();
     }
     return new Promise(resolve => {
- 
         setTimeout(() => {
- 
             // Ascending order keeps each row's
             // index valid: clearing a row only
             // ever shifts indices below it, so
             // rows further down stay addressable.
-            completedRows.forEach(row => {
-    
-                for (
-                    let i = 0;
-                    i < GRID_WIDTH;
-                    i++
-                ) {
+            const sortedRows = [...completedRows].sort((a, b) => a - b);
+
+            sortedRows.forEach(row => {
+                for (let i = 0; i < GRID_WIDTH; i++) {
                     const cell = boardCells[row + i];
-    
                     cell.className = "";
                     cell.style.backgroundColor = "";
                     cell.style.boxShadow = "";
@@ -107,10 +90,11 @@ export function clearLines(
 
                 boardCells.unshift(...removedRow); 
             });
-            boardCells.forEach(cell => {
-    
-                ui.gameBoard.appendChild(cell);
-            });
+            if (ui?.gameBoard) {
+                boardCells.forEach(cell => {
+                    ui.gameBoard.appendChild(cell);
+                });
+            }
             const comboBonus =
                 gameState.combo > 0
                     ? gameState.combo * COMBO_BONUS
@@ -123,12 +107,13 @@ export function clearLines(
 
             gameState.combo += 1;
 
+            gameState.linesCleared += completedRows.length;
+
             updateScore(ui, gameState);
     
             adjustDropSpeed(gameState);
     
             if (audio?.score) {
-    
                 playSound(audio.score); 
             }
             resolve();
