@@ -5,6 +5,39 @@ import {
 } from "./audio.js";
 
 /**
+ * Formats a duration in milliseconds as 
+ * "Xm Ys" (or just "Ys" if under a minute).
+ */
+export function formatPlayTime(ms) {
+
+    const totalSeconds = Math.floor(ms / 1000);
+
+    const minutes = Math.floor(totalSeconds / 60);
+
+    const seconds = totalSeconds % 60;
+
+    return minutes > 0
+        ? `${minutes}m ${seconds}s`
+        : `${seconds}s`;
+}
+
+export function renderGameStats(ui, gameState) {
+
+    if (ui.statsLines) {
+        ui.statsLines.textContent = 
+            gameState.linesCleared;
+    }
+    if (ui.statsLevel) {
+        ui.statsLevel.textContent = 
+            gameState.level;
+    }
+    if (ui.statsTime) {
+        ui.statsTime.textContent = 
+            formatPlayTime(gameState.PlayTimeMs);
+    }
+}
+
+/**
  * Renders the leaderboard into the Game
  * Over dialog, marking this run's entry.
  */
@@ -41,7 +74,6 @@ export function renderLeaderboard(
 export function closeDialog(ui) {
 
     if (ui.dialog && ui.dialog.open) {
-
         ui.dialog.close();
     }
 }
@@ -139,7 +171,6 @@ export function applyDifficulty(
         ui[difficulty].classList.add("current");
     }
     if (ui.mainWrap) {
- 
         ui.mainWrap.classList.remove(
             "easy-bg",
             "medium-bg",
@@ -150,7 +181,6 @@ export function applyDifficulty(
         ); 
     }
     if (ui.subtitle) {
- 
         ui.subtitle.textContent =
             difficulty.charAt(0).toUpperCase() +
             difficulty.slice(1); 
@@ -170,7 +200,6 @@ export function initialiseHero(ui, gameState) {
     ui.zoneButtons.forEach(button => {
 
         button.addEventListener("click", () => {
-
             const chosenDifficulty = button.dataset.difficulty;
 
             applyDifficulty(chosenDifficulty, ui, gameState);
@@ -191,14 +220,12 @@ export function initialiseHero(ui, gameState) {
 export function initialiseUI(ui, gameState) {
  
     if (ui.soundButton) {
- 
         ui.soundButton.addEventListener(
             "click",
             () => toggleMute(gameState, ui)
         );
     }
     if (ui.menuToggle) {
- 
         ui.menuToggle.addEventListener(
             "click",
             () => toggleMenu(ui)
@@ -211,7 +238,6 @@ export function initialiseUI(ui, gameState) {
     ].forEach(([name, button]) => {
  
         if (button) {
- 
             button.addEventListener(
                 "click",
                 () => {
@@ -236,7 +262,6 @@ export function initialiseUI(ui, gameState) {
         gameState
     );
     if (ui.eggButton) {
-
         ui.eggButton.addEventListener(
             "click",
             () => {
@@ -247,7 +272,6 @@ export function initialiseUI(ui, gameState) {
         );
     }
     if (ui.backButton) {
-
         ui.backButton.addEventListener(
             "click",
             goBack
