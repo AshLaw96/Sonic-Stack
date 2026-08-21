@@ -60,6 +60,15 @@ export const ui = {
     leaderboardList:
         document.getElementById("leaderboard-list"),
 
+    statsLines:
+        document.getElementById("stats-lines"),
+
+    statsLevel:
+        document.getElementById("stats-level"),
+
+    statsTime:
+        document.getElementById("stats-time"),
+
     currentScore:
         document.getElementById("point"),
 
