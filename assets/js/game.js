@@ -37,6 +37,14 @@ export const gameState = {
 
     combo: 0,
 
+    linesCleared: 0,
+
+    level: 1,
+
+    PlayTimeMs: 0,
+
+    resumeTimestamp: null,
+
     isMuted:
         localStorage.getItem("Muted") !== "false"
 };
@@ -87,7 +95,6 @@ export function spawnNextPiece() {
         ].rotations[
             gameState.rotation
         ];
-
     gameState.canHold = true;
 }
 
@@ -100,7 +107,6 @@ export function holdPiece() {
     if (!gameState.canHold || gameState.isPaused) {
         return false;
     }
-
     gameState.rotation = 0;
     gameState.position = START_POSITION;
 
@@ -120,7 +126,6 @@ export function holdPiece() {
 
         gameState.holdPieceIndex = tempIndex;
     }
-
     gameState.currentPiece = TETROMINOES[gameState.currentPieceIndex].rotations[0];
 
     gameState.canHold = false;
@@ -151,7 +156,6 @@ export function saveHighScore() {
     if (
         gameState.score > gameState.highScore
     ) {
-
         gameState.highScore = gameState.score;
 
         localStorage.setItem(
@@ -170,6 +174,14 @@ export function resetGameState() {
     gameState.isPaused = true;
 
     gameState.combo = 0;
+
+    gameState.linesCleared = 0;
+
+    gameState.level = 1;
+
+    gameState.PlayTimeMs = 0;
+
+    gameState.resumeTimestamp = null;
 
     gameState.currentPiece = null;
 
@@ -213,7 +225,6 @@ export function saveToLeaderboard(gameState, initials = "AAA") {
         score: gameState.score,
         date: new Date().toLocaleDateString()
     };
-
     leaderboard.push(entry);
 
     leaderboard.sort((a, b) => b.score - a.score);
@@ -224,7 +235,6 @@ export function saveToLeaderboard(gameState, initials = "AAA") {
         LEADERBOARD_KEY,
         JSON.stringify(trimmedLeaderboard)
     );
-
     return {
 
         leaderboard: trimmedLeaderboard,
