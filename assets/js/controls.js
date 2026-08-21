@@ -9,6 +9,8 @@ import { playMusic, stopMusic } from "./audio.js";
 
 import { resetGame } from "./gameController.js";
 
+import { initTouchControls } from "./touch.js";
+
 export function initialiseControls({
     ui,
     gameState,
@@ -73,6 +75,25 @@ export function initialiseControls({
         "keydown",
         handleKeyboardInput
     );
+    if (ui.gameBoard) {
+        initTouchControls(ui.gameBoard, {
+            onMoveLeft: () => {
+                if (!gameState.isPaused) moveLeft();
+            },
+            onMoveRight: () => {
+                if (!gameState.isPaused) moveRight();
+            },
+            onSoftDrop: () => {
+                if (!gameState.isPaused) moveDown();
+            },
+            onHardDrop: () => {
+                if (!gameState.isPaused) hardDrop();
+            },
+            onRotate: () => {
+                if (!gameState.isPaused) rotate();
+            }
+        });
+    }
     ui.start.addEventListener(
         "click",
         () => {
@@ -85,7 +106,6 @@ export function initialiseControls({
     ui.left.addEventListener(
         "click",
         () => {
- 
             if (!gameState.isPaused) {
                 moveLeft();
             }
