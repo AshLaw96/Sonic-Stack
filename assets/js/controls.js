@@ -10,7 +10,6 @@ import { playMusic, stopMusic } from "./audio.js";
 import { resetGame } from "./gameController.js";
 
 export function initialiseControls({
-
     ui,
     gameState,
     audio,
@@ -24,21 +23,17 @@ export function initialiseControls({
 }) {
 
     function handleKeyboardInput(event) {
-
         // Allow 'P' or 'p' key to toggle pause at any time
         if (event.code === "KeyP") {
-
             if (gameState.isPaused) {
                 renderBoard();
             }
             pausePlay(gameState, moveDown);
             return;
         }
-
         if (gameState.isPaused) {
             return;
         }
-
         switch (event.code) {
 
             case "ArrowLeft":
@@ -74,25 +69,19 @@ export function initialiseControls({
                 break;
         }
     }
-
     document.addEventListener(
         "keydown",
         handleKeyboardInput
     );
-
     ui.start.addEventListener(
         "click",
         () => {
-
             if (gameState.isPaused) {
-
                 renderBoard();
             }
-
             pausePlay(gameState, moveDown);
         }
     );
-
     ui.left.addEventListener(
         "click",
         () => {
@@ -102,66 +91,54 @@ export function initialiseControls({
             }
         }
     );
- 
     ui.right.addEventListener(
         "click",
         () => {
- 
             if (!gameState.isPaused) {
                 moveRight();
             }
         }
     );
- 
     ui.down.addEventListener(
         "click",
         () => {
- 
             if (!gameState.isPaused) {
                 moveDown();
             }
         }
     );
-
     if (ui.hardDrop) {
         ui.hardDrop.addEventListener(
             "click",
             () => {
-
                 if (!gameState.isPaused) {
                     hardDrop();
                 }
             }
         );
     }
- 
     ui.rotate.addEventListener(
         "click",
         () => {
- 
             if (!gameState.isPaused) {
                 rotate();
             }
         }
     );
-
     if (ui.hold) {
         ui.hold.addEventListener(
             "click",
             () => {
-
                 if (!gameState.isPaused) {
                     hold();
                 }
             }
         );
     }
-
     ui.reset.addEventListener(
         "click",
         resetGame
     );
-
     ui.playAgain.addEventListener(
         "click",
         resetGame
@@ -184,7 +161,6 @@ export function stopScroll(event) {
         "ShiftLeft",
         "ShiftRight"
     ];
-
     if (blockedKeys.includes(event.code)) {
         event.preventDefault();
     }
@@ -211,7 +187,6 @@ export function calculateInterval(gameState) {
     const speedUpSteps = Math.floor(
         gameState.score / SPEED_UP_THRESHOLD
     );
-
     const reduction = speedUpSteps * SPEED_UP_STEP;
 
     return Math.max(
@@ -225,19 +200,17 @@ export function startGame(gameState, down) {
     if (gameState.dropInterval) {
         return;
     }
-
     activeDownCallback = down;
 
     playMusic(gameState.difficulty);
+
+    gameState.resumeTimestamp = Date.now();
 
     gameState.dropInterval = setInterval(
         down,
         calculateInterval(gameState)
     );
-
-    window.addEventListener(
-        "keydown",
-        stopScroll);
+    window.addEventListener("keydown", stopScroll);
 
     gameState.isPaused = false;
 }
@@ -251,7 +224,6 @@ export function adjustDropSpeed(gameState) {
     if (!gameState.dropInterval || !activeDownCallback) {
         return;
     }
-
     clearInterval(gameState.dropInterval);
 
     gameState.dropInterval = setInterval(
@@ -262,18 +234,22 @@ export function adjustDropSpeed(gameState) {
 
 export function stopGame(gameState) {
 
-    clearInterval(
-        gameState.dropInterval);
+    clearInterval(gameState.dropInterval);
 
     gameState.dropInterval = null;
 
+    if (gameState.resumeTimestamp) {
+        gameState.PlayTimeMs += Date.now() 
+            - gameState.resumeTimestamp;
+
+        gameState.resumeTimestamp = null;
+    }
     stopMusic();
 
     window.removeEventListener(
         "keydown",
         stopScroll
     );
-
     gameState.isPaused = true;
 }
 
@@ -283,11 +259,9 @@ export function stopGame(gameState) {
 export function pausePlay(gameState, down) {
 
     if (gameState.isPaused) {
-
         startGame(gameState, down);
 
     } else {
-
         stopGame(gameState);
     }
 }
