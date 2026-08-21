@@ -6,7 +6,7 @@ import {
     getLeaderboard 
 } from "./game.js";
 
-import { renderLeaderboard } from "./ui.js";
+import { renderLeaderboard, renderGameStats } from "./ui.js";
  
 import { playSound } from "./audio.js";
 
@@ -27,6 +27,8 @@ export function endGame(gameState, ui, audio) {
     if (ui.initialsForm) {
         ui.initialsForm.style.display = "block";
     }
+    renderGameStats(ui, gameState);
+    
     const currentBoard = getLeaderboard();
 
     renderLeaderboard(ui, currentBoard, null);
