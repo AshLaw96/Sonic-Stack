@@ -465,6 +465,28 @@ dialog h3 {
     margin-top: 15px;
 }
 
+.game-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 15px 0;
+    text-align: center; 
+}
+
+.game-stats dt {
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    opacity: 0.8; 
+}
+
+.game-stats dd {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 4px;
+    color: var(--p-block1);
+}
+
 .leaderboard {
     list-style: none;
     counter-reset: list-item;
