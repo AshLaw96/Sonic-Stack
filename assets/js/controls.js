@@ -96,27 +96,31 @@ export function initialiseControls({
             },
         });
     }
-    if (ui.touchModeSelect && ui.controlsSection) {
-        // 1. Load saved preference if available
+    const touchModeSelect = ui.touchModeSelect || document.getElementById("toggle-touch-mode");
+    const controlsSection = ui.controlsSection || document.querySelector(".controls");
+
+    if (touchModeSelect && controlsSection) {
         const savedMode = localStorage.getItem("tetris_touch_mode") || "hybrid";
-        ui.touchModeSelect.value = savedMode;
+        touchModeSelect.value = savedMode;
 
         const applyControlMode = (mode) => {
             if (mode === "gestures-only") {
-                ui.controlsSection.classList.add("gestures-only-active");
+                controlsSection.classList.add("gestures-only-active");
             } else {
-                ui.controlsSection.classList.remove("gestures-only-active");
+                controlsSection.classList.remove("gestures-only-active");
             }
         };
         // Apply mode on initial load
         applyControlMode(savedMode);
 
-        // 2. Listen for player preference changes
-        ui.touchModeSelect.addEventListener("change", (event) => {
+        // Listen to both 'change' and 'input' for mobile browser compatibility
+        const handleToggle = (event) => {
             const newMode = event.target.value;
             localStorage.setItem("tetris_touch_mode", newMode);
             applyControlMode(newMode);
-        });
+        };
+        touchModeSelect.addEventListener("change", handleToggle);
+        touchModeSelect.addEventListener("input", handleToggle);
     }
 
     ui.start.addEventListener(

@@ -688,6 +688,11 @@ dialog::backdrop {
     font-size: 0.85rem;
 }
 
+#toggle-touch-mode {
+    font-size: 16px;
+    touch-action: manipulation; /* Prevents double-tap zoom on mobile */
+}
+
 .control-select {
     padding: 3px 6px;
     border-radius: var(--border-radius);
@@ -699,6 +704,11 @@ dialog::backdrop {
 /* Class applied to container when gestures only mode is active */
 .gestures-only-active .dpad-actions-row {
     display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
 }
 
 /* ==========================================
