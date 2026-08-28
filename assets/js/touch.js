@@ -8,19 +8,14 @@ export function initTouchControls(gameContainer, handlers) {
     let touchStartX = 0;
     let touchStartY = 0;
     let touchStartTime = 0;
-    let isTwoFingerTouch = false;
 
-    const SWIPE_THRESHOLD = 30;
-    const TAP_TIMEOUT = 250;
+    const SWIPE_THRESHOLD = 30; // Minimum px distance to count as swipe
+    const TAP_TIMEOUT = 250; // Max ms to count as tap
 
     gameContainer.addEventListener(
         "touchstart",
         (event) => {
-            // Detect 2-finger touch for hold action
-            if (event.touches.length === 2) {
-                isTwoFingerTouch = true;
-            } else if (event.touches.length === 1) {
-                isTwoFingerTouch = false;
+            if (event.touches.length === 1) {
                 touchStartX = event.touches[0].clientX;
                 touchStartY = event.touches[0].clientY;
                 touchStartTime = Date.now();

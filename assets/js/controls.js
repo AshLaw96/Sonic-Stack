@@ -94,9 +94,6 @@ export function initialiseControls({
             onRotate: () => {
                 if (!gameState.isPaused) rotate();
             },
-            onHold: () => {
-                if (!gameState.isPaused) hold();
-            }
         });
     }
     ui.start.addEventListener(
@@ -150,15 +147,37 @@ export function initialiseControls({
             }
         }
     );
-    if (ui.hold) {
-        ui.hold.addEventListener(
-            "click",
-            () => {
+    if (ui.holdPiece) {
+        ui.holdPiece.addEventListener(
+            "touchstart",
+            (event) => {
+                event.preventDefault();
                 if (!gameState.isPaused) {
                     hold();
                 }
+            }, { passive: false });
+    }
+    if (ui.hold) {
+        let isHandlingTouch = false;
+
+        ui.hold.addEventListener("touchstart", (event) => {
+            event.preventDefault(); // Stop default touch-to-click conversion
+            isHandlingTouch = true;
+            if (!gameState.isPaused) {
+                hold();
             }
-        );
+        }, { passive: false });
+
+        ui.hold.addEventListener("click", (event) => {
+            // Ignore click if touchstart already handled it
+            if (isHandlingTouch) {
+                isHandlingTouch = false;
+                return;
+            }
+            if (!gameState.isPaused) {
+                hold();
+            }
+        });
     }
     ui.reset.addEventListener(
         "click",
