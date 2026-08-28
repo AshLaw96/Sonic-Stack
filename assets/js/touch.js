@@ -1,5 +1,6 @@
 /**
- * Attaches swipe and tap gesture listeners to the game area.
+ * Attaches swipe and tap gesture listeners
+ * to the game area.
  */
 export function initTouchControls(gameContainer, handlers) {
     if (!gameContainer) return;
@@ -7,18 +8,21 @@ export function initTouchControls(gameContainer, handlers) {
     let touchStartX = 0;
     let touchStartY = 0;
     let touchStartTime = 0;
+    let isTwoFingerTouch = false;
 
     const SWIPE_THRESHOLD = 30;
-
     const TAP_TIMEOUT = 250;
 
     gameContainer.addEventListener(
         "touchstart",
-        (e) => {
-            // Prevent scrolling/zooming while playing
-            if (e.touches.length === 1) {
-                touchStartX = e.touches[0].clientX;
-                touchStartY = e.touches[0].clientY;
+        (event) => {
+            // Detect 2-finger touch for hold action
+            if (event.touches.length === 2) {
+                isTwoFingerTouch = true;
+            } else if (event.touches.length === 1) {
+                isTwoFingerTouch = false;
+                touchStartX = event.touches[0].clientX;
+                touchStartY = event.touches[0].clientY;
                 touchStartTime = Date.now();
             }
         },
@@ -27,19 +31,19 @@ export function initTouchControls(gameContainer, handlers) {
 
     gameContainer.addEventListener(
         "touchmove",
-        (e) => {
-            e.preventDefault();
+        (event) => {
+            event.preventDefault();
         },
         { passive: false }
     );
 
     gameContainer.addEventListener(
         "touchend",
-        (e) => {
-            if (e.changedTouches.length === 0) return;
+        (event) => {
+            if (event.changedTouches.length === 0) return;
 
-            const touchEndX = e.changedTouches[0].clientX;
-            const touchEndY = e.changedTouches[0].clientY;
+            const touchEndX = event.changedTouches[0].clientX;
+            const touchEndY = event.changedTouches[0].clientY;
             const duration = Date.now() - touchStartTime;
 
             const deltaX = touchEndX - touchStartX;
@@ -47,6 +51,7 @@ export function initTouchControls(gameContainer, handlers) {
             const absX = Math.abs(deltaX);
             const absY = Math.abs(deltaY);
 
+            // 3. Tap for rotation
             if (
                   absX < SWIPE_THRESHOLD && absY < 
                   SWIPE_THRESHOLD && duration < TAP_TIMEOUT
@@ -56,7 +61,7 @@ export function initTouchControls(gameContainer, handlers) {
                 return;
             }
 
-            // 2. Detect Horizontal Swipes
+            // 2. Vertical swipes for left and right movement
             if (absX > absY && absX > SWIPE_THRESHOLD) {
                 if (deltaX > 0) {
                     if (handlers.onMoveRight) handlers.onMoveRight();
@@ -66,7 +71,7 @@ export function initTouchControls(gameContainer, handlers) {
                 return;
             }
 
-            // 3. Detect Vertical Swipes
+            // 4. Vertical swipes for soft and hard drops
             if (absY > absX && absY > SWIPE_THRESHOLD) {
                 if (deltaY > 0) {
                     if (handlers.onSoftDrop) handlers.onSoftDrop();

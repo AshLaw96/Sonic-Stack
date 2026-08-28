@@ -76,6 +76,8 @@ export function initialiseControls({
         handleKeyboardInput
     );
     if (ui.gameBoard) {
+        ui.gameBoard.style.touchAction = "none";
+
         initTouchControls(ui.gameBoard, {
             onMoveLeft: () => {
                 if (!gameState.isPaused) moveLeft();
@@ -91,6 +93,9 @@ export function initialiseControls({
             },
             onRotate: () => {
                 if (!gameState.isPaused) rotate();
+            },
+            onHold: () => {
+                if (!gameState.isPaused) hold();
             }
         });
     }
