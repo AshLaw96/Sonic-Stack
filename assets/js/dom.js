@@ -114,6 +114,9 @@ export const ui = {
     controlsSection:
         document.querySelector(".controls"),
 
+    touchModeSelect:
+        document.getElementById("toggle-touch-mode"),
+
     holdPiece:
         document.querySelector("#hold-piece"),
 

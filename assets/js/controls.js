@@ -96,6 +96,29 @@ export function initialiseControls({
             },
         });
     }
+    if (ui.touchModeSelect && ui.controlsSection) {
+        // 1. Load saved preference if available
+        const savedMode = localStorage.getItem("tetris_touch_mode") || "hybrid";
+        ui.touchModeSelect.value = savedMode;
+
+        const applyControlMode = (mode) => {
+            if (mode === "gestures-only") {
+                ui.controlsSection.classList.add("gestures-only-active");
+            } else {
+                ui.controlsSection.classList.remove("gestures-only-active");
+            }
+        };
+        // Apply mode on initial load
+        applyControlMode(savedMode);
+
+        // 2. Listen for player preference changes
+        ui.touchModeSelect.addEventListener("change", (event) => {
+            const newMode = event.target.value;
+            localStorage.setItem("tetris_touch_mode", newMode);
+            applyControlMode(newMode);
+        });
+    }
+
     ui.start.addEventListener(
         "click",
         () => {

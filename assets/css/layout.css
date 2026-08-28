@@ -650,7 +650,6 @@ dialog::backdrop {
     border-radius: 2px;
 }
 
-/* Optional: ID selector for mobile touch button if included */
 #hold-btn {
     width: 48px;
     height: 38px;
@@ -679,6 +678,27 @@ dialog::backdrop {
 #hard-drop:hover,
 #hold-btn:hover {
     background-color: #BCC6CC;
+}
+
+.touch-mode-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+    font-size: 0.85rem;
+}
+
+.control-select {
+    padding: 3px 6px;
+    border-radius: var(--border-radius);
+    background-color: var(--p-text);
+    border: none;
+    cursor: pointer;
+}
+
+/* Class applied to container when gestures only mode is active */
+.gestures-only-active .dpad-actions-row {
+    display: none !important;
 }
 
 /* ==========================================
